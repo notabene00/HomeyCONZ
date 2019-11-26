@@ -1,3 +1,3 @@
-# deCONZ
+# HomeyCONZ
 
-Adds suppot for deCONZ's [raspbee/conbee] child devices
+Adds suppot for deCONZ's [RaspBee/ConBee] child devices
