@@ -1,0 +1,245 @@
+<html>
+	<head>
+        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+        <h1>HomeyCONZ App settings</h1>
+		<fieldset>
+            <div class="container">
+                <div class="alert alert-danger" role="alert" id="apiError" style="display: none">
+                    <div class="ApiErrorShow">Error!</div>
+                </div>
+                <div class="row col-9">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label>deCONZ IP/hostname</label>
+                            <input type="text" class="form-control" id="deconzIPAdress" placeholder="192.168.1.100">
+                            <small id="ipHelp" class="form-text text-muted">IP is needed to get an API key automatically</small>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label>web-interface port</label>
+                            <input type="number" class="form-control" id="deconzPort" placeholder="9880">
+                            <small id="ipHelp" class="form-text text-muted">Port is needed to get an API key automatically</small>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label>websocket port</label>
+                            <input type="number" class="form-control" id="wsPort" placeholder="9881">
+                            <small id="ipHelp" class="form-text text-muted">WS port is needed to subscribe for realtime updates</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-9">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label>API key</label>
+                            <input type="text" class="form-control" id="apiKey">
+                            <!-- <input type="text" class="form-control" id="apiKey" readonly> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-9">
+                    <div class="col-sm mt-4">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-outline-primary" style="height: 35" id="createButton">Save</button>
+                        </div>
+                    </div>
+                    <div class="col-sm mt-4">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-outline-primary" style="height: 35" id="rediscoverButton">Autodiscover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</fieldset>
+
+        <script type="text/javascript">
+            function onHomeyReady(Homey) {
+                const ip = document.getElementById('deconzIPAdress')
+                const port = document.getElementById('deconzPort')
+                const apiKey = document.getElementById('apiKey')
+                const wsPort = document.getElementById('wsPort')
+                const saveButton = document.getElementById('createButton')
+                const rediscoverButton = document.getElementById('rediscoverButton')
+                const apiError = document.getElementById('apiError')
+                const title = document.getElementsByClassName('ApiErrorShow')[0]
+                
+                function discover(callback) {
+                    apiError.style.display = 'grid'
+                    apiError.classList.remove('alert-danger')
+                    apiError.classList.add('alert-success')
+                    title.innerHTML = 'Autodiscovering...'
+                    const url = 'https://dresden-light.appspot.com/discover'
+                    const xhr = new XMLHttpRequest()
+                    xhr.onreadystatechange = function (e) {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            const response = JSON.parse(xhr.responseText)[0]
+                            if (Object.keys(response).length === 0) {
+                                apiError.style.display = 'grid'
+                                apiError.classList.remove('alert-success')
+                                apiError.classList.add('alert-danger')
+                                apiKey.value = ''
+                                title.innerHTML = "Can't autodiscover deCONZ gateway on your network"
+                                callback(new Error('Empty array in response'))
+                            } else {
+                                apiError.style.display = 'grid'
+                                apiError.classList.remove('alert-danger')
+                                apiError.classList.add('alert-success')
+                                title.innerHTML = 'Successfully autodiscovered gateway'
+                                callback(null, {
+                                    ip: response.internalipaddress,
+                                    port: response.internalport
+                                })
+                            }
+                        }
+                    }
+                    xhr.open('GET', url, true)
+                    xhr.send()
+                }
+
+                function getAPIkey(callback) {
+                    const url = `http://${ip.value}:${port.value}/api`
+                    const data = JSON.stringify({
+                        "devicetype": "homeyCONZ",
+                        "username": "NotaBene_homeyCONZ"
+                    })
+                    const xhr = new XMLHttpRequest()
+                    xhr.open('POST', url, true)
+//                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            const response = JSON.parse(xhr.responseText)
+                            callback(null, response[0].success.username)
+                        } else if (this.readyState == 4 && this.status == 403) {
+                            const response = JSON.parse(xhr.responseText)
+                            callback(new Error(response[0].error.description), null)
+                        } else {
+                            Homey.alert(this.status)
+                        }
+                    }
+                    xhr.send(data)
+                }
+
+                function getWSport(callback) {
+                    if (wsPort.value != "") {
+                        callback(wsPort.value)
+                        return
+                    }
+                    const url = `http://${ip.value}:${port.value}/api/${apiKey.value}/config`
+                    const xhr = new XMLHttpRequest()
+                    xhr.onreadystatechange = function (e) {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            const response = JSON.parse(xhr.responseText)                            
+                            callback(response.websocketport)
+                        }
+                    }
+                    xhr.open('GET', url, true)
+                    xhr.send()
+                }
+                
+                saveButton.addEventListener('click', (e) => {
+                    if (!ip.value && !port.value) {
+                        apiError.style.display = 'grid'
+                        apiError.classList.remove('alert-success')
+                        apiError.classList.add('alert-danger')
+                        title.innerHTML = 'Enter IP address and port'
+                    } else if (!ip.value) {
+                        apiError.style.display = 'grid'
+                        apiError.classList.remove('alert-success')
+                        apiError.classList.add('alert-danger')
+                        title.innerHTML = 'Enter IP address'
+                    } else if (!port.value) {
+                        apiError.style.display = 'grid'
+                        apiError.classList.remove('alert-success')
+                        apiError.classList.add('alert-danger')
+                        title.innerHTML = 'Enter port'
+                    } else {
+                        if (apiKey.value == "") {
+                            // Homey.alert('Enter API key manually')
+                            getAPIkey(error, key => {
+                                if (!!error) {
+                                    apiError.style.display = 'grid'
+                                    apiError.classList.remove('alert-danger')
+                                    apiError.classList.add('alert-success')
+                                    title.innerHTML = error.message
+                                    return
+                                }
+                                apiError.style.display = 'grid'
+                                apiError.classList.remove('alert-success')
+                                apiError.classList.add('alert-danger')
+                                title.innerHTML = 'Success'
+                                apiKey.value = key
+                                getWSport(wsport => {
+                                    wsPort.value = wsport
+                                    saveAll()
+                                    Homey.alert(`Key is set to "${key}", found ${wsport} websocket port and they're succesfully saved`)
+                                })
+                            })
+                        } else {
+                            getWSport(wsport => {
+                                wsPort.value = wsport
+                                saveAll()
+                                Homey.alert(`Your manually entered API key "${apiKey.value}" and ${wsport} websocket port are succesfully saved`)
+                            })
+                        }
+                    }
+                })
+                
+                rediscoverButton.addEventListener('click', (e) => {
+                    ip.value = ''
+                    port.value = ''
+                    discover((error, data) => {
+                        ip.value = data.ip
+                        port.value = data.port
+                        if (apiKey.value != "") {
+                            getWSport(wsport => {
+                                wsPort.value = wsport
+                            })
+                        }
+                    })
+                })
+                
+                function saveAll() {
+                    Homey.set('host', ip.value, (err, settings) => {
+                        if (err) return Homey.alert(err)
+                    })
+                    Homey.set('port', port.value, (err, settings) => {
+                        if (err) return Homey.alert(err)
+                    })
+                    Homey.set('wsport', wsPort.value, (err, settings) => {
+                        if (err) return Homey.alert(err)
+                    })
+                    Homey.set('apikey', apiKey.value, (err, settings) => {
+                        if (err) return Homey.alert(err)
+                    })
+                }
+
+                Homey.get('host', (err, host) => {
+                    if (err) return Homey.alert(err)
+                    ip.value = host
+                })
+                
+                Homey.get('port', (err, storedPort) => {
+                    if (err) return Homey.alert(err)
+                    port.value = storedPort
+                })
+
+                Homey.get('wsport', (err, storedWSPort) => {
+                    if (err) return Homey.alert(err)
+                    wsPort.value = storedWSPort
+                })
+                
+                Homey.get('apikey', (err, apikey) => {
+                    if (err) return Homey.alert(err)
+                    apiKey.value = apikey
+                })
+
+                Homey.ready()
+            }
+        </script>
+	</body>
+</html>

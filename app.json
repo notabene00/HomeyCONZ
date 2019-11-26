@@ -1,0 +1,659 @@
+{
+  "id": "ru.notabene.deconz",
+  "version": "0.5.3",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "deCONZ"
+  },
+  "description": {
+    "en": "Adds suppot for deCONZ's [raspbee/conbee] child devices"
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Роман Елизаров",
+    "email": "fantomnotabene@gmail.com"
+  },
+  "drivers": [
+    {
+      "id": "sensor_smoke",
+      "name": {
+        "en": "Honeywell Smoke"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_smoke"
+      ],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "mi-magnet",
+      "name": {
+        "en": "Mi Magnet"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact"
+      ],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-magnet",
+      "name": {
+        "en": "Aqara Magnet"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact"
+      ],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-cube",
+      "name": {
+        "en": "Aqara Cube"
+      },
+      "class": "sensor",
+      "capabilities": [
+      ],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "mi-button",
+      "name": {
+        "en": "Mi Button"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "lamp",
+      "name": {
+        "en": "Lamp"
+      },
+      "class": "light",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "dim_duration",
+          "type": "number",
+          "label": {
+            "en": "Transition time"
+          },
+          "min": 0,
+          "value": 1,
+          "hint": {
+            "en": "Transition time between brightnesses"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mi-motion",
+      "name": {
+        "en": "Mi Motion"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion"
+      ],
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 60,
+          "value": 120,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ]
+    },
+    {
+      "id": "aqara-motion",
+      "name": {
+        "en": "Aqara Motion"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 60,
+          "value": 120,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ]
+    },
+    {
+      "id": "leakage_aq1",
+      "name": {
+        "en": "Aqara Leakage Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_water"
+      ],
+      "images": {
+        "large": "/drivers/leakage_aq1/assets/images/large.png",
+        "small": "/drivers/leakage_aq1/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "plug",
+      "name": {
+        "en": "Plug"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/plug/assets/images/large.png",
+        "small": "/drivers/plug/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "blinds",
+      "name": {
+        "en": "Blinds"
+      },
+      "class": "windowcoverings",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "images": {
+        "large": "/drivers/blinds/assets/images/large.png",
+        "small": "/drivers/blinds/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-temphum",
+      "name": {
+        "en": "Aqara Temp/Hum"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_pressure"
+      ],
+      "images": {
+        "large": "/drivers/aqara-temphum/assets/images/large.png",
+        "small": "/drivers/aqara-temphum/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "mijia-temphum",
+      "name": {
+        "en": "Mijia TempHum"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_humidity",
+        "measure_temperature"
+      ],
+      "images": {
+        "large": "/drivers/mijia-temphum/assets/images/large.png",
+        "small": "/drivers/mijia-temphum/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ],
+  "flow": {
+    "triggers": [
+      {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=plug"
+          }
+        ]
+      },
+      {
+        "id": "double_tap",
+        "title": {
+          "en": "Cube double tapped"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "push",
+        "title": {
+          "en": "Cube pushed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "wake_up",
+        "title": {
+          "en": "Cube waked up"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "shake",
+        "title": {
+          "en": "Cube shaked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "drop",
+        "title": {
+          "en": "Cube dropped"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "flip90",
+        "title": {
+          "en": "Cube flipped 90"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "flip180",
+        "title": {
+          "en": "Cube flipped 180"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "rotate",
+        "title": {
+          "en": "Cube rotated"
+        },
+        "tokens": [
+          {
+            "name": "degrees",
+            "type": "number",
+            "title": {
+              "en": "Degrees"
+            },
+            "example": 90
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "motion_with_luminance",
+        "title": {
+          "en": "The motion alarm turned on"
+        },
+        "tokens": [
+          {
+            "name": "luminance",
+            "type": "number",
+            "title": {
+              "en": "Luminance"
+            },
+            "example": 256
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-motion"
+          }
+        ]
+      },
+      {
+        "id": "1_button_press",
+        "title": {
+          "en": "Button pressed once"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "2_button_press",
+        "title": {
+          "en": "Button pressed twice"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "3_button_press",
+        "title": {
+          "en": "Button pressed thrice"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "4_button_press",
+        "title": {
+          "en": "Button pressed fourfold"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "button_held",
+        "title": {
+          "en": "Button held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "button_released",
+        "title": {
+          "en": "Button released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      }
+    ]
+  }
+}
