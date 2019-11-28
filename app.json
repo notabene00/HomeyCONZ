@@ -259,6 +259,9 @@
         "measure_luminance",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR2450" ]
+      },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
         "small": "/drivers/mi-motion/assets/images/small.png"
