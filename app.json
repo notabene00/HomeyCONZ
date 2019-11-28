@@ -21,6 +21,20 @@
     "name": "Роман Елизаров",
     "email": "fantomnotabene@gmail.com"
   },
+  "contributors": {
+    "developers": []
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "fantomnotabene"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/fantomnotabene/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
+  },
+  "source": "https://github.com/fantomnotabene/HomeyCONZ",
   "drivers": [
     {
       "id": "sensor_smoke",
