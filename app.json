@@ -21,20 +21,6 @@
     "name": "Роман Елизаров",
     "email": "fantomnotabene@gmail.com"
   },
-  "contributors": {
-    "developers": []
-  },
-  "contributing": {
-    "donate": {
-      "paypal": {
-        "username": "fantomnotabene"
-      }
-    }
-  },
-  "bugs": {
-    "url": "https://github.com/fantomnotabene/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
-  },
-  "source": "https://github.com/fantomnotabene/HomeyCONZ",
   "drivers": [
     {
       "id": "sensor_smoke",
@@ -169,6 +155,56 @@
       ]
     },
     {
+      "id": "tradfri-remote-control",
+      "name": {
+        "en": "Tradfri Remote Control"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "symfonisk-remote",
+      "name": {
+        "en": "Symfonisk Remote"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "lamp",
       "name": {
         "en": "Lamp"
@@ -249,6 +285,47 @@
       ]
     },
     {
+      "id": "tradfri-motion",
+      "name": {
+        "en": "Tradfri Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion"
+      ],
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 60,
+          "value": 120,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ]
+    },
+    {
       "id": "aqara-motion",
       "name": {
         "en": "Aqara Motion"
@@ -259,9 +336,6 @@
         "measure_luminance",
         "measure_battery"
       ],
-      "energy": {
-        "batteries": [ "CR2450" ]
-      },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
         "small": "/drivers/mi-motion/assets/images/small.png"
@@ -330,6 +404,70 @@
       "capabilities": [
         "onoff"
       ],
+      "images": {
+        "large": "/drivers/plug/assets/images/large.png",
+        "small": "/drivers/plug/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "tradfri-outlet",
+      "name": {
+        "en": "Tradfri Control Outlet"
+      },
+      "class": "socket",
+      "capabilities": ["onoff"],
+      "images": {
+        "large": "/drivers/plug/assets/images/large.png",
+        "small": "/drivers/plug/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "osram-outlet",
+      "name": {
+        "en": "Osram Control Outlet"
+      },
+      "class": "socket",
+      "capabilities": ["onoff"],
       "images": {
         "large": "/drivers/plug/assets/images/large.png",
         "small": "/drivers/plug/assets/images/small.png"
@@ -658,7 +796,7 @@
           }
         ]
       },
-      {
+        {
         "id": "button_released",
         "title": {
           "en": "Button released"
@@ -670,7 +808,178 @@
             "filter": "driver_id=mi-button"
           }
         ]
+      },
+      {
+        "id": "on_off_button_pressed",
+        "title": {
+          "en": "On Off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_held",
+        "title": {
+          "en": "Dim Up held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_single_press",
+        "title": {
+          "en": "Dim Up Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_released",
+        "title": {
+          "en": "Dim Up Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_held",
+        "title": {
+          "en": "Dim Down held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_single_press",
+        "title": {
+          "en": "Dim Down Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_released",
+        "title": {
+          "en": "Dim Down Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+      "id": "scene_right_held",
+        "title": {
+          "en": "Scene Right held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_single_press",
+        "title": {
+          "en": "Scene Right Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+
+      {
+        "id": "scene_right_released",
+        "title": {
+          "en": "Scene Right Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+      "id": "scene_left_held",
+        "title": {
+          "en": "Scene Left held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_single_press",
+        "title": {
+          "en": "Scene Left Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_released",
+        "title": {
+          "en": "Scene Left Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
       }
+
     ]
   }
 }
