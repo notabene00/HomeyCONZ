@@ -45,23 +45,34 @@ class Driver extends Homey.Driver {
 				'Smart plug': onoff, // отличаются только классом устройства - socket
 				'Window covering device': dim // отличаются только классом устройства - windowcoverings
 			}
-			// entry[0] - key, entry[1] - value
-			let filered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
-				// для каждого уже отфильтрованного entry
-				const key = entry[0] // ключ
-				const light = entry[1] // значение
-				return {
-					name: light.name,
-					data: {
-						id: light.uniqueid 
-					},
-					settings: {
-						id: key
-					},
-					capabilities: matchTable[light.type]
-				}
+			this.getSensorsList((error, sensors) => {
+				// entry[0] - key, entry[1] - value
+				let filered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
+					// для каждого уже отфильтрованного entry
+					const key = entry[0] // ключ
+					const light = entry[1] // значение
+					const mac = light.uniqueid.split('-')[0]
+
+					let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
+					let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))
+					var additionalCapabiities = []
+					if (powerMeasurementSensor) additionalCapabiities.push('measure_power')
+					return {
+						name: light.name,
+						data: {
+							id: light.uniqueid 
+						},
+						settings: Object.assign(
+							{
+								id: key
+							}, 
+							(powerMeasurementSensor ? {sensors: [powerMeasurementSensor[0]]} : {})
+						),
+						capabilities: matchTable[light.type].concat(additionalCapabiities)
+					}
+				})
+				callback(null, filered)
 			})
-			callback(null, filered)
 		})
 	}
 	
@@ -90,19 +101,16 @@ class Driver extends Homey.Driver {
 					return isNew
 				}).map((entry, _index, _array) => {
 				// для каждого уже отфильтрованного entry
-				const key = entry[0] // ключ
 				const sensor = entry[1] // значение
 				const mac = sensor.uniqueid.split('-')[0] // мак-адрес является частью уникального идентификатора
 				
-				const isSplintered = ['lumi.sensor_ht', 'lumi.sensor_motion.aq2', 'lumi.weather', 'lumi.sensor_cube.aqgl01'].includes(sensor.modelid)
-				this.log(sensorsEntries)
 				return {
 					name: sensor.name,
 					data: {
 						id: mac
 					},
 					settings: {
-						id: isSplintered ? sensorsEntries.filter(d => d[1].uniqueid.startsWith(mac)).map(d => d[0]) : [key]
+						id: sensorsEntries.filter(d => d[1].uniqueid.startsWith(mac)).map(d => d[0])
 					}
 				}
 			})

@@ -10,6 +10,7 @@ class Light extends Homey.Device {
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.port = Homey.ManagerSettings.get('port')
 		this.id = this.getSetting('id')
+		this.sensors = this.getSetting('sensors')
 		
 		this.isBlinds = this.getClass() === 'windowcoverings'
 		
@@ -35,6 +36,11 @@ class Light extends Homey.Device {
 
 	registerInApp() {
 		Homey.app.devices.lights[this.id] = this
+		if (this.sensors) {
+			this.sensors.forEach(id => {
+				Homey.app.devices.sensors[id] = this
+			})
+		}
 	}
 	
 	setInitialState() {
@@ -71,7 +77,7 @@ class Light extends Homey.Device {
 	
 	registerColorListener() {
 		this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], (value, opts, callback) => {
-			 let { light_hue, light_saturation } = value
+			let { light_hue, light_saturation } = value
 			this.setColor(light_hue * 65535, light_saturation * 255, callback)
 		})
 	}
