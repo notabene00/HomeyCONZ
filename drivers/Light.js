@@ -10,6 +10,7 @@ class Light extends Homey.Device {
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.port = Homey.ManagerSettings.get('port')
 		this.id = this.getSetting('id')
+		this.measure_power_sensor_key = this.getSetting('measure_power_sensor_key')
 		
 		this.isBlinds = this.getClass() === 'windowcoverings'
 		
@@ -35,6 +36,10 @@ class Light extends Homey.Device {
 
 	registerInApp() {
 		Homey.app.devices.lights[this.id] = this
+		if (this.measure_power_sensor_key) {
+			this.log(this.measure_power_sensor_key)
+			Homey.app.devices.sensors[this.measure_power_sensor_key] = this
+		}
 	}
 	
 	setInitialState() {
