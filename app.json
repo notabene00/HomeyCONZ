@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -319,8 +319,8 @@
           "label": {
             "en": "No motion timeout"
           },
-          "min": 60,
-          "value": 120,
+          "min": 0,
+          "value": 60,
           "hint": {
             "en": "Timeout will enlong time in the drawdown"
           }
@@ -365,8 +365,8 @@
           "label": {
             "en": "No motion timeout"
           },
-          "min": 60,
-          "value": 120,
+          "min": 0,
+          "value": 60,
           "hint": {
             "en": "Timeout will enlong time in the drawdown"
           }
