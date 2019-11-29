@@ -734,8 +734,8 @@
       {
         "id": "start_ccw_rotate",
         "title": {
-          "en": "Button has been rotated counter clockwise",
-          "nl": "Knop tegen de klok in gedraaid"
+          "en": "Remote has been rotated counter clockwise",
+          "nl": "Afstandsbediening tegen de klok in gedraaid"
         },
         "args": [
           {
@@ -748,8 +748,8 @@
       {
         "id": "start_cw_rotate",
         "title": {
-          "en": "Button has been rotated clockwise",
-          "nl": "Knop met de klok mee gedraaid"
+          "en": "Remote has been rotated clockwise",
+          "nl": "Afstandsbediening met de klok mee gedraaid"
         },
         "args": [
           {
