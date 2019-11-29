@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -197,7 +197,32 @@
         }
       ]
     },
-      {
+    {
+      "id": "tradfri-wireless-dimmer",
+      "name": {
+        "en": "TRADFRI wireless dimmer"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "symfonisk-remote",
       "name": {
         "en": "Symfonisk Remote"
@@ -741,7 +766,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote"
+            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
           }
         ]
       },
@@ -755,7 +780,35 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote"
+            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "sharp_ccw_rotate",
+        "title": {
+          "en": "Remote has been sharply rotated counter clockwise",
+          "nl": "Afstandsbediening tegen de klok in gedraaid"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-wireless-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "sharp_cw_rotate",
+        "title": {
+          "en": "Remote has been sharply rotated clockwise",
+          "nl": "Afstandsbediening met de klok mee gedraaid"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       }

@@ -2,7 +2,6 @@
 
 const Sensor = require('../Sensor')
 const Homey = require('homey')
-const { http } = require('../../nbhttp')
 
 class AqaraMotion extends Sensor {
 	
