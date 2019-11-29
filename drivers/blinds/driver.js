@@ -6,7 +6,7 @@ class BlindsDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('BlindsDriver has been inited')
+		this.log('BlindsDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

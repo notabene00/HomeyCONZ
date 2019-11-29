@@ -6,7 +6,7 @@ class MiMotionDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('MiMotionDriver has been inited')
+		this.log('MiMotionDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

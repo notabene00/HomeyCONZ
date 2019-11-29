@@ -6,7 +6,7 @@ class MijiaTempHumDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('MijiaTempHumDriver has been inited')
+		this.log('MijiaTempHumDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

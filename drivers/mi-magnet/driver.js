@@ -6,7 +6,7 @@ class MiMagnetDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('MiMagnetDriver has been inited')
+		this.log('MiMagnetDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

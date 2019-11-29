@@ -6,12 +6,12 @@ class LampDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('LampDriver has been inited')
+		this.log('LampDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
 		this.getLightsByCondition(device => {
-			return device.type !== 'Smart plug' && device.type !== 'Window covering device'
+			return device.type !== 'Smart plug' && device.type !== 'On/Off plug-in unit' && device.type !== 'Window covering device'
 		}, callback)
 	}
 }

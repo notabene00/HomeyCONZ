@@ -10,7 +10,7 @@ class AqaraMotion extends Sensor {
 		super.onInit()
 				
 		this.setTriggers()
-		this.log(this.getName(), 'has been inited')	
+		this.log(this.getName(), 'has been initiated')	
 	}
 	
 	setTriggers() {
