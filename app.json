@@ -180,6 +180,31 @@
       ]
     },
     {
+      "id": "tradfri-square-dimmer",
+      "name": {
+        "en": "Tradfri Square Dimmer"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "symfonisk-remote",
       "name": {
         "en": "Symfonisk Remote"
