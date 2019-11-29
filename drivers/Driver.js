@@ -1,7 +1,7 @@
 'use strict'
 
 const Homey = require('homey')
-const { http } = require('../../nbhttp')
+const { http } = require('../../node_modules/nbhttp')
 
 class Driver extends Homey.Driver {
 	

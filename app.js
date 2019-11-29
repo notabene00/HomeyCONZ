@@ -1,7 +1,7 @@
 'use strict'
 
 const Homey = require('homey')
-const { http, https } = require('./nbhttp')
+const { http, https } = require('./node_modules/nbhttp')
 const WebSocketClient = require('ws')
 
 class deCONZ extends Homey.App {
