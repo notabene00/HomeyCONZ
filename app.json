@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.6.0",
+  "version": "0.5.4",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -18,8 +18,8 @@
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "Skorpion",
-    "email": ""
+    "name": "Роман Елизаров",
+    "email": "fantomnotabene@gmail.com"
   },
   "contributors": {
     "developers": [
@@ -648,6 +648,62 @@
         ]
       },
       {
+        "id": "1_button_press",
+        "title": {
+          "en": "Button pressed once",
+          "nl": "Knop 1x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "2_button_press",
+        "title": {
+          "en": "Button pressed twice",
+          "nl": "Knop 2x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "3_button_press",
+        "title": {
+          "en": "Button pressed thrice",
+          "nl": "Knop 3x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "4_button_press",
+        "title": {
+          "en": "Button pressed fourfold",
+          "nl": "Knop 4x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
         "id": "button_held",
         "title": {
           "en": "Button held",
@@ -685,7 +741,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+            "filter": "driver_id=aqara-button"
           }
         ]
       },
@@ -699,7 +755,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+            "filter": "driver_id=aqara-button"
           }
         ]
       },
@@ -713,7 +769,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+            "filter": "driver_id=aqara-button"
           }
         ]
       },
@@ -727,7 +783,49 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button|aqara-button"
+            "filter": "driver_id=aqara-button"
+          }
+        ]
+      },
+      {
+        "id": "1_button_press",
+        "title": {
+          "en": "Button pressed once",
+          "nl": "Knop 1x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "2_button_press",
+        "title": {
+          "en": "Button pressed twice",
+          "nl": "Knop 2x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "3_button_press",
+        "title": {
+          "en": "Button pressed threefold",
+          "nl": "Knop 3x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=symfonisk-remote"
           }
         ]
       },
