@@ -198,7 +198,7 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('alarm_motion', state.presence)
 		}
 		if (state.hasOwnProperty('reachable')) {
-			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
+			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for lights
 		}
 		if (state.hasOwnProperty('lux')) {
 			device.setCapabilityValue('measure_luminance', state.lux)
@@ -252,6 +252,9 @@ class deCONZ extends Homey.App {
 		}
 		if (config.hasOwnProperty('battery') && deviceСapabilities.includes('measure_battery')) {
 			device.setCapabilityValue('measure_battery', config.battery)
+		}
+		if (config.hasOwnProperty('reachable')) {
+			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for sensors
 		}
 	}
 	

@@ -6,7 +6,7 @@ class AqaraMagnetDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('AqaraMagnetDriver has been inited')
+		this.log('AqaraMagnetDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

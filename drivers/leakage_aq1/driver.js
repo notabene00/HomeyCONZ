@@ -6,7 +6,7 @@ class LeakageDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('LeakageDriver has been inited')
+		this.log('LeakageDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

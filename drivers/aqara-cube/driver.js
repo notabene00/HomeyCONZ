@@ -6,7 +6,7 @@ class CubeDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('CubeDriver has been inited')
+		this.log('CubeDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

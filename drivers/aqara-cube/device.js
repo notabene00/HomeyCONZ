@@ -10,7 +10,7 @@ class Cube extends Sensor {
 		
 		this.setTriggers()
 		
-		this.log(this.getName(), 'has been inited')
+		this.log(this.getName(), 'has been initiated')
 	}
 	
 	fireEvent(number) {

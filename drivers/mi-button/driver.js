@@ -6,7 +6,7 @@ class MiButtonDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('MiButtonDriver has been inited')
+		this.log('MiButtonDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

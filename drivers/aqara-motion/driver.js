@@ -6,7 +6,7 @@ class AqaraMotionDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('AqaraMotionDriver has been inited')
+		this.log('AqaraMotionDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

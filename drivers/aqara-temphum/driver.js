@@ -6,7 +6,7 @@ class AqaraTempHumDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('AqaraTempHumDriver has been inited')
+		this.log('AqaraTempHumDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

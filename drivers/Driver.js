@@ -43,6 +43,7 @@ class Driver extends Homey.Driver {
 				'Color temperature light': ct,
 				'Extended color light': color,
 				'Smart plug': onoff, // отличаются только классом устройства - socket
+				'On/Off plug-in unit': onoff, //Also smart plug
 				'Window covering device': dim // отличаются только классом устройства - windowcoverings
 			}
 			this.getSensorsList((error, sensors) => {

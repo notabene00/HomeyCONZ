@@ -6,7 +6,7 @@ class SmokeDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('SmokeDriver has been inited')
+		this.log('SmokeDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {

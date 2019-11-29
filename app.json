@@ -1,13 +1,13 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
     "en": "deCONZ"
   },
   "description": {
-    "en": "Adds suppot for deCONZ's [raspbee/conbee] child devices"
+    "en": "Adds support for deCONZ's [raspbee/conbee] child devices"
   },
   "category": [
     "appliances"
@@ -22,7 +22,11 @@
     "email": "fantomnotabene@gmail.com"
   },
   "contributors": {
-    "developers": []
+    "developers": [
+      {
+        "name": "Skorpion"
+      }
+    ]
   },
   "contributing": {
     "donate": {
@@ -144,9 +148,59 @@
       ]
     },
     {
+      "id": "aqara-button",
+      "name": {
+        "en": "Aqara Button"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "mi-button",
       "name": {
         "en": "Mi Button"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+      {
+      "id": "symfonisk-remote",
+      "name": {
+        "en": "Symfonisk Remote"
       },
       "class": "other",
       "capabilities": [],
@@ -594,61 +648,10 @@
         ]
       },
       {
-        "id": "1_button_press",
-        "title": {
-          "en": "Button pressed once"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button"
-          }
-        ]
-      },
-      {
-        "id": "2_button_press",
-        "title": {
-          "en": "Button pressed twice"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button"
-          }
-        ]
-      },
-      {
-        "id": "3_button_press",
-        "title": {
-          "en": "Button pressed thrice"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button"
-          }
-        ]
-      },
-      {
-        "id": "4_button_press",
-        "title": {
-          "en": "Button pressed fourfold"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button"
-          }
-        ]
-      },
-      {
         "id": "button_held",
         "title": {
-          "en": "Button held"
+          "en": "Button held",
+          "nl": "Knop lang ingedrukt"
         },
         "args": [
           {
@@ -661,13 +664,98 @@
       {
         "id": "button_released",
         "title": {
-          "en": "Button released"
+          "en": "Button released",
+          "nl": "Knop losgelaten"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
             "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "1_button_press",
+        "title": {
+          "en": "Button pressed once",
+          "nl": "Knop 1x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "2_button_press",
+        "title": {
+          "en": "Button pressed twice",
+          "nl": "Knop 2x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "3_button_press",
+        "title": {
+          "en": "Button pressed threefold",
+          "nl": "Knop 3x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "4_button_press",
+        "title": {
+          "en": "Button pressed fourfold",
+          "nl": "Knop 4x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button"
+          }
+        ]
+      },
+      {
+        "id": "start_ccw_rotate",
+        "title": {
+          "en": "Remote has been rotated counter clockwise",
+          "nl": "Afstandsbediening tegen de klok in gedraaid"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "start_cw_rotate",
+        "title": {
+          "en": "Remote has been rotated clockwise",
+          "nl": "Afstandsbediening met de klok mee gedraaid"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=symfonisk-remote"
           }
         ]
       }

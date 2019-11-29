@@ -7,7 +7,7 @@ class AqaraTempHum extends Sensor {
 	onInit() {
 		super.onInit()
 		
-		this.log(this.getName(), 'has been inited')
+		this.log(this.getName(), 'has been initiated')
 	}
 	
 }
