@@ -224,9 +224,6 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('pressure')) {
 			device.setCapabilityValue('measure_pressure', state.pressure)
 		}
-		if (state.hasOwnProperty('power')) {
-			device.setCapabilityValue('measure_power', state.power)
-		}
 		if (state.hasOwnProperty('ct')) {
 			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
 		}
