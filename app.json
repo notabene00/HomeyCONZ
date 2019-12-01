@@ -41,6 +41,31 @@
   "source": "https://github.com/fantomnotabene/HomeyCONZ",
   "drivers": [
     {
+      "id": "tradfri-remote-control",
+      "name": {
+        "en": "Tradfri Remote Control"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "sensor_smoke",
       "name": {
         "en": "Honeywell Smoke"
