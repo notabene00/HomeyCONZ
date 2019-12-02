@@ -1,13 +1,22 @@
 'use strict'
 
 const Sensor = require('../Sensor')
+const { FlowCardCondition } = require('homey')
 
 class TradfriMotion extends Sensor {
 	
 	onInit() {
 		super.onInit()
+
+		this.setConditions()
 				
 		this.log(this.getName(), 'has been initiated')
+	}
+
+	setConditions() {
+		this.isDarkCondition = new FlowCardCondition('is_dark').registerRunListener((args, state, callback) => {
+			callback(null, args.device.getCapabilityValue('dark'))
+		}).register()
 	}
 	
 	setCapabilityValue(name, value) {
