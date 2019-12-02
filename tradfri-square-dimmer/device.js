@@ -20,7 +20,7 @@ class TradfriSquareDimmer extends Sensor {
 				setTimeout(() => {
 					if (this.timeWhenPressed != 0) {
 						this.dimupheld.trigger(this)
-						this.log('held')
+						this.log('dim up held')
 					}
 				}, 0.5 * 1000)
 				break
@@ -37,7 +37,7 @@ class TradfriSquareDimmer extends Sensor {
 				setTimeout(() => {
 					if (this.timeWhenPressed != 0) {
 						this.dimdownheld.trigger(this)
-						this.log('held')
+						this.log('dim down held')
 					}
 				}, 0.5 * 1000)
 				break
