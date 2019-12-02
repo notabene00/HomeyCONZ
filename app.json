@@ -39,6 +39,19 @@
     "url": "https://github.com/fantomnotabene/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
   },
   "source": "https://github.com/fantomnotabene/HomeyCONZ",
+  "capabilities": {
+    "dark": {
+      "type": "boolean",
+      "title": {
+        "en": "Dark"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
+    }
+  },
   "drivers": [
     {
       "id": "tradfri-square-dimmer",
@@ -384,7 +397,8 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_motion"
+        "alarm_motion",
+        "dark"
       ],
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
