@@ -41,6 +41,56 @@
   "source": "https://github.com/fantomnotabene/HomeyCONZ",
   "drivers": [
     {
+      "id": "tradfri-square-dimmer",
+      "name": {
+        "en": "Tradfri Square Dimmer"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "tradfri-remote-control",
+      "name": {
+        "en": "Tradfri Remote Control"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "sensor_smoke",
       "name": {
         "en": "Honeywell Smoke"
@@ -809,6 +859,175 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=tradfri-wireless-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "on_off_button_pressed",
+        "title": {
+          "en": "On/Off button pressed"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_held",
+        "title": {
+          "en": "Dim Up Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_single_press",
+        "title": {
+          "en": "Dim Up Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_released",
+        "title": {
+          "en": "Dim Up Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_held",
+        "title": {
+          "en": "Dim Down Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_single_press",
+        "title": {
+          "en": "Dim Down Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_released",
+        "title": {
+          "en": "Dim Down Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_held",
+        "title": {
+          "en": "Scene Right Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_single_press",
+        "title": {
+          "en": "Scene Right Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_released",
+        "title": {
+          "en": "Scene Right Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_held",
+        "title": {
+          "en": "Scene Left Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_single_press",
+        "title": {
+          "en": "Scene Left Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_released",
+        "title": {
+          "en": "Scene Left Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control"
           }
         ]
       }
