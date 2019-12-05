@@ -25,6 +25,9 @@
     "developers": [
       {
         "name": "Skorpion"
+      },
+      {
+        "name": "k4mrat"
       }
     ]
   },
@@ -59,7 +62,10 @@
         "en": "Tradfri Square Dimmer"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -84,7 +90,10 @@
         "en": "Tradfri Remote Control"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -398,7 +407,8 @@
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
-        "dark"
+        "dark",
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
@@ -419,7 +429,7 @@
       ],
       "energy": {
         "batteries": [
-          "CR2032"
+          "CR2032", "CR2032"
         ]
       },
       "settings": [
