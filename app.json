@@ -295,6 +295,56 @@
       ]
     },
     {
+      "id": "aqara-wireless-switch-2016",
+      "name": {
+        "en": "Aqara Wireless 2016"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-wireless-switch-2018",
+      "name": {
+        "en": "Aqara Wireless 2018"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "tradfri-wireless-dimmer",
       "name": {
         "en": "TRADFRI wireless dimmer"
@@ -885,6 +935,123 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=aqara-motion"
+          }
+        ]
+      },
+      {
+        "id": "left_button_clicked",
+        "title": {
+          "en": "Left button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_clicked",
+        "title": {
+          "en": "Right button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_clicked",
+        "title": {
+          "en": "Both buttons clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "left_button_held",
+        "title": {
+          "en": "Left button held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_held",
+        "title": {
+          "en": "Right button held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_held",
+        "title": {
+          "en": "Both buttons held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "left_button_double_clicked",
+        "title": {
+          "en": "Left button double clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_double_clicked",
+        "title": {
+          "en": "Right button double clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_double_clicked",
+        "title": {
+          "en": "Both buttons double clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
