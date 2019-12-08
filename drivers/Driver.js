@@ -57,22 +57,27 @@ class Driver extends Homey.Driver {
 					let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
 					let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))
 					let batteryMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('battery'))
-					var additionalCapabiities = []
-					if (powerMeasurementSensor) additionalCapabiities.push('measure_power')
-					if (batteryMeasurementSensor) additionalCapabiities.push('measure_battery')
+					var additionalCapabilities = []
+					var sensors = []
+					if (powerMeasurementSensor) {
+						sensors.push(powerMeasurementSensor[0])
+						additionalCapabilities.push('measure_power')
+					}
+					if (batteryMeasurementSensor) {
+						sensors.push(batteryMeasurementSensor[0])
+						additionalCapabilities.push('measure_battery')
+					}
 					return {
 						name: light.name,
 						data: {
 							id: light.uniqueid,
 							model_id: light.modelid
 						},
-						settings: Object.assign(
-							{
-								id: key
-							}, 
-							(powerMeasurementSensor ? {sensors: [powerMeasurementSensor[0]]} : {})
-						),
-						capabilities: matchTable[light.type].concat(additionalCapabiities)
+						settings: {
+							id: key,
+							sensors: sensors
+						},
+						capabilities: matchTable[light.type].concat(additionalCapabilities)
 					}
 				})
 				callback(null, filered)
