@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -223,6 +223,31 @@
       "id": "aqara-button",
       "name": {
         "en": "Aqara Button"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-button-gyro",
+      "name": {
+        "en": "Gyro Aqara Button"
       },
       "class": "other",
       "capabilities": [],
@@ -768,13 +793,13 @@
       {
         "id": "shake",
         "title": {
-          "en": "Cube shaked"
+          "en": "Shaked"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-cube"
+            "filter": "driver_id=aqara-cube|aqara-button-gyro"
           }
         ]
       },
@@ -873,7 +898,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button"
+            "filter": "driver_id=mi-button|aqara-button-gyro"
           }
         ]
       },
@@ -901,7 +926,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+            "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
           }
         ]
       },
@@ -915,7 +940,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+            "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
           }
         ]
       },
