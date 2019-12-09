@@ -48,7 +48,7 @@ class Driver extends Homey.Driver {
 			}
 			this.getSensorsList((error, sensors) => {
 				// entry[0] - key, entry[1] - value
-				let filered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
+				let filtered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
 					// для каждого уже отфильтрованного entry
 					const key = entry[0] // ключ
 					const light = entry[1] // значение
@@ -80,7 +80,7 @@ class Driver extends Homey.Driver {
 						capabilities: matchTable[light.type].concat(additionalCapabilities)
 					}
 				})
-				callback(null, filered)
+				callback(null, filtered)
 			})
 		})
 	}
@@ -99,7 +99,7 @@ class Driver extends Homey.Driver {
 
 			let knownMacAddresses = []
 			
-			let filered = sensorsEntries.filter(entry => {
+			let filtered = sensorsEntries.filter(entry => {
 					let sensor = entry[1]
 					if (!condition(sensor)) {
 						return false
@@ -124,7 +124,7 @@ class Driver extends Homey.Driver {
 					}
 				}
 			})
-			callback(null, filered)
+			callback(null, filtered)
 		})
 	}
 	
