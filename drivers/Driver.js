@@ -48,7 +48,7 @@ class Driver extends Homey.Driver {
 			}
 			this.getSensorsList((error, sensors) => {
 				// entry[0] - key, entry[1] - value
-				let filered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
+				let filtered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
 					// для каждого уже отфильтрованного entry
 					const key = entry[0] // ключ
 					const light = entry[1] // значение
@@ -57,25 +57,30 @@ class Driver extends Homey.Driver {
 					let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
 					let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))
 					let batteryMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('battery'))
-					var additionalCapabiities = []
-					if (powerMeasurementSensor) additionalCapabiities.push('measure_power')
-					if (batteryMeasurementSensor) additionalCapabiities.push('measure_battery')
+					var additionalCapabilities = []
+					var sensors = []
+					if (powerMeasurementSensor) {
+						sensors.push(powerMeasurementSensor[0])
+						additionalCapabilities.push('measure_power')
+					}
+					if (batteryMeasurementSensor) {
+						sensors.push(batteryMeasurementSensor[0])
+						additionalCapabilities.push('measure_battery')
+					}
 					return {
 						name: light.name,
 						data: {
 							id: light.uniqueid,
 							model_id: light.modelid
 						},
-						settings: Object.assign(
-							{
-								id: key
-							}, 
-							(powerMeasurementSensor ? {sensors: [powerMeasurementSensor[0]]} : {})
-						),
-						capabilities: matchTable[light.type].concat(additionalCapabiities)
+						settings: {
+							id: key,
+							sensors: sensors
+						},
+						capabilities: matchTable[light.type].concat(additionalCapabilities)
 					}
 				})
-				callback(null, filered)
+				callback(null, filtered)
 			})
 		})
 	}
@@ -94,7 +99,7 @@ class Driver extends Homey.Driver {
 
 			let knownMacAddresses = []
 			
-			let filered = sensorsEntries.filter(entry => {
+			let filtered = sensorsEntries.filter(entry => {
 					let sensor = entry[1]
 					if (!condition(sensor)) {
 						return false
@@ -119,7 +124,7 @@ class Driver extends Homey.Driver {
 					}
 				}
 			})
-			callback(null, filered)
+			callback(null, filtered)
 		})
 	}
 	

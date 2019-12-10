@@ -198,7 +198,9 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('alarm_motion', state.presence)
 		}
 		if (state.hasOwnProperty('dark')) {
-			device.setCapabilityValue('dark', state.dark)
+			if ('dark' in device.getCapabilities()) {
+				device.setCapabilityValue('dark', state.dark)
+			}
 		}
 		if (state.hasOwnProperty('reachable')) {
 			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for lights
