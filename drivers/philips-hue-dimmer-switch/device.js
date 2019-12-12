@@ -135,7 +135,6 @@ class PhilipsHueDimmerSwitch extends Sensor {
 		this.dimUpSingle = new Homey.FlowCardTriggerDevice('dim_up_single_press').register()
 		this.dimUpReleased = new Homey.FlowCardTriggerDevice('dim_up_released').register()
 
-
 		//Dim down button
 		this.dimDownHeld = new Homey.FlowCardTriggerDevice('dim_down_held').register()
 		this.dimDownSingle = new Homey.FlowCardTriggerDevice('dim_down_single_press').register()
