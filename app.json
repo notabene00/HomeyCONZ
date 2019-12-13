@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -147,7 +147,8 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_smoke"
+        "alarm_smoke",
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -174,8 +175,14 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_contact"
+        "alarm_contact",
+        "measure_battery"
       ],
+      "energy": {
+        "batteries": [
+          "CR1632"
+        ]
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -201,7 +208,8 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_contact"
+        "alarm_contact",
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -227,8 +235,7 @@
         "en": "Aqara Cube"
       },
       "class": "sensor",
-      "capabilities": [
-      ],
+      "capabilities": ["measure_battery"],
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -253,7 +260,7 @@
         "en": "Aqara Button"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": ["measure_battery"],
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -278,7 +285,7 @@
         "en": "Aqara Gyro Button"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": ["measure_battery"],
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -303,7 +310,7 @@
         "en": "Mi Button"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": ["measure_battery"],
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -659,7 +666,8 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_water"
+        "alarm_water",
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/leakage_aq1/assets/images/large.png",
@@ -750,7 +758,8 @@
       "capabilities": [
         "measure_temperature",
         "measure_humidity",
-        "measure_pressure"
+        "measure_pressure",
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/aqara-temphum/assets/images/large.png",
@@ -778,7 +787,8 @@
       "class": "sensor",
       "capabilities": [
         "measure_humidity",
-        "measure_temperature"
+        "measure_temperature",
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/mijia-temphum/assets/images/large.png",
