@@ -54,19 +54,22 @@ class Driver extends Homey.Driver {
 					const light = entry[1] // значение
 					const mac = light.uniqueid.split('-')[0]
 
-					let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
-					let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))
-					let batteryMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('battery'))
+					var linked_sensors = []
 					var additionalCapabilities = []
-					var sensors = []
-					if (powerMeasurementSensor) {
-						sensors.push(powerMeasurementSensor[0])
-						additionalCapabilities.push('measure_power')
+					if (sensors) {
+						let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
+						let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))
+						let batteryMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('battery'))
+						if (powerMeasurementSensor) {
+							linked_sensors.push(powerMeasurementSensor[0])
+							additionalCapabilities.push('measure_power')
+						}
+						if (batteryMeasurementSensor) {
+							linked_sensors.push(batteryMeasurementSensor[0])
+							additionalCapabilities.push('measure_battery')
+						}
 					}
-					if (batteryMeasurementSensor) {
-						sensors.push(batteryMeasurementSensor[0])
-						additionalCapabilities.push('measure_battery')
-					}
+					let capabilities = (matchTable[light.type] || ['onoff']).concat(additionalCapabilities)
 					return {
 						name: light.name,
 						data: {
@@ -75,9 +78,9 @@ class Driver extends Homey.Driver {
 						},
 						settings: {
 							id: key,
-							sensors: sensors
+							sensors: linked_sensors
 						},
-						capabilities: matchTable[light.type].concat(additionalCapabilities)
+						capabilities: capabilities
 					}
 				})
 				callback(null, filtered)
