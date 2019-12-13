@@ -122,6 +122,9 @@
         "alarm_smoke",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR123A" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -183,6 +186,9 @@
         "alarm_contact",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR1632" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -208,6 +214,9 @@
       },
       "class": "sensor",
       "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2450" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -233,6 +242,9 @@
       },
       "class": "other",
       "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -258,6 +270,9 @@
       },
       "class": "other",
       "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -283,6 +298,9 @@
       },
       "class": "other",
       "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -404,8 +422,12 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_motion"
+        "alarm_motion",
+        "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR2450" ] 
+      },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
         "small": "/drivers/mi-motion/assets/images/small.png"
@@ -591,6 +613,9 @@
         "alarm_water",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/leakage_aq1/assets/images/large.png",
         "small": "/drivers/leakage_aq1/assets/images/small.png"
@@ -683,6 +708,9 @@
         "measure_pressure",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/aqara-temphum/assets/images/large.png",
         "small": "/drivers/aqara-temphum/assets/images/small.png"
@@ -712,6 +740,9 @@
         "measure_temperature",
         "measure_battery"
       ],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/mijia-temphum/assets/images/large.png",
         "small": "/drivers/mijia-temphum/assets/images/small.png"
