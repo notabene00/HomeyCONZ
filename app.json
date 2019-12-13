@@ -113,6 +113,34 @@
       ]
     },
     {
+      "id": "hue-dimmer-switch",
+      "name": {
+        "en": "Philips Hue Dimmer Switch"
+      },
+      "class": "other",
+      "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2450" ] 
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "sensor_smoke",
       "name": {
         "en": "Honeywell Smoke"
@@ -1217,7 +1245,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1230,7 +1258,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1243,7 +1271,46 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_on_held",
+        "title": {
+          "en": "Turn On Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_on_single_press",
+        "title": {
+          "en": "Turn On Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_on_released",
+        "title": {
+          "en": "Turn On Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1256,7 +1323,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1269,7 +1336,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1282,7 +1349,46 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_held",
+        "title": {
+          "en": "Turn Off Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_single_press",
+        "title": {
+          "en": "Turn Off Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_released",
+        "title": {
+          "en": "Turn Off Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
