@@ -2,11 +2,11 @@
 
 const Driver = require('../Driver')
 
-class PhilipsHueDimmerSwitchDriver extends Driver {
+class HueDimmerSwitchDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('PhilipsHueDimmerSwitchDriver has been inited')
+		this.log('HueDimmerSwitchDriver has been inited')
 	}
 	
 	onPairListDevices(data, callback) {
@@ -15,4 +15,4 @@ class PhilipsHueDimmerSwitchDriver extends Driver {
 	
 }
 
-module.exports = PhilipsHueDimmerSwitchDriver
+module.exports = HueDimmerSwitchDriver

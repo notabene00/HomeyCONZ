@@ -3,7 +3,7 @@
 const Sensor = require('../Sensor')
 const Homey = require('homey')
 
-class PhilipsHueDimmerSwitch extends Sensor {
+class HueDimmerSwitch extends Sensor {
 	
 	onInit() {
 		super.onInit()
@@ -148,4 +148,4 @@ class PhilipsHueDimmerSwitch extends Sensor {
 	
 }
 
-module.exports = PhilipsHueDimmerSwitch
+module.exports = HueDimmerSwitch
