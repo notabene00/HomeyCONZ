@@ -353,7 +353,12 @@
         "en": "Aqara Wireless 2016"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
@@ -378,7 +383,12 @@
         "en": "Aqara Wireless 2018"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"
