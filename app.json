@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.11.6",
+  "version": "0.12.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -93,6 +93,34 @@
       "capabilities": ["measure_battery"],
       "energy": {
         "batteries": [ "CR2032" ] 
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "hue-dimmer-switch",
+      "name": {
+        "en": "Philips Hue Dimmer Switch"
+      },
+      "class": "other",
+      "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2450" ] 
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -298,6 +326,66 @@
       },
       "class": "other",
       "capabilities": ["measure_battery"],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-wireless-switch-2016",
+      "name": {
+        "en": "Aqara Wireless 2016"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [ "CR2032" ] 
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "aqara-wireless-switch-2018",
+      "name": {
+        "en": "Aqara Wireless 2018"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
         "batteries": [ "CR2032" ] 
       },
@@ -930,6 +1018,123 @@
         ]
       },
       {
+        "id": "left_button_clicked",
+        "title": {
+          "en": "Left button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_clicked",
+        "title": {
+          "en": "Right button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_clicked",
+        "title": {
+          "en": "Both buttons clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "left_button_held",
+        "title": {
+          "en": "Left button held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_held",
+        "title": {
+          "en": "Right button held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_held",
+        "title": {
+          "en": "Both buttons held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "left_button_double_clicked",
+        "title": {
+          "en": "Left button double clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_double_clicked",
+        "title": {
+          "en": "Right button double clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_double_clicked",
+        "title": {
+          "en": "Both buttons double clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
         "id": "button_held",
         "title": {
           "en": "Button held",
@@ -1091,7 +1296,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1104,7 +1309,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1117,7 +1322,46 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_on_held",
+        "title": {
+          "en": "Turn On Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_on_single_press",
+        "title": {
+          "en": "Turn On Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_on_released",
+        "title": {
+          "en": "Turn On Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1130,7 +1374,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1143,7 +1387,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
@@ -1156,7 +1400,46 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_held",
+        "title": {
+          "en": "Turn Off Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_single_press",
+        "title": {
+          "en": "Turn Off Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "turn_off_released",
+        "title": {
+          "en": "Turn Off Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
