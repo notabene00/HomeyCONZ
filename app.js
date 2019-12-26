@@ -98,7 +98,7 @@ class deCONZ extends Homey.App {
 		this.websocket.on('error', error => {
 			this.error(error)
 		})
-		this.websocket.on('close', (reasonCode, description) => {
+		this.websocket.on('close', (reasonCode, _) => {
 			this.setAllUnavailable()
 			this.error(`Closed, error #${reasonCode}`)
 			this.log('Reconnection in 5 seconds...')
@@ -189,7 +189,7 @@ class deCONZ extends Homey.App {
 		let deviceSupports = (capabilities) => {
 			if (typeof(capabilities) == 'string') capabilities = [capabilities]
 			return !capabilities.map(capability => {
-				return capability in deviceCapabilities
+				return deviceCapabilities.includes(capability)
 			}).includes(false)
 		}
 
@@ -197,10 +197,14 @@ class deCONZ extends Homey.App {
 			this.log('state update for', device.getName(), state)
 		}
 		if (state.hasOwnProperty('on')) {
-			device.setCapabilityValue('onoff', state.on)
+			if (deviceSupports('onoff')) {
+				device.setCapabilityValue('onoff', state.on)
+			}
 		}
 		if (state.hasOwnProperty('bri')) {
-			device.setCapabilityValue('dim', state.bri / 255)
+			if (deviceSupports('dim')) {
+				device.setCapabilityValue('dim', state.bri / 255)
+			}
 		}
 		if (state.hasOwnProperty('presence')) {
 			if (deviceSupports('alarm_motion')) {
@@ -216,55 +220,67 @@ class deCONZ extends Homey.App {
 			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for lights
 		}
 		if (state.hasOwnProperty('lux')) {
-			device.setCapabilityValue('measure_luminance', state.lux)
+			if (deviceSupports('measure_luminance')) {
+				device.setCapabilityValue('measure_luminance', state.lux)
+			}
 		}
 		if (state.hasOwnProperty('water')) {
-			device.setCapabilityValue('alarm_water', state.water)
+			if (deviceSupports('alarm_water')) {
+				device.setCapabilityValue('alarm_water', state.water)
+			}
 		}
 		if (state.hasOwnProperty('buttonevent') && !initial) {
 			device.fireEvent(state.buttonevent)
 		}
 		if (state.hasOwnProperty('open')) {
-			device.setCapabilityValue('alarm_contact', state.open)
+			if (deviceSupports('alarm_contact')) {
+				device.setCapabilityValue('alarm_contact', state.open)
+			}
 		}
 		if (state.hasOwnProperty('colormode')) {
 			if (deviceSupports('light_mode')) {
-				device.setCapabilityValue('light_mode', (state.colormode == 'xy' || state.colormode == 'hs') ? 'color': 'ct')
+				device.setCapabilityValue('light_mode', (state.colormode == 'xy' || state.colormode == 'hs') ? 'color': 'temperature')
 			}
 		}
 		if (state.hasOwnProperty('fire')) {
-			device.setCapabilityValue('alarm_smoke', state.fire)
+			if (deviceSupports('alarm_smoke')) {
+				device.setCapabilityValue('alarm_smoke', state.fire)
+			}
 		}
 		if (state.hasOwnProperty('temperature')) {
-			device.setCapabilityValue('measure_temperature', state.temperature / 100)
+			if (deviceSupports('measure_temperature')) {
+				device.setCapabilityValue('measure_temperature', state.temperature / 100)
+			}
 		}
 		if (state.hasOwnProperty('humidity')) {
-			device.setCapabilityValue('measure_humidity', state.humidity / 100)
+			if (deviceSupports('measure_humidity')) {
+				device.setCapabilityValue('measure_humidity', state.humidity / 100)
+			}
 		}
 		if (state.hasOwnProperty('pressure')) {
-			device.setCapabilityValue('measure_pressure', state.pressure)
+			if (deviceSupports('measure_pressure')) {
+				device.setCapabilityValue('measure_pressure', state.pressure)
+			}
 		}
 		if (state.hasOwnProperty('power')) {
-			device.setCapabilityValue('measure_power', state.power)
+			if (deviceSupports('measure_power')) {
+				device.setCapabilityValue('measure_power', state.power)
+			}
 		}
 
 		if (state.hasOwnProperty('ct')) {
-			if (!deviceSupports(['light_mode', 'light_temperature'])) return 
-			let value = Math.ceil(153 - state.ct / 347)
-			if (!(153 <= value <= 500)) return
-			device.setCapabilityValue('light_mode', 'ct')
-			device.setCapabilityValue('light_temperature', value)
+			if (!deviceSupports(['light_mode', 'light_temperature']) || (state.ct > 500)) return 
+			device.setCapabilityValue('light_mode', 'temperature')
+			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
 		}
 		
 		if (state.hasOwnProperty('hue')) {
 			if (!deviceSupports('light_hue')) return
-			this.log('hue', (state.hue / 65535).toFixed(2))
-			device.setCapabilityValue('light_hue', (state.hue / 65535).toFixed(2))
+			device.setCapabilityValue('light_hue', parseFloat((state.hue / 65535).toFixed(2)))
 		}
 		if (state.hasOwnProperty('sat')) {
 			if (!deviceSupports('light_saturation')) return
-			this.log('sat', state.sat / 255)
-			device.setCapabilityValue('light_saturation', (state.sat / 255).toFixed(2))
+			device.setCapabilityValue('light_saturation', parseFloat((state.sat / 255).toFixed(2)))
 		}
 	}
 	
