@@ -9,7 +9,7 @@ class MiMotionDriver extends Driver {
 		this.log('MiMotionDriver has been initiated')
 	}
 	
-	onPairListDevices(data, callback) {
+	onPairListDevices(_, callback) {
 		this.getSensorsByCondition(device => device.modelid === 'lumi.sensor_motion', callback)
 	}
 
