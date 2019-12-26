@@ -30,6 +30,10 @@ class Light extends Homey.Device {
 		if (capabilities.includes('light_temperature')) {
 			this.registerCTListener()
 		}
+
+		if (capabilities.includes('light_hue') && capabilities.includes('light_saturation')) {
+			this.registerColorListener()
+		}
 		
 		this.setInitialState()
 	}
@@ -71,14 +75,19 @@ class Light extends Homey.Device {
 	registerCTListener() {
 		this.registerCapabilityListener('light_temperature', (value, opts, callback) => {
 			let ct = value * 347 + 153
+			this.setCapabilityValue('light_mode', 'ct')
 			this.setColorTemperature(ct, callback)
 		})
 	}
 	
 	registerColorListener() {
-		this.registerMultipleCapabilityListener(['light_hue', 'light_saturation'], (value, opts, callback) => {
-			let { light_hue, light_saturation } = value
-			this.setColor(light_hue * 65535, light_saturation * 255, callback)
+		this.registerCapabilityListener('light_hue', (hue, _, callback) => {
+			this.hue = hue
+			callback(null, true)
+		})
+		this.registerCapabilityListener('light_saturation', (saturation, _, callback) => {
+			this.log('sat', saturation)
+			this.setColor(this.hue, saturation, callback)
 		})
 	}
 	
@@ -103,9 +112,9 @@ class Light extends Homey.Device {
 	setColorTemperature(value, callback) {
 		this.put(`/lights/${this.id}/state`, {ct: value}, callback)
 	}
-	
-	setColor(hue, sat, callback) {
-		this.put(`/lights/${this.id}/state`, {hue: hue, sat: sat}, callback)
+
+	setColor(hue, sat, hue_callback, saturation_callback) {
+		this.put(`/lights/${this.id}/state`, {hue: hue * 65534, sat: sat * 255}, hue_callback, saturation_callback)
 	}
 	
 }

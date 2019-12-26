@@ -185,6 +185,14 @@ class deCONZ extends Homey.App {
 	}
 	
 	updateState(device, state, initial=false) {		
+		let deviceCapabilities = device.getCapabilities()
+		let deviceSupports = (capabilities) => {
+			if (typeof(capabilities) == 'string') capabilities = [capabilities]
+			return !capabilities.map(capability => {
+				return capability in deviceCapabilities
+			}).includes(false)
+		}
+
 		if (!initial) {
 			this.log('state update for', device.getName(), state)
 		}
@@ -192,13 +200,15 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('onoff', state.on)
 		}
 		if (state.hasOwnProperty('bri')) {
-			device.setCapabilityValue('dim', state.bri/255)
+			device.setCapabilityValue('dim', state.bri / 255)
 		}
 		if (state.hasOwnProperty('presence')) {
-			device.setCapabilityValue('alarm_motion', state.presence)
+			if (deviceSupports('alarm_motion')) {
+				device.setCapabilityValue('alarm_motion', state.presence)
+			}
 		}
 		if (state.hasOwnProperty('dark')) {
-			if ('dark' in device.getCapabilities()) {
+			if (deviceSupports('dark')) {
 				device.setCapabilityValue('dark', state.dark)
 			}
 		}
@@ -217,6 +227,11 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('open')) {
 			device.setCapabilityValue('alarm_contact', state.open)
 		}
+		if (state.hasOwnProperty('colormode')) {
+			if (deviceSupports('light_mode')) {
+				device.setCapabilityValue('light_mode', (state.colormode == 'xy' || state.colormode == 'hs') ? 'color': 'ct')
+			}
+		}
 		if (state.hasOwnProperty('fire')) {
 			device.setCapabilityValue('alarm_smoke', state.fire)
 		}
@@ -232,16 +247,24 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('power')) {
 			device.setCapabilityValue('measure_power', state.power)
 		}
+
 		if (state.hasOwnProperty('ct')) {
-			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
+			if (!deviceSupports(['light_mode', 'light_temperature'])) return 
+			let value = Math.ceil(153 - state.ct / 347)
+			if (!(153 <= value <= 500)) return
+			device.setCapabilityValue('light_mode', 'ct')
+			device.setCapabilityValue('light_temperature', value)
 		}
 		
-		// FIX: NOT WORKING at all
 		if (state.hasOwnProperty('hue')) {
-			device.setCapabilityValue('light_hue', state.hue / 65535)
+			if (!deviceSupports('light_hue')) return
+			this.log('hue', (state.hue / 65535).toFixed(2))
+			device.setCapabilityValue('light_hue', (state.hue / 65535).toFixed(2))
 		}
 		if (state.hasOwnProperty('sat')) {
-			device.setCapabilityValue('light_saturation', state.sat / 255)
+			if (!deviceSupports('light_saturation')) return
+			this.log('sat', state.sat / 255)
+			device.setCapabilityValue('light_saturation', (state.sat / 255).toFixed(2))
 		}
 	}
 	
@@ -253,7 +276,7 @@ class deCONZ extends Homey.App {
 		let deviceСapabilities = device.getCapabilities()
 		
 		if (config.hasOwnProperty('temperature') && deviceСapabilities.includes('measure_temperature')) {
-			device.setCapabilityValue('measure_temperature', config.temperature/100)
+			device.setCapabilityValue('measure_temperature', config.temperature / 100)
 		}
 		if (config.hasOwnProperty('battery') && deviceСapabilities.includes('measure_battery')) {
 			device.setCapabilityValue('measure_battery', config.battery)

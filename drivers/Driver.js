@@ -35,13 +35,14 @@ class Driver extends Homey.Driver {
 			let onoff = ['onoff']
 			let dim = ['onoff', 'dim']
 			let ct = ['onoff', 'dim', 'light_temperature']
-			let color = ['onoff', 'dim', 'light_temperature', 'light_saturation', 'light_hue']
+			let color = ['onoff', 'dim', 'light_temperature', 'light_mode', 'light_saturation', 'light_hue']
 			
 			let matchTable = {
 				'On/Off light': onoff,
 				'Dimmable light': dim,
 				'Color temperature light': ct,
 				'Extended color light': color,
+				'Color light': color,
 				'Smart plug': onoff, // отличаются только классом устройства - socket
 				'On/Off plug-in unit': onoff, //Also smart plug
 				'Window covering device': dim // отличаются только классом устройства - windowcoverings
