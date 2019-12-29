@@ -9,11 +9,13 @@ class AqaraMotion extends Sensor {
 		super.onInit()
 				
 		this.setTriggers()
+		
 		this.log(this.getName(), 'has been initiated')	
 	}
 	
 	setTriggers() {
 		this._flowTriggerML = new Homey.FlowCardTriggerDevice('motion_with_luminance').register()
+		this.motionToggleTrigger = new Homey.FlowCardTriggerDevice('motion_toggle').register()
 	}
 	
 	setCapabilityValue(name, value) {
@@ -23,10 +25,12 @@ class AqaraMotion extends Sensor {
 				// ставим таймер на выключение сработки датчика
 				this.timeout = setTimeout(() => {
 					super.setCapabilityValue(name, false)
+					this.motionToggleTrigger.trigger(this)
 					this.timeout = null
 				}, this.getSetting('no_motion_timeout') * 1000)
 			} else {
 				// сработало "движение обнаружено"
+				this.motionToggleTrigger.trigger(this)
 				if (this.timeout) {
 					// если есть таймер, очищаем его
 					// если таймер есть, то датчик все еще обнаруживает движение

@@ -1,13 +1,20 @@
 'use strict'
 
 const Sensor = require('../Sensor')
+const Homey = require('homey')
 
 class MiMotion extends Sensor {
 	
 	onInit() {
 		super.onInit()
+
+		this.setTriggers()
 				
 		this.log(this.getName(), 'has been initiated')
+	}
+
+	setTriggers() {
+		this.motionToggleTrigger = new Homey.FlowCardTriggerDevice('motion_toggle').register()
 	}
 	
 	setCapabilityValue(name, value) {
@@ -16,9 +23,11 @@ class MiMotion extends Sensor {
 			// ставим таймер на выключение сработки датчика
 			this.timeout = setTimeout(() => {
 				super.setCapabilityValue(name, false)
+				this.motionToggleTrigger.trigger(this)
 				this.timeout = null
 			}, this.getSetting('no_motion_timeout') * 1000)
 		} else {
+			this.motionToggleTrigger.trigger(this)
 			// сработало "движение обнаружено"
 			if (this.timeout) {
 				// если есть таймер, очищаем его
