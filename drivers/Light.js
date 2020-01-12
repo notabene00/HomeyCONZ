@@ -4,29 +4,30 @@ const Homey = require('homey')
 const { http } = require('../node_modules/nbhttp')
 
 class Light extends Homey.Device {
-	
+
 	onInit() {
 		this.host = Homey.ManagerSettings.get('host')
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.port = Homey.ManagerSettings.get('port')
 		this.id = this.getSetting('id')
+		this.address = `/lights/${this.id}/state`
 		this.sensors = this.getSetting('sensors')
-		
+
 		this.isBlinds = this.getClass() === 'windowcoverings'
-		
+
 		this.registerInApp()
-		
+
 		let capabilities = this.getCapabilities()
-		
+
 		if (capabilities.includes('onoff')) {
 			this.registerOnoffListener()
 		}
-		
+
 		if (capabilities.includes('dim')) {
 			this.dimDuration = this.getSetting('dim_duration') || 1
 			this.registerDimListener()
 		}
-		
+
 		if (capabilities.includes('light_temperature')) {
 			this.registerCTListener()
 		}
@@ -34,7 +35,7 @@ class Light extends Homey.Device {
 		if (capabilities.includes('light_hue') && capabilities.includes('light_saturation')) {
 			this.registerColorListener()
 		}
-		
+
 		this.setInitialState()
 	}
 
@@ -46,7 +47,7 @@ class Light extends Homey.Device {
 			})
 		}
 	}
-	
+
 	setInitialState() {
 		Homey.app.getLightState(this, (error, state) => {
 			if (error) {
@@ -55,14 +56,14 @@ class Light extends Homey.Device {
 			Homey.app.updateState(this, state, true)
 		})
 	}
-	
+
 	registerOnoffListener() {
 		this.registerCapabilityListener('onoff', (value, opts, callback) => {
 			let power = this.isBlinds ? !value : value
 			this.setPower(power, callback)
 		})
 	}
-	
+
 	registerDimListener() {
 		this.registerCapabilityListener('dim', (value, opts, callback) => {
 			let dim = this.isBlinds ? 1 - value : value
@@ -71,7 +72,7 @@ class Light extends Homey.Device {
 			})
 		})
 	}
-	
+
 	registerCTListener() {
 		this.registerCapabilityListener('light_temperature', (value, opts, callback) => {
 			let ct = value * 347 + 153
@@ -79,7 +80,7 @@ class Light extends Homey.Device {
 			this.setColorTemperature(ct, callback)
 		})
 	}
-	
+
 	registerColorListener() {
 		this.registerCapabilityListener('light_hue', (hue, _, callback) => {
 			this.hue = hue
@@ -90,7 +91,7 @@ class Light extends Homey.Device {
 			this.setColor(this.hue, saturation, callback)
 		})
 	}
-	
+
 	put(path, data, callback) {
 		let headers = {
 			'Content-Type': 'application/json',
@@ -100,23 +101,23 @@ class Light extends Homey.Device {
 			callback(error, !!error ? null : JSON.parse(data))
 		})
 	}
-	
+
 	setPower(value, callback) {
-		this.put(`/lights/${this.id}/state`, {on: value}, callback)
+		this.put(this.address, {on: value}, callback)
 	}
-	
+
 	dim(level, duration, callback) {
-		this.put(`/lights/${this.id}/state`, {on: true, bri: level * 255, transitiontime: duration}, callback)
+		this.put(this.address, {on: true, bri: level * 255, transitiontime: duration}, callback)
 	}
-	
+
 	setColorTemperature(value, callback) {
-		this.put(`/lights/${this.id}/state`, {ct: value}, callback)
+		this.put(this.address, {ct: value}, callback)
 	}
 
 	setColor(hue, sat, hue_callback, saturation_callback) {
-		this.put(`/lights/${this.id}/state`, {hue: hue * 65534, sat: sat * 255}, hue_callback, saturation_callback)
+		this.put(this.address, {hue: hue * 65534, sat: sat * 255}, hue_callback, saturation_callback)
 	}
-	
+
 }
 
 module.exports = Light

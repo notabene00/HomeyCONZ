@@ -4,25 +4,31 @@ const Homey = require('homey')
 const { http } = require('../../node_modules/nbhttp')
 
 class Driver extends Homey.Driver {
-	
+
 	onInit() {
 		// this.host = Homey.ManagerSettings.get('host')
 		// this.apikey = Homey.ManagerSettings.get('apikey')
 		// this.port = Homey.ManagerSettings.get('port')
 	}
-	
+
 	getLightsList(callback) {
 		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/lights`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
-	
+
 	getSensorsList(callback) {
 		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/sensors`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
-	
+
+	getGroupsList(callback) {
+		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/groups`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
 	getLightsByCondition(condition, callback) {
 		if (!Homey.app.host || !Homey.app.port || !Homey.app.apikey) {
 			return callback(new Error('Go to app settings page and fill all fields'))
@@ -36,7 +42,7 @@ class Driver extends Homey.Driver {
 			let dim = ['onoff', 'dim']
 			let ct = ['onoff', 'dim', 'light_temperature']
 			let color = ['onoff', 'dim', 'light_temperature', 'light_mode', 'light_saturation', 'light_hue']
-			
+
 			let matchTable = {
 				'On/Off light': onoff,
 				'Dimmable light': dim,
@@ -88,7 +94,7 @@ class Driver extends Homey.Driver {
 			})
 		})
 	}
-	
+
 	getSensorsByCondition(condition, callback) {
 		if (!Homey.app.host || !Homey.app.port || !Homey.app.apikey) {
 			return callback(new Error('Go to app settings page and fill all fields'))
@@ -98,11 +104,11 @@ class Driver extends Homey.Driver {
 				callback(error)
 				return
 			}
-			
+
 			let sensorsEntries = Object.entries(sensors)
 
 			let knownMacAddresses = []
-			
+
 			let filtered = sensorsEntries.filter(entry => {
 					let sensor = entry[1]
 					if (!condition(sensor)) {
@@ -116,7 +122,7 @@ class Driver extends Homey.Driver {
 				// для каждого уже отфильтрованного entry
 				const sensor = entry[1] // значение
 				const mac = sensor.uniqueid.split('-')[0] // мак-адрес является частью уникального идентификатора
-				
+
 				return {
 					name: sensor.name,
 					data: {
@@ -131,7 +137,7 @@ class Driver extends Homey.Driver {
 			callback(null, filtered)
 		})
 	}
-	
+
 }
 
 module.exports = Driver
