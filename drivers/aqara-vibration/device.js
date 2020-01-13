@@ -56,9 +56,9 @@ class AqaraVibration extends Sensor {
 			this.setCapabilityValue('tilt_alarm', true)
 		}
 		if (name == 'vibration_alarm') {
-			this.vibrationAlarmToggle.trigger(this, {strength: super.getCapabilityValue('vibration_strength')})
+			this.vibrationAlarmToggle.trigger(this)
 			if (value) {
-				this.vibrationAlarmOn.trigger(this)
+				this.vibrationAlarmOn.trigger(this, {strength: super.getCapabilityValue('vibration_strength')})
 			} else {
 				this.vibrationAlarmOff.trigger(this)
 			}
