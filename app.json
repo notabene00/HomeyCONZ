@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.12.3",
+  "version": "0.13.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -64,7 +64,7 @@
       "class": "other",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -92,7 +92,7 @@
       "class": "other",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -120,7 +120,7 @@
       "class": "other",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2450" ] 
+        "batteries": [ "CR2450" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -151,7 +151,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR123A" ] 
+        "batteries": [ "CR123A" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -215,7 +215,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR1632" ] 
+        "batteries": [ "CR1632" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -243,7 +243,7 @@
       "class": "sensor",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2450" ] 
+        "batteries": [ "CR2450" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -271,7 +271,7 @@
       "class": "other",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -299,7 +299,7 @@
       "class": "other",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -327,7 +327,7 @@
       "class": "other",
       "capabilities": ["measure_battery"],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -357,7 +357,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -387,7 +387,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -504,6 +504,45 @@
       ]
     },
     {
+      "id": "group",
+      "name": {
+        "en": "Group"
+      },
+      "class": "light",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "dim_duration",
+          "type": "number",
+          "label": {
+            "en": "Transition time"
+          },
+          "min": 0,
+          "value": 1,
+          "hint": {
+            "en": "Transition time between brightnesses"
+          }
+        }
+      ]
+    },
+    {
       "id": "mi-motion",
       "name": {
         "en": "Mi Motion"
@@ -514,7 +553,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2450" ] 
+        "batteries": [ "CR2450" ]
       },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
@@ -702,7 +741,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/leakage_aq1/assets/images/large.png",
@@ -797,7 +836,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/aqara-temphum/assets/images/large.png",
@@ -829,7 +868,7 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ] 
+        "batteries": [ "CR2032" ]
       },
       "images": {
         "large": "/drivers/mijia-temphum/assets/images/large.png",

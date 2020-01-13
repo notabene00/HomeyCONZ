@@ -5,24 +5,25 @@ const { http, https } = require('./node_modules/nbhttp')
 const WebSocketClient = require('ws')
 
 class deCONZ extends Homey.App {
-	
+
 	onInit() {
-		// сюда складываем ссылки на все устройства, которые у нас добавлены	
+		// сюда складываем ссылки на все устройства, которые у нас добавлены
 		this.devices = {
 			lights: {},
-			sensors: {}
+			sensors: {},
+			groups: {}
 		}
-		
+
 		this.host = Homey.ManagerSettings.get('host')
 		this.port = Homey.ManagerSettings.get('port')
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.wsPort = Homey.ManagerSettings.get('wsport')
-		
+
 		if (!this.host || !this.port || !this.apikey || !this.wsPort) {
 			this.wfc = setInterval(this.waitForCredentials.bind(this), 3 * 1000)
 			return this.log('Go to the app settings page and fill all the fields')
 		}
-		
+
 		this.start()
 	}
 
@@ -40,7 +41,7 @@ class deCONZ extends Homey.App {
 			this.start()
 		}
 	}
-	
+
 	setWSKeepAlive(wsPort) {
 		// убивать таймаут при переподключениях
 		if (this.keepAliveTimeout) {
@@ -65,9 +66,9 @@ class deCONZ extends Homey.App {
 				this.error('Can\'t ping websocket')
 				this.error(error)
 			}
-		}, 60 * 1000)	
+		}, 60 * 1000)
 	}
-	
+
 	webSocketConnect(wsPort) {
 		this.log('Websocket connect...')
 		this.websocket = new WebSocketClient(`ws://${this.host}:${wsPort}`)
@@ -81,11 +82,13 @@ class deCONZ extends Homey.App {
 		this.websocket.on('message', message => {
 			let data = JSON.parse(message)
 			let device = this.getDevice(data.r, data.id)
-			
+
 			if (device) {
 				// STATE
 				if (data.state) {
 					this.updateState(device, data.state)
+				} else if (data.action) { // if GROUPS
+					this.updateState(device, data.action)
 				// CONFIG
 				} else if (data.config) {
 					this.updateConfig(device, data.config)
@@ -103,36 +106,36 @@ class deCONZ extends Homey.App {
 			this.error(`Closed, error #${reasonCode}`)
 			this.log('Reconnection in 5 seconds...')
 			setTimeout(
-				this.webSocketConnect.bind(this, wsPort), 
+				this.webSocketConnect.bind(this, wsPort),
 				5 * 1000
 			)
 		})
 	}
-	
+
 	getLightState(device, callback) {
 		http.get(`http://${this.host}:${this.port}/api/${this.apikey}/lights/${device.id}`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
-	
+
 	getSensorState(device, callback) {
 		http.get(`http://${this.host}:${this.port}/api/${this.apikey}/sensors/${device.id}`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
-	
+
 	getLightsList(callback) {
 		http.get(`http://${this.host}:${this.port}/api/${this.apikey}/lights`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
-	
+
 	getSensorsList(callback) {
 		http.get(`http://${this.host}:${this.port}/api/${this.apikey}/sensors`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
-	
+
 	setInitialStates() {
 		this.getLightsList((error, lights) => {
 			if (error) {
@@ -147,7 +150,7 @@ class deCONZ extends Homey.App {
 				}
 			})
 		})
-		
+
 		this.getSensorsList((error, sensors) => {
 			if (error) {
 				return this.error(error)
@@ -167,9 +170,9 @@ class deCONZ extends Homey.App {
 			})
 		})
 	}
-	
+
 	// websocket processing
-	
+
 	setAllUnavailable() {
 		Object.values(this.devices.lights).forEach(device => {
 			device.setUnavailable('Websocket is down')
@@ -178,13 +181,12 @@ class deCONZ extends Homey.App {
 			device.setUnavailable('Websocket is down')
 		})
 	}
-	
+
 	getDevice(type, id) {
-		if (type === 'groups') return null
 		return this.devices[type].hasOwnProperty(id) ? this.devices[type][id] : null
 	}
-	
-	updateState(device, state, initial=false) {		
+
+	updateState(device, state, initial=false) {
 		let deviceCapabilities = device.getCapabilities()
 		let deviceSupports = (capabilities) => {
 			if (typeof(capabilities) == 'string') capabilities = [capabilities]
@@ -199,6 +201,11 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('on')) {
 			if (deviceSupports('onoff')) {
 				device.setCapabilityValue('onoff', state.on)
+			}
+		}
+		if (state.hasOwnProperty('any_on')) {
+			if (deviceSupports('onoff')) {
+				device.setCapabilityValue('onoff', state.any_on)
 			}
 		}
 		if (state.hasOwnProperty('bri')) {
@@ -269,11 +276,11 @@ class deCONZ extends Homey.App {
 		}
 
 		if (state.hasOwnProperty('ct')) {
-			if (!deviceSupports(['light_mode', 'light_temperature']) || (state.ct > 500)) return 
+			if (!deviceSupports(['light_mode', 'light_temperature']) || (state.ct > 500)) return
 			device.setCapabilityValue('light_mode', 'temperature')
 			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
 		}
-		
+
 		if (state.hasOwnProperty('hue')) {
 			if (!deviceSupports('light_hue')) return
 			device.setCapabilityValue('light_hue', parseFloat((state.hue / 65535).toFixed(2)))
@@ -283,14 +290,14 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('light_saturation', parseFloat((state.sat / 255).toFixed(2)))
 		}
 	}
-	
+
 	updateConfig(device, config, initial=false) {
 		if (!initial) {
 			this.log('Config update for', device.getName(), config)
 		}
-		
+
 		let deviceСapabilities = device.getCapabilities()
-		
+
 		if (config.hasOwnProperty('temperature') && deviceСapabilities.includes('measure_temperature')) {
 			device.setCapabilityValue('measure_temperature', config.temperature / 100)
 		}
@@ -301,9 +308,9 @@ class deCONZ extends Homey.App {
 			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for sensors
 		}
 	}
-	
+
 	// init processing
-	
+
 	get(url, callback) {
 		let handler = function (error, result) {
 			callback(error, !!error ? null : JSON.parse(result))
@@ -314,14 +321,14 @@ class deCONZ extends Homey.App {
 			http.get(url, handler)
 		}
 	}
-	
+
 	getWSport(callback) {
 		let link = `http://${this.host}:${this.port}/api/${this.apikey}/config`
 		this.get(link, (error, result) => {
 			callback(error, !!error ? null : result.websocketport)
 		})
 	}
-	
+
 }
 
 module.exports = deCONZ
