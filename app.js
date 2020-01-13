@@ -203,6 +203,11 @@ class deCONZ extends Homey.App {
 				device.setCapabilityValue('onoff', state.on)
 			}
 		}
+		if (state.hasOwnProperty('any_on')) {
+			if (deviceSupports('onoff')) {
+				device.setCapabilityValue('onoff', state.any_on)
+			}
+		}
 		if (state.hasOwnProperty('bri')) {
 			if (deviceSupports('dim')) {
 				device.setCapabilityValue('dim', state.bri / 255)
