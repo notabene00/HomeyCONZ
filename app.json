@@ -53,6 +53,64 @@
       "uiComponent": "sensor",
       "uiQuickAction": false,
       "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
+    },
+    "vibration_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Vibration alarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/vibration_alarm.svg"
+    },
+    "vibration_strength": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Vibration strength"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg"
+    },
+    "tilt_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Tilt alarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_alarm.svg"
+    },
+    "tilt_angle": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Tilt angle"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
+    },
+    "relative_tilt_angle": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Relative tilt angle"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
     }
   },
   "drivers": [
@@ -691,7 +749,11 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_motion",
+        "vibration_alarm",
+        "tilt_alarm",
+        "vibration_strength",
+        "tilt_angle",
+        "relative_tilt_angle",
         "measure_battery"
       ],
       "energy": {
@@ -712,6 +774,20 @@
         {
           "id": "add_devices",
           "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_tilt_timeout",
+          "type": "number",
+          "label": {
+            "en": "No tilt timeout"
+          },
+          "min": 0,
+          "value": 10,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
         }
       ]
     },

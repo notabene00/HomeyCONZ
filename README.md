@@ -18,7 +18,7 @@ Supported devices of current version:
 
 - [x] Aqara Cube
 - [x] Aqara leakage sensor
-- [] Aqara Vibration sensor
+- [x] Aqara Vibration sensor
 - [x] Honeywell Smoke sensor
 - [x] Philips Hue Dimmer Switch
 - [x] Symfonisk remote 

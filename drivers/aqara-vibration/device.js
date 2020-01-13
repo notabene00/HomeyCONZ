@@ -14,39 +14,23 @@ class AqaraVibration extends Sensor {
 	}
 	
 	setTriggers() {
-		this._flowTriggerML = new Homey.FlowCardTriggerDevice('motion_with_luminance').register()
-		this.motionToggleTrigger = new Homey.FlowCardTriggerDevice('motion_toggle').register()
+		// this.motionToggleTrigger = new Homey.FlowCardTriggerDevice('motion_toggle').register()
 	}
 	
-	// setCapabilityValue(name, value) {
-	// 	if (name === 'alarm_motion') {
-	// 		if (!value) {
-	// 			// сработало "движение не обнаружено"
-	// 			// ставим таймер на выключение сработки датчика
-	// 			this.timeout = setTimeout(() => {
-	// 				super.setCapabilityValue(name, false)
-	// 				this.motionToggleTrigger.trigger(this)
-	// 				this.timeout = null
-	// 			}, this.getSetting('no_motion_timeout') * 1000)
-	// 		} else {
-	// 			// сработало "движение обнаружено"
-	// 			this.motionToggleTrigger.trigger(this)
-	// 			if (this.timeout) {
-	// 				// если есть таймер, очищаем его
-	// 				// если таймер есть, то датчик все еще обнаруживает движение
-	// 				clearTimeout(this.timeout)
-	// 				this.timeout = null
-	// 			} else {
-	// 				// если таймера нет, заставляем датчик в колобке обнаружить движение
-	// 				super.setCapabilityValue(name, true)
-	// 				// триггерим триггер с тэгом освещенности
-	// 				this._flowTriggerML.trigger(this, {luminance: super.getCapabilityValue('measure_luminance')})
-	// 			}
-	// 		}
-	// 	} else {
-	// 		super.setCapabilityValue(name, value)
-	// 	}
-	// }
+	setCapabilityValue(name, value) {
+		super.setCapabilityValue(name, value)
+		if (name == 'tilt_angle') {
+			super.setCapabilityValue('tilt_alarm', true)
+			// относительный угол
+			let relative_angle = value - super.getCapabilityValue('tilt_angle')
+			super.setCapabilityValue('relative_tilt_angle', relative_angle)
+			this.timeout = setTimeout(() => {
+				super.setCapabilityValue('tilt_alarm', false)
+				// this.motionToggleTrigger.trigger(this)
+				this.timeout = null
+			}, this.getSetting('no_tilt_timeout') * 1000)
+		}
+	}
 	
 }
 
