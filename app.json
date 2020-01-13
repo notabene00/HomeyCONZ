@@ -1010,9 +1010,192 @@
             "filter": "driver_id=tradfri-motion-sensor"
           }
         ]
+      },
+      {
+        "id": "is_vibration_alarm_active",
+        "title": {
+          "en": "Is vibration !{{|not}} detected"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "is_tilt_alarm_active",
+        "title": {
+          "en": "Is tilt !{{|not}} detected"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "is_vibration_strength_greater_than",
+        "title": {
+          "en": "Is vibration strength !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_tilt_angle_greater_than",
+        "title": {
+          "en": "Is tilt angle !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_relative_tilt_angle_greater_than",
+        "title": {
+          "en": "Is relative tilt angle !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
       }
     ],
     "triggers": [
+      {
+        "id": "vibration_alarm_on",
+        "title": {
+          "en": "Vibration alarm on"
+        },
+        "tokens": [
+          {
+            "name": "strength",
+            "type": "number",
+            "title": {
+              "en": "Strength"
+            },
+            "example": 110
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_on",
+        "title": {
+          "en": "Tilt alarm on"
+        },
+        "tokens": [
+          {
+            "name": "angle",
+            "type": "number",
+            "title": {
+              "en": "Angle"
+            },
+            "example": 90
+          },
+          {
+            "name": "relative_angle",
+            "type": "number",
+            "title": {
+              "en": "Relative angle"
+            },
+            "example": 90
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_off",
+        "title": {
+          "en": "Tilt alarm off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_off",
+        "title": {
+          "en": "Vibration alarm off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_toggle",
+        "title": {
+          "en": "Tilt alarm toggle"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_toggle",
+        "title": {
+          "en": "Vibration alarm toggle"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
       {
         "id": "motion_toggle",
         "title": {
