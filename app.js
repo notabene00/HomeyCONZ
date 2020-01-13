@@ -239,6 +239,9 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('buttonevent') && !initial) {
 			device.fireEvent(state.buttonevent)
 		}
+		if (state.hasOwnProperty('buttonevent') && state.hasOwnProperty('gesture')) {
+			device.fireEvent(state.buttonevent, initial, state.gesture)
+		}
 		if (state.hasOwnProperty('open')) {
 			if (deviceSupports('alarm_contact')) {
 				device.setCapabilityValue('alarm_contact', state.open)
