@@ -4,7 +4,16 @@ This app for [Athom Homey](https://homey.app/en-us/) adds support for [deCONZ](h
 
 [![current version](https://img.shields.io/badge/version-0.13.1-<COLOR>.svg)](https://shields.io/)
 
-Supported devices of current version:
+# Installation information
+
+Before we start. Clone this repo to your local machine.
+
+Then, first we need to get NPM.
+On macOS, e.g., you can use [brew](http://brew.sh): `brew install node`.
+Then via NPM you should install cli for Homey: `npm i -g athom-cli`.
+Almost there. Now you can install app using `athom app install` command being in the app's root directory.
+
+# Supported devices
 
 - [x] Bulbs
 - [x] Blinds
