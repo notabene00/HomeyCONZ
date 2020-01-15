@@ -181,6 +181,9 @@ class deCONZ extends Homey.App {
 		Object.values(this.devices.sensors).forEach(device => {
 			device.setUnavailable('Websocket is down')
 		})
+		Object.values(this.devices.groups).forEach(device => {
+			device.setUnavailable('Websocket is down')
+		})
 	}
 
 	getDevice(type, id) {
