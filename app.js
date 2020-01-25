@@ -137,6 +137,12 @@ class deCONZ extends Homey.App {
 		})
 	}
 
+	getGroupsList(callback) {
+		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/groups`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
 	setInitialStates() {
 		this.getLightsList((error, lights) => {
 			if (error) {
@@ -166,6 +172,22 @@ class deCONZ extends Homey.App {
 					}
 					if (sensor.config) {
 						this.updateConfig(device, sensor.config, true) // initial=true
+					}
+				}
+			})
+		})
+
+		this.getGroupsList((error, groups) => {
+			if (error) {
+				return this.error(error)
+			}
+			Object.entries(groups).forEach(entry => {
+				const key = entry[0]
+				const group = entry[1]
+				const device = this.getDevice('groups', key)
+				if (device) {
+					if (group.action) {
+						this.updateState(device, group.action, true) // initial=true
 					}
 				}
 			})
