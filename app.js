@@ -18,31 +18,33 @@ class deCONZ extends Homey.App {
 		this.port = Homey.ManagerSettings.get('port')
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.wsPort = Homey.ManagerSettings.get('wsport')
-
+		
 		if (!this.host || !this.port || !this.apikey || !this.wsPort) {
-			this.wfc = setInterval(this.waitForCredentials.bind(this), 3 * 1000)
+			Homey.ManagerSettings.on('set', this.onSettingsChanged.bind(this))
 			return this.log('Go to the app settings page and fill all the fields')
 		}
 
-		this.start()
+		this.startWebSocketConnection()
 	}
 
-	start() {
-		this.webSocketConnect(this.wsPort)
+	startWebSocketConnection() {
+		if (this.websocket) {
+			this.websocket.terminate()
+		}
+		this.webSocketConnectTo(this.wsPort)
 	}
 
-	waitForCredentials() {
+	onSettingsChanged(modifiedKey) {
 		this.host = Homey.ManagerSettings.get('host')
 		this.port = Homey.ManagerSettings.get('port')
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.wsPort = Homey.ManagerSettings.get('wsport')
 		if (!!this.host && !!this.port && !!this.apikey && !!this.wsPort) {
-			clearInterval(this.wfc)
-			this.start()
+			this.startWebSocketConnection()
 		}
 	}
 
-	setWSKeepAlive(wsPort) {
+	setWSKeepAlive() {
 		// убивать таймаут при переподключениях
 		if (this.keepAliveTimeout) {
 			clearTimeout(this.keepAliveTimeout)
@@ -54,8 +56,7 @@ class deCONZ extends Homey.App {
 			}
 			this.keepAliveTimeout = setTimeout(() => {
 				this.error('Connection lost')
-				this.websocket.terminate()
-				this.webSocketConnect(wsPort)
+				this.startWebSocketConnection()
 			}, 3.1 * 60 * 1000)
 		})
 		// ping каждую минуту
@@ -69,15 +70,15 @@ class deCONZ extends Homey.App {
 		}, 60 * 1000)
 	}
 
-	webSocketConnect(wsPort) {
+	webSocketConnectTo() {
 		this.log('Websocket connect...')
-		this.websocket = new WebSocketClient(`ws://${this.host}:${wsPort}`)
+		this.websocket = new WebSocketClient(`ws://${this.host}:${this.wsPort}`)
 		this.websocket.on('open', () => {
 			this.log('Websocket is up')
 			// установить начальный статус всем устройствам
 			this.setInitialStates()
 			// настроить поддержание жизни
-			this.setWSKeepAlive(wsPort)
+			this.setWSKeepAlive()
 		})
 		this.websocket.on('message', message => {
 			let data = JSON.parse(message)
@@ -106,7 +107,7 @@ class deCONZ extends Homey.App {
 			this.error(`Closed, error #${reasonCode}`)
 			this.log('Reconnection in 5 seconds...')
 			setTimeout(
-				this.webSocketConnect.bind(this, wsPort),
+				this.webSocketConnectTo.bind(this),
 				5 * 1000
 			)
 		})
@@ -132,6 +133,12 @@ class deCONZ extends Homey.App {
 
 	getSensorsList(callback) {
 		http.get(`http://${this.host}:${this.port}/api/${this.apikey}/sensors`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
+	getGroupsList(callback) {
+		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/groups`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
 	}
@@ -169,6 +176,22 @@ class deCONZ extends Homey.App {
 				}
 			})
 		})
+
+		this.getGroupsList((error, groups) => {
+			if (error) {
+				return this.error(error)
+			}
+			Object.entries(groups).forEach(entry => {
+				const key = entry[0]
+				const group = entry[1]
+				const device = this.getDevice('groups', key)
+				if (device) {
+					if (group.action) {
+						this.updateState(device, group.action, true) // initial=true
+					}
+				}
+			})
+		})
 	}
 
 	// websocket processing
@@ -178,6 +201,9 @@ class deCONZ extends Homey.App {
 			device.setUnavailable('Websocket is down')
 		})
 		Object.values(this.devices.sensors).forEach(device => {
+			device.setUnavailable('Websocket is down')
+		})
+		Object.values(this.devices.groups).forEach(device => {
 			device.setUnavailable('Websocket is down')
 		})
 	}
@@ -256,6 +282,9 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('buttonevent') && !initial) {
 			device.fireEvent(state.buttonevent)
 		}
+		if (state.hasOwnProperty('buttonevent') && state.hasOwnProperty('gesture')) {
+			device.fireEvent(state.buttonevent, initial, state.gesture)
+		}
 		if (state.hasOwnProperty('open')) {
 			if (deviceSupports('alarm_contact')) {
 				device.setCapabilityValue('alarm_contact', state.open)
@@ -329,7 +358,7 @@ class deCONZ extends Homey.App {
 	// init processing
 
 	get(url, callback) {
-		let handler = function (error, result) {
+		let handler = (error, result) => {
 			callback(error, !!error ? null : JSON.parse(result))
 		}
 		if (url.startsWith('https')) {

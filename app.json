@@ -299,7 +299,10 @@
         "en": "Aqara Cube"
       },
       "class": "sensor",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "side_up",
+        "measure_battery"
+      ],
       "energy": {
         "batteries": [ "CR2450" ]
       },
