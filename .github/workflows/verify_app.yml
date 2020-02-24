@@ -14,7 +14,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: validate Homey app
         run: |
-          npm i -g athom-cli > /dev/null
-          data=`athom app validate`
+          npm i -g homey > /dev/null
+          data=`homey app validate`
           echo "${data##*$'\n'}"
           [[ $data == *"did not validate"* ]] && exit 1 || exit 0
