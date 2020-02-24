@@ -43,6 +43,17 @@
   },
   "source": "https://github.com/fantomnotabene/HomeyCONZ",
   "capabilities": {
+    "dark": {
+      "type": "boolean",
+      "title": {
+        "en": "Dark"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
+    },
     "side_up": {
       "type": "number",
       "title": {
@@ -55,17 +66,6 @@
       "max": 6,
       "uiComponent": "sensor",
       "uiQuickAction": false
-    },
-    "dark": {
-      "type": "boolean",
-      "title": {
-        "en": "Dark"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
     },
     "vibration_alarm": {
       "type": "boolean",
