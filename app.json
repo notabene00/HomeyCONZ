@@ -1,6 +1,6 @@
 {
   "id": "ru.notabene.deconz",
-  "version": "0.13.4",
+  "version": "0.14.0",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
@@ -66,6 +66,64 @@
       "max": 6,
       "uiComponent": "sensor",
       "uiQuickAction": false
+    },
+    "vibration_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Vibration alarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/vibration_alarm.svg"
+    },
+    "vibration_strength": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Vibration strength"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg"
+    },
+    "tilt_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Tilt alarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_alarm.svg"
+    },
+    "tilt_angle": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Tilt angle"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
+    },
+    "relative_tilt_angle": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Relative tilt angle"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
     }
   },
   "drivers": [
@@ -701,6 +759,55 @@
       ]
     },
     {
+      "id": "aqara-vibration",
+      "name": {
+        "en": "Aqara Vibration"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "vibration_alarm",
+        "tilt_alarm",
+        "vibration_strength",
+        "tilt_angle",
+        "relative_tilt_angle",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [ "CR2032" ]
+      },
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_tilt_timeout",
+          "type": "number",
+          "label": {
+            "en": "No tilt timeout"
+          },
+          "min": 0,
+          "value": 10,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ]
+    },
+    {
       "id": "aqara-motion",
       "name": {
         "en": "Aqara Motion"
@@ -921,6 +1028,83 @@
         ]
       },
       {
+        "id": "is_vibration_alarm_active",
+        "title": {
+          "en": "Is vibration !{{|not}} detected"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "is_tilt_alarm_active",
+        "title": {
+          "en": "Is tilt !{{|not}} detected"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "is_vibration_strength_greater_than",
+        "title": {
+          "en": "Is vibration strength !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_tilt_angle_greater_than",
+        "title": {
+          "en": "Is tilt angle !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_relative_tilt_angle_greater_than",
+        "title": {
+          "en": "Is relative tilt angle !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
         "id": "is_first_side",
         "title": {
           "en": "Is !{{|not}} on first side"
@@ -1000,6 +1184,112 @@
       }
     ],
     "triggers": [
+      {
+        "id": "vibration_alarm_on",
+        "title": {
+          "en": "Vibration alarm on"
+        },
+        "tokens": [
+          {
+            "name": "strength",
+            "type": "number",
+            "title": {
+              "en": "Strength"
+            },
+            "example": 110
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_on",
+        "title": {
+          "en": "Tilt alarm on"
+        },
+        "tokens": [
+          {
+            "name": "angle",
+            "type": "number",
+            "title": {
+              "en": "Angle"
+            },
+            "example": 90
+          },
+          {
+            "name": "relative_angle",
+            "type": "number",
+            "title": {
+              "en": "Relative angle"
+            },
+            "example": 90
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_off",
+        "title": {
+          "en": "Tilt alarm off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_off",
+        "title": {
+          "en": "Vibration alarm off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_toggle",
+        "title": {
+          "en": "Tilt alarm toggle"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_toggle",
+        "title": {
+          "en": "Vibration alarm toggle"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
       {
         "id": "motion_toggle",
         "title": {
