@@ -43,6 +43,19 @@
   },
   "source": "https://github.com/fantomnotabene/HomeyCONZ",
   "capabilities": {
+    "side_up": {
+      "type": "number",
+      "title": {
+        "en": "Side up"
+      },
+      "icon": "/drivers/aqara-cube/assets/side_up.svg",
+      "getable": true,
+      "setable": false,
+      "min": 1,
+      "max": 6,
+      "uiComponent": "sensor",
+      "uiQuickAction": false
+    },
     "dark": {
       "type": "boolean",
       "title": {
@@ -1088,6 +1101,84 @@
           {
             "name": "value",
             "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_first_side",
+        "title": {
+          "en": "Is !{{|not}} on first side"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_second_side",
+        "title": {
+          "en": "Is !{{|not}} on second side"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_third_side",
+        "title": {
+          "en": "Is !{{|not}} on fird side"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_fourth_side",
+        "title": {
+          "en": "Is !{{|not}} on fourth side"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_fifth_side",
+        "title": {
+          "en": "Is !{{|not}} on fifth side"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_sixth_side",
+        "title": {
+          "en": "Is !{{|not}} on sixth side"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube"
           }
         ]
       }
