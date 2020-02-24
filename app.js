@@ -244,23 +244,6 @@ class deCONZ extends Homey.App {
 				device.setCapabilityValue('alarm_motion', state.presence)
 			}
 		}
-		// vibration sensor
-		if (state.hasOwnProperty('vibration')) {
-			if (deviceSupports('vibration_alarm')) {
-				device.setCapabilityValue('vibration_alarm', state.vibration)
-			}
-		}
-		if (state.hasOwnProperty('vibrationstrength')) {
-			if (deviceSupports('vibration_strength')) {
-				device.setCapabilityValue('vibration_strength', state.vibrationstrength)
-			}
-		}
-		if (state.hasOwnProperty('tiltangle')) {
-			if (deviceSupports('tilt_angle')) {
-				device.setCapabilityValue('tilt_angle', state.tiltangle)
-			}
-		}
-		//
 		if (state.hasOwnProperty('dark')) {
 			if (deviceSupports('dark')) {
 				device.setCapabilityValue('dark', state.dark)
