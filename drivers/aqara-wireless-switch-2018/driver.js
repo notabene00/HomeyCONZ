@@ -10,7 +10,7 @@ class AqaraWirelessSwitch2018Driver extends Driver {
 	}
 
 	onPairListDevices(_, callback) {
-		this.getSensorsByCondition(device => ['lumi.remote.b286acn01', 'lumi.remote.b186acn01'].includes(device.modelid), callback)
+		this.getSensorsByCondition(device => device.modelid == 'lumi.remote.b286acn01'), callback)
 	}
 
 }
