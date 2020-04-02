@@ -18,7 +18,7 @@ class deCONZ extends Homey.App {
 		this.port = Homey.ManagerSettings.get('port')
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.wsPort = Homey.ManagerSettings.get('wsport')
-		
+
 		if (!this.host || !this.port || !this.apikey || !this.wsPort) {
 			Homey.ManagerSettings.on('set', this.onSettingsChanged.bind(this))
 			return this.log('Go to the app settings page and fill all the fields')
@@ -209,7 +209,10 @@ class deCONZ extends Homey.App {
 	}
 
 	getDevice(type, id) {
-		return this.devices[type].hasOwnProperty(id) ? this.devices[type][id] : null
+		if (this.devices[type] && this.devices[type].hasOwnProperty(id)) {
+			return this.devices[type][id]
+		}
+		return null
 	}
 
 	updateState(device, state, initial=false) {
