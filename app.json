@@ -1,10 +1,10 @@
 {
-  "id": "ru.notabene.deconz",
+  "id": "de.dresdenelectronic.deconz",
   "version": "0.14.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
-    "en": "deCONZ"
+    "en": "deCONZ (temp)"
   },
   "description": {
     "en": "Adds support for deCONZ's [raspbee/conbee] child devices"
@@ -18,7 +18,7 @@
     "small": "/assets/images/small.png"
   },
   "author": {
-    "name": "Роман Елизаров",
+    "name": "Philippe Wechsler",
     "email": "fantomnotabene@gmail.com"
   },
   "contributors": {
@@ -28,6 +28,9 @@
       },
       {
         "name": "k4mrat"
+      },
+      {
+        "name": "MadMonkey87"
       }
     ]
   },
@@ -133,9 +136,13 @@
         "en": "Tradfri Square Dimmer"
       },
       "class": "other",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -161,9 +168,13 @@
         "en": "Tradfri Remote Control"
       },
       "class": "other",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -189,9 +200,13 @@
         "en": "Philips Hue Dimmer Switch"
       },
       "class": "other",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
-        "batteries": [ "CR2450" ]
+        "batteries": [
+          "CR2450"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -222,7 +237,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR123A" ]
+        "batteries": [
+          "CR123A"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -286,7 +303,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR1632" ]
+        "batteries": [
+          "CR1632"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -317,7 +336,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2450" ]
+        "batteries": [
+          "CR2450"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -343,9 +364,13 @@
         "en": "Aqara Button"
       },
       "class": "other",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -371,9 +396,13 @@
         "en": "Aqara Gyro Button"
       },
       "class": "other",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -399,9 +428,13 @@
         "en": "Mi Button"
       },
       "class": "other",
-      "capabilities": ["measure_battery"],
+      "capabilities": [
+        "measure_battery"
+      ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -431,7 +464,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -461,7 +496,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
@@ -627,7 +664,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2450" ]
+        "batteries": [
+          "CR2450"
+        ]
       },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
@@ -691,7 +730,8 @@
       ],
       "energy": {
         "batteries": [
-          "CR2032", "CR2032"
+          "CR2032",
+          "CR2032"
         ]
       },
       "settings": [
@@ -773,7 +813,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
@@ -819,7 +861,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2450" ]
+        "batteries": [
+          "CR2450"
+        ]
       },
       "images": {
         "large": "/drivers/mi-motion/assets/images/large.png",
@@ -864,7 +908,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/leakage_aq1/assets/images/large.png",
@@ -959,7 +1005,9 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/aqara-temphum/assets/images/large.png",
@@ -991,11 +1039,45 @@
         "measure_battery"
       ],
       "energy": {
-        "batteries": [ "CR2032" ]
+        "batteries": [
+          "CR2032"
+        ]
       },
       "images": {
         "large": "/drivers/mijia-temphum/assets/images/large.png",
         "small": "/drivers/mijia-temphum/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "generic-wireless-switch",
+      "name": {
+        "en": "Generic Wireless Switch"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/generic-wireless-switch/assets/images/large.png",
+        "small": "/drivers/generic-wireless-switch/assets/images/small.png"
       },
       "pair": [
         {
@@ -1462,7 +1544,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1475,7 +1557,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1488,7 +1570,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1501,7 +1583,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1514,7 +1596,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1527,7 +1609,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1540,7 +1622,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1553,7 +1635,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
@@ -1566,7 +1648,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
           }
         ]
       },
