@@ -1544,7 +1544,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1557,7 +1557,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1570,7 +1570,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1583,7 +1583,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1596,7 +1596,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1609,7 +1609,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1622,7 +1622,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1635,7 +1635,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -1648,7 +1648,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018|generic-wireless-switch"
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -2036,6 +2036,53 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Raw Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "button",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=generic-wireless-switch"
           }
         ]
       }
