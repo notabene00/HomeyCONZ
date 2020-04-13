@@ -54,22 +54,22 @@ class GenericWirelessSwitch extends Sensor {
 				break;
 		}
 
-		this.log('button ' + buttonIndex + ', action '+ action);
-		this.triggerRaw.trigger(this, {rawEvent: number, button: buttonIndex, actionIndex: actionIndex, action: action});
+		this.log('generic switch event (' + number + ') button: ' + buttonIndex + ', action: '+ action);
+
+		const tokens = {rawEvent: number, buttonIndex: buttonIndex, actionIndex: actionIndex, action: action};
+		const state = {buttonIndex: buttonIndex.toString(), actionIndex: actionIndex.toString()};
+
+		this.triggerRaw.trigger(this, tokens, state);
 	}
 	
 	setTriggers() {
-		this.triggerRaw = new Homey.FlowCardTriggerDevice('raw_switch_event').register();
-
-		this.triggerLeftClicked = new Homey.FlowCardTriggerDevice('left_button_clicked').register();
-		this.triggerRightClicked = new Homey.FlowCardTriggerDevice('right_button_clicked').register();
-		this.triggerBothClicked = new Homey.FlowCardTriggerDevice('both_buttons_clicked').register();
-		this.triggerLeftHeld = new Homey.FlowCardTriggerDevice('left_button_held').register();
-		this.triggerRightHeld = new Homey.FlowCardTriggerDevice('right_button_held').register();
-		this.triggerBothHeld = new Homey.FlowCardTriggerDevice('both_buttons_held').register();
-		this.triggerLeftDoubleClicked = new Homey.FlowCardTriggerDevice('left_button_double_clicked').register();
-		this.triggerRightDoubleClicked = new Homey.FlowCardTriggerDevice('right_button_double_clicked').register();
-		this.triggerBothDoubleClicked = new Homey.FlowCardTriggerDevice('both_buttons_double_clicked').register();
+		this.triggerRaw = new Homey.FlowCardTriggerDevice('raw_switch_event')
+		.register()
+		.registerRunListener((args, state) => {
+			return Promise.resolve(
+				(args.button === '-1' || args.button === state.buttonIndex) &&
+				(args.action === '-1' || args.action === state.actionIndex));
+		});
 	}
 	
 }

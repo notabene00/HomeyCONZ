@@ -2042,7 +2042,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Raw Event"
+          "en": "Event"
         },
         "tokens": [
           {
@@ -2054,7 +2054,7 @@
             "example": 1001
           },
           {
-            "name": "button",
+            "name": "buttonIndex",
             "type": "number",
             "title": {
               "en": "button index"
@@ -2083,6 +2083,120 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=generic-wireless-switch"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Button 2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Button 3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Button 4"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Initial press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (after press)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Release (after hold)"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double press"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Tripple press"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Quadruple press"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Shake"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Drop"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Tilt"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Many presses"
+                }
+              }
+            ]
           }
         ]
       }
