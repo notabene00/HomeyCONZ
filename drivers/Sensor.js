@@ -34,6 +34,50 @@ class Sensor extends Homey.Device {
 		})
 	}
 	
+	getSwitchEventTokens(number) {
+
+		let buttonIndex = (number - (number % 1000) ) / 1000;
+		let actionIndex = number % 1000;
+		let action = 'unknown';
+
+		switch(actionIndex){
+			case 0: 
+				action = 'initial_press';
+				break;
+			case 1: 
+				action = 'hold';
+				break;
+			case 2: 
+				action = 'release_after_press';
+				break;
+			case 3: 
+				action = 'release_after_hold';
+				break;
+			case 4: 
+				action = 'double_press';
+				break;
+			case 5: 
+				action = 'tripple_press';
+				break;
+			case 6: 
+				action = 'quadruple_press';
+				break;
+			case 7: 
+				action = 'shake';
+				break;
+			case 8: 
+				action = 'drop';
+				break;
+			case 9: 
+				action = 'tilt';
+				break;
+			case 10: 
+				action = 'many_presses';
+				break;
+		}
+
+		return {rawEvent: number, buttonIndex: buttonIndex, actionIndex: actionIndex, action: action};
+	}
 }
 
 module.exports = Sensor

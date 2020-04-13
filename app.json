@@ -2117,6 +2117,12 @@
                 "label": {
                   "en": "Button 4"
                 }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Button 5"
+                }
               }
             ]
           },
@@ -2145,7 +2151,7 @@
               {
                 "id": "2",
                 "label": {
-                  "en": "Release (after press)"
+                  "en": "Release (single press)"
                 }
               },
               {
