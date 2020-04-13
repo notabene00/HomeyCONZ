@@ -28,20 +28,20 @@ class SymfoniskRemote extends Sensor {
 				this.triggerPressedThreefold.trigger(this)
 				break
 			case 2001:
-				this.log('Start counter clock wise turn')
-				this.triggerStartCCW.trigger(this)
+				this.log('Start clock wise turn');
+				this.triggerStartCW.trigger(this);
 				break
 			/*case 2003:
-				this.log('Stop counter clock wise turn')
-				this.triggerStopCCW.trigger(this)
-				break*/
-			case 3001:
-				this.log('Start clock wise turn')
-				this.triggerStartCW.trigger(this)
-				break
-			/*case 3003:
 				this.log('Stop clock wise turn')
 				this.triggerStopCW.trigger(this)
+				break*/
+			case 3001:
+				this.log('Start counter clock wise turn');
+				this.triggerStartCCW.trigger(this);
+				break
+			/*case 3003:
+				this.log('Stop counter clock wise turn')
+				this.triggerStopCCW.trigger(this)
 				break*/
 		}
 	}
