@@ -1,0 +1,70 @@
+{
+  "triggers": [
+    {
+      "id": "raw_switch_event",
+      "title": {
+        "en": "Event"
+      },
+      "tokens": [
+        {
+          "name": "rawEvent",
+          "type": "number",
+          "title": {
+            "en": "event"
+          },
+          "example": 1001
+        },
+        {
+          "name": "buttonIndex",
+          "type": "number",
+          "title": {
+            "en": "button index"
+          },
+          "example": 1
+        },
+        {
+          "name": "actionIndex",
+          "type": "number",
+          "title": {
+            "en": "action index"
+          },
+          "example": 1
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "title": {
+            "en": "action"
+          },
+          "example": "initial_press"
+        }
+      ],
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "button",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Button 1"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "action",
+          "values": [
+            {
+              "id": "2",
+              "label": {
+                "en": "Release (single press)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

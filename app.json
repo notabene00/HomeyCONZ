@@ -597,6 +597,77 @@
         ]
       },
       {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016-single-rocker"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (single press)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "left_button_held",
         "title": {
           "en": "Left button held"
@@ -724,39 +795,9 @@
             "name": "button",
             "values": [
               {
-                "id": "-1",
-                "label": {
-                  "en": "Any Button"
-                }
-              },
-              {
                 "id": "1",
                 "label": {
                   "en": "Button 1"
-                }
-              },
-              {
-                "id": "2",
-                "label": {
-                  "en": "Button 2"
-                }
-              },
-              {
-                "id": "3",
-                "label": {
-                  "en": "Button 3"
-                }
-              },
-              {
-                "id": "4",
-                "label": {
-                  "en": "Button 4"
-                }
-              },
-              {
-                "id": "5",
-                "label": {
-                  "en": "Button 5"
                 }
               }
             ]
@@ -772,12 +813,6 @@
                 }
               },
               {
-                "id": "0",
-                "label": {
-                  "en": "Initial press"
-                }
-              },
-              {
                 "id": "1",
                 "label": {
                   "en": "Hold"
@@ -790,51 +825,9 @@
                 }
               },
               {
-                "id": "3",
-                "label": {
-                  "en": "Release (after hold)"
-                }
-              },
-              {
                 "id": "4",
                 "label": {
                   "en": "Double press"
-                }
-              },
-              {
-                "id": "5",
-                "label": {
-                  "en": "Tripple press"
-                }
-              },
-              {
-                "id": "6",
-                "label": {
-                  "en": "Quadruple press"
-                }
-              },
-              {
-                "id": "7",
-                "label": {
-                  "en": "Shake"
-                }
-              },
-              {
-                "id": "8",
-                "label": {
-                  "en": "Drop"
-                }
-              },
-              {
-                "id": "9",
-                "label": {
-                  "en": "Tilt"
-                }
-              },
-              {
-                "id": "10",
-                "label": {
-                  "en": "Many presses"
                 }
               }
             ]
@@ -1593,7 +1586,7 @@
     },
     {
       "name": {
-        "en": "Aqara Wireless 2016 Double Rocker"
+        "en": "Aqara Wireless 2016 Switch Double Rocker"
       },
       "class": "other",
       "capabilities": [
@@ -1624,8 +1617,40 @@
       "id": "aqara-wireless-switch-2016"
     },
     {
+      "id": "aqara-wireless-switch-2016-single-rocker",
       "name": {
-        "en": "Aqara Wireless 2018 Double Rocker"
+        "en": "Aqara Wireless Switch 2016 Single Rocker"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/images/large.png",
+        "small": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Aqara Wireless 2018 Switch Double Rocker"
       },
       "class": "other",
       "capabilities": [
@@ -1658,7 +1683,7 @@
     {
       "id": "aqara-wireless-switch-2018-single-rocker",
       "name": {
-        "en": "aqara-wireless-switch-2018-single-rocker"
+        "en": "Aqara Wireless Switch 2018 Single Rocker"
       },
       "class": "other",
       "capabilities": [

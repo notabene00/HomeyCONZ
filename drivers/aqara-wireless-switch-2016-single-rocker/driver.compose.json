@@ -1,7 +1,7 @@
 {
-  "id": "aqara-wireless-switch-2018-single-rocker",
+  "id": "aqara-wireless-switch-2016-single-rocker",
   "name": {
-    "en": "Aqara Wireless Switch 2018 Single Rocker"
+    "en": "Aqara Wireless Switch 2016 Single Rocker"
   },
   "class": "other",
   "capabilities": [
@@ -13,8 +13,8 @@
     ]
   },
   "images": {
-    "large": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/large.png",
-    "small": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/small.png"
+    "large": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/images/large.png",
+    "small": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/images/small.png"
   },
   "pair": [
     {
