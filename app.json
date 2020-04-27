@@ -457,7 +457,7 @@
     {
       "id": "aqara-wireless-switch-2016",
       "name": {
-        "en": "Aqara Wireless 2016"
+        "en": "Aqara Wireless 2016 Double Rocker"
       },
       "class": "other",
       "capabilities": [
@@ -489,7 +489,7 @@
     {
       "id": "aqara-wireless-switch-2018",
       "name": {
-        "en": "Aqara Wireless 2018"
+        "en": "Aqara Wireless 2018 Double Rocker"
       },
       "class": "other",
       "capabilities": [
