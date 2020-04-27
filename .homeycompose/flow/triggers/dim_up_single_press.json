@@ -1,0 +1,13 @@
+{
+  "id": "dim_up_single_press",
+  "title": {
+    "en": "Dim Up Single Press"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+    }
+  ]
+}

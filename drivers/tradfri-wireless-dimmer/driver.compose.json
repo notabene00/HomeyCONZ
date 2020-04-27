@@ -1,0 +1,31 @@
+{
+  "name": {
+    "en": "TRADFRI wireless dimmer"
+  },
+  "class": "other",
+  "capabilities": [
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "/drivers/hue-warm-white/assets/images/large.png",
+    "small": "/drivers/hue-warm-white/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

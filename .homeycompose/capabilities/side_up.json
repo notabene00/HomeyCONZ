@@ -1,0 +1,13 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Side up"
+  },
+  "icon": "/drivers/aqara-cube/assets/side_up.svg",
+  "getable": true,
+  "setable": false,
+  "min": 1,
+  "max": 6,
+  "uiComponent": "sensor",
+  "uiQuickAction": false
+}

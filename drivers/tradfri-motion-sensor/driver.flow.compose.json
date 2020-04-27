@@ -1,0 +1,11 @@
+{
+  "conditions": [
+    {
+      "id": "is_dark",
+      "title": {
+        "en": "Is !{{dark|light}}"
+      },
+      "args": []
+    }
+  ]
+}

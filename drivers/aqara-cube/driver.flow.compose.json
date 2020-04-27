@@ -1,0 +1,107 @@
+{
+  "triggers": [
+    {
+      "id": "double_tap",
+      "title": {
+        "en": "Cube double tapped"
+      },
+      "args": []
+    },
+    {
+      "id": "push",
+      "title": {
+        "en": "Cube pushed"
+      },
+      "args": []
+    },
+    {
+      "id": "wake_up",
+      "title": {
+        "en": "Cube waked up"
+      },
+      "args": []
+    },
+    {
+      "id": "drop",
+      "title": {
+        "en": "Cube dropped"
+      },
+      "args": []
+    },
+    {
+      "id": "flip90",
+      "title": {
+        "en": "Cube flipped 90"
+      },
+      "args": []
+    },
+    {
+      "id": "flip180",
+      "title": {
+        "en": "Cube flipped 180"
+      },
+      "args": []
+    },
+    {
+      "id": "rotate",
+      "title": {
+        "en": "Cube rotated"
+      },
+      "tokens": [
+        {
+          "name": "degrees",
+          "type": "number",
+          "title": {
+            "en": "Degrees"
+          },
+          "example": 90
+        }
+      ],
+      "args": []
+    }
+  ],
+  "conditions": [
+    {
+      "id": "is_first_side",
+      "title": {
+        "en": "Is !{{|not}} on first side"
+      },
+      "args": []
+    },
+    {
+      "id": "is_second_side",
+      "title": {
+        "en": "Is !{{|not}} on second side"
+      },
+      "args": []
+    },
+    {
+      "id": "is_third_side",
+      "title": {
+        "en": "Is !{{|not}} on fird side"
+      },
+      "args": []
+    },
+    {
+      "id": "is_fourth_side",
+      "title": {
+        "en": "Is !{{|not}} on fourth side"
+      },
+      "args": []
+    },
+    {
+      "id": "is_fifth_side",
+      "title": {
+        "en": "Is !{{|not}} on fifth side"
+      },
+      "args": []
+    },
+    {
+      "id": "is_sixth_side",
+      "title": {
+        "en": "Is !{{|not}} on sixth side"
+      },
+      "args": []
+    }
+  ]
+}

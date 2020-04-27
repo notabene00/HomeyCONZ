@@ -1,0 +1,13 @@
+{
+  "id": "dim_down_released",
+  "title": {
+    "en": "Dim Down Released"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+    }
+  ]
+}

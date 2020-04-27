@@ -1,0 +1,48 @@
+{
+  "id": "de.dresdenelectronic.deconz",
+  "version": "0.14.1",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "deCONZ (temp)"
+  },
+  "description": {
+    "en": "Adds support for deCONZ's [raspbee/conbee] child devices"
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Philippe Wechsler",
+    "email": "fantomnotabene@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Skorpion"
+      },
+      {
+        "name": "k4mrat"
+      },
+      {
+        "name": "MadMonkey87"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "fantomnotabene"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/fantomnotabene/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
+  },
+  "source": "https://github.com/fantomnotabene/HomeyCONZ"
+}

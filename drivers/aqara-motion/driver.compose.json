@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "Aqara Motion"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_motion",
+    "measure_luminance",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2450"
+    ]
+  },
+  "images": {
+    "large": "/drivers/mi-motion/assets/images/large.png",
+    "small": "/drivers/mi-motion/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "no_motion_timeout",
+      "type": "number",
+      "label": {
+        "en": "No motion timeout"
+      },
+      "min": 0,
+      "value": 60,
+      "hint": {
+        "en": "Timeout will enlong time in the drawdown"
+      }
+    }
+  ]
+}

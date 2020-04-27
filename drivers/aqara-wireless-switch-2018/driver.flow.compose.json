@@ -1,0 +1,46 @@
+{
+  "triggers": [
+    {
+      "id": "left_button_held",
+      "title": {
+        "en": "Left button held"
+      },
+      "args": []
+    },
+    {
+      "id": "right_button_held",
+      "title": {
+        "en": "Right button held"
+      },
+      "args": []
+    },
+    {
+      "id": "both_buttons_held",
+      "title": {
+        "en": "Both buttons held"
+      },
+      "args": []
+    },
+    {
+      "id": "left_button_double_clicked",
+      "title": {
+        "en": "Left button double clicked"
+      },
+      "args": []
+    },
+    {
+      "id": "right_button_double_clicked",
+      "title": {
+        "en": "Right button double clicked"
+      },
+      "args": []
+    },
+    {
+      "id": "both_buttons_double_clicked",
+      "title": {
+        "en": "Both buttons double clicked"
+      },
+      "args": []
+    }
+  ]
+}

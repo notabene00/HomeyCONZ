@@ -1,0 +1,13 @@
+{
+  "id": "shake",
+  "title": {
+    "en": "Shaked"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=aqara-cube|aqara-button-gyro"
+    }
+  ]
+}

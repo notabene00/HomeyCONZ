@@ -1,0 +1,14 @@
+{
+  "id": "button_held",
+  "title": {
+    "en": "Button held",
+    "nl": "Knop lang ingedrukt"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=mi-button|aqara-button-gyro"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "start_ccw_rotate",
+  "title": {
+    "en": "Remote has been rotated counter clockwise",
+    "nl": "Afstandsbediening tegen de klok in gedraaid"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+    }
+  ]
+}

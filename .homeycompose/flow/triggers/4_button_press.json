@@ -1,0 +1,14 @@
+{
+  "id": "4_button_press",
+  "title": {
+    "en": "Button pressed fourfold",
+    "nl": "Knop 4x ingedrukt"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=mi-button|aqara-button"
+    }
+  ]
+}

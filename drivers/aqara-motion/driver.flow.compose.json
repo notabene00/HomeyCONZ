@@ -1,0 +1,21 @@
+{
+  "triggers": [
+    {
+      "id": "motion_with_luminance",
+      "title": {
+        "en": "Motion on with luminance"
+      },
+      "tokens": [
+        {
+          "name": "luminance",
+          "type": "number",
+          "title": {
+            "en": "Luminance"
+          },
+          "example": 256
+        }
+      ],
+      "args": []
+    }
+  ]
+}

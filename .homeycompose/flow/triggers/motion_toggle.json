@@ -1,0 +1,13 @@
+{
+  "id": "motion_toggle",
+  "title": {
+    "en": "Motion alarm turned on/off"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=aqara-motion|mi-motion"
+    }
+  ]
+}

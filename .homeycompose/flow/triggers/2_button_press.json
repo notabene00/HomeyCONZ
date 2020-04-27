@@ -1,0 +1,14 @@
+{
+  "id": "2_button_press",
+  "title": {
+    "en": "Button pressed twice",
+    "nl": "Knop 2x ingedrukt"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
+    }
+  ]
+}

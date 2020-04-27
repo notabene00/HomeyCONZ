@@ -1,0 +1,38 @@
+{
+  "name": {
+    "en": "Lamp"
+  },
+  "class": "light",
+  "capabilities": [],
+  "images": {
+    "large": "/drivers/hue-warm-white/assets/images/large.png",
+    "small": "/drivers/hue-warm-white/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "dim_duration",
+      "type": "number",
+      "label": {
+        "en": "Transition time"
+      },
+      "min": 0,
+      "value": 1,
+      "hint": {
+        "en": "Transition time between brightnesses"
+      }
+    }
+  ]
+}

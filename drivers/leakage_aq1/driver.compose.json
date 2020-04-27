@@ -1,0 +1,32 @@
+{
+  "name": {
+    "en": "Aqara Leakage Sensor"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_water",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "/drivers/leakage_aq1/assets/images/large.png",
+    "small": "/drivers/leakage_aq1/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

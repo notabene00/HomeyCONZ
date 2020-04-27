@@ -1,0 +1,12 @@
+{
+  "triggers": [
+    {
+      "id": "button_released",
+      "title": {
+        "en": "Button released",
+        "nl": "Knop losgelaten"
+      },
+      "args": []
+    }
+  ]
+}

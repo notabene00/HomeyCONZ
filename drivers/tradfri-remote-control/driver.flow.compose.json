@@ -1,0 +1,53 @@
+{
+  "triggers": [
+    {
+      "id": "on_off_button_pressed",
+      "title": {
+        "en": "On/Off button pressed"
+      },
+      "args": []
+    },
+    {
+      "id": "scene_right_held",
+      "title": {
+        "en": "Scene Right Held"
+      },
+      "args": []
+    },
+    {
+      "id": "scene_right_single_press",
+      "title": {
+        "en": "Scene Right Single Press"
+      },
+      "args": []
+    },
+    {
+      "id": "scene_right_released",
+      "title": {
+        "en": "Scene Right Released"
+      },
+      "args": []
+    },
+    {
+      "id": "scene_left_held",
+      "title": {
+        "en": "Scene Left Held"
+      },
+      "args": []
+    },
+    {
+      "id": "scene_left_single_press",
+      "title": {
+        "en": "Scene Left Single Press"
+      },
+      "args": []
+    },
+    {
+      "id": "scene_left_released",
+      "title": {
+        "en": "Scene Left Released"
+      },
+      "args": []
+    }
+  ]
+}

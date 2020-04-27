@@ -1,0 +1,20 @@
+{
+  "triggers": [
+    {
+      "id": "sharp_ccw_rotate",
+      "title": {
+        "en": "Remote has been sharply rotated counter clockwise",
+        "nl": "Afstandsbediening tegen de klok in gedraaid"
+      },
+      "args": []
+    },
+    {
+      "id": "sharp_cw_rotate",
+      "title": {
+        "en": "Remote has been sharply rotated clockwise",
+        "nl": "Afstandsbediening met de klok mee gedraaid"
+      },
+      "args": []
+    }
+  ]
+}

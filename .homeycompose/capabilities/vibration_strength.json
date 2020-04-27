@@ -1,0 +1,12 @@
+{
+  "type": "number",
+  "decimals": 0,
+  "title": {
+    "en": "Vibration strength"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "uiQuickAction": false,
+  "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg"
+}

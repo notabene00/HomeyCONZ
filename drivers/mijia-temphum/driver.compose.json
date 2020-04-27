@@ -1,0 +1,33 @@
+{
+  "name": {
+    "en": "Mijia TempHum"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_humidity",
+    "measure_temperature",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "/drivers/mijia-temphum/assets/images/large.png",
+    "small": "/drivers/mijia-temphum/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

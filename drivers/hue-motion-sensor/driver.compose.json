@@ -1,0 +1,48 @@
+{
+  "name": {
+    "en": "Hue Motion Sensor"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_motion",
+    "measure_luminance",
+    "measure_temperature",
+    "measure_battery"
+  ],
+  "images": {
+    "large": "/drivers/mi-motion/assets/images/large.png",
+    "small": "/drivers/mi-motion/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "energy": {
+    "batteries": [
+      "AAA"
+    ]
+  },
+  "settings": [
+    {
+      "id": "no_motion_timeout",
+      "type": "number",
+      "label": {
+        "en": "No motion timeout"
+      },
+      "min": 0,
+      "value": 60,
+      "hint": {
+        "en": "Timeout will enlong time in the drawdown"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": {
+    "en": "Aqara Vibration"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "vibration_alarm",
+    "tilt_alarm",
+    "vibration_strength",
+    "tilt_angle",
+    "relative_tilt_angle",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "/drivers/mi-motion/assets/images/large.png",
+    "small": "/drivers/mi-motion/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "no_tilt_timeout",
+      "type": "number",
+      "label": {
+        "en": "No tilt timeout"
+      },
+      "min": 0,
+      "value": 10,
+      "hint": {
+        "en": "Timeout will enlong time in the drawdown"
+      }
+    }
+  ]
+}

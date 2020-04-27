@@ -1,0 +1,12 @@
+{
+  "type": "number",
+  "decimals": 2,
+  "title": {
+    "en": "Tilt angle"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "uiQuickAction": false,
+  "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
+}
