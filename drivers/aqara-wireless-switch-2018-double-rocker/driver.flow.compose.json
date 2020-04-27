@@ -45,9 +45,27 @@
           "name": "button",
           "values": [
             {
+              "id": "-1",
+              "label": {
+                "en": "Any Button"
+              }
+            },
+            {
               "id": "1",
               "label": {
-                "en": "Button 1"
+                "en": "Left Button"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Right Button"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Both Buttons"
               }
             }
           ]
@@ -57,9 +75,27 @@
           "name": "action",
           "values": [
             {
+              "id": "-1",
+              "label": {
+                "en": "Any Action"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Hold"
+              }
+            },
+            {
               "id": "2",
               "label": {
                 "en": "Single Press"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Double Press"
               }
             }
           ]

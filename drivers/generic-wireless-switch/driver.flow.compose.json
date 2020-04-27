@@ -95,7 +95,7 @@
             {
               "id": "0",
               "label": {
-                "en": "Initial press"
+                "en": "Initial Press"
               }
             },
             {
@@ -107,31 +107,31 @@
             {
               "id": "2",
               "label": {
-                "en": "Release (single press)"
+                "en": "Release (Single Press)"
               }
             },
             {
               "id": "3",
               "label": {
-                "en": "Release (after hold)"
+                "en": "Release (After Hold)"
               }
             },
             {
               "id": "4",
               "label": {
-                "en": "Double press"
+                "en": "Double Press"
               }
             },
             {
               "id": "5",
               "label": {
-                "en": "Tripple press"
+                "en": "Tripple Press"
               }
             },
             {
               "id": "6",
               "label": {
-                "en": "Quadruple press"
+                "en": "Quadruple Press"
               }
             },
             {

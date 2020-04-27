@@ -45,9 +45,27 @@
           "name": "button",
           "values": [
             {
+              "id": "-1",
+              "label": {
+                "en": "Any Button"
+              }
+            },
+            {
               "id": "1",
               "label": {
-                "en": "Button 1"
+                "en": "Left Button"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Right Button"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Both Buttons"
               }
             }
           ]

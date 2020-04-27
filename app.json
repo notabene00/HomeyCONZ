@@ -660,7 +660,7 @@
               {
                 "id": "2",
                 "label": {
-                  "en": "Release (single press)"
+                  "en": "Single Press"
                 }
               }
             ]
@@ -668,80 +668,109 @@
         ]
       },
       {
-        "id": "left_button_held",
+        "id": "raw_switch_event",
         "title": {
-          "en": "Left button held"
+          "en": "Event"
         },
-        "args": [
+        "tokens": [
           {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
           }
-        ]
-      },
-      {
-        "id": "right_button_held",
-        "title": {
-          "en": "Right button held"
-        },
+        ],
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "both_buttons_held",
-        "title": {
-          "en": "Both buttons held"
-        },
-        "args": [
+            "filter": "driver_id=aqara-wireless-switch-2018-double-rocker"
+          },
           {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "left_button_double_clicked",
-        "title": {
-          "en": "Left button double clicked"
-        },
-        "args": [
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Left Button"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Right Button"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Both Buttons"
+                }
+              }
+            ]
+          },
           {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "right_button_double_clicked",
-        "title": {
-          "en": "Right button double clicked"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "both_buttons_double_clicked",
-        "title": {
-          "en": "Both buttons double clicked"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Press"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Press"
+                }
+              }
+            ]
           }
         ]
       },
@@ -821,13 +850,13 @@
               {
                 "id": "2",
                 "label": {
-                  "en": "Release (single press)"
+                  "en": "Single Press"
                 }
               },
               {
                 "id": "4",
                 "label": {
-                  "en": "Double press"
+                  "en": "Double Press"
                 }
               }
             ]
@@ -934,7 +963,7 @@
               {
                 "id": "0",
                 "label": {
-                  "en": "Initial press"
+                  "en": "Initial Press"
                 }
               },
               {
@@ -946,31 +975,31 @@
               {
                 "id": "2",
                 "label": {
-                  "en": "Release (single press)"
+                  "en": "Release (Single Press)"
                 }
               },
               {
                 "id": "3",
                 "label": {
-                  "en": "Release (after hold)"
+                  "en": "Release (After Hold)"
                 }
               },
               {
                 "id": "4",
                 "label": {
-                  "en": "Double press"
+                  "en": "Double Press"
                 }
               },
               {
                 "id": "5",
                 "label": {
-                  "en": "Tripple press"
+                  "en": "Tripple Press"
                 }
               },
               {
                 "id": "6",
                 "label": {
-                  "en": "Quadruple press"
+                  "en": "Quadruple Press"
                 }
               },
               {
@@ -1614,7 +1643,7 @@
           "template": "add_devices"
         }
       ],
-      "id": "aqara-wireless-switch-2016"
+      "id": "aqara-wireless-switch-2016-double-rocker"
     },
     {
       "id": "aqara-wireless-switch-2016-single-rocker",
@@ -1649,8 +1678,9 @@
       ]
     },
     {
+      "id": "aqara-wireless-switch-2018-double-rocker",
       "name": {
-        "en": "Aqara Wireless 2018 Switch Double Rocker"
+        "en": "Aqara Wireless Switch 2018 Double Rocker"
       },
       "class": "other",
       "capabilities": [
@@ -1662,8 +1692,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/large.png",
+        "small": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/small.png"
       },
       "pair": [
         {
@@ -1677,8 +1707,7 @@
           "id": "add_devices",
           "template": "add_devices"
         }
-      ],
-      "id": "aqara-wireless-switch-2018"
+      ]
     },
     {
       "id": "aqara-wireless-switch-2018-single-rocker",

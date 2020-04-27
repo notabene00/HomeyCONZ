@@ -1,6 +1,7 @@
 {
+  "id": "aqara-wireless-switch-2018-double-rocker",
   "name": {
-    "en": "Aqara Wireless 2016 Switch Double Rocker"
+    "en": "Aqara Wireless Switch 2018 Double Rocker"
   },
   "class": "other",
   "capabilities": [
@@ -12,8 +13,8 @@
     ]
   },
   "images": {
-    "large": "/drivers/hue-warm-white/assets/images/large.png",
-    "small": "/drivers/hue-warm-white/assets/images/small.png"
+    "large": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/images/large.png",
+    "small": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/images/small.png"
   },
   "pair": [
     {

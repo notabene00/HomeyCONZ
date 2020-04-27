@@ -71,13 +71,13 @@
             {
               "id": "2",
               "label": {
-                "en": "Release (single press)"
+                "en": "Single Press"
               }
             },
             {
               "id": "4",
               "label": {
-                "en": "Double press"
+                "en": "Double Press"
               }
             }
           ]

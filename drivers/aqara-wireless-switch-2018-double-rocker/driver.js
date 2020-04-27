@@ -2,11 +2,11 @@
 
 const Driver = require('../Driver')
 
-class AqaraWirelessSwitch2018Driver extends Driver {
+class AqaraWirelessSwitch2018DoubleRockerDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('AqaraWirelessSwitch2018Driver has been initiated')
+		this.log('AqaraWirelessSwitch2018DoubleRockerDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
@@ -15,4 +15,4 @@ class AqaraWirelessSwitch2018Driver extends Driver {
 	
 }
 
-module.exports = AqaraWirelessSwitch2018Driver
+module.exports = AqaraWirelessSwitch2018DoubleRockerDriver
