@@ -14,46 +14,23 @@ class SymfoniskRemote extends Sensor {
 	}
 	
 	fireEvent(number) {
-		switch (number) {
-			case 1002:
-				this.log('pressed once')
-				this.triggerPressedOnce.trigger(this)
-				break		
-			case 1004:
-				this.log('pressed twice')
-				this.triggerPressedTwice.trigger(this)
-				break
-			case 1005:
-				this.log('pressed threefold')
-				this.triggerPressedThreefold.trigger(this)
-				break
-			case 2001:
-				this.log('Start clock wise turn');
-				this.triggerStartCW.trigger(this);
-				break
-			/*case 2003:
-				this.log('Stop clock wise turn')
-				this.triggerStopCW.trigger(this)
-				break*/
-			case 3001:
-				this.log('Start counter clock wise turn');
-				this.triggerStartCCW.trigger(this);
-				break
-			/*case 3003:
-				this.log('Stop counter clock wise turn')
-				this.triggerStopCCW.trigger(this)
-				break*/
-		}
+
+		const tokens = this.getSwitchEventTokens(number);
+		const state = {buttonIndex: tokens.buttonIndex.toString(), actionIndex: tokens.actionIndex.toString()};
+
+		this.log('symphonisk switch event (' + number + ') button: ' + tokens.buttonIndex + ', action: '+ tokens.action);
+
+		this.triggerRaw.trigger(this, tokens, state);
 	}
 	
 	setTriggers() {
-		this.triggerPressedOnce = new Homey.FlowCardTriggerDevice('1_button_press').register()
-		this.triggerPressedTwice = new Homey.FlowCardTriggerDevice('2_button_press').register()
-		this.triggerPressedThreefold = new Homey.FlowCardTriggerDevice('3_button_press').register()
-		this.triggerStartCCW = new Homey.FlowCardTriggerDevice('start_ccw_rotate').register()
-		//this.triggerStopCCW = new Homey.FlowCardTriggerDevice('stop_ccw_rotate').register()
-		this.triggerStartCW = new Homey.FlowCardTriggerDevice('start_cw_rotate').register()
-		//this.triggerStopCW = new Homey.FlowCardTriggerDevice('stop_cw_rotate').register()
+		this.triggerRaw = new Homey.FlowCardTriggerDevice('raw_switch_event')
+		.register()
+		.registerRunListener((args, state) => {
+			return Promise.resolve(
+				(args.button === '-1' || args.button === state.buttonIndex) &&
+				(args.action === '-1' || args.action === state.actionIndex));
+		});
 	}
 	
 }

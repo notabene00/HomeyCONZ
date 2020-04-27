@@ -639,6 +639,95 @@
           {
             "type": "device",
             "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016-double-rocker"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Left Button"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Right Button"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Both Buttons"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
             "filter": "driver_id=aqara-wireless-switch-2016-single-rocker"
           },
           {
@@ -1054,6 +1143,119 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=plug"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=symfonisk-remote"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button/Action"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Turn Clockwise"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Turn Counter Clockwise"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Press"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Start Rotation"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "End Rotation"
+                }
+              }
+            ]
           }
         ]
       },
@@ -1614,8 +1816,9 @@
       "id": "aqara-vibration"
     },
     {
+      "id": "aqara-wireless-switch-2016-double-rocker",
       "name": {
-        "en": "Aqara Wireless 2016 Switch Double Rocker"
+        "en": "Aqara Wireless Switch 2016 Double Rocker"
       },
       "class": "other",
       "capabilities": [
@@ -1627,8 +1830,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/aqara-wireless-switch-2016-double-rocker/assets/images/large.png",
+        "small": "/drivers/aqara-wireless-switch-2016-double-rocker/assets/images/small.png"
       },
       "pair": [
         {
@@ -1642,8 +1845,7 @@
           "id": "add_devices",
           "template": "add_devices"
         }
-      ],
-      "id": "aqara-wireless-switch-2016-double-rocker"
+      ]
     },
     {
       "id": "aqara-wireless-switch-2016-single-rocker",
@@ -1692,8 +1894,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/large.png",
-        "small": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/small.png"
+        "large": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/images/large.png",
+        "small": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/images/small.png"
       },
       "pair": [
         {
@@ -2211,7 +2413,14 @@
         "en": "Symfonisk Remote"
       },
       "class": "other",
-      "capabilities": [],
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
       "images": {
         "large": "/drivers/hue-warm-white/assets/images/large.png",
         "small": "/drivers/hue-warm-white/assets/images/small.png"

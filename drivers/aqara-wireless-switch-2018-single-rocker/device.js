@@ -18,7 +18,7 @@ class AqaraWirelessSwitchSingleRocker2018 extends Sensor {
 		const tokens = this.getSwitchEventTokens(number);
 		const state = {buttonIndex: tokens.buttonIndex.toString(), actionIndex: tokens.actionIndex.toString()};
 
-		this.log('generic switch event (' + number + ') button: ' + tokens.buttonIndex + ', action: '+ tokens.action);
+		this.log('aqara wireless (single rocker, 2018) switch event (' + number + ') button: ' + tokens.buttonIndex + ', action: '+ tokens.action);
 
 		this.triggerRaw.trigger(this, tokens, state);
 	}
