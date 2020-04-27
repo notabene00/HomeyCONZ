@@ -1,0 +1,32 @@
+{
+  "id": "aqara-wireless-switch-2018-single-rocker",
+  "name": {
+    "en": "aqara-wireless-switch-2018-single-rocker"
+  },
+  "class": "other",
+  "capabilities": [
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/large.png",
+    "small": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/small.png"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

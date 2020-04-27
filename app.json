@@ -45,1641 +45,8 @@
     "url": "https://github.com/fantomnotabene/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
   },
   "source": "https://github.com/fantomnotabene/HomeyCONZ",
-  "capabilities": {
-    "dark": {
-      "type": "boolean",
-      "title": {
-        "en": "Dark"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
-    },
-    "side_up": {
-      "type": "number",
-      "title": {
-        "en": "Side up"
-      },
-      "icon": "/drivers/aqara-cube/assets/side_up.svg",
-      "getable": true,
-      "setable": false,
-      "min": 1,
-      "max": 6,
-      "uiComponent": "sensor",
-      "uiQuickAction": false
-    },
-    "vibration_alarm": {
-      "type": "boolean",
-      "title": {
-        "en": "Vibration alarm"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/aqara-vibration/assets/vibration_alarm.svg"
-    },
-    "vibration_strength": {
-      "type": "number",
-      "decimals": 0,
-      "title": {
-        "en": "Vibration strength"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg"
-    },
-    "tilt_alarm": {
-      "type": "boolean",
-      "title": {
-        "en": "Tilt alarm"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/aqara-vibration/assets/tilt_alarm.svg"
-    },
-    "tilt_angle": {
-      "type": "number",
-      "decimals": 2,
-      "title": {
-        "en": "Tilt angle"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
-    },
-    "relative_tilt_angle": {
-      "type": "number",
-      "decimals": 2,
-      "title": {
-        "en": "Relative tilt angle"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
-    }
-  },
-  "drivers": [
-    {
-      "id": "tradfri-square-dimmer",
-      "name": {
-        "en": "Tradfri Square Dimmer"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "tradfri-remote-control",
-      "name": {
-        "en": "Tradfri Remote Control"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "hue-dimmer-switch",
-      "name": {
-        "en": "Philips Hue Dimmer Switch"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2450"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "sensor_smoke",
-      "name": {
-        "en": "Honeywell Smoke"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_smoke",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR123A"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "mi-magnet",
-      "name": {
-        "en": "Mi Magnet"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_contact",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR1632"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-magnet",
-      "name": {
-        "en": "Aqara Magnet"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_contact",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR1632"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-cube",
-      "name": {
-        "en": "Aqara Cube"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "side_up",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2450"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-button",
-      "name": {
-        "en": "Aqara Button"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-button-gyro",
-      "name": {
-        "en": "Aqara Gyro Button"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "mi-button",
-      "name": {
-        "en": "Mi Button"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-wireless-switch-2016",
-      "name": {
-        "en": "Aqara Wireless 2016 Double Rocker"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-wireless-switch-2018",
-      "name": {
-        "en": "Aqara Wireless 2018 Double Rocker"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "tradfri-wireless-dimmer",
-      "name": {
-        "en": "TRADFRI wireless dimmer"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "symfonisk-remote",
-      "name": {
-        "en": "Symfonisk Remote"
-      },
-      "class": "other",
-      "capabilities": [],
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "lamp",
-      "name": {
-        "en": "Lamp"
-      },
-      "class": "light",
-      "capabilities": [],
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "dim_duration",
-          "type": "number",
-          "label": {
-            "en": "Transition time"
-          },
-          "min": 0,
-          "value": 1,
-          "hint": {
-            "en": "Transition time between brightnesses"
-          }
-        }
-      ]
-    },
-    {
-      "id": "group",
-      "name": {
-        "en": "Group"
-      },
-      "class": "light",
-      "capabilities": [],
-      "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "dim_duration",
-          "type": "number",
-          "label": {
-            "en": "Transition time"
-          },
-          "min": 0,
-          "value": 1,
-          "hint": {
-            "en": "Transition time between brightnesses"
-          }
-        }
-      ]
-    },
-    {
-      "id": "mi-motion",
-      "name": {
-        "en": "Mi Motion"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_motion",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2450"
-        ]
-      },
-      "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "no_motion_timeout",
-          "type": "number",
-          "label": {
-            "en": "No motion timeout"
-          },
-          "min": 0,
-          "value": 60,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
-        }
-      ]
-    },
-    {
-      "id": "tradfri-motion-sensor",
-      "name": {
-        "en": "Tradfri Motion Sensor"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_motion",
-        "dark",
-        "measure_battery"
-      ],
-      "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032",
-          "CR2032"
-        ]
-      },
-      "settings": [
-        {
-          "id": "no_motion_timeout",
-          "type": "number",
-          "label": {
-            "en": "No motion timeout"
-          },
-          "min": 0,
-          "value": 60,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
-        }
-      ]
-    },
-    {
-      "id": "hue-motion-sensor",
-      "name": {
-        "en": "Hue Motion Sensor"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_motion",
-        "measure_luminance",
-        "measure_temperature",
-        "measure_battery"
-      ],
-      "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "energy": {
-        "batteries": [
-          "AAA"
-        ]
-      },
-      "settings": [
-        {
-          "id": "no_motion_timeout",
-          "type": "number",
-          "label": {
-            "en": "No motion timeout"
-          },
-          "min": 0,
-          "value": 60,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
-        }
-      ]
-    },
-    {
-      "id": "aqara-vibration",
-      "name": {
-        "en": "Aqara Vibration"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "vibration_alarm",
-        "tilt_alarm",
-        "vibration_strength",
-        "tilt_angle",
-        "relative_tilt_angle",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "no_tilt_timeout",
-          "type": "number",
-          "label": {
-            "en": "No tilt timeout"
-          },
-          "min": 0,
-          "value": 10,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
-        }
-      ]
-    },
-    {
-      "id": "aqara-motion",
-      "name": {
-        "en": "Aqara Motion"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_motion",
-        "measure_luminance",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2450"
-        ]
-      },
-      "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "no_motion_timeout",
-          "type": "number",
-          "label": {
-            "en": "No motion timeout"
-          },
-          "min": 0,
-          "value": 60,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
-        }
-      ]
-    },
-    {
-      "id": "leakage_aq1",
-      "name": {
-        "en": "Aqara Leakage Sensor"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_water",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/leakage_aq1/assets/images/large.png",
-        "small": "/drivers/leakage_aq1/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "plug",
-      "name": {
-        "en": "Plug"
-      },
-      "class": "socket",
-      "capabilities": [
-        "onoff"
-      ],
-      "images": {
-        "large": "/drivers/plug/assets/images/large.png",
-        "small": "/drivers/plug/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "choose_slave"
-          }
-        },
-        {
-          "id": "choose_slave",
-          "template": "choose_slave",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "blinds",
-      "name": {
-        "en": "Blinds"
-      },
-      "class": "windowcoverings",
-      "capabilities": [
-        "onoff",
-        "dim"
-      ],
-      "images": {
-        "large": "/drivers/blinds/assets/images/large.png",
-        "small": "/drivers/blinds/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "aqara-temphum",
-      "name": {
-        "en": "Aqara Temp/Hum"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "measure_temperature",
-        "measure_humidity",
-        "measure_pressure",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/aqara-temphum/assets/images/large.png",
-        "small": "/drivers/aqara-temphum/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "mijia-temphum",
-      "name": {
-        "en": "Mijia TempHum"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "measure_humidity",
-        "measure_temperature",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/mijia-temphum/assets/images/large.png",
-        "small": "/drivers/mijia-temphum/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    },
-    {
-      "id": "generic-wireless-switch",
-      "name": {
-        "en": "Generic Wireless Switch"
-      },
-      "class": "other",
-      "capabilities": [
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
-      "images": {
-        "large": "/drivers/generic-wireless-switch/assets/images/large.png",
-        "small": "/drivers/generic-wireless-switch/assets/images/small.png"
-      },
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ]
-    }
-  ],
   "flow": {
-    "conditions": [
-      {
-        "id": "is_dark",
-        "title": {
-          "en": "Is !{{dark|light}}"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-motion-sensor"
-          }
-        ]
-      },
-      {
-        "id": "is_vibration_alarm_active",
-        "title": {
-          "en": "Is vibration !{{|not}} detected"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "is_tilt_alarm_active",
-        "title": {
-          "en": "Is tilt !{{|not}} detected"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "is_vibration_strength_greater_than",
-        "title": {
-          "en": "Is vibration strength !{{greater|lower}}"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          },
-          {
-            "name": "value",
-            "type": "number"
-          }
-        ]
-      },
-      {
-        "id": "is_tilt_angle_greater_than",
-        "title": {
-          "en": "Is tilt angle !{{greater|lower}}"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          },
-          {
-            "name": "value",
-            "type": "number"
-          }
-        ]
-      },
-      {
-        "id": "is_relative_tilt_angle_greater_than",
-        "title": {
-          "en": "Is relative tilt angle !{{greater|lower}}"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          },
-          {
-            "name": "value",
-            "type": "number"
-          }
-        ]
-      },
-      {
-        "id": "is_first_side",
-        "title": {
-          "en": "Is !{{|not}} on first side"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "is_second_side",
-        "title": {
-          "en": "Is !{{|not}} on second side"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "is_third_side",
-        "title": {
-          "en": "Is !{{|not}} on fird side"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "is_fourth_side",
-        "title": {
-          "en": "Is !{{|not}} on fourth side"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "is_fifth_side",
-        "title": {
-          "en": "Is !{{|not}} on fifth side"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "is_sixth_side",
-        "title": {
-          "en": "Is !{{|not}} on sixth side"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      }
-    ],
     "triggers": [
-      {
-        "id": "vibration_alarm_on",
-        "title": {
-          "en": "Vibration alarm on"
-        },
-        "tokens": [
-          {
-            "name": "strength",
-            "type": "number",
-            "title": {
-              "en": "Strength"
-            },
-            "example": 110
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "tilt_alarm_on",
-        "title": {
-          "en": "Tilt alarm on"
-        },
-        "tokens": [
-          {
-            "name": "angle",
-            "type": "number",
-            "title": {
-              "en": "Angle"
-            },
-            "example": 90
-          },
-          {
-            "name": "relative_angle",
-            "type": "number",
-            "title": {
-              "en": "Relative angle"
-            },
-            "example": 90
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "tilt_alarm_off",
-        "title": {
-          "en": "Tilt alarm off"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "vibration_alarm_off",
-        "title": {
-          "en": "Vibration alarm off"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "tilt_alarm_toggle",
-        "title": {
-          "en": "Tilt alarm toggle"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "vibration_alarm_toggle",
-        "title": {
-          "en": "Vibration alarm toggle"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-vibration"
-          }
-        ]
-      },
-      {
-        "id": "motion_toggle",
-        "title": {
-          "en": "Motion alarm turned on/off"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-motion|mi-motion"
-          }
-        ]
-      },
-      {
-        "id": "switched",
-        "title": {
-          "en": "Switched"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=plug"
-          }
-        ]
-      },
-      {
-        "id": "double_tap",
-        "title": {
-          "en": "Cube double tapped"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "push",
-        "title": {
-          "en": "Cube pushed"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "wake_up",
-        "title": {
-          "en": "Cube waked up"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "shake",
-        "title": {
-          "en": "Shaked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube|aqara-button-gyro"
-          }
-        ]
-      },
-      {
-        "id": "drop",
-        "title": {
-          "en": "Cube dropped"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "flip90",
-        "title": {
-          "en": "Cube flipped 90"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "flip180",
-        "title": {
-          "en": "Cube flipped 180"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "rotate",
-        "title": {
-          "en": "Cube rotated"
-        },
-        "tokens": [
-          {
-            "name": "degrees",
-            "type": "number",
-            "title": {
-              "en": "Degrees"
-            },
-            "example": 90
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
-        "id": "motion_with_luminance",
-        "title": {
-          "en": "Motion on with luminance"
-        },
-        "tokens": [
-          {
-            "name": "luminance",
-            "type": "number",
-            "title": {
-              "en": "Luminance"
-            },
-            "example": 256
-          }
-        ],
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-motion"
-          }
-        ]
-      },
-      {
-        "id": "left_button_clicked",
-        "title": {
-          "en": "Left button clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "right_button_clicked",
-        "title": {
-          "en": "Right button clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "both_buttons_clicked",
-        "title": {
-          "en": "Both buttons clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "left_button_held",
-        "title": {
-          "en": "Left button held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "right_button_held",
-        "title": {
-          "en": "Right button held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "both_buttons_held",
-        "title": {
-          "en": "Both buttons held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "left_button_double_clicked",
-        "title": {
-          "en": "Left button double clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "right_button_double_clicked",
-        "title": {
-          "en": "Right button double clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "both_buttons_double_clicked",
-        "title": {
-          "en": "Both buttons double clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "button_held",
-        "title": {
-          "en": "Button held",
-          "nl": "Knop lang ingedrukt"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button|aqara-button-gyro"
-          }
-        ]
-      },
-      {
-        "id": "button_released",
-        "title": {
-          "en": "Button released",
-          "nl": "Knop losgelaten"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button"
-          }
-        ]
-      },
       {
         "id": "1_button_press",
         "title": {
@@ -1737,6 +104,163 @@
         ]
       },
       {
+        "id": "both_buttons_clicked",
+        "title": {
+          "en": "Both buttons clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "button_held",
+        "title": {
+          "en": "Button held",
+          "nl": "Knop lang ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button-gyro"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_held",
+        "title": {
+          "en": "Dim Down Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_released",
+        "title": {
+          "en": "Dim Down Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_single_press",
+        "title": {
+          "en": "Dim Down Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_held",
+        "title": {
+          "en": "Dim Up Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_released",
+        "title": {
+          "en": "Dim Up Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_single_press",
+        "title": {
+          "en": "Dim Up Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "left_button_clicked",
+        "title": {
+          "en": "Left button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "motion_toggle",
+        "title": {
+          "en": "Motion alarm turned on/off"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-motion|mi-motion"
+          }
+        ]
+      },
+      {
+        "id": "right_button_clicked",
+        "title": {
+          "en": "Right button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "shake",
+        "title": {
+          "en": "Shaked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-cube|aqara-button-gyro"
+          }
+        ]
+      },
+      {
         "id": "start_ccw_rotate",
         "title": {
           "en": "Remote has been rotated counter clockwise",
@@ -1765,180 +289,9 @@
         ]
       },
       {
-        "id": "sharp_ccw_rotate",
-        "title": {
-          "en": "Remote has been sharply rotated counter clockwise",
-          "nl": "Afstandsbediening tegen de klok in gedraaid"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-wireless-dimmer"
-          }
-        ]
-      },
-      {
-        "id": "sharp_cw_rotate",
-        "title": {
-          "en": "Remote has been sharply rotated clockwise",
-          "nl": "Afstandsbediening met de klok mee gedraaid"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-wireless-dimmer"
-          }
-        ]
-      },
-      {
-        "id": "on_off_button_pressed",
-        "title": {
-          "en": "On/Off button pressed"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
-          }
-        ]
-      },
-      {
-        "id": "dim_up_held",
-        "title": {
-          "en": "Dim Up Button Held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "dim_up_single_press",
-        "title": {
-          "en": "Dim Up Single Press"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "dim_up_released",
-        "title": {
-          "en": "Dim Up Released"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "turn_on_held",
-        "title": {
-          "en": "Turn On Button Held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "turn_on_single_press",
-        "title": {
-          "en": "Turn On Single Press"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "turn_on_released",
-        "title": {
-          "en": "Turn On Released"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "dim_down_held",
-        "title": {
-          "en": "Dim Down Held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "dim_down_single_press",
-        "title": {
-          "en": "Dim Down Single Press"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "dim_down_released",
-        "title": {
-          "en": "Dim Down Released"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
         "id": "turn_off_held",
         "title": {
           "en": "Turn Off Button Held"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
-          }
-        ]
-      },
-      {
-        "id": "turn_off_single_press",
-        "title": {
-          "en": "Turn Off Single Press"
         },
         "args": [
           {
@@ -1962,80 +315,362 @@
         ]
       },
       {
-        "id": "scene_right_held",
+        "id": "turn_off_single_press",
         "title": {
-          "en": "Scene Right Held"
+          "en": "Turn Off Single Press"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
       {
-        "id": "scene_right_single_press",
+        "id": "turn_on_held",
         "title": {
-          "en": "Scene Right Single Press"
+          "en": "Turn On Button Held"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
       {
-        "id": "scene_right_released",
+        "id": "turn_on_released",
         "title": {
-          "en": "Scene Right Released"
+          "en": "Turn On Released"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
       {
-        "id": "scene_left_held",
+        "id": "turn_on_single_press",
         "title": {
-          "en": "Scene Left Held"
+          "en": "Turn On Single Press"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
           }
         ]
       },
       {
-        "id": "scene_left_single_press",
+        "id": "double_tap",
         "title": {
-          "en": "Scene Left Single Press"
+          "en": "Cube double tapped"
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
           }
         ]
       },
       {
-        "id": "scene_left_released",
+        "id": "push",
         "title": {
-          "en": "Scene Left Released"
+          "en": "Cube pushed"
         },
         "args": [
           {
-            "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control"
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "wake_up",
+        "title": {
+          "en": "Cube waked up"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "drop",
+        "title": {
+          "en": "Cube dropped"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "flip90",
+        "title": {
+          "en": "Cube flipped 90"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "flip180",
+        "title": {
+          "en": "Cube flipped 180"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "rotate",
+        "title": {
+          "en": "Cube rotated"
+        },
+        "tokens": [
+          {
+            "name": "degrees",
+            "type": "number",
+            "title": {
+              "en": "Degrees"
+            },
+            "example": 90
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "motion_with_luminance",
+        "title": {
+          "en": "Motion on with luminance"
+        },
+        "tokens": [
+          {
+            "name": "luminance",
+            "type": "number",
+            "title": {
+              "en": "Luminance"
+            },
+            "example": 256
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-motion"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_on",
+        "title": {
+          "en": "Vibration alarm on"
+        },
+        "tokens": [
+          {
+            "name": "strength",
+            "type": "number",
+            "title": {
+              "en": "Strength"
+            },
+            "example": 110
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_on",
+        "title": {
+          "en": "Tilt alarm on"
+        },
+        "tokens": [
+          {
+            "name": "angle",
+            "type": "number",
+            "title": {
+              "en": "Angle"
+            },
+            "example": 90
+          },
+          {
+            "name": "relative_angle",
+            "type": "number",
+            "title": {
+              "en": "Relative angle"
+            },
+            "example": 90
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_off",
+        "title": {
+          "en": "Tilt alarm off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_off",
+        "title": {
+          "en": "Vibration alarm off"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "tilt_alarm_toggle",
+        "title": {
+          "en": "Tilt alarm toggle"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "vibration_alarm_toggle",
+        "title": {
+          "en": "Vibration alarm toggle"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "left_button_held",
+        "title": {
+          "en": "Left button held"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_held",
+        "title": {
+          "en": "Right button held"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_held",
+        "title": {
+          "en": "Both buttons held"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "left_button_double_clicked",
+        "title": {
+          "en": "Left button double clicked"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "right_button_double_clicked",
+        "title": {
+          "en": "Right button double clicked"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_double_clicked",
+        "title": {
+          "en": "Both buttons double clicked"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018"
           }
         ]
       },
@@ -2080,8 +715,175 @@
         ],
         "args": [
           {
-            "name": "device",
             "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-wireless-switch-2018-single-rocker"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Button 2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Button 3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Button 4"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Button 5"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Initial press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (single press)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Release (after hold)"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double press"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Tripple press"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Quadruple press"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Shake"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Drop"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Tilt"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Many presses"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
             "filter": "driver_id=generic-wireless-switch"
           },
           {
@@ -2205,7 +1007,1404 @@
             ]
           }
         ]
+      },
+      {
+        "id": "button_released",
+        "title": {
+          "en": "Button released",
+          "nl": "Knop losgelaten"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=plug"
+          }
+        ]
+      },
+      {
+        "id": "on_off_button_pressed",
+        "title": {
+          "en": "On/Off button pressed"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_held",
+        "title": {
+          "en": "Scene Right Held"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_single_press",
+        "title": {
+          "en": "Scene Right Single Press"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_right_released",
+        "title": {
+          "en": "Scene Right Released"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_held",
+        "title": {
+          "en": "Scene Left Held"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_single_press",
+        "title": {
+          "en": "Scene Left Single Press"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "scene_left_released",
+        "title": {
+          "en": "Scene Left Released"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-remote-control"
+          }
+        ]
+      },
+      {
+        "id": "sharp_ccw_rotate",
+        "title": {
+          "en": "Remote has been sharply rotated counter clockwise",
+          "nl": "Afstandsbediening tegen de klok in gedraaid"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-wireless-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "sharp_cw_rotate",
+        "title": {
+          "en": "Remote has been sharply rotated clockwise",
+          "nl": "Afstandsbediening met de klok mee gedraaid"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-wireless-dimmer"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "is_first_side",
+        "title": {
+          "en": "Is !{{|not}} on first side"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_second_side",
+        "title": {
+          "en": "Is !{{|not}} on second side"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_third_side",
+        "title": {
+          "en": "Is !{{|not}} on fird side"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_fourth_side",
+        "title": {
+          "en": "Is !{{|not}} on fourth side"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_fifth_side",
+        "title": {
+          "en": "Is !{{|not}} on fifth side"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_sixth_side",
+        "title": {
+          "en": "Is !{{|not}} on sixth side"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
+        "id": "is_vibration_alarm_active",
+        "title": {
+          "en": "Is vibration !{{|not}} detected"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "is_tilt_alarm_active",
+        "title": {
+          "en": "Is tilt !{{|not}} detected"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          }
+        ]
+      },
+      {
+        "id": "is_vibration_strength_greater_than",
+        "title": {
+          "en": "Is vibration strength !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_tilt_angle_greater_than",
+        "title": {
+          "en": "Is tilt angle !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_relative_tilt_angle_greater_than",
+        "title": {
+          "en": "Is relative tilt angle !{{greater|lower}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-vibration"
+          },
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "is_dark",
+        "title": {
+          "en": "Is !{{dark|light}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tradfri-motion-sensor"
+          }
+        ]
       }
     ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Aqara Button"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-button"
+    },
+    {
+      "name": {
+        "en": "Aqara Gyro Button"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-button-gyro"
+    },
+    {
+      "name": {
+        "en": "Aqara Cube"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "side_up",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-cube"
+    },
+    {
+      "name": {
+        "en": "Aqara Magnet"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR1632"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-magnet"
+    },
+    {
+      "name": {
+        "en": "Aqara Motion"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "value": 60,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ],
+      "id": "aqara-motion"
+    },
+    {
+      "name": {
+        "en": "Aqara Temp/Hum"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_pressure",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/aqara-temphum/assets/images/large.png",
+        "small": "/drivers/aqara-temphum/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-temphum"
+    },
+    {
+      "name": {
+        "en": "Aqara Vibration"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "vibration_alarm",
+        "tilt_alarm",
+        "vibration_strength",
+        "tilt_angle",
+        "relative_tilt_angle",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_tilt_timeout",
+          "type": "number",
+          "label": {
+            "en": "No tilt timeout"
+          },
+          "min": 0,
+          "value": 10,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ],
+      "id": "aqara-vibration"
+    },
+    {
+      "name": {
+        "en": "Aqara Wireless 2016 Double Rocker"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-wireless-switch-2016"
+    },
+    {
+      "name": {
+        "en": "Aqara Wireless 2018 Double Rocker"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "aqara-wireless-switch-2018"
+    },
+    {
+      "id": "aqara-wireless-switch-2018-single-rocker",
+      "name": {
+        "en": "aqara-wireless-switch-2018-single-rocker"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/large.png",
+        "small": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Blinds"
+      },
+      "class": "windowcoverings",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "images": {
+        "large": "/drivers/blinds/assets/images/large.png",
+        "small": "/drivers/blinds/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "blinds"
+    },
+    {
+      "name": {
+        "en": "Generic Wireless Switch"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/generic-wireless-switch/assets/images/large.png",
+        "small": "/drivers/generic-wireless-switch/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "generic-wireless-switch"
+    },
+    {
+      "name": {
+        "en": "Group"
+      },
+      "class": "light",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "dim_duration",
+          "type": "number",
+          "label": {
+            "en": "Transition time"
+          },
+          "min": 0,
+          "value": 1,
+          "hint": {
+            "en": "Transition time between brightnesses"
+          }
+        }
+      ],
+      "id": "group"
+    },
+    {
+      "name": {
+        "en": "Philips Hue Dimmer Switch"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "hue-dimmer-switch"
+    },
+    {
+      "name": {
+        "en": "Hue Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_temperature",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "energy": {
+        "batteries": [
+          "AAA"
+        ]
+      },
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "value": 60,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ],
+      "id": "hue-motion-sensor"
+    },
+    {
+      "name": {
+        "en": "Lamp"
+      },
+      "class": "light",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "dim_duration",
+          "type": "number",
+          "label": {
+            "en": "Transition time"
+          },
+          "min": 0,
+          "value": 1,
+          "hint": {
+            "en": "Transition time between brightnesses"
+          }
+        }
+      ],
+      "id": "lamp"
+    },
+    {
+      "name": {
+        "en": "Aqara Leakage Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_water",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/leakage_aq1/assets/images/large.png",
+        "small": "/drivers/leakage_aq1/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "leakage_aq1"
+    },
+    {
+      "name": {
+        "en": "Mi Button"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "mi-button"
+    },
+    {
+      "name": {
+        "en": "Mi Magnet"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR1632"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "mi-magnet"
+    },
+    {
+      "name": {
+        "en": "Mi Motion"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "value": 60,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ],
+      "id": "mi-motion"
+    },
+    {
+      "name": {
+        "en": "Mijia TempHum"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_humidity",
+        "measure_temperature",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/mijia-temphum/assets/images/large.png",
+        "small": "/drivers/mijia-temphum/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "mijia-temphum"
+    },
+    {
+      "name": {
+        "en": "Plug"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/plug/assets/images/large.png",
+        "small": "/drivers/plug/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "plug"
+    },
+    {
+      "name": {
+        "en": "Honeywell Smoke"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_smoke",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "sensor_smoke"
+    },
+    {
+      "name": {
+        "en": "Symfonisk Remote"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "symfonisk-remote"
+    },
+    {
+      "name": {
+        "en": "Tradfri Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "dark",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/mi-motion/assets/images/large.png",
+        "small": "/drivers/mi-motion/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032",
+          "CR2032"
+        ]
+      },
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "value": 60,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ],
+      "id": "tradfri-motion-sensor"
+    },
+    {
+      "name": {
+        "en": "Tradfri Remote Control"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "tradfri-remote-control"
+    },
+    {
+      "name": {
+        "en": "Tradfri Square Dimmer"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "tradfri-square-dimmer"
+    },
+    {
+      "name": {
+        "en": "TRADFRI wireless dimmer"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hue-warm-white/assets/images/large.png",
+        "small": "/drivers/hue-warm-white/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "tradfri-wireless-dimmer"
+    }
+  ],
+  "capabilities": {
+    "dark": {
+      "type": "boolean",
+      "title": {
+        "en": "Dark"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
+    },
+    "relative_tilt_angle": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Relative tilt angle"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
+    },
+    "side_up": {
+      "type": "number",
+      "title": {
+        "en": "Side up"
+      },
+      "icon": "/drivers/aqara-cube/assets/side_up.svg",
+      "getable": true,
+      "setable": false,
+      "min": 1,
+      "max": 6,
+      "uiComponent": "sensor",
+      "uiQuickAction": false
+    },
+    "tilt_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Tilt alarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_alarm.svg"
+    },
+    "tilt_angle": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Tilt angle"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/tilt_angle.svg"
+    },
+    "vibration_alarm": {
+      "type": "boolean",
+      "title": {
+        "en": "Vibration alarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/vibration_alarm.svg"
+    },
+    "vibration_strength": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Vibration strength"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg"
+    }
   }
 }
