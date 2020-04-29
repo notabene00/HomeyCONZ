@@ -14,9 +14,10 @@
     ]
   },
   "images": {
-    "large": "/drivers/mijia-temphum/assets/images/large.png",
-    "small": "/drivers/mijia-temphum/assets/images/small.png"
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
   },
+  "icon": "{{driverAssetsPath}}/icon.svg",
   "pair": [
     {
       "id": "list_devices",

@@ -1,8 +1,7 @@
 {
   "id": "de.dresdenelectronic.deconz",
   "version": "0.14.1",
-  "compatibility": ">=4.0.0",
-  "brandColor": "#55626b",
+  "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
     "en": "deCONZ (temp)"
@@ -1566,9 +1565,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/aqara-button/assets/images/large.png",
+        "small": "/drivers/aqara-button/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-button/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1598,9 +1598,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/aqara-button-gyro/assets/images/large.png",
+        "small": "/drivers/aqara-button-gyro/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-button-gyro/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1631,9 +1632,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/aqara-cube/assets/images/large.png",
+        "small": "/drivers/aqara-cube/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-cube/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1664,9 +1666,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/aqara-magnet/assets/images/large.png",
+        "small": "/drivers/aqara-magnet/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-magnet/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1698,9 +1701,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
+        "large": "/drivers/aqara-motion/assets/images/large.png",
+        "small": "/drivers/aqara-motion/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-motion/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1750,6 +1754,7 @@
         "large": "/drivers/aqara-temphum/assets/images/large.png",
         "small": "/drivers/aqara-temphum/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-temphum/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1784,9 +1789,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
+        "large": "/drivers/aqara-vibration/assets/images/large.png",
+        "small": "/drivers/aqara-vibration/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-vibration/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1834,6 +1840,7 @@
         "large": "/drivers/aqara-wireless-switch-2016-double-rocker/assets/images/large.png",
         "small": "/drivers/aqara-wireless-switch-2016-double-rocker/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-wireless-switch-2016-double-rocker/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1866,6 +1873,7 @@
         "large": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/images/large.png",
         "small": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-wireless-switch-2016-single-rocker/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1898,6 +1906,7 @@
         "large": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/images/large.png",
         "small": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-wireless-switch-2018-double-rocker/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -1930,6 +1939,7 @@
         "large": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/large.png",
         "small": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/images/small.png"
       },
+      "icon": "/drivers/aqara-wireless-switch-2018-single-rocker/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2011,9 +2021,10 @@
       "class": "light",
       "capabilities": [],
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/group/assets/images/large.png",
+        "small": "/drivers/group/assets/images/small.png"
       },
+      "icon": "/drivers/group/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2057,9 +2068,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/hue-dimmer-switch/assets/images/large.png",
+        "small": "/drivers/hue-dimmer-switch/assets/images/small.png"
       },
+      "icon": "/drivers/hue-dimmer-switch/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2087,9 +2099,10 @@
         "measure_battery"
       ],
       "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
+        "large": "/drivers/hue-motion-sensor/assets/images/large.png",
+        "small": "/drivers/hue-motion-sensor/assets/images/small.png"
       },
+      "icon": "/drivers/hue-motion-sensor/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2131,9 +2144,10 @@
       "class": "light",
       "capabilities": [],
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/lamp/assets/images/large.png",
+        "small": "/drivers/lamp/assets/images/small.png"
       },
+      "icon": "/drivers/lamp/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2181,6 +2195,7 @@
         "large": "/drivers/leakage_aq1/assets/images/large.png",
         "small": "/drivers/leakage_aq1/assets/images/small.png"
       },
+      "icon": "/drivers/leakage_aq1/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2210,9 +2225,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/mi-button/assets/images/large.png",
+        "small": "/drivers/mi-button/assets/images/small.png"
       },
+      "icon": "/drivers/mi-button/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2243,9 +2259,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/mi-magnet/assets/images/large.png",
+        "small": "/drivers/mi-magnet/assets/images/small.png"
       },
+      "icon": "/drivers/mi-magnet/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2279,6 +2296,7 @@
         "large": "/drivers/mi-motion/assets/images/large.png",
         "small": "/drivers/mi-motion/assets/images/small.png"
       },
+      "icon": "/drivers/mi-motion/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2327,6 +2345,7 @@
         "large": "/drivers/mijia-temphum/assets/images/large.png",
         "small": "/drivers/mijia-temphum/assets/images/small.png"
       },
+      "icon": "/drivers/mijia-temphum/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2423,9 +2442,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/symfonisk-remote/assets/images/large.png",
+        "small": "/drivers/symfonisk-remote/assets/images/small.png"
       },
+      "icon": "/drivers/symfonisk-remote/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2452,9 +2472,10 @@
         "measure_battery"
       ],
       "images": {
-        "large": "/drivers/mi-motion/assets/images/large.png",
-        "small": "/drivers/mi-motion/assets/images/small.png"
+        "large": "/drivers/tradfri-motion-sensor/assets/images/large.png",
+        "small": "/drivers/tradfri-motion-sensor/assets/images/small.png"
       },
+      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2504,9 +2525,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/tradfri-remote-control/assets/images/large.png",
+        "small": "/drivers/tradfri-remote-control/assets/images/small.png"
       },
+      "icon": "/drivers/tradfri-remote-control/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2536,9 +2558,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/tradfri-square-dimmer/assets/images/large.png",
+        "small": "/drivers/tradfri-square-dimmer/assets/images/small.png"
       },
+      "icon": "/drivers/tradfri-square-dimmer/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2568,9 +2591,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/tradfri-wireless-dimmer/assets/images/large.png",
+        "small": "/drivers/tradfri-wireless-dimmer/assets/images/small.png"
       },
+      "icon": "/drivers/tradfri-wireless-dimmer/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",

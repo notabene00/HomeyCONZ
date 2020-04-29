@@ -11,7 +11,7 @@ class AqaraMotionDriver extends Driver {
 	
 	onPairListDevices(_, callback) {
 		this.getSensorsByCondition(device => {
-			return device.modelid === 'lumi.sensor_motion.aq2' && device.state.hasOwnProperty('lux')
+			return device.modelid === 'lumi.sensor_motion.aq2'
 		}, callback)
 	}
 	

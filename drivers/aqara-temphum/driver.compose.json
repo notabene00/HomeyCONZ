@@ -15,9 +15,10 @@
     ]
   },
   "images": {
-    "large": "/drivers/aqara-temphum/assets/images/large.png",
-    "small": "/drivers/aqara-temphum/assets/images/small.png"
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
   },
+  "icon": "{{driverAssetsPath}}/icon.svg",
   "pair": [
     {
       "id": "list_devices",
