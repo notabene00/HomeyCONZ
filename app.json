@@ -1,5 +1,5 @@
 {
-  "id": "de.dresdenelectronic.deconz",
+  "id": "de.dresden-elektronik.deconz",
   "version": "0.14.1",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
@@ -25,6 +25,9 @@
   "contributors": {
     "developers": [
       {
+        "name": "fantomnotabene"
+      },
+      {
         "name": "Skorpion"
       },
       {
@@ -34,13 +37,6 @@
         "name": "MadMonkey87"
       }
     ]
-  },
-  "contributing": {
-    "donate": {
-      "paypal": {
-        "username": "fantomnotabene"
-      }
-    }
   },
   "bugs": {
     "url": "https://github.com/fantomnotabene/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
@@ -2374,6 +2370,7 @@
         "large": "/drivers/plug/assets/images/large.png",
         "small": "/drivers/plug/assets/images/small.png"
       },
+      "icon": "/drivers/plug/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2411,9 +2408,10 @@
         ]
       },
       "images": {
-        "large": "/drivers/hue-warm-white/assets/images/large.png",
-        "small": "/drivers/hue-warm-white/assets/images/small.png"
+        "large": "/drivers/sensor_smoke/assets/images/large.png",
+        "small": "/drivers/sensor_smoke/assets/images/small.png"
       },
+      "icon": "/drivers/sensor_smoke/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",

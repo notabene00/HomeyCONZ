@@ -7,9 +7,10 @@
     "onoff"
   ],
   "images": {
-    "large": "/drivers/plug/assets/images/large.png",
-    "small": "/drivers/plug/assets/images/small.png"
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
   },
+  "icon": "{{driverAssetsPath}}/icon.svg",
   "pair": [
     {
       "id": "list_devices",
