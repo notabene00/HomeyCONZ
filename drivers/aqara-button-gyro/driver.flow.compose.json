@@ -1,0 +1,106 @@
+{
+  "triggers": [
+    {
+      "id": "raw_switch_event",
+      "title": {
+        "en": "Event"
+      },
+      "tokens": [
+        {
+          "name": "rawEvent",
+          "type": "number",
+          "title": {
+            "en": "event"
+          },
+          "example": 1001
+        },
+        {
+          "name": "buttonIndex",
+          "type": "number",
+          "title": {
+            "en": "button index"
+          },
+          "example": 1
+        },
+        {
+          "name": "actionIndex",
+          "type": "number",
+          "title": {
+            "en": "action index"
+          },
+          "example": 1
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "title": {
+            "en": "action"
+          },
+          "example": "initial_press"
+        }
+      ],
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "button",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Button 1"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "action",
+          "values": [
+            {
+              "id": "-1",
+              "label": {
+                "en": "Any Action"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "Initial Press"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Hold"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Single Short Press"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Hold Release"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Double Short Press"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Shake"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

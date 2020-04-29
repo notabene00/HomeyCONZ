@@ -45,89 +45,6 @@
   "flow": {
     "triggers": [
       {
-        "id": "1_button_press",
-        "title": {
-          "en": "Button pressed once",
-          "nl": "Knop 1x ingedrukt"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
-          }
-        ]
-      },
-      {
-        "id": "2_button_press",
-        "title": {
-          "en": "Button pressed twice",
-          "nl": "Knop 2x ingedrukt"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
-          }
-        ]
-      },
-      {
-        "id": "3_button_press",
-        "title": {
-          "en": "Button pressed threefold",
-          "nl": "Knop 3x ingedrukt"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
-          }
-        ]
-      },
-      {
-        "id": "4_button_press",
-        "title": {
-          "en": "Button pressed fourfold",
-          "nl": "Knop 4x ingedrukt"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button|aqara-button"
-          }
-        ]
-      },
-      {
-        "id": "both_buttons_clicked",
-        "title": {
-          "en": "Both buttons clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
-        "id": "button_held",
-        "title": {
-          "en": "Button held",
-          "nl": "Knop lang ingedrukt"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=mi-button|aqara-button-gyro"
-          }
-        ]
-      },
-      {
         "id": "dim_down_held",
         "title": {
           "en": "Dim Down Held"
@@ -206,19 +123,6 @@
         ]
       },
       {
-        "id": "left_button_clicked",
-        "title": {
-          "en": "Left button clicked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
-          }
-        ]
-      },
-      {
         "id": "motion_toggle",
         "title": {
           "en": "Motion alarm turned on/off"
@@ -253,7 +157,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-cube|aqara-button-gyro"
+            "filter": "driver_id=aqara-cube"
           }
         ]
       },
@@ -360,6 +264,202 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-button"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Press"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Press"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Tripple Press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-button-gyro"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Initial Press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Short Press"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Hold Release"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Short Press"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Shake"
+                }
+              }
+            ]
           }
         ]
       },

@@ -14,31 +14,23 @@ class AqaraButton extends Sensor {
 	}
 	
 	fireEvent(number) {
-		switch (number) {
-			case 1002:
-				this.log('pressed once')
-				this.triggerPressedOnce.trigger(this)
-				break		
-			case 1004:
-				this.log('pressed twice')
-				this.triggerPressedTwice.trigger(this)
-				break
-			case 1005:
-				this.log('pressed threefold')
-				this.triggerPressedThreefold.trigger(this)
-				break
-			case 1006:
-				this.log('pressed fourfold')
-				this.triggerPressedFourfold.trigger(this)
-				break
-		}
+
+		const tokens = this.getSwitchEventTokens(number);
+		const state = {buttonIndex: tokens.buttonIndex.toString(), actionIndex: tokens.actionIndex.toString()};
+
+		this.log('aqara button switch event (' + number + ') button: ' + tokens.buttonIndex + ', action: '+ tokens.action);
+
+		this.triggerRaw.trigger(this, tokens, state);
 	}
 	
 	setTriggers() {
-		this.triggerPressedOnce = new Homey.FlowCardTriggerDevice('1_button_press').register()
-		this.triggerPressedTwice = new Homey.FlowCardTriggerDevice('2_button_press').register()
-		this.triggerPressedThreefold = new Homey.FlowCardTriggerDevice('3_button_press').register()
-		this.triggerPressedFourfold = new Homey.FlowCardTriggerDevice('4_button_press').register()
+		this.triggerRaw = new Homey.FlowCardTriggerDevice('raw_switch_event')
+		.register()
+		.registerRunListener((args, state) => {
+			return Promise.resolve(
+				(args.button === '-1' || args.button === state.buttonIndex) &&
+				(args.action === '-1' || args.action === state.actionIndex));
+		});
 	}
 	
 }
