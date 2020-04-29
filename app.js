@@ -7,7 +7,7 @@ const WebSocketClient = require('ws')
 class deCONZ extends Homey.App {
 
 	onInit() {
-		// сюда складываем ссылки на все устройства, которые у нас добавлены
+		// holds all devices that we have, added when a device gets initialized (see Sensor.registerInApp for example).
 		this.devices = {
 			lights: {},
 			sensors: {},
@@ -49,8 +49,8 @@ class deCONZ extends Homey.App {
 		if (this.keepAliveTimeout) {
 			clearTimeout(this.keepAliveTimeout)
 		}
-		// когда приходит pong - убивать таймаут на переподключение
-		this.websocket.on('pong', () => {
+		// когда приходит ping - убивать таймаут на переподключение
+		this.websocket.on('ping', () => {
 			if (this.keepAliveTimeout) {
 				clearTimeout(this.keepAliveTimeout)
 			}
@@ -59,7 +59,7 @@ class deCONZ extends Homey.App {
 				this.startWebSocketConnection()
 			}, 3.1 * 60 * 1000)
 		})
-		// ping каждую минуту
+		// ping every 60 seconds
 		setInterval(() => {
 			try {
 				this.websocket.ping()
@@ -74,11 +74,16 @@ class deCONZ extends Homey.App {
 		this.log('Websocket connect...')
 		this.websocket = new WebSocketClient(`ws://${this.host}:${this.wsPort}`)
 		this.websocket.on('open', () => {
+
 			this.log('Websocket is up')
-			// установить начальный статус всем устройствам
-			this.setInitialStates()
-			// настроить поддержание жизни
 			this.setWSKeepAlive()
+
+			// delay this for 60 seconds s.t all devices are initialized and this.devices has been set up
+			setTimeout(() => {
+				this.log("Initialize initial states");
+				this.setInitialStates()
+			}, 60 * 1000)
+
 		})
 		this.websocket.on('message', message => {
 			let data = JSON.parse(message)
@@ -340,7 +345,7 @@ class deCONZ extends Homey.App {
 		}
 	}
 
-	updateConfig(device, config, initial=false) {
+	updateConfig(device, config, initial = false) {
 		if (!initial) {
 			this.log('Config update for', device.getName(), config)
 		}
@@ -354,7 +359,7 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('measure_battery', config.battery)
 		}
 		if (config.hasOwnProperty('reachable')) {
-			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for sensors
+			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable') //Checks reachable state for sensors
 		}
 	}
 

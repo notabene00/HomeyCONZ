@@ -48,6 +48,180 @@
   "flow": {
     "triggers": [
       {
+        "id": "1_button_press",
+        "title": {
+          "en": "Button pressed once",
+          "nl": "Knop 1x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "2_button_press",
+        "title": {
+          "en": "Button pressed twice",
+          "nl": "Knop 2x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button|aqara-button-gyro|symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "3_button_press",
+        "title": {
+          "en": "Button pressed threefold",
+          "nl": "Knop 3x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button|symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "4_button_press",
+        "title": {
+          "en": "Button pressed fourfold",
+          "nl": "Knop 4x ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button"
+          }
+        ]
+      },
+      {
+        "id": "both_buttons_clicked",
+        "title": {
+          "en": "Both buttons clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
+        "id": "button_held",
+        "title": {
+          "en": "Button held",
+          "nl": "Knop lang ingedrukt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=mi-button|aqara-button-gyro"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_held",
+        "title": {
+          "en": "Dim Down Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_released",
+        "title": {
+          "en": "Dim Down Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_down_single_press",
+        "title": {
+          "en": "Dim Down Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_held",
+        "title": {
+          "en": "Dim Up Button Held"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_released",
+        "title": {
+          "en": "Dim Up Released"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "dim_up_single_press",
+        "title": {
+          "en": "Dim Up Single Press"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+          }
+        ]
+      },
+      {
+        "id": "left_button_clicked",
+        "title": {
+          "en": "Left button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
+          }
+        ]
+      },
+      {
         "id": "motion_toggle",
         "title": {
           "en": "Motion alarm turned on/off"
@@ -57,6 +231,19 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=aqara-motion|mi-motion"
+          }
+        ]
+      },
+      {
+        "id": "right_button_clicked",
+        "title": {
+          "en": "Right button clicked"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=aqara-wireless-switch-2016|aqara-wireless-switch-2018"
           }
         ]
       },
@@ -83,7 +270,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-wireless-dimmer"
+            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
           }
         ]
       },
@@ -97,7 +284,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-wireless-dimmer"
+            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
           }
         ]
       },
