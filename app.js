@@ -25,6 +25,15 @@ class deCONZ extends Homey.App {
 		}
 
 		this.startWebSocketConnection()
+
+		// Update all devices regularly. This might be needed for two cases
+		// - state/config values that do not update very often, such as the battery for certain devices: in that case we would need to wait until something changes s.t we receive
+		//   it trough the websocket update
+		// - some config values are not pushed via websockets such as the sensitivity of certain devices
+		setInterval(() => {
+			this.log("Initialize initial states");
+			this.setInitialStates()
+		}, 15 * 60 * 1000)
 	}
 
 	startWebSocketConnection() {
@@ -74,16 +83,8 @@ class deCONZ extends Homey.App {
 		this.log('Websocket connect...')
 		this.websocket = new WebSocketClient(`ws://${this.host}:${this.wsPort}`)
 		this.websocket.on('open', () => {
-
 			this.log('Websocket is up')
 			this.setWSKeepAlive()
-
-			// delay this for 60 seconds s.t all devices are initialized and this.devices has been set up
-			setTimeout(() => {
-				this.log("Initialize initial states");
-				this.setInitialStates()
-			}, 60 * 1000)
-
 		})
 		this.websocket.on('message', message => {
 			let data = JSON.parse(message)
