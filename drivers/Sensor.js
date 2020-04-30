@@ -1,6 +1,7 @@
 'use strict'
 
 const Homey = require('homey')
+const { http, https } = require('./../nbhttp')
 
 class Sensor extends Homey.Device {
 	
@@ -77,6 +78,13 @@ class Sensor extends Homey.Device {
 		}
 
 		return {rawEvent: number, buttonIndex: buttonIndex, actionIndex: actionIndex, action: action};
+	}
+
+	// updates the config of the device in deConz itself
+	putSensorConfig(data, callback){
+		http.put(this.host, this.port, `/api/${this.apikey}/sensors/${this.id}`, data, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
 	}
 }
 

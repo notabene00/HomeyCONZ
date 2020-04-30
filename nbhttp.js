@@ -67,14 +67,17 @@ module.exports.https.post = function(link, data, callback) {
 	postRequest.end()
 }
 
-module.exports.http.put = function(host, port, path, headers, data, callback) {
+module.exports.http.put = function(host, port, path, data, callback) {
 	let dataString = JSON.stringify(data)
 	let options = {
 		host: host,
 		port: port,
 		path: path,
 		method: 'PUT',
-		headers: headers
+		headers: {
+			'Content-Type': 'application/json',
+			'Content-Length': dataString.length
+		}
 	}
 	http.request(options, response => {
 		let data = ''
@@ -89,14 +92,17 @@ module.exports.http.put = function(host, port, path, headers, data, callback) {
 	}).write(dataString)
 }
 
-module.exports.https.put = function(host, port, path, headers, data, callback) {
+module.exports.https.put = function(host, port, path, data, callback) {
 	let dataString = JSON.stringify(data)
 	let options = {
 		host: host,
 		port: port,
 		path: path,
 		method: 'PUT',
-		headers: headers
+		headers: {
+			'Content-Type': 'application/json',
+			'Content-Length': dataString.length
+		}
 	}
 	https.request(options, response => {
 		let data = ''

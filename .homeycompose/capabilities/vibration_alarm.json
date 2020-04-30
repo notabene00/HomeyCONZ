@@ -7,5 +7,6 @@
   "setable": false,
   "uiComponent": "sensor",
   "uiQuickAction": false,
-  "icon": "/drivers/aqara-vibration/assets/vibration_alarm.svg"
+  "icon": "/drivers/aqara-vibration/assets/vibration_alarm.svg",
+  "insights": true
 }

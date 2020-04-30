@@ -36,16 +36,48 @@
   ],
   "settings": [
     {
-      "id": "no_tilt_timeout",
-      "type": "number",
+      "type": "group",
       "label": {
-        "en": "No tilt timeout"
+        "en": "General Settings"
       },
-      "min": 0,
-      "value": 10,
-      "hint": {
-        "en": "Timeout will enlong time in the drawdown"
-      }
+      "children": [
+        {
+          "id": "no_tilt_timeout",
+          "type": "number",
+          "label": {
+            "en": "No tilt timeout"
+          },
+          "min": 0,
+          "value": 10,
+          "hint": {
+            "en": "Time after which the tilt alarm gets disabled after it has been triggered"
+          },
+          "units": {
+            "en": "seconds"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Hardware Settings"
+      },
+      "children": [
+        {
+          "id": "sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Sensitivity"
+          },
+          "min": 0,
+          "max": 21,
+          "value": 0,
+          "hint": {
+            "en": "Note that the sensitivity gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+          }
+        }
+      ]
     }
   ]
 }

@@ -8,5 +8,6 @@
   "setable": false,
   "uiComponent": "sensor",
   "uiQuickAction": false,
-  "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg"
+  "icon": "/drivers/aqara-vibration/assets/vibration_strength.svg",
+  "insights": true
 }
