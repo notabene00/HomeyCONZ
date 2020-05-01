@@ -2196,7 +2196,7 @@
       ],
       "energy": {
         "batteries": [
-          "Unknown"
+          "OTHER"
         ]
       },
       "images": {
@@ -2674,6 +2674,32 @@
         }
       ],
       "id": "tradfri-remote-control"
+    },
+    {
+      "id": "tradfri-signal-repeater",
+      "name": {
+        "en": "tradfri signal repeater"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/tradfri-signal-repeater/assets/images/large.png",
+        "small": "/drivers/tradfri-signal-repeater/assets/images/small.png"
+      },
+      "icon": "/drivers/tradfri-signal-repeater/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
     },
     {
       "name": {

@@ -38,6 +38,8 @@ class Driver extends Homey.Driver {
 				callback(error)
 				return
 			}
+
+			let none = []
 			let onoff = ['onoff']
 			let dim = ['onoff', 'dim']
 			let ct = ['onoff', 'dim', 'light_temperature']
@@ -51,7 +53,8 @@ class Driver extends Homey.Driver {
 				'Color light': color,
 				'Smart plug': onoff, // отличаются только классом устройства - socket
 				'On/Off plug-in unit': onoff, //Also smart plug
-				'Window covering device': dim // отличаются только классом устройства - windowcoverings
+				'Window covering device': dim, // отличаются только классом устройства - windowcoverings
+				'Range extender': none
 			}
 			this.getSensorsList((error, sensors) => {
 				// entry[0] - key, entry[1] - value
