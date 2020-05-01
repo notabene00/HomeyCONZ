@@ -2,11 +2,11 @@
 
 const Driver = require('../Driver')
 
-class PlugDriver extends Driver {
+class GenericPlugDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('PlugDriver has been initiated')
+		this.log('GenericPlugDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
@@ -14,4 +14,4 @@ class PlugDriver extends Driver {
 	}
 }
 
-module.exports = PlugDriver
+module.exports = GenericPlugDriver

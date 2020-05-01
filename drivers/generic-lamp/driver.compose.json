@@ -1,17 +1,9 @@
 {
   "name": {
-    "en": "Honeywell Smoke"
+    "en": "<Generic Lamp>"
   },
-  "class": "sensor",
-  "capabilities": [
-    "alarm_smoke",
-    "measure_battery"
-  ],
-  "energy": {
-    "batteries": [
-      "CR123A"
-    ]
-  },
+  "class": "light",
+  "capabilities": [],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
@@ -28,6 +20,20 @@
     {
       "id": "add_devices",
       "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "dim_duration",
+      "type": "number",
+      "label": {
+        "en": "Transition time"
+      },
+      "min": 0,
+      "value": 1,
+      "hint": {
+        "en": "Transition time between brightnesses"
+      }
     }
   ]
 }

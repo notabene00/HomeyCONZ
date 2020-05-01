@@ -2,11 +2,11 @@
 
 const Driver = require('../Driver')
 
-class BlindsDriver extends Driver {
+class GenericBlindsDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('BlindsDriver has been initiated')
+		this.log('GenericBlindsDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
@@ -15,4 +15,4 @@ class BlindsDriver extends Driver {
 	
 }
 
-module.exports = BlindsDriver
+module.exports = GenericBlindsDriver

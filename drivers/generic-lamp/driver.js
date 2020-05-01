@@ -2,11 +2,11 @@
 
 const Driver = require('../Driver')
 
-class LampDriver extends Driver {
+class GenericLampDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('LampDriver has been initiated')
+		this.log('GenericLampDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
@@ -16,4 +16,4 @@ class LampDriver extends Driver {
 	}
 }
 
-module.exports = LampDriver
+module.exports = GenericLampDriver

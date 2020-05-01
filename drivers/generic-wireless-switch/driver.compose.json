@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "Generic Wireless Switch"
+    "en": "<Generic Wireless Switch>"
   },
   "class": "other",
   "capabilities": [
@@ -8,7 +8,7 @@
   ],
   "energy": {
     "batteries": [
-      "CR2032"
+      "Unknown"
     ]
   },
   "images": {

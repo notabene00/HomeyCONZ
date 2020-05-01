@@ -2,7 +2,7 @@
 
 const Light = require('../Light')
 
-class Blinds extends Light {
+class GenericBlinds extends Light {
 	
 	onInit() {
 		super.onInit()
@@ -19,4 +19,4 @@ class Blinds extends Light {
 	}
 }
 
-module.exports = Blinds
+module.exports = GenericBlinds

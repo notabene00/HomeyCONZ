@@ -1,8 +1,8 @@
 'use strict'
 
-const Sensor = require('../Sensor')
+const Light = require('../Light')
 
-class SensorSmoke extends Sensor {
+class GenericLamp extends Light {
 	
 	onInit() {
 		super.onInit()
@@ -12,4 +12,4 @@ class SensorSmoke extends Sensor {
 	
 }
 
-module.exports = SensorSmoke
+module.exports = GenericLamp

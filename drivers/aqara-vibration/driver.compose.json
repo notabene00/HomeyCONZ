@@ -45,7 +45,7 @@
           "id": "no_tilt_timeout",
           "type": "number",
           "label": {
-            "en": "No tilt timeout"
+            "en": "Tilt Alarm Timeout"
           },
           "min": 0,
           "value": 10,

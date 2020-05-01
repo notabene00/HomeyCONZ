@@ -1050,6 +1050,19 @@
         ]
       },
       {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=generic-plug"
+          }
+        ]
+      },
+      {
         "id": "raw_switch_event",
         "title": {
           "en": "Event"
@@ -1227,19 +1240,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=mi-button"
-          }
-        ]
-      },
-      {
-        "id": "switched",
-        "title": {
-          "en": "Switched"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=plug"
           }
         ]
       },
@@ -1914,7 +1914,7 @@
               "id": "no_tilt_timeout",
               "type": "number",
               "label": {
-                "en": "No tilt timeout"
+                "en": "Tilt Alarm Timeout"
               },
               "min": 0,
               "value": 10,
@@ -2085,7 +2085,7 @@
     },
     {
       "name": {
-        "en": "Blinds"
+        "en": "<Generic Blinds>"
       },
       "class": "windowcoverings",
       "capabilities": [
@@ -2109,11 +2109,86 @@
           "template": "add_devices"
         }
       ],
-      "id": "blinds"
+      "id": "generic-blinds"
     },
     {
       "name": {
-        "en": "Generic Wireless Switch"
+        "en": "<Generic Lamp>"
+      },
+      "class": "light",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/generic-lamp/assets/images/large.png",
+        "small": "/drivers/generic-lamp/assets/images/small.png"
+      },
+      "icon": "/drivers/generic-lamp/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "dim_duration",
+          "type": "number",
+          "label": {
+            "en": "Transition time"
+          },
+          "min": 0,
+          "value": 1,
+          "hint": {
+            "en": "Transition time between brightnesses"
+          }
+        }
+      ],
+      "id": "generic-lamp"
+    },
+    {
+      "name": {
+        "en": "<Generic Plug>"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/generic-plug/assets/images/large.png",
+        "small": "/drivers/generic-plug/assets/images/small.png"
+      },
+      "icon": "/drivers/generic-plug/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "generic-plug"
+    },
+    {
+      "name": {
+        "en": "<Generic Wireless Switch>"
       },
       "class": "other",
       "capabilities": [
@@ -2121,7 +2196,7 @@
       ],
       "energy": {
         "batteries": [
-          "CR2032"
+          "Unknown"
         ]
       },
       "images": {
@@ -2145,7 +2220,7 @@
     },
     {
       "name": {
-        "en": "Group"
+        "en": "<Group>"
       },
       "class": "light",
       "capabilities": [],
@@ -2182,6 +2257,40 @@
         }
       ],
       "id": "group"
+    },
+    {
+      "name": {
+        "en": "Honeywell Smoke Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_smoke",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/honeywell-smoke-detector/assets/images/large.png",
+        "small": "/drivers/honeywell-smoke-detector/assets/images/small.png"
+      },
+      "icon": "/drivers/honeywell-smoke-detector/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "honeywell-smoke-detector"
     },
     {
       "name": {
@@ -2265,46 +2374,6 @@
         }
       ],
       "id": "hue-motion-sensor"
-    },
-    {
-      "name": {
-        "en": "Lamp"
-      },
-      "class": "light",
-      "capabilities": [],
-      "images": {
-        "large": "/drivers/lamp/assets/images/large.png",
-        "small": "/drivers/lamp/assets/images/small.png"
-      },
-      "icon": "/drivers/lamp/assets/icon.svg",
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "dim_duration",
-          "type": "number",
-          "label": {
-            "en": "Transition time"
-          },
-          "min": 0,
-          "value": 1,
-          "hint": {
-            "en": "Transition time between brightnesses"
-          }
-        }
-      ],
-      "id": "lamp"
     },
     {
       "name": {
@@ -2489,75 +2558,6 @@
         }
       ],
       "id": "mijia-temphum"
-    },
-    {
-      "name": {
-        "en": "Plug"
-      },
-      "class": "socket",
-      "capabilities": [
-        "onoff"
-      ],
-      "images": {
-        "large": "/drivers/plug/assets/images/large.png",
-        "small": "/drivers/plug/assets/images/small.png"
-      },
-      "icon": "/drivers/plug/assets/icon.svg",
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "choose_slave"
-          }
-        },
-        {
-          "id": "choose_slave",
-          "template": "choose_slave",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "id": "plug"
-    },
-    {
-      "name": {
-        "en": "Honeywell Smoke"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_smoke",
-        "measure_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR123A"
-        ]
-      },
-      "images": {
-        "large": "/drivers/sensor_smoke/assets/images/large.png",
-        "small": "/drivers/sensor_smoke/assets/images/small.png"
-      },
-      "icon": "/drivers/sensor_smoke/assets/icon.svg",
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "id": "sensor_smoke"
     },
     {
       "name": {

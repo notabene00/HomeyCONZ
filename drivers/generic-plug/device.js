@@ -3,7 +3,7 @@
 const Light = require('../Light')
 const { FlowCardTriggerDevice } = require('homey')
 
-class Plug extends Light {
+class GenericPlug extends Light {
 	
 	onInit() {
 		super.onInit()
@@ -26,4 +26,4 @@ class Plug extends Light {
 	
 }
 
-module.exports = Plug
+module.exports = GenericPlug

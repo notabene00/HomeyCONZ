@@ -2,11 +2,11 @@
 
 const Driver = require('../Driver')
 
-class SmokeDriver extends Driver {
+class HoneywellSmokeDetectorDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('SmokeDriver has been initiated')
+		this.log('GenericSmokeDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
@@ -15,4 +15,4 @@ class SmokeDriver extends Driver {
 	
 }
 
-module.exports = SmokeDriver
+module.exports = HoneywellSmokeDetectorDriver
