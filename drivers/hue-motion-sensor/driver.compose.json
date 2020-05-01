@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "Hue Motion Sensor"
+    "en": "Philips Hue Motion Sensor"
   },
   "class": "sensor",
   "capabilities": [
