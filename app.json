@@ -2092,9 +2092,10 @@
         "dim"
       ],
       "images": {
-        "large": "/drivers/blinds/assets/images/large.png",
-        "small": "/drivers/blinds/assets/images/small.png"
+        "large": "/drivers/generic-blinds/assets/images/large.png",
+        "small": "/drivers/generic-blinds/assets/images/small.png"
       },
+      "icon": "/drivers/generic-blinds/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
