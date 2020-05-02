@@ -9,6 +9,7 @@ class Cube extends Sensor {
 		super.onInit()
 		
 		this.addCapability("cube_measure_rotation");
+		this.addCapability("cube_state_motion");
 
 		this.setTriggers()
 		this.setConditions()
@@ -25,29 +26,37 @@ class Cube extends Sensor {
 		if (gesture == 0) {
 			this.log('wake_up')
 			this.triggerWakedUp.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 1) {
 			this.log('shake')
 			this.triggerShaked.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 2) {
 			this.log('drop')
 			this.triggerDropped.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 3) {
 			this.log('flip90')
 			this.triggerFlipped90.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 4) {
 			this.log('flip180')
 			this.triggerFlipped180.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 5) {
 			this.log('push')
 			this.triggerPushed.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 6) {
 			this.log('double tapped')
 			this.triggerDoubleTapped.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 7 || gesture == 8) {
 			number = number / 100
 			this.log('rotated', number)
 			this.triggerRotated.trigger(this, {degrees: number})
-			this.setCapabilityValue('cube_measure_rotation', number);
+			this.setCapabilityValue('cube_measure_rotation', number)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		}
 	}
 	

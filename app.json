@@ -1721,6 +1721,7 @@
       "capabilities": [
         "side_up",
         "cube_measure_rotation",
+        "cube_state_motion",
         "measure_battery"
       ],
       "energy": {
@@ -2784,6 +2785,72 @@
         "en": "°"
       },
       "decimals": 2
+    },
+    "cube_state_motion": {
+      "type": "enum",
+      "uiComponent": "sensor",
+      "icon": "/drivers/aqara-cube/assets/icon.svg",
+      "title": {
+        "en": "Motion"
+      },
+      "getable": true,
+      "setable": false,
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Wakeup"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Shake"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Drop"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Flip 90°"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Flip 180°"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "Push"
+          }
+        },
+        {
+          "id": "6",
+          "title": {
+            "en": "Double tap"
+          }
+        },
+        {
+          "id": "7",
+          "title": {
+            "en": "Rotate Counter Clockwise"
+          }
+        },
+        {
+          "id": "8",
+          "title": {
+            "en": "Rotate Clockwise"
+          }
+        }
+      ]
     },
     "dark": {
       "type": "boolean",
