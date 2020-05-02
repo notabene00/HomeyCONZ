@@ -15,6 +15,6 @@ jobs:
       - name: validate Homey app
         run: |
           npm i -g homey > /dev/null
-          data=`homey app validate`
+          data=`homey app validate --level publish`
           echo "${data##*$'\n'}"
           [[ $data == *"did not validate"* ]] && exit 1 || exit 0
