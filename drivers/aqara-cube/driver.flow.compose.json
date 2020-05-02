@@ -85,12 +85,20 @@
       },
       "tokens": [
         {
-          "name": "degrees",
+          "name": "rotationAngle",
           "type": "number",
           "title": {
-            "en": "Degrees"
+            "en": "Rotation Angle °"
           },
-          "example": 90
+          "example": 124.51
+        },
+        {
+          "name": "relativeRotationAngle",
+          "type": "number",
+          "title": {
+            "en": "Relative Angle %"
+          },
+          "example": 0.92
         }
       ],
       "args": []

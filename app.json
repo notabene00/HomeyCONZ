@@ -583,12 +583,20 @@
         },
         "tokens": [
           {
-            "name": "degrees",
+            "name": "rotationAngle",
             "type": "number",
             "title": {
-              "en": "Degrees"
+              "en": "Rotation Angle °"
             },
-            "example": 90
+            "example": 124.51
+          },
+          {
+            "name": "relativeRotationAngle",
+            "type": "number",
+            "title": {
+              "en": "Relative Angle %"
+            },
+            "example": 0.92
           }
         ],
         "args": [
@@ -1770,6 +1778,23 @@
         "small": "/drivers/aqara-cube/assets/images/small.png"
       },
       "icon": "/drivers/aqara-cube/assets/icon.svg",
+      "settings": [
+        {
+          "id": "cube_relative_angle",
+          "type": "number",
+          "label": {
+            "en": "Relative rotation angle (xx° = 100%)"
+          },
+          "hint": {
+            "en": "This setting will translate the actual measured rotation angle in a relative rotation angle that can be used to increase or decrease dim-level / volume.\nxx° = 100%\nRange: 90 - 360, \ndefault: 180 [°]"
+          },
+          "value": 180,
+          "attr": {
+            "min": 90,
+            "max": 360
+          }
+        }
+      ],
       "pair": [
         {
           "id": "list_devices",
