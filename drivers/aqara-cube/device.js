@@ -8,13 +8,15 @@ class Cube extends Sensor {
 	onInit() {
 		super.onInit()
 		
+		this.addCapability("cube_measure_rotation");
+
 		this.setTriggers()
 		this.setConditions()
 		
 		this.log(this.getName(), 'has been initiated')
 	}
 	
-	fireEvent(number, initial=false, gesture=null) {
+	fireEvent(number, initial = false, gesture = null) {
 		if (gesture == 3 || gesture == 4) {
 			let side = parseInt(number.toString().charAt(0)) // first digit
 			this.setCapabilityValue('side_up', side)
@@ -42,8 +44,10 @@ class Cube extends Sensor {
 			this.log('double tapped')
 			this.triggerDoubleTapped.trigger(this)
 		} else if (gesture == 7 || gesture == 8) {
+			number = number / 100
 			this.log('rotated', number)
 			this.triggerRotated.trigger(this, {degrees: number})
+			this.setCapabilityValue('cube_measure_rotation', number);
 		}
 	}
 	

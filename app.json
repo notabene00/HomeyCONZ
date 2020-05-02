@@ -1720,6 +1720,7 @@
       "class": "sensor",
       "capabilities": [
         "side_up",
+        "cube_measure_rotation",
         "measure_battery"
       ],
       "energy": {
@@ -2769,6 +2770,21 @@
     }
   ],
   "capabilities": {
+    "cube_measure_rotation": {
+      "type": "number",
+      "uiComponent": "sensor",
+      "icon": "/drivers/aqara-cube/assets/rotate.svg",
+      "title": {
+        "en": "Rotation"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "units": {
+        "en": "°"
+      },
+      "decimals": 2
+    },
     "dark": {
       "type": "boolean",
       "title": {

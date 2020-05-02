@@ -5,6 +5,7 @@
   "class": "sensor",
   "capabilities": [
     "side_up",
+    "cube_measure_rotation",
     "measure_battery"
   ],
   "energy": {
