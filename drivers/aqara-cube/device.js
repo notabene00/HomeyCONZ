@@ -18,8 +18,11 @@ class Cube extends Sensor {
 	}
 	
 	fireEvent(number, initial = false, gesture = null) {
+
+		let oldSide = this.getCapabilityValue('side_up');
+		let side = 0;
 		if (gesture == 3 || gesture == 4) {
-			let side = parseInt(number.toString().charAt(0)) // first digit
+			side = parseInt(number.toString().charAt(0)) // first digit
 			this.setCapabilityValue('side_up', side)
 			if (initial) return
 		}
@@ -37,11 +40,11 @@ class Cube extends Sensor {
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 3) {
 			this.log('flip90')
-			this.triggerFlipped90.trigger(this)
+			this.triggerFlipped90.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 4) {
 			this.log('flip180')
-			this.triggerFlipped180.trigger(this)
+			this.triggerFlipped180.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 5) {
 			this.log('push')

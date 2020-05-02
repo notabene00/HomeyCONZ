@@ -53,13 +53,13 @@
     {
       "id": "7",
       "title": {
-        "en": "Rotate Counter Clockwise"
+        "en": "Rotate Clockwise"
       }
     },
     {
       "id": "8",
       "title": {
-        "en": "Rotate Clockwise"
+        "en": "Rotate Counter Clockwise"
       }
     }
   ]

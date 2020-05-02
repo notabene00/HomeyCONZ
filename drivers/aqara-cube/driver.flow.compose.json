@@ -33,14 +33,50 @@
       "title": {
         "en": "Cube flipped 90"
       },
-      "args": []
+      "args": [],
+      "tokens": [
+        {
+          "name": "oldside",
+          "type": "number",
+          "title": {
+            "en": "old side up"
+          },
+          "example": 1
+        },
+        {
+          "name": "newside",
+          "type": "number",
+          "title": {
+            "en": "new side up"
+          },
+          "example": 2
+        }
+      ]
     },
     {
       "id": "flip180",
       "title": {
         "en": "Cube flipped 180"
       },
-      "args": []
+      "args": [],
+      "tokens": [
+        {
+          "name": "oldside",
+          "type": "number",
+          "title": {
+            "en": "old side up"
+          },
+          "example": 1
+        },
+        {
+          "name": "newside",
+          "type": "number",
+          "title": {
+            "en": "new side up"
+          },
+          "example": 2
+        }
+      ]
     },
     {
       "id": "rotate",

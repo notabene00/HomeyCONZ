@@ -525,6 +525,24 @@
             "name": "device",
             "filter": "driver_id=aqara-cube"
           }
+        ],
+        "tokens": [
+          {
+            "name": "oldside",
+            "type": "number",
+            "title": {
+              "en": "old side up"
+            },
+            "example": 1
+          },
+          {
+            "name": "newside",
+            "type": "number",
+            "title": {
+              "en": "new side up"
+            },
+            "example": 2
+          }
         ]
       },
       {
@@ -537,6 +555,24 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=aqara-cube"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "oldside",
+            "type": "number",
+            "title": {
+              "en": "old side up"
+            },
+            "example": 1
+          },
+          {
+            "name": "newside",
+            "type": "number",
+            "title": {
+              "en": "new side up"
+            },
+            "example": 2
           }
         ]
       },
@@ -2841,13 +2877,13 @@
         {
           "id": "7",
           "title": {
-            "en": "Rotate Counter Clockwise"
+            "en": "Rotate Clockwise"
           }
         },
         {
           "id": "8",
           "title": {
-            "en": "Rotate Clockwise"
+            "en": "Rotate Counter Clockwise"
           }
         }
       ]
