@@ -17,15 +17,18 @@ class Cube extends Sensor {
 		this.log(this.getName(), 'has been initiated')
 	}
 	
-	fireEvent(number, initial = false, gesture = null) {
+	fireEvent(number, polledState = false, gesture = null) {
 
 		let oldSide = this.getCapabilityValue('side_up');
 		let side = 0;
+
 		if (gesture == 3 || gesture == 4) {
 			side = parseInt(number.toString().charAt(0)) // first digit
 			this.setCapabilityValue('side_up', side)
-			if (initial) return
 		}
+
+		if (polledState) return
+
 		if (gesture == 0) {
 			this.log('wake_up')
 			this.triggerWakedUp.trigger(this)
