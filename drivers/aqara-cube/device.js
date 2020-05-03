@@ -59,12 +59,12 @@ class Cube extends Sensor {
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 7 || gesture == 8) {
 			number = number / 100
-			if(gesture == 8){
-				number *= -1;
-			}
-			this.log('rotated', number)
 			let relativeRotationAngle = Math.round((number > 0 ? Math.min((number / (this.getSetting('cube_relative_angles') || 180)), 1) : Math.max((number / (this.getSetting('cube_relative_angles') || 180)), -1)) * 100) / 100;
 			this.triggerRotated.trigger(this, {rotationAngle: number, relativeRotationAngle: relativeRotationAngle})
+
+			this.log('rotated', number)
+			this.log('rotated relative', relativeRotationAngle)
+
 			this.setCapabilityValue('cube_measure_rotation', number)
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		}
