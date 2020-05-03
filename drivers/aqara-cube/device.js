@@ -45,18 +45,22 @@ class Cube extends Sensor {
 		} else if (gesture == 3) {
 			this.log('flip90')
 			this.triggerFlipped90.trigger(this, { oldside : oldSide, newside: side })
+			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 4) {
 			this.log('flip180')
 			this.triggerFlipped180.trigger(this, { oldside : oldSide, newside: side })
+			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 5) {
 			this.log('push')
 			this.triggerPushed.trigger(this)
+			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 6) {
 			this.log('double tapped')
 			this.triggerDoubleTapped.trigger(this)
+			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 7 || gesture == 8) {
 			number = number / 100
@@ -79,6 +83,7 @@ class Cube extends Sensor {
 		this.triggerShaked = new Homey.FlowCardTriggerDevice('shake').register()
 		this.triggerDropped = new Homey.FlowCardTriggerDevice('drop').register()
 		this.triggerRotated = new Homey.FlowCardTriggerDevice('rotate').register()
+		this.triggerSideChanged = new Homey.FlowCardTriggerDevice('side_changed').register()
 		this.triggerFlipped90 = new Homey.FlowCardTriggerDevice('flip90').register()
 		this.triggerFlipped180 = new Homey.FlowCardTriggerDevice('flip180').register()
 	}

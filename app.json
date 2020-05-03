@@ -148,19 +148,6 @@
         ]
       },
       {
-        "id": "shake",
-        "title": {
-          "en": "Shaked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
         "id": "start_ccw_rotate",
         "title": {
           "en": "Remote has been rotated counter clockwise",
@@ -463,6 +450,19 @@
         ]
       },
       {
+        "id": "shake",
+        "title": {
+          "en": "Cube Shaked"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
         "id": "double_tap",
         "title": {
           "en": "Cube double tapped"
@@ -518,6 +518,37 @@
         "id": "flip90",
         "title": {
           "en": "Cube flipped 90"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "oldside",
+            "type": "number",
+            "title": {
+              "en": "old side up"
+            },
+            "example": 1
+          },
+          {
+            "name": "newside",
+            "type": "number",
+            "title": {
+              "en": "new side up"
+            },
+            "example": 2
+          }
+        ]
+      },
+      {
+        "id": "side_changed",
+        "title": {
+          "en": "Side up changed"
         },
         "args": [
           {

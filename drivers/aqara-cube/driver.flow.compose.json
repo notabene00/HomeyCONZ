@@ -1,6 +1,13 @@
 {
   "triggers": [
     {
+      "id": "shake",
+      "title": {
+        "en": "Cube Shaked"
+      },
+      "args": []
+    },
+    {
       "id": "double_tap",
       "title": {
         "en": "Cube double tapped"
@@ -32,6 +39,31 @@
       "id": "flip90",
       "title": {
         "en": "Cube flipped 90"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "oldside",
+          "type": "number",
+          "title": {
+            "en": "old side up"
+          },
+          "example": 1
+        },
+        {
+          "name": "newside",
+          "type": "number",
+          "title": {
+            "en": "new side up"
+          },
+          "example": 2
+        }
+      ]
+    },
+    {
+      "id": "side_changed",
+      "title": {
+        "en": "Side up changed"
       },
       "args": [],
       "tokens": [
