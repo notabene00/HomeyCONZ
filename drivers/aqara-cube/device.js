@@ -23,7 +23,7 @@ class Cube extends Sensor {
 		let oldSide = this.getCapabilityValue('side_up');
 		let side = 0;
 
-		if (gesture == 3 || gesture == 4) {
+		if (gesture == 3 || gesture == 4 || gesture == 5 || gesture == 6) {
 			side = parseInt(number.toString().charAt(0)) // first digit
 			this.setCapabilityValue('side_up', side)
 		}
