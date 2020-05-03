@@ -26,6 +26,10 @@ class Cube extends Sensor {
 		if (gesture == 3 || gesture == 4 || gesture == 5 || gesture == 6) {
 			side = parseInt(number.toString().charAt(0)) // first digit
 			this.setCapabilityValue('side_up', side)
+
+			if(!polledState && oldSide != side){
+				this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
+			}
 		}
 
 		if (polledState) return
@@ -45,22 +49,18 @@ class Cube extends Sensor {
 		} else if (gesture == 3) {
 			this.log('flip90')
 			this.triggerFlipped90.trigger(this, { oldside : oldSide, newside: side })
-			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 4) {
 			this.log('flip180')
 			this.triggerFlipped180.trigger(this, { oldside : oldSide, newside: side })
-			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 5) {
 			this.log('push')
 			this.triggerPushed.trigger(this)
-			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 6) {
 			this.log('double tapped')
 			this.triggerDoubleTapped.trigger(this)
-			this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 7 || gesture == 8) {
 			number = number / 100
