@@ -6,6 +6,7 @@
   "capabilities": [
     "side_up",
     "cube_measure_rotation",
+    "cube_measure_rotation_relative",
     "cube_state_motion",
     "measure_battery"
   ],

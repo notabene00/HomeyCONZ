@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "uiComponent": "sensor",
+  "icon": "/drivers/aqara-cube/assets/rotate.svg",
+  "title": {
+    "en": "Relative Rotation"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "units": {
+    "en": "%"
+  },
+  "decimals": 2
+}

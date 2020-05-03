@@ -9,6 +9,7 @@ class Cube extends Sensor {
 		super.onInit()
 		
 		this.addCapability("cube_measure_rotation");
+		this.addCapability("cube_measure_rotation_relative");
 		this.addCapability("cube_state_motion");
 
 		this.setTriggers()
@@ -66,6 +67,7 @@ class Cube extends Sensor {
 			this.log('rotated relative', relativeRotationAngle)
 
 			this.setCapabilityValue('cube_measure_rotation', number)
+			this.setCapabilityValue('cube_measure_rotation_relative', relativeRotationAngle * 100)
 			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		}
 	}
