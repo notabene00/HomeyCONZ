@@ -221,7 +221,7 @@ class deCONZ extends Homey.App {
 		return null
 	}
 
-	updateState(device, state, initial=false) {
+	updateState(device, state, initial = false) {
 		let deviceCapabilities = device.getCapabilities()
 		let deviceSupports = (capabilities) => {
 			if (typeof(capabilities) == 'string') capabilities = [capabilities]

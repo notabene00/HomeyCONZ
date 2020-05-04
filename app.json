@@ -148,19 +148,6 @@
         ]
       },
       {
-        "id": "shake",
-        "title": {
-          "en": "Shaked"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=aqara-cube"
-          }
-        ]
-      },
-      {
         "id": "start_ccw_rotate",
         "title": {
           "en": "Remote has been rotated counter clockwise",
@@ -463,6 +450,19 @@
         ]
       },
       {
+        "id": "shake",
+        "title": {
+          "en": "Cube Shaked"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ]
+      },
+      {
         "id": "double_tap",
         "title": {
           "en": "Cube double tapped"
@@ -525,6 +525,55 @@
             "name": "device",
             "filter": "driver_id=aqara-cube"
           }
+        ],
+        "tokens": [
+          {
+            "name": "oldside",
+            "type": "number",
+            "title": {
+              "en": "old side up"
+            },
+            "example": 1
+          },
+          {
+            "name": "newside",
+            "type": "number",
+            "title": {
+              "en": "new side up"
+            },
+            "example": 2
+          }
+        ]
+      },
+      {
+        "id": "side_changed",
+        "title": {
+          "en": "Side up changed"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-cube"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "oldside",
+            "type": "number",
+            "title": {
+              "en": "old side up"
+            },
+            "example": 1
+          },
+          {
+            "name": "newside",
+            "type": "number",
+            "title": {
+              "en": "new side up"
+            },
+            "example": 2
+          }
         ]
       },
       {
@@ -538,6 +587,24 @@
             "name": "device",
             "filter": "driver_id=aqara-cube"
           }
+        ],
+        "tokens": [
+          {
+            "name": "oldside",
+            "type": "number",
+            "title": {
+              "en": "old side up"
+            },
+            "example": 1
+          },
+          {
+            "name": "newside",
+            "type": "number",
+            "title": {
+              "en": "new side up"
+            },
+            "example": 2
+          }
         ]
       },
       {
@@ -547,12 +614,20 @@
         },
         "tokens": [
           {
-            "name": "degrees",
+            "name": "rotationAngle",
             "type": "number",
             "title": {
-              "en": "Degrees"
+              "en": "Rotation Angle °"
             },
-            "example": 90
+            "example": 124.51
+          },
+          {
+            "name": "relativeRotationAngle",
+            "type": "number",
+            "title": {
+              "en": "Relative Angle %"
+            },
+            "example": 0.92
           }
         ],
         "args": [
@@ -1720,6 +1795,9 @@
       "class": "sensor",
       "capabilities": [
         "side_up",
+        "cube_measure_rotation",
+        "cube_measure_rotation_relative",
+        "cube_state_motion",
         "measure_battery"
       ],
       "energy": {
@@ -1732,6 +1810,23 @@
         "small": "/drivers/aqara-cube/assets/images/small.png"
       },
       "icon": "/drivers/aqara-cube/assets/icon.svg",
+      "settings": [
+        {
+          "id": "cube_relative_angle",
+          "type": "number",
+          "label": {
+            "en": "Relative rotation angle (xx° = 100%)"
+          },
+          "hint": {
+            "en": "This setting will translate the actual measured rotation angle in a relative rotation angle that can be used to increase or decrease dim-level / volume.\nxx° = 100%\nRange: 90 - 360, \ndefault: 180 [°]"
+          },
+          "value": 180,
+          "attr": {
+            "min": 90,
+            "max": 360
+          }
+        }
+      ],
       "pair": [
         {
           "id": "list_devices",
@@ -2769,6 +2864,102 @@
     }
   ],
   "capabilities": {
+    "cube_measure_rotation": {
+      "type": "number",
+      "uiComponent": "sensor",
+      "icon": "/drivers/aqara-cube/assets/rotate.svg",
+      "title": {
+        "en": "Rotation"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "units": {
+        "en": "°"
+      },
+      "decimals": 2
+    },
+    "cube_measure_rotation_relative": {
+      "type": "number",
+      "uiComponent": "sensor",
+      "icon": "/drivers/aqara-cube/assets/rotate.svg",
+      "title": {
+        "en": "Relative Rotation"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "units": {
+        "en": "%"
+      },
+      "decimals": 2
+    },
+    "cube_state_motion": {
+      "type": "enum",
+      "uiComponent": "sensor",
+      "icon": "/drivers/aqara-cube/assets/icon.svg",
+      "title": {
+        "en": "Motion"
+      },
+      "getable": true,
+      "setable": false,
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Wakeup"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Shake"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Drop"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Flip 90°"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Flip 180°"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "Push"
+          }
+        },
+        {
+          "id": "6",
+          "title": {
+            "en": "Double tap"
+          }
+        },
+        {
+          "id": "7",
+          "title": {
+            "en": "Rotate Clockwise"
+          }
+        },
+        {
+          "id": "8",
+          "title": {
+            "en": "Rotate Counter Clockwise"
+          }
+        }
+      ]
+    },
     "dark": {
       "type": "boolean",
       "title": {

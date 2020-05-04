@@ -8,42 +8,71 @@ class Cube extends Sensor {
 	onInit() {
 		super.onInit()
 		
+		this.addCapability("cube_measure_rotation");
+		this.addCapability("cube_measure_rotation_relative");
+		this.addCapability("cube_state_motion");
+
 		this.setTriggers()
 		this.setConditions()
 		
 		this.log(this.getName(), 'has been initiated')
 	}
 	
-	fireEvent(number, initial=false, gesture=null) {
-		if (gesture == 3 || gesture == 4) {
-			let side = parseInt(number.toString().charAt(0)) // first digit
+	fireEvent(number, polledState = false, gesture = null) {
+
+		let oldSide = this.getCapabilityValue('side_up');
+		let side = 0;
+
+		if (gesture == 3 || gesture == 4 || gesture == 5 || gesture == 6) {
+			side = parseInt(number.toString().charAt(0)) // first digit
 			this.setCapabilityValue('side_up', side)
-			if (initial) return
+
+			if(!polledState && oldSide != side){
+				this.triggerSideChanged.trigger(this, { oldside : oldSide, newside: side })
+			}
 		}
+
+		if (polledState) return
+
 		if (gesture == 0) {
 			this.log('wake_up')
 			this.triggerWakedUp.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 1) {
 			this.log('shake')
 			this.triggerShaked.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 2) {
 			this.log('drop')
 			this.triggerDropped.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 3) {
 			this.log('flip90')
-			this.triggerFlipped90.trigger(this)
+			this.triggerFlipped90.trigger(this, { oldside : oldSide, newside: side })
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 4) {
 			this.log('flip180')
-			this.triggerFlipped180.trigger(this)
+			this.triggerFlipped180.trigger(this, { oldside : oldSide, newside: side })
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 5) {
 			this.log('push')
 			this.triggerPushed.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 6) {
 			this.log('double tapped')
 			this.triggerDoubleTapped.trigger(this)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		} else if (gesture == 7 || gesture == 8) {
+			number = number / 100
+			let relativeRotationAngle = Math.round((number > 0 ? Math.min((number / (this.getSetting('cube_relative_angles') || 180)), 1) : Math.max((number / (this.getSetting('cube_relative_angles') || 180)), -1)) * 100) / 100;
+			this.triggerRotated.trigger(this, {rotationAngle: number, relativeRotationAngle: relativeRotationAngle})
+
 			this.log('rotated', number)
-			this.triggerRotated.trigger(this, {degrees: number})
+			this.log('rotated relative', relativeRotationAngle)
+
+			this.setCapabilityValue('cube_measure_rotation', number)
+			this.setCapabilityValue('cube_measure_rotation_relative', relativeRotationAngle * 100)
+			this.setCapabilityValue('cube_state_motion', gesture.toString())
 		}
 	}
 	
@@ -54,6 +83,7 @@ class Cube extends Sensor {
 		this.triggerShaked = new Homey.FlowCardTriggerDevice('shake').register()
 		this.triggerDropped = new Homey.FlowCardTriggerDevice('drop').register()
 		this.triggerRotated = new Homey.FlowCardTriggerDevice('rotate').register()
+		this.triggerSideChanged = new Homey.FlowCardTriggerDevice('side_changed').register()
 		this.triggerFlipped90 = new Homey.FlowCardTriggerDevice('flip90').register()
 		this.triggerFlipped180 = new Homey.FlowCardTriggerDevice('flip180').register()
 	}

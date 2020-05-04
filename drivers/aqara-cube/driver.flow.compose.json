@@ -1,6 +1,13 @@
 {
   "triggers": [
     {
+      "id": "shake",
+      "title": {
+        "en": "Cube Shaked"
+      },
+      "args": []
+    },
+    {
       "id": "double_tap",
       "title": {
         "en": "Cube double tapped"
@@ -33,14 +40,75 @@
       "title": {
         "en": "Cube flipped 90"
       },
-      "args": []
+      "args": [],
+      "tokens": [
+        {
+          "name": "oldside",
+          "type": "number",
+          "title": {
+            "en": "old side up"
+          },
+          "example": 1
+        },
+        {
+          "name": "newside",
+          "type": "number",
+          "title": {
+            "en": "new side up"
+          },
+          "example": 2
+        }
+      ]
+    },
+    {
+      "id": "side_changed",
+      "title": {
+        "en": "Side up changed"
+      },
+      "args": [],
+      "tokens": [
+        {
+          "name": "oldside",
+          "type": "number",
+          "title": {
+            "en": "old side up"
+          },
+          "example": 1
+        },
+        {
+          "name": "newside",
+          "type": "number",
+          "title": {
+            "en": "new side up"
+          },
+          "example": 2
+        }
+      ]
     },
     {
       "id": "flip180",
       "title": {
         "en": "Cube flipped 180"
       },
-      "args": []
+      "args": [],
+      "tokens": [
+        {
+          "name": "oldside",
+          "type": "number",
+          "title": {
+            "en": "old side up"
+          },
+          "example": 1
+        },
+        {
+          "name": "newside",
+          "type": "number",
+          "title": {
+            "en": "new side up"
+          },
+          "example": 2
+        }
+      ]
     },
     {
       "id": "rotate",
@@ -49,12 +117,20 @@
       },
       "tokens": [
         {
-          "name": "degrees",
+          "name": "rotationAngle",
           "type": "number",
           "title": {
-            "en": "Degrees"
+            "en": "Rotation Angle °"
           },
-          "example": 90
+          "example": 124.51
+        },
+        {
+          "name": "relativeRotationAngle",
+          "type": "number",
+          "title": {
+            "en": "Relative Angle %"
+          },
+          "example": 0.92
         }
       ],
       "args": []
