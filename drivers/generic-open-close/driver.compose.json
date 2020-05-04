@@ -1,20 +1,21 @@
 {
-  "id": "trust-zyct-202",
+  "id": "generic-open-close",
   "name": {
-    "en": "Trust ZYCT-202"
+    "en": "<Generic Open-Close>"
   },
-  "class": "other",
+  "class": "sensor",
   "capabilities": [
+    "alarm_contact",
     "measure_battery"
   ],
   "energy": {
     "batteries": [
-      "CR2450"
+      "OTHER"
     ]
   },
   "images": {
-    "large": "{{driverAssetsPath}}/images/large.jpg",
-    "small": "{{driverAssetsPath}}/images/small.jpg"
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
   },
   "icon": "{{driverAssetsPath}}/icon.svg",
   "pair": [

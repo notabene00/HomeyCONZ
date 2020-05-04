@@ -2318,6 +2318,40 @@
       "id": "generic-lamp"
     },
     {
+      "id": "generic-open-close",
+      "name": {
+        "en": "<Generic Open-Close>"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/generic-open-close/assets/images/large.png",
+        "small": "/drivers/generic-open-close/assets/images/small.png"
+      },
+      "icon": "/drivers/generic-open-close/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "name": {
         "en": "<Generic Plug>"
       },
@@ -2935,6 +2969,40 @@
       "id": "tradfri-wireless-dimmer"
     },
     {
+      "id": "trust-zcts-808",
+      "name": {
+        "en": "Trust ZCTS-808"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/trust-zcts-808/assets/images/large.png",
+        "small": "/drivers/trust-zcts-808/assets/images/small.png"
+      },
+      "icon": "/drivers/trust-zcts-808/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "id": "trust-zpir-8000",
       "name": {
         "en": "Trust ZPIR 8000"
@@ -2998,8 +3066,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/trust-zyct-202/assets/images/large.png",
-        "small": "/drivers/trust-zyct-202/assets/images/small.png"
+        "large": "/drivers/trust-zyct-202/assets/images/large.jpg",
+        "small": "/drivers/trust-zyct-202/assets/images/small.jpg"
       },
       "icon": "/drivers/trust-zyct-202/assets/icon.svg",
       "pair": [
