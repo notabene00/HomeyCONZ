@@ -1,0 +1,48 @@
+{
+  "id": "trust-zpir-8000",
+  "name": {
+    "en": "Trust ZPIR 8000"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_motion",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "AAA", "AAA"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "no_motion_timeout",
+      "type": "number",
+      "label": {
+        "en": "No motion timeout"
+      },
+      "min": 0,
+      "value": 60,
+      "hint": {
+        "en": "Timeout will enlong time in the drawdown"
+      }
+    }
+  ]
+}
