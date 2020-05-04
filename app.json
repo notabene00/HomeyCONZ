@@ -1548,6 +1548,77 @@
             "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Button Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=trust-zyct-202"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Press"
+                }
+              }
+            ]
+          }
+        ]
       }
     ],
     "conditions": [
@@ -2298,6 +2369,7 @@
         "large": "/drivers/generic-wireless-switch/assets/images/large.png",
         "small": "/drivers/generic-wireless-switch/assets/images/small.png"
       },
+      "icon": "/drivers/generic-wireless-switch/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2861,6 +2933,39 @@
         }
       ],
       "id": "tradfri-wireless-dimmer"
+    },
+    {
+      "id": "trust-zyct-202",
+      "name": {
+        "en": "Trust ZYCT-202"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/trust-zyct-202/assets/images/large.png",
+        "small": "/drivers/trust-zyct-202/assets/images/small.png"
+      },
+      "icon": "/drivers/trust-zyct-202/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
     }
   ],
   "capabilities": {

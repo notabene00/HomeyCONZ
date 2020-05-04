@@ -1,6 +1,7 @@
 {
+  "id": "trust-zyct-202",
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "Trust ZYCT-202"
   },
   "class": "other",
   "capabilities": [
@@ -8,7 +9,7 @@
   ],
   "energy": {
     "batteries": [
-      "OTHER"
+      "CR2450"
     ]
   },
   "images": {
