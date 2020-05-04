@@ -2,10 +2,9 @@ Introduction
 This app allows you to connect your homey with your deCONZ gateway (ConBee, Conbee II or Phoscon gateway) and use all its attached devices such as lights, switches and all kinds of sensors.
 
 Setup instructions
- - Install this app and go to the app configuration
- - Enter the ip address of your deCONZ gateway
- - Go to the deCONZ webinterface -> settings -> gateway -> advanced and click on 'authenticate app'
- - Back in the homey app configuration, click on 'autodiscover' and then on save
+ - Go to the deCONZ/Phoscon webinterface -> settings -> gateway -> advanced and click on 'authenticate app'
+ - In Homey, go to the configurationof this app
+ - Click on 'Discover & Authenticate' and let the magic happen!
 
  Adding devices
   - Ensure that the desired devices is connected with your deCONZ gateway

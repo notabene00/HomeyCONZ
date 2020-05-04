@@ -4,5 +4,8 @@
   },
   "1.1.0": {
     "en": "improved support for the Aqara cube (more capabilities, support for relative rotation, improved triggers)"
+  },
+  "1.2.0": {
+    "en": "improved configuration & setup"
   }
 }
