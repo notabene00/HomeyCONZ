@@ -1,10 +1,10 @@
 <html>
 	<head>
-        <!--<script type="text/javascript" src="/homey.js" data-origin="settings"></script>-->
+        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
-        <h1>deCONZ App Settings</h1>
+        <h1>Connection Settings</h1>
 		<fieldset>
             <div class="container">
                 <div class="alert alert-danger" role="alert" id="apiError" style="display: none">
@@ -13,7 +13,7 @@
                 <div class="row col-9">
                     <div class="col-sm mt-4">
                         <div class="form-group">
-                            <button type="button" class="btn btn-outline-primary" style="height: 35" id="discoverButton">Discover & Authenticate</button>
+                            <button type="button" class="btn btn-primary" style="height: 35" id="discoverButton">Discover & Authenticate</button>
                         </div>
                     </div>
                     <div class="col-sm mt-4">
@@ -53,7 +53,7 @@
                     <div class="row col-9">
                         <div class="col-sm mt-4">
                             <div class="form-group">
-                                <button type="button" class="btn btn-outline-primary" style="height: 35" id="createButton">Save</button>
+                                <button type="button" class="btn btn-primary" style="height: 35" id="createButton">Save</button>
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
 		</fieldset>
 
         <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", function(event) { 
-            //function onHomeyReady(Homey) {
+            //document.addEventListener("DOMContentLoaded", function(event) { 
+            function onHomeyReady(Homey) {
                 const ip = document.getElementById('deconzIPAdress')
                 const port = document.getElementById('deconzPort')
                 const apiKey = document.getElementById('apiKey')
@@ -122,7 +122,7 @@
                             callback(null, response[0].success.username)
                         } else if (this.readyState === XMLHttpRequest.DONE && this.status === 403) {
                             const response = JSON.parse(xhr.responseText)
-                            callback(new Error('please go to settings→gateway→advanced and click on authenticate in the phoscon app'))
+                            callback(new Error('Please go to settings→gateway→advanced and click on authenticate in the phoscon app and try again!'))
                         }else{
                             const response = JSON.parse(xhr.responseText)
                             callback(new Error(response[0].error.description), null)
@@ -143,7 +143,7 @@
                             const response = JSON.parse(xhr.responseText)                            
                             callback(null, response.websocketport)
                         }else  if (this.readyState === XMLHttpRequest.DONE) {
-                            callback(new Error('error while fetching the WS port'), null)
+                            callback(new Error('Error while fetching the WS port'), null)
                         }
                     }
                     xhr.open('GET', url, true)
@@ -230,7 +230,7 @@
                 })
                 
                 function saveAll() {
-                    /*Homey.set('host', ip.value, (err, settings) => {
+                    Homey.set('host', ip.value, (err, settings) => {
                         if (err) return Homey.alert(err)
                     })
                     Homey.set('port', port.value, (err, settings) => {
@@ -241,10 +241,10 @@
                     })
                     Homey.set('apikey', apiKey.value, (err, settings) => {
                         if (err) return Homey.alert(err)
-                    })*/
+                    })
                 }
 
-                /*Homey.get('host', (err, host) => {
+                Homey.get('host', (err, host) => {
                     if (err) return Homey.alert(err)
                     ip.value = host
                 })
@@ -264,10 +264,10 @@
                     apiKey.value = apikey
                 })
 
-                Homey.ready()*/
+                Homey.ready()
             }
 
-            );
+            //);
             
         </script>
 	</body>

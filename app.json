@@ -256,7 +256,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Event"
+          "en": "Button Event"
         },
         "tokens": [
           {
@@ -345,7 +345,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Event"
+          "en": "Button Event"
         },
         "tokens": [
           {
@@ -770,7 +770,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Event"
+          "en": "Button Event"
         },
         "tokens": [
           {
@@ -859,7 +859,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Event"
+          "en": "Button Event"
         },
         "tokens": [
           {
@@ -930,7 +930,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Event"
+          "en": "Button Event"
         },
         "tokens": [
           {
@@ -1037,7 +1037,7 @@
       {
         "id": "raw_switch_event",
         "title": {
-          "en": "Event"
+          "en": "Button Event"
         },
         "tokens": [
           {
