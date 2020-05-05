@@ -2694,6 +2694,39 @@
       "id": "mi-button"
     },
     {
+      "id": "mi-light-sensor",
+      "name": {
+        "en": "Mi Light Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/mi-light-sensor/assets/images/large.png",
+        "small": "/drivers/mi-light-sensor/assets/images/small.png"
+      },
+      "icon": "/drivers/mi-light-sensor/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "name": {
         "en": "Mi Magnet"
       },
