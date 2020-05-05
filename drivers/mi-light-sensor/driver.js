@@ -10,7 +10,7 @@ class MiLightSensorDriver extends Driver {
 	}
 	
 	onPairListDevices(_, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'lumi.sen_ill.mgl01' || device.modelid ==='SML001', callback)
+		this.getSensorsByCondition(device => device.modelid === 'lumi.sen_ill.mgl01', callback)
 	}
 
 }
