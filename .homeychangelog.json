@@ -7,5 +7,8 @@
   },
   "1.2.0": {
     "en": "improved configuration & setup"
+  },
+  "1.2.1": {
+    "en": "fix for crashing lights"
   }
 }
