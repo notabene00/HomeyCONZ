@@ -93,11 +93,7 @@ class Light extends Homey.Device {
 	}
 
 	put(path, data, callback) {
-		let headers = {
-			'Content-Type': 'application/json',
-			'Content-Length': JSON.stringify(data).length
-		}
-		http.put(this.host, this.port, `/api/${this.apikey}${path}`, headers, data, (error, data) => {
+		http.put(this.host, this.port, `/api/${this.apikey}${path}`, data, (error, data) => {
 			callback(error, !!error ? null : JSON.parse(data))
 		})
 	}
