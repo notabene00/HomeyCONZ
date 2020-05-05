@@ -10,7 +10,7 @@ class HueMotionDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'SML001' || device.modelid === 'SML002', callback)
+		this.getSensorsByCondition(device => device.modelid === 'SML001', callback)
 	}
 
 }
