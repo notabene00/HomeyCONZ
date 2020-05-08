@@ -77,7 +77,7 @@ class Sensor extends Homey.Device {
 				break;
 		}
 
-		return {rawEvent: number, buttonIndex: buttonIndex, actionIndex: actionIndex, action: action};
+		return { rawEvent: number, buttonIndex: buttonIndex, actionIndex: actionIndex, action: action };
 	}
 
 	// updates the config of the device in deConz itself
