@@ -174,10 +174,10 @@ class deCONZ extends Homey.App {
 				const device = this.getDevice('sensors', key)
 				if (device) {
 					if (sensor.state) {
-						this.updateState(device, sensor.state, true) // initial=true
+						this.updateState(device, sensor.state, true)
 					}
 					if (sensor.config) {
-						this.updateConfig(device, sensor.config, true) // initial=true
+						this.updateConfig(device, sensor.config, true)
 					}
 				}
 			})
@@ -193,7 +193,7 @@ class deCONZ extends Homey.App {
 				const device = this.getDevice('groups', key)
 				if (device) {
 					if (group.action) {
-						this.updateState(device, group.action, true) // initial=true
+						this.updateState(device, group.action, true)
 					}
 				}
 			})
@@ -230,54 +230,60 @@ class deCONZ extends Homey.App {
 			}).includes(false)
 		}
 
-		if (!initial) {
-			this.log('state update for', device.getName(), state)
-		}
+		this.log('state update for', device.getSetting('id'), device.getName(), state)
+
 		if (state.hasOwnProperty('on')) {
 			if (deviceSupports('onoff')) {
 				device.setCapabilityValue('onoff', state.on)
 			}
 		}
+
 		if (state.hasOwnProperty('any_on')) {
 			if (deviceSupports('onoff')) {
 				device.setCapabilityValue('onoff', state.any_on)
 			}
 		}
+
 		if (state.hasOwnProperty('bri')) {
 			if (deviceSupports('dim')) {
 				device.setCapabilityValue('dim', state.bri / 255)
 			}
 		}
+
 		if (state.hasOwnProperty('presence')) {
 			if (deviceSupports('alarm_motion')) {
 				device.setCapabilityValue('alarm_motion', state.presence)
 			}
 		}
-		// vibration sensor
+
 		if (state.hasOwnProperty('vibration')) {
 			if (deviceSupports('vibration_alarm')) {
 				device.setCapabilityValue('vibration_alarm', state.vibration)
 			}
 		}
+
 		if (state.hasOwnProperty('vibrationstrength')) {
 			if (deviceSupports('vibration_strength')) {
 				device.setCapabilityValue('vibration_strength', state.vibrationstrength)
 			}
 		}
+
 		if (state.hasOwnProperty('tiltangle')) {
 			if (deviceSupports('tilt_angle')) {
 				device.setCapabilityValue('tilt_angle', state.tiltangle)
 			}
 		}
-		//
+
 		if (state.hasOwnProperty('dark')) {
 			if (deviceSupports('dark')) {
 				device.setCapabilityValue('dark', state.dark)
 			}
 		}
+
 		if (state.hasOwnProperty('reachable')) {
-			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')//Checks reachable state for lights
+			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
+
 		if (state.hasOwnProperty('lux')) {
 			if (deviceSupports('measure_luminance')) {
 				device.setCapabilityValue('measure_luminance', state.lux)
@@ -288,42 +294,51 @@ class deCONZ extends Homey.App {
 				device.setCapabilityValue('alarm_water', state.water)
 			}
 		}
+
 		if (state.hasOwnProperty('buttonevent') && !initial) {
 			device.fireEvent(state.buttonevent)
 		}
+
 		if (state.hasOwnProperty('buttonevent') && state.hasOwnProperty('gesture')) {
 			device.fireEvent(state.buttonevent, initial, state.gesture)
 		}
+
 		if (state.hasOwnProperty('open')) {
 			if (deviceSupports('alarm_contact')) {
 				device.setCapabilityValue('alarm_contact', state.open)
 			}
 		}
+
 		if (state.hasOwnProperty('colormode')) {
 			if (deviceSupports('light_mode')) {
 				device.setCapabilityValue('light_mode', (state.colormode == 'xy' || state.colormode == 'hs') ? 'color': 'temperature')
 			}
 		}
+
 		if (state.hasOwnProperty('fire')) {
 			if (deviceSupports('alarm_smoke')) {
 				device.setCapabilityValue('alarm_smoke', state.fire)
 			}
 		}
+
 		if (state.hasOwnProperty('temperature')) {
 			if (deviceSupports('measure_temperature')) {
 				device.setCapabilityValue('measure_temperature', state.temperature / 100)
 			}
 		}
+
 		if (state.hasOwnProperty('humidity')) {
 			if (deviceSupports('measure_humidity')) {
 				device.setCapabilityValue('measure_humidity', state.humidity / 100)
 			}
 		}
+
 		if (state.hasOwnProperty('pressure')) {
 			if (deviceSupports('measure_pressure')) {
 				device.setCapabilityValue('measure_pressure', state.pressure)
 			}
 		}
+
 		if (state.hasOwnProperty('power')) {
 			if (deviceSupports('measure_power')) {
 				device.setCapabilityValue('measure_power', state.power)
@@ -347,9 +362,8 @@ class deCONZ extends Homey.App {
 	}
 
 	updateConfig(device, config, initial = false) {
-		if (!initial) {
-			this.log('Config update for', device.getName(), config)
-		}
+
+		this.log('config update for', device.getSetting('id'), device.getName(), config)
 
 		let deviceСapabilities = device.getCapabilities()
 
@@ -363,7 +377,7 @@ class deCONZ extends Homey.App {
 			device.setSettings({ sensitivity: config.sensitivity });
 		}
 		if (config.hasOwnProperty('reachable')) {
-			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable') //Checks reachable state for sensors
+			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
 	}
 
