@@ -157,7 +157,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       },
@@ -171,7 +171,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       },
@@ -1314,6 +1314,52 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=mi-button"
+          }
+        ]
+      },
+      {
+        "id": "clockwise_rotate",
+        "title": {
+          "en": "Rotated Clockwise"
+        },
+        "tokens": [
+          {
+            "name": "duration",
+            "type": "number",
+            "title": {
+              "en": "duration (ms)"
+            },
+            "example": 351
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "counter_clockwise_rotate",
+        "title": {
+          "en": "Rotated Counter Clockwise"
+        },
+        "tokens": [
+          {
+            "name": "duration",
+            "type": "number",
+            "title": {
+              "en": "duration (ms)"
+            },
+            "example": 351
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=symfonisk-remote"
           }
         ]
       },
