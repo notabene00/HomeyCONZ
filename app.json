@@ -157,7 +157,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       },
@@ -171,7 +171,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       },
@@ -1318,6 +1318,52 @@
         ]
       },
       {
+        "id": "clockwise_rotate",
+        "title": {
+          "en": "Rotated Clockwise"
+        },
+        "tokens": [
+          {
+            "name": "duration",
+            "type": "number",
+            "title": {
+              "en": "duration (ms)"
+            },
+            "example": 351
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=symfonisk-remote"
+          }
+        ]
+      },
+      {
+        "id": "counter_clockwise_rotate",
+        "title": {
+          "en": "Rotated Counter Clockwise"
+        },
+        "tokens": [
+          {
+            "name": "duration",
+            "type": "number",
+            "title": {
+              "en": "duration (ms)"
+            },
+            "example": 351
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=symfonisk-remote"
+          }
+        ]
+      },
+      {
         "id": "raw_switch_event",
         "title": {
           "en": "Event"
@@ -1369,7 +1415,7 @@
               {
                 "id": "-1",
                 "label": {
-                  "en": "Any Button/Action"
+                  "en": "Any Action"
                 }
               },
               {
@@ -1546,6 +1592,77 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=tradfri-wireless-dimmer"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Button Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=trust-zyct-202"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Single Press"
+                }
+              }
+            ]
           }
         ]
       }
@@ -2247,6 +2364,40 @@
       "id": "generic-lamp"
     },
     {
+      "id": "generic-open-close",
+      "name": {
+        "en": "<Generic Open-Close>"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/generic-open-close/assets/images/large.png",
+        "small": "/drivers/generic-open-close/assets/images/small.png"
+      },
+      "icon": "/drivers/generic-open-close/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
       "name": {
         "en": "<Generic Plug>"
       },
@@ -2298,6 +2449,7 @@
         "large": "/drivers/generic-wireless-switch/assets/images/large.png",
         "small": "/drivers/generic-wireless-switch/assets/images/small.png"
       },
+      "icon": "/drivers/generic-wireless-switch/assets/icon.svg",
       "pair": [
         {
           "id": "list_devices",
@@ -2472,6 +2624,56 @@
     },
     {
       "name": {
+        "en": "Philips Hue Outdoor Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_temperature",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/hue-outdoor-motion-sensor/assets/images/large.jpg",
+        "small": "/drivers/hue-outdoor-motion-sensor/assets/images/small.jpg"
+      },
+      "icon": "/drivers/hue-outdoor-motion-sensor/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "energy": {
+        "batteries": [
+          "AAA"
+        ]
+      },
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "value": 60,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ],
+      "id": "hue-outdoor-motion-sensor"
+    },
+    {
+      "name": {
         "en": "Aqara Leakage Sensor"
       },
       "class": "sensor",
@@ -2536,6 +2738,40 @@
         }
       ],
       "id": "mi-button"
+    },
+    {
+      "id": "mi-light-sensor",
+      "name": {
+        "en": "Mi Light Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "measure_luminance"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/mi-light-sensor/assets/images/large.png",
+        "small": "/drivers/mi-light-sensor/assets/images/small.png"
+      },
+      "icon": "/drivers/mi-light-sensor/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
     },
     {
       "name": {
@@ -2861,6 +3097,122 @@
         }
       ],
       "id": "tradfri-wireless-dimmer"
+    },
+    {
+      "id": "trust-zcts-808",
+      "name": {
+        "en": "Trust ZCTS-808"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/trust-zcts-808/assets/images/large.png",
+        "small": "/drivers/trust-zcts-808/assets/images/small.png"
+      },
+      "icon": "/drivers/trust-zcts-808/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "trust-zpir-8000",
+      "name": {
+        "en": "Trust ZPIR 8000"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/trust-zpir-8000/assets/images/large.png",
+        "small": "/drivers/trust-zpir-8000/assets/images/small.png"
+      },
+      "icon": "/drivers/trust-zpir-8000/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "value": 60,
+          "hint": {
+            "en": "Timeout will enlong time in the drawdown"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trust-zyct-202",
+      "name": {
+        "en": "Trust ZYCT-202"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/trust-zyct-202/assets/images/large.jpg",
+        "small": "/drivers/trust-zyct-202/assets/images/small.jpg"
+      },
+      "icon": "/drivers/trust-zyct-202/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
     }
   ],
   "capabilities": {

@@ -1,9 +1,11 @@
 {
+  "id": "generic-open-close",
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "<Generic Open-Close>"
   },
-  "class": "other",
+  "class": "sensor",
   "capabilities": [
+    "alarm_contact",
     "measure_battery"
   ],
   "energy": {

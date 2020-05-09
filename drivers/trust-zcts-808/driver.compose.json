@@ -1,14 +1,16 @@
 {
+  "id": "trust-zcts-808",
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "Trust ZCTS-808"
   },
-  "class": "other",
+  "class": "sensor",
   "capabilities": [
+    "alarm_contact",
     "measure_battery"
   ],
   "energy": {
     "batteries": [
-      "OTHER"
+      "CR2032"
     ]
   },
   "images": {

@@ -3,7 +3,7 @@
     {
       "id": "raw_switch_event",
       "title": {
-        "en": "Event"
+        "en": "Button Event"
       },
       "tokens": [
         {
@@ -45,27 +45,9 @@
           "name": "button",
           "values": [
             {
-              "id": "-1",
-              "label": {
-                "en": "Any Action"
-              }
-            },
-            {
               "id": "1",
               "label": {
-                "en": "Button"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Turn Clockwise"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
-                "en": "Turn Counter Clockwise"
+                "en": "Button 1"
               }
             }
           ]
@@ -75,33 +57,9 @@
           "name": "action",
           "values": [
             {
-              "id": "-1",
-              "label": {
-                "en": "Any Action"
-              }
-            },
-            {
               "id": "2",
               "label": {
                 "en": "Single Press"
-              }
-            },
-            {
-              "id": "4",
-              "label": {
-                "en": "Double Press"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Start Rotation"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
-                "en": "End Rotation"
               }
             }
           ]

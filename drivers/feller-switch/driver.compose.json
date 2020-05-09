@@ -1,16 +1,9 @@
 {
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "Feller Edizio Due"
   },
   "class": "other",
-  "capabilities": [
-    "measure_battery"
-  ],
-  "energy": {
-    "batteries": [
-      "OTHER"
-    ]
-  },
+  "capabilities": [],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"

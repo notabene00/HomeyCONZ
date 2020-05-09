@@ -1,14 +1,16 @@
 {
+  "id": "mi-light-sensor",
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "Mi Light Sensor"
   },
-  "class": "other",
+  "class": "sensor",
   "capabilities": [
-    "measure_battery"
+    "measure_battery",
+    "measure_luminance"
   ],
   "energy": {
     "batteries": [
-      "OTHER"
+      "CR2450"
     ]
   },
   "images": {

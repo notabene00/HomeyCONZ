@@ -1,14 +1,16 @@
 {
+  "id": "trust-zpir-8000",
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "Trust ZPIR 8000"
   },
-  "class": "other",
+  "class": "sensor",
   "capabilities": [
+    "alarm_motion",
     "measure_battery"
   ],
   "energy": {
     "batteries": [
-      "OTHER"
+      "AAA", "AAA"
     ]
   },
   "images": {
@@ -27,6 +29,20 @@
     {
       "id": "add_devices",
       "template": "add_devices"
+    }
+  ],
+  "settings": [
+    {
+      "id": "no_motion_timeout",
+      "type": "number",
+      "label": {
+        "en": "No motion timeout"
+      },
+      "min": 0,
+      "value": 60,
+      "hint": {
+        "en": "Timeout will enlong time in the drawdown"
+      }
     }
   ]
 }
