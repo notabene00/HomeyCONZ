@@ -10,5 +10,8 @@
   },
   "1.2.1": {
     "en": "fix for crashing lights"
+  },
+  "1.3.0": {
+    "en": "support for new devices: Trust ZPIR 8000, Trust ZCTS-808, Trust ZYCT-202, Xiaomi Mi Light Sensor, Feller Edizio Due, Philips Hue Outdoor Motion Sensor"
   }
 }
