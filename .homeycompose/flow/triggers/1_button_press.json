@@ -1,0 +1,14 @@
+{
+  "id": "1_button_press",
+  "title": {
+    "en": "Button pressed once",
+    "nl": "Knop 1x ingedrukt"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=mi-button"
+    }
+  ]
+}
