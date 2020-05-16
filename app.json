@@ -2203,9 +2203,9 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 60,
+          "value": 3600,
           "hint": {
-            "en": "Timeout will enlong time in the drawdown"
+            "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
           }
         }
       ],
@@ -2798,6 +2798,7 @@
       ],
       "energy": {
         "batteries": [
+          "AAA",
           "AAA"
         ]
       },
@@ -2815,9 +2816,9 @@
                 "en": "No motion timeout"
               },
               "min": 0,
-              "value": 60,
+              "value": 3600,
               "hint": {
-                "en": "Timeout will enlong time in the drawdown"
+                "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
               }
             }
           ]
@@ -2877,6 +2878,7 @@
       ],
       "energy": {
         "batteries": [
+          "AAA",
           "AAA"
         ]
       },
@@ -2894,9 +2896,9 @@
                 "en": "No motion timeout"
               },
               "min": 0,
-              "value": 60,
+              "value": 3600,
               "hint": {
-                "en": "Timeout will enlong time in the drawdown"
+                "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
               }
             }
           ]
@@ -3100,9 +3102,9 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 60,
+          "value": 3600,
           "hint": {
-            "en": "Timeout will enlong time in the drawdown"
+            "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
           }
         }
       ],
@@ -3218,9 +3220,9 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 60,
+          "value": 3600,
           "hint": {
-            "en": "Timeout will enlong time in the drawdown"
+            "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
           }
         }
       ],
@@ -3427,9 +3429,9 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 60,
+          "value": 3600,
           "hint": {
-            "en": "Timeout will enlong time in the drawdown"
+            "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
           }
         }
       ]
