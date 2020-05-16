@@ -82,7 +82,8 @@ class AqaraVibration extends Sensor {
 				throw new Error(error);
 			}
 		})
-	  }
+	}
+	
 }
 
 module.exports = AqaraVibration

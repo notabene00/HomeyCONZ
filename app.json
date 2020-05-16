@@ -2803,16 +2803,45 @@
       },
       "settings": [
         {
-          "id": "no_motion_timeout",
-          "type": "number",
+          "type": "group",
           "label": {
-            "en": "No motion timeout"
+            "en": "General Settings"
           },
-          "min": 0,
-          "value": 60,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
+          "children": [
+            {
+              "id": "no_motion_timeout",
+              "type": "number",
+              "label": {
+                "en": "No motion timeout"
+              },
+              "min": 0,
+              "value": 60,
+              "hint": {
+                "en": "Timeout will enlong time in the drawdown"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Hardware Settings"
+          },
+          "children": [
+            {
+              "id": "sensitivity",
+              "type": "number",
+              "label": {
+                "en": "Sensitivity"
+              },
+              "min": 0,
+              "max": 2,
+              "value": 0,
+              "hint": {
+                "en": "Note that the sensitivity gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+              }
+            }
+          ]
         }
       ],
       "id": "hue-motion-sensor"
@@ -2853,16 +2882,45 @@
       },
       "settings": [
         {
-          "id": "no_motion_timeout",
-          "type": "number",
+          "type": "group",
           "label": {
-            "en": "No motion timeout"
+            "en": "General Settings"
           },
-          "min": 0,
-          "value": 60,
-          "hint": {
-            "en": "Timeout will enlong time in the drawdown"
-          }
+          "children": [
+            {
+              "id": "no_motion_timeout",
+              "type": "number",
+              "label": {
+                "en": "No motion timeout"
+              },
+              "min": 0,
+              "value": 60,
+              "hint": {
+                "en": "Timeout will enlong time in the drawdown"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Hardware Settings"
+          },
+          "children": [
+            {
+              "id": "sensitivity",
+              "type": "number",
+              "label": {
+                "en": "Sensitivity"
+              },
+              "min": 0,
+              "max": 3,
+              "value": 0,
+              "hint": {
+                "en": "Note that the sensitivity gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+              }
+            }
+          ]
         }
       ],
       "id": "hue-outdoor-motion-sensor"
