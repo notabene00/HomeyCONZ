@@ -37,7 +37,7 @@ class HueMotion extends Sensor {
 	}
 	
 	async onSettings( oldSettingsObj, newSettingsObj, changedKeysArr ) {
-		this.putSensorConfig({config:{sensitivity:newSettingsObj.sensitivity}}, (error, data) => {
+		this.putSensorConfig( { config: { sensitivity: newSettingsObj.sensitivity, ledindication: newSettingsObj.ledindication } }, (error, data) => {
 			if (error) {
 				throw new Error(error);
 			}

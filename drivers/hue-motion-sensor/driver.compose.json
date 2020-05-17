@@ -70,7 +70,18 @@
           "max": 2,
           "value": 0,
           "hint": {
-            "en": "Note that the sensitivity gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+            "en": "Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+          }
+        },
+        {
+          "id": "ledindication",
+          "type": "checkbox",
+          "label": {
+            "en": "Led indication"
+          },
+          "value": false,
+          "hint": {
+            "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
           }
         }
       ]

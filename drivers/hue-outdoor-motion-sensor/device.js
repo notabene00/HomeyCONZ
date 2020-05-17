@@ -13,21 +13,21 @@ class HueOutdoorMotion extends Sensor {
 	setCapabilityValue(name, value) {
 		if (name === 'alarm_motion') {
 			if (!value) {
-				// сработало "движение не обнаружено"
-				// ставим таймер на выключение сработки датчика
+				// no motion detected
+				// set the timer to turn off the sensor
 				this.timeout = setTimeout(() => {
 					super.setCapabilityValue(name, false)
 					this.timeout = null
 				}, this.getSetting('no_motion_timeout') * 1000)
 			} else {
-				// сработало "движение обнаружено"
+				// motion detected
 				if (this.timeout) {
-					// если есть таймер, очищаем его
-					// если таймер есть, то датчик все еще обнаруживает движение
+					// if you have a timer, clear it
+					// if there is a timer, the sensor still detects movement
 					clearTimeout(this.timeout)
 					this.timeout = null
 				} else {
-					// если таймера нет, заставляем датчик в колобке обнаружить движение
+					// if there is no timer, make the sensor in the kolobok detect movement
 					super.setCapabilityValue(name, true)
 				}
 			}
@@ -37,7 +37,7 @@ class HueOutdoorMotion extends Sensor {
 	}
 	
 	async onSettings( oldSettingsObj, newSettingsObj, changedKeysArr ) {
-		this.putSensorConfig({config:{sensitivity:newSettingsObj.sensitivity}}, (error, data) => {
+		this.putSensorConfig( { config: { sensitivity: newSettingsObj.sensitivity, ledindication: newSettingsObj.ledindication } }, (error, data) => {
 			if (error) {
 				throw new Error(error);
 			}
