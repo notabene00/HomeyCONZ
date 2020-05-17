@@ -1,0 +1,33 @@
+{
+    "id" : "info",
+    "type": "group",
+    "label": {
+        "en": "Info"
+    },
+    "children": [
+        {
+            "id": "modelid",
+            "type": "label",
+            "label": {
+                "en": "Model"
+            },
+            "value": "Unknown"
+        },
+        {
+            "id": "manufacturername",
+            "type": "label",
+            "label": {
+                "en": "Manufacturer"
+            },
+            "value": "Unknown"
+        },
+        {
+            "id": "swversion",
+            "type": "label",
+            "label": {
+                "en": "Firmware"
+            },
+            "value": "Unknown"
+        }
+    ]
+}

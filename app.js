@@ -161,6 +161,9 @@ class deCONZ extends Homey.App {
 				if (device && light.state) {
 					this.updateState(device, light.state)
 				}
+				if(device){
+					this.updateDeviceInfo(device, light)
+				}
 			})
 		})
 
@@ -179,6 +182,7 @@ class deCONZ extends Homey.App {
 					if (sensor.config) {
 						this.updateConfig(device, sensor.config, true)
 					}
+					this.updateDeviceInfo(device, sensor)
 				}
 			})
 		})
@@ -195,6 +199,7 @@ class deCONZ extends Homey.App {
 					if (group.action) {
 						this.updateState(device, group.action, true)
 					}
+					this.updateDeviceInfo(device, group)
 				}
 			})
 		})
@@ -381,6 +386,22 @@ class deCONZ extends Homey.App {
 		}
 		if (config.hasOwnProperty('reachable')) {
 			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
+		}
+	}
+
+	updateDeviceInfo(device, data) {
+		this.log('device info update for', device.getSetting('id'), device.getName(), data)
+
+		if (data.hasOwnProperty('modelid') && device.getSetting('modelid') != null) {
+			device.setSettings({ modelid: data.modelid });
+		}
+
+		if (data.hasOwnProperty('manufacturername') && device.getSetting('manufacturername') != null) {
+			device.setSettings({ manufacturername: data.manufacturername });
+		}
+
+		if (data.hasOwnProperty('swversion') && device.getSetting('swversion') != null) {
+			device.setSettings({ swversion: data.swversion });
 		}
 	}
 

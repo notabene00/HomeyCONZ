@@ -35,6 +35,9 @@
         "min": 90,
         "max": 360
       }
+    },
+    {
+      "$extends":  "info"
     }
   ],
   "pair": [

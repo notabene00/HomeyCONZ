@@ -43,6 +43,9 @@
       "hint": {
         "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
       }
-    }
+    },
+    {
+      "$extends":  "info"
+  }
   ]
 }
