@@ -390,6 +390,7 @@ class deCONZ extends Homey.App {
 	}
 
 	updateDeviceInfo(device, data) {
+
 		this.log('device info update for', device.getSetting('id'), device.getName(), data)
 
 		if (data.hasOwnProperty('modelid') && device.getSetting('modelid') != null) {
@@ -402,6 +403,10 @@ class deCONZ extends Homey.App {
 
 		if (data.hasOwnProperty('swversion') && device.getSetting('swversion') != null) {
 			device.setSettings({ swversion: data.swversion });
+		}
+
+		if (device.getSetting('ids') != null && device.getSetting('id') != null) {
+			device.setSettings({ ids: device.getSetting('id').toString() });
 		}
 	}
 

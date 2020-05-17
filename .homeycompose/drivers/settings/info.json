@@ -28,6 +28,14 @@
                 "en": "Firmware"
             },
             "value": "Unknown"
+        },
+        {
+            "id": "ids",
+            "type": "label",
+            "label": {
+                "en": "Api Id's"
+            },
+            "value": "Unknown"
         }
     ]
 }
