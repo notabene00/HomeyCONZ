@@ -376,6 +376,9 @@ class deCONZ extends Homey.App {
 		if (config.hasOwnProperty('sensitivity') && device.getSetting('sensitivity') != null) {
 			device.setSettings({ sensitivity: config.sensitivity });
 		}
+		if (config.hasOwnProperty('ledindication') && device.getSetting('ledindication') != null) {
+			device.setSettings({ ledindication: config.ledindication });
+		}
 		if (config.hasOwnProperty('reachable')) {
 			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
