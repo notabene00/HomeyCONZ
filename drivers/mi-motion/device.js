@@ -14,33 +14,42 @@ class MiMotion extends Sensor {
 	}
 
 	setTriggers() {
-		this.motionToggleTrigger = new Homey.FlowCardTriggerDevice('motion_toggle').register()
+		this.triggerSecondaryNoMotion = new Homey.FlowCardTriggerDevice('secondary_no_motion_trigger').register()
 	}
 	
 	setCapabilityValue(name, value) {
-		if (!value) {
-			// сработало "движение не обнаружено"
-			// ставим таймер на выключение сработки датчика
-			this.timeout = setTimeout(() => {
-				super.setCapabilityValue(name, false)
-				this.motionToggleTrigger.trigger(this)
-				this.timeout = null
-			}, this.getSetting('no_motion_timeout') * 1000)
-		} else {
-			this.motionToggleTrigger.trigger(this)
-			// сработало "движение обнаружено"
-			if (this.timeout) {
-				// если есть таймер, очищаем его
-				// если таймер есть, то датчик все еще обнаруживает движение
-				clearTimeout(this.timeout)
-				this.timeout = null
+		if (name === 'alarm_motion') {
+			if (!value) {
+				// no motion detected
+				// set the timer to turn off the sensor
+				this.timeout = setTimeout(() => {
+					super.setCapabilityValue(name, false)
+					this.timeout = null
+
+					this.secondaryTimeout = setTimeout(() => {
+						this.triggerSecondaryNoMotion.trigger(this)
+					}, this.getSetting('secondary_no_motion_timeout') * 1000)
+
+				}, this.getSetting('no_motion_timeout') * 1000)
 			} else {
-				// если таймера нет, заставляем датчик в колобке обнаружить движение
-				super.setCapabilityValue(name, true)
+				// motion detected
+				if (this.timeout) {
+					// if you have a timer, clear it
+					// if there is a timer, the sensor still detects movement
+					clearTimeout(this.timeout)
+					this.timeout = null
+
+					clearTimeout(this.secondaryTimeout)
+					this.secondaryTimeout = null
+				} else {
+					// if there is no timer, make the sensor in the kolobok detect movement
+					super.setCapabilityValue(name, true)
+				}
 			}
+		} else {
+			super.setCapabilityValue(name, value)
 		}
 	}
-	
 }
 
 module.exports = MiMotion
