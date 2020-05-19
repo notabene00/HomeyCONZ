@@ -39,7 +39,8 @@
         "en": "No motion timeout"
       },
       "min": 0,
-      "value": 3600,
+      "max": 3600,
+      "value": 0,
       "hint": {
         "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
       }

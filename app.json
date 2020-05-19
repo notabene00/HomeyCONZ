@@ -234,7 +234,7 @@
       {
         "id": "secondary_no_motion_trigger",
         "title": {
-          "en": "secondary no motion trigger"
+          "en": "Secondary no motion detected"
         },
         "args": [
           {

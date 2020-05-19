@@ -1,6 +1,7 @@
 'use strict'
 
 const Sensor = require('../Sensor')
+const Homey = require('homey')
 
 class HueMotion extends Sensor {
 	

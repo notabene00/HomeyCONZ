@@ -30,6 +30,7 @@ class deCONZ extends Homey.App {
 		// - state/config values that do not update very often, such as the battery for certain devices: in that case we would need to wait until something changes s.t we receive
 		//   it trough the websocket update
 		// - some config values are not pushed via websockets such as the sensitivity of certain devices
+		// IMPORTANT: decreasing this might get cpu warnings and lead to a disabled app!
 		setInterval(() => {
 			this.log("Initialize initial states");
 			this.setInitialStates()
