@@ -1,6 +1,7 @@
 'use strict'
 
 const Sensor = require('../Sensor')
+const Homey = require('homey')
 const { FlowCardCondition } = require('homey')
 
 class TradfriMotion extends Sensor {
@@ -9,6 +10,7 @@ class TradfriMotion extends Sensor {
 		super.onInit()
 
 		this.setConditions()
+		this.setTriggers()
 				
 		this.log(this.getName(), 'has been initiated')
 	}
@@ -18,31 +20,46 @@ class TradfriMotion extends Sensor {
 			callback(null, args.device.getCapabilityValue('dark'))
 		}).register()
 	}
-	
+
+	setTriggers() {
+		this.triggerSecondaryNoMotion = new Homey.FlowCardTriggerDevice('secondary_no_motion_trigger').register()
+	}
+
 	setCapabilityValue(name, value) {
 		if (name === 'dark') {
 			super.setCapabilityValue(name, value)
-		} else if (name === 'alarm_motion') {
-			if (!value) {
-				// сработало "движение не обнаружено"
-				// ставим таймер на выключение сработки датчика
-				this.timeout = setTimeout(() => {
-					super.setCapabilityValue(name, false)
-					this.timeout = null
-				}, this.getSetting('no_motion_timeout') * 1000)
-			} else {
-				// сработало "движение обнаружено"
-				if (this.timeout) {
-					// если есть таймер, очищаем его
-					// если таймер есть, то датчик все еще обнаруживает движение
-					clearTimeout(this.timeout)
-					this.timeout = null
+		} 
+		else if (name === 'alarm_motion') {
+				if (!value) {
+					// no motion detected
+					// set the timer to turn off the sensor
+					this.timeout = setTimeout(() => {
+						super.setCapabilityValue(name, false)
+						this.timeout = null
+	
+						this.secondaryTimeout = setTimeout(() => {
+							this.triggerSecondaryNoMotion.trigger(this)
+						}, this.getSetting('secondary_no_motion_timeout') * 1000)
+	
+					}, this.getSetting('no_motion_timeout') * 1000)
 				} else {
-					// если таймера нет, заставляем датчик в колобке обнаружить движение
-					super.setCapabilityValue(name, true)
+					// motion detected
+					if (this.timeout) {
+						// if you have a timer, clear it
+						// if there is a timer, the sensor still detects movement
+						clearTimeout(this.timeout)
+						this.timeout = null
+	
+						clearTimeout(this.secondaryTimeout)
+						this.secondaryTimeout = null
+					} else {
+						// if there is no timer, make the sensor in the kolobok detect movement
+						super.setCapabilityValue(name, true)
+					}
 				}
+			} else {
+				super.setCapabilityValue(name, value)
 			}
-		}
 	}
 	
 }
