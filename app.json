@@ -240,7 +240,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=aqara-motion|hue-motion-sensor|hue-outdoor-motion-sensor|mi-mottion|tradfri-motion-sensor|trust-zpir-8000"
+            "filter": "driver_id=aqara-motion|hue-motion-sensor|hue-outdoor-motion-sensor|mi-motion|tradfri-motion-sensor|trust-zpir-8000"
           }
         ]
       },
@@ -2386,9 +2386,23 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 3600,
+          "max": 3600,
+          "value": 0,
           "hint": {
             "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+          }
+        },
+        {
+          "id": "secondary_no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Secondary no motion timeout"
+          },
+          "min": 0,
+          "max": 3600,
+          "value": 0,
+          "hint": {
+            "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
           }
         },
         {
@@ -3690,7 +3704,8 @@
                 "en": "No motion timeout"
               },
               "min": 0,
-              "value": 3600,
+              "max": 3600,
+              "value": 0,
               "hint": {
                 "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
               }
@@ -3702,7 +3717,8 @@
                 "en": "Secondary no motion timeout"
               },
               "min": 0,
-              "value": 3600,
+              "max": 3600,
+              "value": 0,
               "hint": {
                 "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
               }
@@ -3845,9 +3861,23 @@
                 "en": "No motion timeout"
               },
               "min": 0,
-              "value": 3600,
+              "max": 3600,
+              "value": 0,
               "hint": {
                 "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+              }
+            },
+            {
+              "id": "secondary_no_motion_timeout",
+              "type": "number",
+              "label": {
+                "en": "Secondary no motion timeout"
+              },
+              "min": 0,
+              "max": 3600,
+              "value": 0,
+              "hint": {
+                "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
               }
             }
           ]
@@ -4286,9 +4316,23 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 3600,
+          "max": 3600,
+          "value": 0,
           "hint": {
             "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+          }
+        },
+        {
+          "id": "secondary_no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Secondary no motion timeout"
+          },
+          "min": 0,
+          "max": 3600,
+          "value": 0,
+          "hint": {
+            "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
           }
         },
         {
@@ -4531,9 +4575,23 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 3600,
+          "max": 3600,
+          "value": 0,
           "hint": {
             "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+          }
+        },
+        {
+          "id": "secondary_no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Secondary no motion timeout"
+          },
+          "min": 0,
+          "max": 3600,
+          "value": 0,
+          "hint": {
+            "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
           }
         },
         {
@@ -4996,9 +5054,23 @@
             "en": "No motion timeout"
           },
           "min": 0,
-          "value": 3600,
+          "max": 3600,
+          "value": 0,
           "hint": {
             "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+          }
+        },
+        {
+          "id": "secondary_no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Secondary no motion timeout"
+          },
+          "min": 0,
+          "max": 3600,
+          "value": 0,
+          "hint": {
+            "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
           }
         },
         {

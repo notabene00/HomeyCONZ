@@ -7,7 +7,7 @@
     {
       "name": "device",
       "type": "device",
-      "filter": "driver_id=aqara-motion|hue-motion-sensor|hue-outdoor-motion-sensor|mi-mottion|tradfri-motion-sensor|trust-zpir-8000"
+      "filter": "driver_id=aqara-motion|hue-motion-sensor|hue-outdoor-motion-sensor|mi-motion|tradfri-motion-sensor|trust-zpir-8000"
     }
   ]
 }
