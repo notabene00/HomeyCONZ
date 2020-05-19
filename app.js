@@ -235,7 +235,7 @@ class deCONZ extends Homey.App {
 			}).includes(false)
 		}
 
-		this.log('state update for', device.getSetting('id'), device.getName(), state)
+		// this.log('state update for', device.getSetting('id'), device.getName(), state)
 
 		if (state.hasOwnProperty('on')) {
 			if (deviceSupports('onoff')) {
@@ -368,22 +368,30 @@ class deCONZ extends Homey.App {
 
 	updateConfig(device, config, initial = false) {
 
-		this.log('config update for', device.getSetting('id'), device.getName(), config)
+		// this.log('config update for', device.getSetting('id'), device.getName(), config)
 
 		let deviceСapabilities = device.getCapabilities()
 
 		if (config.hasOwnProperty('temperature') && deviceСapabilities.includes('measure_temperature')) {
 			device.setCapabilityValue('measure_temperature', config.temperature / 100)
 		}
+
 		if (config.hasOwnProperty('battery') && deviceСapabilities.includes('measure_battery')) {
 			device.setCapabilityValue('measure_battery', config.battery)
 		}
+
 		if (config.hasOwnProperty('sensitivity') && device.getSetting('sensitivity') != null) {
 			device.setSettings({ sensitivity: config.sensitivity });
 		}
+
 		if (config.hasOwnProperty('ledindication') && device.getSetting('ledindication') != null) {
 			device.setSettings({ ledindication: config.ledindication });
 		}
+
+		if (config.hasOwnProperty('pending') && device.getSetting('pending') != null) {
+			device.setSettings({ pending: JSON.stringify(config.pending) });
+		}
+
 		if (config.hasOwnProperty('reachable')) {
 			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
@@ -391,7 +399,7 @@ class deCONZ extends Homey.App {
 
 	updateDeviceInfo(device, data) {
 
-		this.log('device info update for', device.getSetting('id'), device.getName(), data)
+		// this.log('device info update for', device.getSetting('id'), device.getName(), data)
 
 		if (data.hasOwnProperty('modelid') && device.getSetting('modelid') != null) {
 			device.setSettings({ modelid: data.modelid });
@@ -406,7 +414,7 @@ class deCONZ extends Homey.App {
 		}
 
 		if (device.getSetting('ids') != null && device.getSetting('id') != null) {
-			device.setSettings({ ids: device.getSetting('id').toString() });
+			device.setSettings({ ids: JSON.stringify(device.getSetting('id')) });
 		}
 	}
 

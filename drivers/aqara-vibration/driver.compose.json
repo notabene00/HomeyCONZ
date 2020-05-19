@@ -76,6 +76,17 @@
           "hint": {
             "en": "Note that the sensitivity gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
           }
+        },
+        {
+          "id": "pending",
+          "type": "text",
+          "label": {
+            "en": "Pending settings"
+          },
+          "value": "UNKNOWN",
+          "hint": {
+            "en": "Hardware settings that are not yet applied to the sensor."
+          }
         }
       ]
     },
