@@ -18,6 +18,6 @@
     "en": "fixed a small bug related to the Mi button that could crash the app"
   },
   "1.4.0": {
-    "en": "sensitivity and led indication settings for hue (outdoor) motion sensors"
+    "en": "sensitivity and led indication settings for hue (outdoor) motion sensors, secondary no motion trigger for all motion sensors, deprecated redundant trigger cards for mi/aqaara motion sensors, show details for all devices"
   }
 }
