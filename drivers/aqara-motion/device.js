@@ -14,33 +14,36 @@ class AqaraMotion extends Sensor {
 	}
 	
 	setTriggers() {
-		this._flowTriggerML = new Homey.FlowCardTriggerDevice('motion_with_luminance').register()
-		this.motionToggleTrigger = new Homey.FlowCardTriggerDevice('motion_toggle').register()
+		this.triggerSecondaryNoMotion = new Homey.FlowCardTriggerDevice('secondary_no_motion_trigger').register()
 	}
 	
 	setCapabilityValue(name, value) {
 		if (name === 'alarm_motion') {
 			if (!value) {
-				// сработало "движение не обнаружено"
-				// ставим таймер на выключение сработки датчика
+				// no motion detected
+				// set the timer to turn off the sensor
 				this.timeout = setTimeout(() => {
 					super.setCapabilityValue(name, false)
-					this.motionToggleTrigger.trigger(this)
 					this.timeout = null
+
+					this.secondaryTimeout = setTimeout(() => {
+						this.triggerSecondaryNoMotion.trigger(this)
+					}, this.getSetting('secondary_no_motion_timeout') * 1000)
+
 				}, this.getSetting('no_motion_timeout') * 1000)
 			} else {
-				// сработало "движение обнаружено"
-				this.motionToggleTrigger.trigger(this)
+				// motion detected
 				if (this.timeout) {
-					// если есть таймер, очищаем его
-					// если таймер есть, то датчик все еще обнаруживает движение
+					// if you have a timer, clear it
+					// if there is a timer, the sensor still detects movement
 					clearTimeout(this.timeout)
 					this.timeout = null
+
+					clearTimeout(this.secondaryTimeout)
+					this.secondaryTimeout = null
 				} else {
-					// если таймера нет, заставляем датчик в колобке обнаружить движение
+					// if there is no timer, make the sensor in the kolobok detect movement
 					super.setCapabilityValue(name, true)
-					// триггерим триггер с тэгом освещенности
-					this._flowTriggerML.trigger(this, {luminance: super.getCapabilityValue('measure_luminance')})
 				}
 			}
 		} else {

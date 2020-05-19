@@ -46,6 +46,19 @@
       }
     },
     {
+      "id": "secondary_no_motion_timeout",
+      "type": "number",
+      "label": {
+        "en": "Secondary no motion timeout"
+      },
+      "min": 0,
+      "max": 3600,
+      "value": 0,
+      "hint": {
+        "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
+      }
+    },
+    {
       "$extends":  "info"
   }
   ]
