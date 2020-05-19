@@ -51,6 +51,18 @@
           "hint": {
             "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
           }
+        },
+        {
+          "id": "secondary_no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Secondary no motion timeout"
+          },
+          "min": 0,
+          "value": 3600,
+          "hint": {
+            "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
+          }
         }
       ]
     },

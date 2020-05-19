@@ -7,6 +7,8 @@ class HueMotion extends Sensor {
 	onInit() {
 		super.onInit()
 				
+		this.setTriggers()
+
 		this.log(this.getName(), 'has been initiated')
 	}
 	
@@ -18,6 +20,11 @@ class HueMotion extends Sensor {
 				this.timeout = setTimeout(() => {
 					super.setCapabilityValue(name, false)
 					this.timeout = null
+
+					this.secondaryTimeout = setTimeout(() => {
+						this.triggerSecondaryNoMotion.trigger(this)
+					}, this.getSetting('secondary_no_motion_timeout') * 1000)
+
 				}, this.getSetting('no_motion_timeout') * 1000)
 			} else {
 				// motion detected
@@ -26,6 +33,9 @@ class HueMotion extends Sensor {
 					// if there is a timer, the sensor still detects movement
 					clearTimeout(this.timeout)
 					this.timeout = null
+
+					clearTimeout(this.secondaryTimeout)
+					this.secondaryTimeout = null
 				} else {
 					// if there is no timer, make the sensor in the kolobok detect movement
 					super.setCapabilityValue(name, true)
@@ -42,6 +52,10 @@ class HueMotion extends Sensor {
 				throw new Error(error);
 			}
 		})
+	}
+
+	setTriggers() {
+		this.triggerSecondaryNoMotion = new Homey.FlowCardTriggerDevice('secondary_no_motion_trigger').register()
 	}
 
 }

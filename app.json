@@ -232,7 +232,7 @@
         ]
       },
       {
-        "id": "second_no_motion_trigger",
+        "id": "secondary_no_motion_trigger",
         "title": {
           "en": "secondary no motion trigger"
         },
@@ -2592,6 +2592,17 @@
               "hint": {
                 "en": "Note that the sensitivity gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
               }
+            },
+            {
+              "id": "pending",
+              "type": "text",
+              "label": {
+                "en": "Pending settings"
+              },
+              "value": "UNKNOWN",
+              "hint": {
+                "en": "Hardware settings that are not yet applied to the sensor."
+              }
             }
           ]
         },
@@ -3683,6 +3694,18 @@
               "hint": {
                 "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
               }
+            },
+            {
+              "id": "secondary_no_motion_timeout",
+              "type": "number",
+              "label": {
+                "en": "Secondary no motion timeout"
+              },
+              "min": 0,
+              "value": 3600,
+              "hint": {
+                "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
+              }
             }
           ]
         },
@@ -3714,6 +3737,17 @@
               "value": false,
               "hint": {
                 "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+              }
+            },
+            {
+              "id": "pending",
+              "type": "text",
+              "label": {
+                "en": "Pending settings"
+              },
+              "value": "UNKNOWN",
+              "hint": {
+                "en": "Hardware settings that are not yet applied to the sensor."
               }
             }
           ]
@@ -3846,6 +3880,17 @@
               "value": false,
               "hint": {
                 "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+              }
+            },
+            {
+              "id": "pending",
+              "type": "text",
+              "label": {
+                "en": "Pending settings"
+              },
+              "value": "UNKNOWN",
+              "hint": {
+                "en": "Hardware settings that are not yet applied to the sensor."
               }
             }
           ]
