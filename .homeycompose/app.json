@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,

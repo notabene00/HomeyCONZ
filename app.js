@@ -35,6 +35,8 @@ class deCONZ extends Homey.App {
 			this.log("Initialize initial states");
 			this.setInitialStates()
 		}, 15 * 60 * 1000)
+
+		this.initializeActions()
 	}
 
 	startWebSocketConnection() {
@@ -438,6 +440,23 @@ class deCONZ extends Homey.App {
 			callback(error, !!error ? null : result.websocketport)
 		})
 	}
+
+	initializeActions() {
+
+		let updateAllDevicesManuallyAction = new Homey.FlowCardAction('update_all_devices');
+		updateAllDevicesManuallyAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				return new Promise((resolve) => {
+					try{
+						this.log('update all devices manually')
+						this.setInitialStates()
+					} catch(error){
+						return this.error(error);
+					}
+				});
+			});
+		}
 
 }
 
