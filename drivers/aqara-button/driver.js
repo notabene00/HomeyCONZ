@@ -10,7 +10,7 @@ class AqaraButtonDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'lumi.sensor_switch.aq2', callback)
+		this.getSensorsByCondition(device => device.modelid === 'lumi.sensor_switch.aq2' || device.modelid === 'lumi.remote.b1acn01', callback)
 	}
 	
 }
