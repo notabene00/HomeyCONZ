@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -1851,6 +1851,14 @@
         ]
       }
     ],
+    "actions": [
+      {
+        "id": "update_all_devices",
+        "title": {
+          "en": "Update all devices manually"
+        }
+      }
+    ],
     "conditions": [
       {
         "id": "is_first_side",
@@ -2486,6 +2494,25 @@
         }
       ],
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+              }
+            }
+          ]
+        },
         {
           "id": "info",
           "type": "group",
@@ -3771,6 +3798,25 @@
           ]
         },
         {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3923,6 +3969,25 @@
               "value": "UNKNOWN",
               "hint": {
                 "en": "Hardware settings that are not yet applied to the sensor."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
               }
             }
           ]
@@ -4415,6 +4480,25 @@
         }
       ],
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+              }
+            }
+          ]
+        },
         {
           "id": "info",
           "type": "group",

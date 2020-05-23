@@ -331,7 +331,8 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('temperature')) {
 			if (deviceSupports('measure_temperature')) {
-				device.setCapabilityValue('measure_temperature', state.temperature / 100)
+				const offset = device.getSetting('temperature_offset') == null ? 0 : device.getSetting('temperature_offset')
+				device.setCapabilityValue('measure_temperature', (state.temperature / 100) + offset)
 			}
 		}
 
