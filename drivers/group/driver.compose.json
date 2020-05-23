@@ -34,9 +34,6 @@
       "hint": {
         "en": "Transition time between brightnesses"
       }
-    },
-    {
-      "$extends":  "info"
     }
   ]
 }

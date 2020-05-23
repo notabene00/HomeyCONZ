@@ -21,6 +21,6 @@
     "en": "sensitivity and led indication settings for hue (outdoor) motion sensors, secondary no motion trigger for all motion sensors, deprecated redundant trigger cards for mi/aqaara motion sensors, show details for all devices"
   },
   "1.5.0":{
-    "en": "New action card to update all devices manually"
+    "en": "New action card to update all devices manually, calibration for temperature, humidity and pressure"
   }
 }
