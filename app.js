@@ -338,7 +338,8 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('humidity')) {
 			if (deviceSupports('measure_humidity')) {
-				device.setCapabilityValue('measure_humidity', state.humidity / 100)
+				const offset = device.getSetting('humidity_offset') == null ? 0 : device.getSetting('humidity_offset')
+				device.setCapabilityValue('measure_humidity', (state.humidity / 100) + offset)
 			}
 		}
 
