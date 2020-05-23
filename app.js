@@ -252,15 +252,27 @@ class deCONZ extends Homey.App {
 			}
 		}
 
-		if (state.hasOwnProperty('bri')) {
-			if (deviceSupports('dim')) {
-				device.setCapabilityValue('dim', state.bri / 255)
+		if (state.hasOwnProperty('dark')) {
+			if (deviceSupports('dark')) {
+				device.setCapabilityValue('dark', state.dark)
+			}
+		}
+
+		if (state.hasOwnProperty('lux')) {
+			if (deviceSupports('measure_luminance')) {
+				device.setCapabilityValue('measure_luminance', state.lux)
 			}
 		}
 
 		if (state.hasOwnProperty('presence')) {
 			if (deviceSupports('alarm_motion')) {
 				device.setCapabilityValue('alarm_motion', state.presence)
+			}
+		}
+
+		if (state.hasOwnProperty('bri')) {
+			if (deviceSupports('dim')) {
+				device.setCapabilityValue('dim', state.bri / 255)
 			}
 		}
 
@@ -282,21 +294,10 @@ class deCONZ extends Homey.App {
 			}
 		}
 
-		if (state.hasOwnProperty('dark')) {
-			if (deviceSupports('dark')) {
-				device.setCapabilityValue('dark', state.dark)
-			}
-		}
-
 		if (state.hasOwnProperty('reachable')) {
 			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
 
-		if (state.hasOwnProperty('lux')) {
-			if (deviceSupports('measure_luminance')) {
-				device.setCapabilityValue('measure_luminance', state.lux)
-			}
-		}
 		if (state.hasOwnProperty('water')) {
 			if (deviceSupports('alarm_water')) {
 				device.setCapabilityValue('alarm_water', state.water)
