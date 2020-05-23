@@ -345,7 +345,8 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('pressure')) {
 			if (deviceSupports('measure_pressure')) {
-				device.setCapabilityValue('measure_pressure', state.pressure)
+				const offset = device.getSetting('pressure_offset') == null ? 0 : device.getSetting('pressure_offset')
+				device.setCapabilityValue('measure_pressure', state.pressure + offset)
 			}
 		}
 
