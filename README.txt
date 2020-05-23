@@ -11,5 +11,7 @@ Setup instructions
   - In homey, go to devices, select '+' and search for 'deCONZ'
   - Choose the device type and hit 'install'
 
-  Important: The app supports generic device types such as switches, plugs and lights and specific ones. If your device is explicitly listed choose that one or otherwise use it's generic type.
-  Please feel free to request device support if your device is not listed!
+Important: The app supports generic device types such as switches, plugs and lights and specific ones. If your device is explicitly listed choose that one or otherwise use it's generic type.
+Please feel free to request device support if your device is not listed!
+
+Official community thread: https://community.athom.com/t/app-deconz/29390

@@ -152,6 +152,12 @@ class deCONZ extends Homey.App {
 		})
 	}
 
+	getDiscoveryData(callback) {
+		http.get(`https://dresden-light.appspot.com/discover`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
 	setInitialStates() {
 
 		this.getLightsList((error, lights) => {
@@ -463,6 +469,36 @@ class deCONZ extends Homey.App {
 					}
 				});
 			});
+
+			let updateIpAddressAction = new Homey.FlowCardAction('update_ip_address');
+			updateIpAddressAction
+				.register()
+				.registerRunListener(async ( args, state ) => {
+					return new Promise((resolve) => {
+						try{
+							this.log('update ip address')
+							this.getDiscoveryData((error, discoveryResult) => {
+								if (error) {
+									return this.error(error)
+								}
+
+								if(discoveryResult.internalipaddress && this.host !== discoveryResult.internalipaddress)
+								{
+									this.log('ip address has changed', this.host, discoveryResult.internalipaddress)
+									Homey.set('host', idiscoveryResult.internalipaddress, (err, settings) => {
+										if (err) this.error(err)
+									})
+									this.log('ip address updated successfully')
+								}
+							})
+
+
+						} catch(error){
+							return this.error(error);
+						}
+					});
+				});
+			
 		}
 
 }
