@@ -153,6 +153,7 @@ class deCONZ extends Homey.App {
 	}
 
 	setInitialStates() {
+
 		this.getLightsList((error, lights) => {
 			if (error) {
 				return this.error(error)
@@ -194,6 +195,7 @@ class deCONZ extends Homey.App {
 			if (error) {
 				return this.error(error)
 			}
+
 			Object.entries(groups).forEach(entry => {
 				const key = entry[0]
 				const group = entry[1]
@@ -202,10 +204,10 @@ class deCONZ extends Homey.App {
 					if (group.action) {
 						this.updateState(device, group.action, true)
 					}
-					this.updateDeviceInfo(device, group)
 				}
 			})
 		})
+
 	}
 
 	// websocket processing
@@ -238,7 +240,7 @@ class deCONZ extends Homey.App {
 			}).includes(false)
 		}
 
-		// this.log('state update for', device.getSetting('id'), device.getName(), state)
+		this.log('state update for', device.getSetting('id'), device.getName()/*, state*/)
 
 		if (state.hasOwnProperty('on')) {
 			if (deviceSupports('onoff')) {
@@ -357,17 +359,18 @@ class deCONZ extends Homey.App {
 			}
 		}
 
-		if (state.hasOwnProperty('ct')) {
+		if (state.hasOwnProperty('ct') && state.hasOwnProperty('colormode') && state.colormode === 'ct') {
 			if (!deviceSupports(['light_mode', 'light_temperature']) || (state.ct > 500)) return
 			device.setCapabilityValue('light_mode', 'temperature')
 			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
 		}
 
-		if (state.hasOwnProperty('hue')) {
+		if (state.hasOwnProperty('hue') && state.hasOwnProperty('colormode') && state.colormode === 'hs') {
 			if (!deviceSupports('light_hue')) return
 			device.setCapabilityValue('light_hue', parseFloat((state.hue / 65535).toFixed(2)))
 		}
-		if (state.hasOwnProperty('sat')) {
+
+		if (state.hasOwnProperty('sat') && state.hasOwnProperty('colormode') && state.colormode === 'hs') {
 			if (!deviceSupports('light_saturation')) return
 			device.setCapabilityValue('light_saturation', parseFloat((state.sat / 255).toFixed(2)))
 		}
@@ -375,7 +378,7 @@ class deCONZ extends Homey.App {
 
 	updateConfig(device, config, initial = false) {
 
-		// this.log('config update for', device.getSetting('id'), device.getName(), config)
+		this.log('config update for', device.getSetting('id'), device.getName()/*, config*/)
 
 		let deviceСapabilities = device.getCapabilities()
 
@@ -406,7 +409,7 @@ class deCONZ extends Homey.App {
 
 	updateDeviceInfo(device, data) {
 
-		// this.log('device info update for', device.getSetting('id'), device.getName(), data)
+		this.log('device info update for', device.getSetting('id'), device.getName()/*, data*/)
 
 		if (data.hasOwnProperty('modelid') && device.getSetting('modelid') != null) {
 			device.setSettings({ modelid: data.modelid });
