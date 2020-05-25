@@ -6,7 +6,7 @@ class HoneywellSmokeDetectorDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('GenericSmokeDriver has been initiated')
+		this.log('HoneywellSmokeDetectorDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
