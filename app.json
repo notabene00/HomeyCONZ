@@ -11,7 +11,10 @@
     "en": "Adds support for deCONZ's [raspbee/conbee] child devices"
   },
   "category": [
-    "appliances"
+    "appliances",
+    "security",
+    "climate",
+    "energy"
   ],
   "permissions": [],
   "images": {
@@ -41,6 +44,7 @@
     "url": "https://github.com/madmonkey87/HomeyCONZ/issues/new?assignees=&labels=bug&template=bug_report.md&title=Bug"
   },
   "source": "https://github.com/madmonkey87/HomeyCONZ",
+  "homeyCommunityTopicId": 29390,
   "flow": {
     "triggers": [
       {
@@ -255,7 +259,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       },
@@ -269,7 +273,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+            "filter": "driver_id=tradfri-wireless-dimmer"
           }
         ]
       },
@@ -282,7 +286,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -295,7 +299,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -308,7 +312,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -321,7 +325,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -334,7 +338,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -347,7 +351,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -1951,6 +1955,12 @@
         "id": "update_all_devices",
         "title": {
           "en": "Update all devices manually"
+        }
+      },
+      {
+        "id": "update_ip_address",
+        "title": {
+          "en": "Update changed IP address"
         }
       },
       {

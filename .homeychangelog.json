@@ -25,5 +25,6 @@
   },
   "1.6.0":{
     "en": "New action card to check for a changed ip address, support for hue tap switch, support for trust smoke sensor ZSDR-850"
+    "en": "New action card to check for a changed ip address, cleaned up some old code for the ikea symfonisk & tradfri dimmer switch"
   }
 }
