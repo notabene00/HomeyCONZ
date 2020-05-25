@@ -14,29 +14,22 @@ class deCONZ extends Homey.App {
 			groups: {}
 		}
 
+		this.initializeActions()
+
 		this.host = Homey.ManagerSettings.get('host')
 		this.port = Homey.ManagerSettings.get('port')
 		this.apikey = Homey.ManagerSettings.get('apikey')
 		this.wsPort = Homey.ManagerSettings.get('wsport')
 
+		Homey.ManagerSettings.on('set', this.onSettingsChanged.bind(this))
+
+		this.startIntervalStateUpdate()
+
 		if (!this.host || !this.port || !this.apikey || !this.wsPort) {
-			Homey.ManagerSettings.on('set', this.onSettingsChanged.bind(this))
 			return this.log('Go to the app settings page and fill all the fields')
 		}
 
 		this.startWebSocketConnection()
-
-		// Update all devices regularly. This might be needed for two cases
-		// - state/config values that do not update very often, such as the battery for certain devices: in that case we would need to wait until something changes s.t we receive
-		//   it trough the websocket update
-		// - some config values are not pushed via websockets such as the sensitivity of certain devices
-		// IMPORTANT: decreasing this might get cpu warnings and lead to a disabled app!
-		setInterval(() => {
-			this.log("Initialize initial states");
-			this.setInitialStates()
-		}, 15 * 60 * 1000)
-
-		this.initializeActions()
 	}
 
 	startWebSocketConnection() {
@@ -46,7 +39,22 @@ class deCONZ extends Homey.App {
 		this.webSocketConnectTo(this.wsPort)
 	}
 
+	startIntervalStateUpdate() {
+		// Update all devices regularly. This might be needed for two cases
+		// - state/config values that do not update very often, such as the battery for certain devices: in that case we would need to wait until something changes s.t we receive
+		//   it trough the websocket update
+		// - some config values are not pushed via websockets such as the sensitivity of certain devices
+		// IMPORTANT: decreasing this might get cpu warnings and lead to a disabled app!
+		setInterval(() => {
+			this.log("Initialize initial states");
+			this.setInitialStates()
+		}, 15 * 60 * 1000)
+	}
+
 	onSettingsChanged(modifiedKey) {
+
+		this.log('settings changed', modifiedKey)
+
 		this.host = Homey.ManagerSettings.get('host')
 		this.port = Homey.ManagerSettings.get('port')
 		this.apikey = Homey.ManagerSettings.get('apikey')
@@ -153,8 +161,8 @@ class deCONZ extends Homey.App {
 	}
 
 	getDiscoveryData(callback) {
-		http.get(`https://dresden-light.appspot.com/discover`, (error, response) => {
-			callback(error, !!error ? null : JSON.parse(response))
+		https.get(`https://dresden-light.appspot.com/discover`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response)[0])
 		})
 	}
 
@@ -434,8 +442,6 @@ class deCONZ extends Homey.App {
 		}
 	}
 
-	// init processing
-
 	get(url, callback) {
 		let handler = (error, result) => {
 			callback(error, !!error ? null : JSON.parse(result))
@@ -488,6 +494,7 @@ class deCONZ extends Homey.App {
 									Homey.set('host', idiscoveryResult.internalipaddress, (err, settings) => {
 										if (err) this.error(err)
 									})
+									this.startWebSocketConnection()
 									this.log('ip address updated successfully')
 								}
 							})
