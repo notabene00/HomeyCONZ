@@ -11,7 +11,10 @@
     "en": "Adds support for deCONZ's [raspbee/conbee] child devices"
   },
   "category": [
-    "appliances"
+    "appliances",
+    "security",
+    "climate",
+    "energy"
   ],
   "permissions": [],
   "images": {
