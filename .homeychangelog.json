@@ -23,7 +23,7 @@
   "1.5.0":{
     "en": "New action card to update all devices manually, calibration for temperature, humidity and pressure, fixed a critical bug"
   },
-  "1.5.1":{
-    "en": "New action card to check for a changed ip address, cleaned up some old code for the ikea symfonisk & tradfri dimmer switch"
+  "1.6.1":{
+    "en": "New action card to check for a changed ip address, support for hue tap switch, support for trust smoke sensor ZSDR-850, cleaned up some old code for the ikea symfonisk & tradfri dimmer switch"
   }
 }
