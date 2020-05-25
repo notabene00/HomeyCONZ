@@ -80,7 +80,7 @@
                     apiError.classList.remove('alert-danger')
                     apiError.classList.add('alert-success')
                     title.innerHTML = 'Autodiscovering...'
-                    const url = 'https://dresden-light.appspot.com/discover'
+                    const url = 'http://phoscon.de/discover'
                     const xhr = new XMLHttpRequest()
                     xhr.onreadystatechange = function (e) {
                         if (xhr.readyState == 4 && xhr.status == 200) {

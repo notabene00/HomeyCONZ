@@ -161,7 +161,7 @@ class deCONZ extends Homey.App {
 	}
 
 	getDiscoveryData(callback) {
-		https.get(`https://dresden-light.appspot.com/discover`, (error, response) => {
+		http.get(`http://phoscon.de/discover`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response)[0])
 		})
 	}
@@ -483,23 +483,24 @@ class deCONZ extends Homey.App {
 					return new Promise((resolve) => {
 						try{
 							this.log('update ip address')
-							this.getDiscoveryData((error, discoveryResult) => {
+							this.getDiscoveryData((error, response) => {
 								if (error) {
+									this.log(error)
 									return this.error(error)
 								}
 
-								if(discoveryResult.internalipaddress && this.host !== discoveryResult.internalipaddress)
+								if( Object.keys(response).length > 0 && response.internalipaddress && this.host !== response.internalipaddress)
 								{
-									this.log('ip address has changed', this.host, discoveryResult.internalipaddress)
-									Homey.set('host', idiscoveryResult.internalipaddress, (err, settings) => {
+									this.log('ip address has changed', this.host, response.internalipaddress)
+									Homey.set('host', response.internalipaddress, (err, settings) => {
 										if (err) this.error(err)
 									})
 									this.startWebSocketConnection()
 									this.log('ip address updated successfully')
+								}else{
+									this.log('no deconz changed gateway found')
 								}
 							})
-
-
 						} catch(error){
 							return this.error(error);
 						}
