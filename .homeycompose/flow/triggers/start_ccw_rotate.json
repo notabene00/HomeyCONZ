@@ -8,7 +8,7 @@
     {
       "name": "device",
       "type": "device",
-      "filter": "driver_id=symfonisk-remote|tradfri-wireless-dimmer"
+      "filter": "driver_id=tradfri-wireless-dimmer"
     }
   ]
 }
