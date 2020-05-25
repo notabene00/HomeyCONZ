@@ -15,8 +15,8 @@ class HueTapSwitch extends Sensor {
 	
 	fireEvent(number) {
 
-		const tokens = this.getSwitchEventTokens(number);
-		const state = {buttonIndex: tokens.buttonIndex.toString(), actionIndex: tokens.actionIndex.toString()};
+		const tokens = { rawEvent: number, buttonIndex: number, actionIndex: 2, action: 'release_after_press' };
+		const state = { buttonIndex: tokens.buttonIndex.toString(), actionIndex: tokens.actionIndex.toString() };
 
 		this.log('hue tap switch event (' + number + ') button: ' + tokens.buttonIndex + ', action: '+ tokens.action);
 

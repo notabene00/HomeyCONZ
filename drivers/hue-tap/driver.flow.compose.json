@@ -51,33 +51,27 @@
               }
             },
             {
-              "id": "1",
+              "id": "34",
               "label": {
-                "en": "Button 1"
+                "en": "Button 1 (1 dot)"
               }
             },
             {
-              "id": "2",
+              "id": "16",
               "label": {
-                "en": "Button 2"
+                "en": "Button 2 (2 dots)"
               }
             },
             {
-              "id": "3",
+              "id": "17",
               "label": {
-                "en": "Button 3"
+                "en": "Button 3 (3 dots)"
               }
             },
             {
-              "id": "4",
+              "id": "18",
               "label": {
-                "en": "Button 4"
-              }
-            },
-            {
-              "id": "5",
-              "label": {
-                "en": "Button 5"
+                "en": "Button 4 (4 dots)"
               }
             }
           ]
@@ -87,75 +81,9 @@
           "name": "action",
           "values": [
             {
-              "id": "-1",
-              "label": {
-                "en": "Any Action"
-              }
-            },
-            {
-              "id": "0",
-              "label": {
-                "en": "Initial Press"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Hold"
-              }
-            },
-            {
               "id": "2",
               "label": {
                 "en": "Release (Single Press)"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
-                "en": "Release (After Hold)"
-              }
-            },
-            {
-              "id": "4",
-              "label": {
-                "en": "Double Press"
-              }
-            },
-            {
-              "id": "5",
-              "label": {
-                "en": "Tripple Press"
-              }
-            },
-            {
-              "id": "6",
-              "label": {
-                "en": "Quadruple Press"
-              }
-            },
-            {
-              "id": "7",
-              "label": {
-                "en": "Shake"
-              }
-            },
-            {
-              "id": "8",
-              "label": {
-                "en": "Drop"
-              }
-            },
-            {
-              "id": "9",
-              "label": {
-                "en": "Tilt"
-              }
-            },
-            {
-              "id": "10",
-              "label": {
-                "en": "Many presses"
               }
             }
           ]
