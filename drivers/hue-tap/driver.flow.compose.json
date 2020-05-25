@@ -1,0 +1,94 @@
+{
+  "triggers": [
+    {
+      "id": "raw_switch_event",
+      "title": {
+        "en": "Event"
+      },
+      "tokens": [
+        {
+          "name": "rawEvent",
+          "type": "number",
+          "title": {
+            "en": "event"
+          },
+          "example": 1001
+        },
+        {
+          "name": "buttonIndex",
+          "type": "number",
+          "title": {
+            "en": "button index"
+          },
+          "example": 1
+        },
+        {
+          "name": "actionIndex",
+          "type": "number",
+          "title": {
+            "en": "action index"
+          },
+          "example": 1
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "title": {
+            "en": "action"
+          },
+          "example": "initial_press"
+        }
+      ],
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "button",
+          "values": [
+            {
+              "id": "-1",
+              "label": {
+                "en": "Any Button"
+              }
+            },
+            {
+              "id": "34",
+              "label": {
+                "en": "Button 1 (1 dot)"
+              }
+            },
+            {
+              "id": "16",
+              "label": {
+                "en": "Button 2 (2 dots)"
+              }
+            },
+            {
+              "id": "17",
+              "label": {
+                "en": "Button 3 (3 dots)"
+              }
+            },
+            {
+              "id": "18",
+              "label": {
+                "en": "Button 4 (4 dots)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "action",
+          "values": [
+            {
+              "id": "2",
+              "label": {
+                "en": "Release (Single Press)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

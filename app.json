@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -1534,6 +1534,101 @@
         ]
       },
       {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=hue-tap"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "34",
+                "label": {
+                  "en": "Button 1 (1 dot)"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "en": "Button 2 (2 dots)"
+                }
+              },
+              {
+                "id": "17",
+                "label": {
+                  "en": "Button 3 (3 dots)"
+                }
+              },
+              {
+                "id": "18",
+                "label": {
+                  "en": "Button 4 (4 dots)"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (Single Press)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "button_released",
         "title": {
           "en": "Button released",
@@ -1856,6 +1951,12 @@
         "id": "update_all_devices",
         "title": {
           "en": "Update all devices manually"
+        }
+      },
+      {
+        "id": "update_ip_address",
+        "title": {
+          "en": "Update changed IP address"
         }
       }
     ],
@@ -4016,6 +4117,75 @@
         }
       ],
       "id": "hue-outdoor-motion-sensor"
+    },
+    {
+      "name": {
+        "en": "Philips Hue Tap"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/hue-tap/assets/images/large.png",
+        "small": "/drivers/hue-tap/assets/images/small.png"
+      },
+      "icon": "/drivers/hue-tap/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "hue-tap"
     },
     {
       "name": {
