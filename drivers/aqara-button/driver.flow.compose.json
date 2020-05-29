@@ -79,6 +79,12 @@
               "label": {
                 "en": "Tripple Press"
               }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Quadruple Press"
+              }
             }
           ]
         }

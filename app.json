@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -1955,12 +1955,6 @@
         "id": "update_all_devices",
         "title": {
           "en": "Update all devices manually"
-        }
-      },
-      {
-        "id": "update_ip_address",
-        "title": {
-          "en": "Update changed IP address"
         }
       },
       {
