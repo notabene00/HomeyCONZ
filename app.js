@@ -217,6 +217,7 @@ class deCONZ extends Homey.App {
 				if (device) {
 					if (group.action) {
 						this.updateState(device, group.action, true)
+						device.setAvailable()
 					}
 				}
 			})

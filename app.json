@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -438,6 +438,12 @@
                 "id": "5",
                 "label": {
                   "en": "Tripple Press"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Quadruple Press"
                 }
               }
             ]
