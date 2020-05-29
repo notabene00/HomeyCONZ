@@ -27,6 +27,9 @@
     "en": "New action card to check for a changed ip address, support for hue tap switch, support for trust smoke sensor ZSDR-850, cleaned up some old code for the ikea symfonisk & tradfri dimmer switch"
   },
   "1.6.2":{
-    "en": "Support quadrupple presses for the Aqara button"
+    "en": "Support quadrupple presses for the Aqara button, fixed a bug that caused groups to remain unavailable when the connection was interrupted"
+  },
+  "1.6.3":{
+    "en": "Improved support for the Trust ZyCZ-202 switch"
   }
 }

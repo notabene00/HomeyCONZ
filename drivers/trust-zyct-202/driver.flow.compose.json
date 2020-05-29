@@ -47,7 +47,25 @@
             {
               "id": "1",
               "label": {
-                "en": "Button 1"
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Dim up"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Dim down"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Off"
               }
             }
           ]

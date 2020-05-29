@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -1936,7 +1936,25 @@
               {
                 "id": "1",
                 "label": {
-                  "en": "Button 1"
+                  "en": "On"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Dim up"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Dim down"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Off"
                 }
               }
             ]

@@ -28,8 +28,7 @@ class TrustZYCT202Switch extends Sensor {
 		.register()
 		.registerRunListener((args, state) => {
 			return Promise.resolve(
-				(args.button === '-1' || args.button === state.buttonIndex) &&
-				(args.action === '-1' || args.action === state.actionIndex));
+				(args.button === '-1' || args.button === state.buttonIndex));
 		});
 	}
 	
