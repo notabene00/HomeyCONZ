@@ -374,6 +374,24 @@ class deCONZ extends Homey.App {
 			}
 		}
 
+		if (state.hasOwnProperty('voltage')) {
+			if (deviceSupports('measure_voltage')) {
+				device.setCapabilityValue('measure_voltage', state.voltage)
+			}
+		}
+
+		if (state.hasOwnProperty('current')) {
+			if (deviceSupports('measure_current')) {
+				device.setCapabilityValue('measure_current', state.current / 100)
+			}
+		}
+
+		if (state.hasOwnProperty('consumption')) {
+			if (deviceSupports('meter_power')) {
+				device.setCapabilityValue('meter_power', state.consumption / 1000)
+			}
+		}
+
 		if (state.hasOwnProperty('ct') && state.hasOwnProperty('colormode') && state.colormode === 'ct') {
 			if (!deviceSupports(['light_mode', 'light_temperature']) || (state.ct > 500)) return
 			device.setCapabilityValue('light_mode', 'temperature')

@@ -30,6 +30,6 @@
     "en": "Support quadrupple presses for the Aqara button, fixed a bug that caused groups to remain unavailable when the connection was interrupted"
   },
   "1.6.3":{
-    "en": "Improved support for the Trust ZyCZ-202 switch"
+    "en": "Improved support for the Trust ZYCZ-202 switch"
   }
 }
