@@ -31,5 +31,8 @@
   },
   "1.6.3":{
     "en": "Improved support for the Trust ZYCZ-202 switch"
+  },
+  "1.7.0":{
+    "en": "Support for Tradfri, Aqara and Mi Smart plugs/sockets, improved the generic smart plug driver with support for current, consumption and voltage"
   }
 }
