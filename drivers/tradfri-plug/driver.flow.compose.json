@@ -1,0 +1,11 @@
+{
+  "triggers": [
+    {
+      "id": "switched",
+      "title": {
+        "en": "Switched"
+      },
+      "args": []
+    }
+  ]
+}
