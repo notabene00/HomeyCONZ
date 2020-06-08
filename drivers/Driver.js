@@ -34,6 +34,7 @@ class Driver extends Homey.Driver {
 			return callback(new Error('Go to app settings page and fill all fields'))
 		}
 		this.getLightsList((error, lights) => {
+
 			if (error) {
 				callback(error)
 				return
@@ -51,35 +52,64 @@ class Driver extends Homey.Driver {
 				'Color temperature light': ct,
 				'Extended color light': color,
 				'Color light': color,
-				'Smart plug': onoff, // отличаются только классом устройства - socket
-				'On/Off plug-in unit': onoff, //Also smart plug
-				'Window covering device': dim, // отличаются только классом устройства - windowcoverings
+				'Smart plug': onoff,
+				'On/Off plug-in unit': onoff,
+				'Window covering device': dim,
 				'Range extender': none
 			}
+
 			this.getSensorsList((error, sensors) => {
 				// entry[0] - key, entry[1] - value
 				let filtered = Object.entries(lights).filter(entry => condition(entry[1])).map((entry, _index, _array) => {
-					// для каждого уже отфильтрованного entry
-					const key = entry[0] // ключ
-					const light = entry[1] // значение
+
+					const key = entry[0]
+					const light = entry[1]
 					const mac = light.uniqueid.split('-')[0]
 
 					var linked_sensors = []
 					var additionalCapabilities = []
 					if (sensors) {
 						let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
+
 						let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))
-						let batteryMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('battery'))
 						if (powerMeasurementSensor) {
 							linked_sensors.push(powerMeasurementSensor[0])
 							additionalCapabilities.push('measure_power')
 						}
+
+						let voltageMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('voltage'))
+						if (voltageMeasurementSensor) {
+							linked_sensors.push(voltageMeasurementSensor[0])
+							additionalCapabilities.push('measure_voltage')
+						}
+
+						let currentMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('current'))
+						if (currentMeasurementSensor) {
+							linked_sensors.push(currentMeasurementSensor[0])
+							additionalCapabilities.push('measure_current')
+						}
+
+						let consumptionMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('consumption'))
+						if (consumptionMeasurementSensor) {
+							linked_sensors.push(consumptionMeasurementSensor[0])
+							additionalCapabilities.push('meter_power')
+						}
+
+						let batteryMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('battery'))
 						if (batteryMeasurementSensor) {
 							linked_sensors.push(batteryMeasurementSensor[0])
 							additionalCapabilities.push('measure_battery')
 						}
+
+						let temperatureMeasurementSensor = filteredSensors.find(s => s[1].config.hasOwnProperty('temperature'))
+						if (temperatureMeasurementSensor) {
+							linked_sensors.push(temperatureMeasurementSensor[0])
+							additionalCapabilities.push('measure_temperature')
+						}
+
 					}
 					let capabilities = (matchTable[light.type] || ['onoff']).concat(additionalCapabilities)
+					
 					return {
 						name: light.name,
 						data: {
@@ -103,13 +133,13 @@ class Driver extends Homey.Driver {
 			return callback(new Error('Go to app settings page and fill all fields'))
 		}
 		this.getSensorsList((error, sensors) => {
+
 			if (error) {
 				callback(error)
 				return
 			}
 
 			let sensorsEntries = Object.entries(sensors)
-
 			let knownMacAddresses = []
 
 			let filtered = sensorsEntries.filter(entry => {
@@ -122,19 +152,20 @@ class Driver extends Homey.Driver {
 					knownMacAddresses.push(mac)
 					return isNew
 				}).map((entry, _index, _array) => {
-				// для каждого уже отфильтрованного entry
-				const sensor = entry[1] // значение
-				const mac = sensor.uniqueid.split('-')[0] // мак-адрес является частью уникального идентификатора
 
-				return {
-					name: sensor.name,
-					data: {
-						id: mac,
-						model_id: sensor.model_id
-					},
-					settings: {
-						id: sensorsEntries.filter(d => d[1].uniqueid.startsWith(mac)).map(d => d[0])
+					const sensor = entry[1]
+					const mac = sensor.uniqueid.split('-')[0]
+
+					return {
+						name: sensor.name,
+						data: {
+							id: mac,
+							model_id: sensor.model_id
+						},
+						settings: {
+							id: sensorsEntries.filter(d => d[1].uniqueid.startsWith(mac)).map(d => d[0])
 					}
+
 				}
 			})
 			callback(null, filtered)

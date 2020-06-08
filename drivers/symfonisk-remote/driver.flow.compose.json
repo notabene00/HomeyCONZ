@@ -93,6 +93,12 @@
               }
             },
             {
+              "id": "5",
+              "label": {
+                "en": "Tripple Press"
+              }
+            },
+            {
               "id": "1",
               "label": {
                 "en": "Start Rotation"

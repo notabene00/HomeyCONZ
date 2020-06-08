@@ -30,6 +30,12 @@
     "en": "Support quadrupple presses for the Aqara button, fixed a bug that caused groups to remain unavailable when the connection was interrupted"
   },
   "1.6.3":{
-    "en": "Improved support for the Trust ZyCZ-202 switch"
+    "en": "Improved support for the Trust ZYCZ-202 switch"
+  },
+  "1.7.0":{
+    "en": "Support for Tradfri, Aqara and Mi Smart plugs/sockets, improved the generic smart plug driver with support for current, consumption and voltage"
+  },
+  "1.7.1":{
+    "en": "Support tripple press for Symfonisk controller, fixed a bug that caused secondary no motion triggers to be fired too often"
   }
 }
