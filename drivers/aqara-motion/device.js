@@ -21,6 +21,12 @@ class AqaraMotion extends Sensor {
 		if (name === 'alarm_motion') {
 			if (!value) {
 				// no motion detected
+
+				if(this.secondaryTimeout){
+					clearTimeout(this.secondaryTimeout)
+					this.secondaryTimeout = null
+				}
+				
 				// set the timer to turn off the sensor
 				this.timeout = setTimeout(() => {
 					super.setCapabilityValue(name, false)
