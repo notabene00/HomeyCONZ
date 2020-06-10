@@ -779,6 +779,19 @@
           {
             "type": "device",
             "name": "device",
+            "filter": "driver_id=aqara-relay"
+          }
+        ]
+      },
+      {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
             "filter": "driver_id=aqara-smart-plug"
           }
         ]
@@ -2659,6 +2672,84 @@
     },
     {
       "name": {
+        "en": "Aqara Relay"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/aqara-relay/assets/images/large.png",
+        "small": "/drivers/aqara-relay/assets/images/small.png"
+      },
+      "icon": "/drivers/aqara-relay/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "aqara-relay"
+    },
+    {
+      "name": {
         "en": "Aqara Plug"
       },
       "class": "socket",
@@ -3552,6 +3643,17 @@
       ],
       "settings": [
         {
+          "id": "invert_alarm",
+          "type": "checkbox",
+          "label": {
+            "en": "Invert alarm"
+          },
+          "hint": {
+            "en": "By default the alarm will be triggered when the door/window get's detected as open. Using this setting you can invert this which enables a few interesting use cases"
+          },
+          "value": false
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4396,6 +4498,17 @@
       ],
       "settings": [
         {
+          "id": "invert_alarm",
+          "type": "checkbox",
+          "label": {
+            "en": "Invert alarm"
+          },
+          "hint": {
+            "en": "By default the alarm will be triggered when the door/window get's detected as open. Using this setting you can invert this which enables a few interesting use cases"
+          },
+          "value": false
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4625,6 +4738,17 @@
         }
       ],
       "settings": [
+        {
+          "id": "invert_alarm",
+          "type": "checkbox",
+          "label": {
+            "en": "Invert alarm"
+          },
+          "hint": {
+            "en": "By default the alarm will be triggered when the door/window get's detected as open. Using this setting you can invert this which enables a few interesting use cases"
+          },
+          "value": false
+        },
         {
           "id": "info",
           "type": "group",
@@ -5627,6 +5751,17 @@
       ],
       "settings": [
         {
+          "id": "invert_alarm",
+          "type": "checkbox",
+          "label": {
+            "en": "Invert alarm"
+          },
+          "hint": {
+            "en": "By default the alarm will be triggered when the door/window get's detected as open. Using this setting you can invert this which enables a few interesting use cases"
+          },
+          "value": false
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6059,6 +6194,17 @@
       "max": 6,
       "uiComponent": "sensor",
       "uiQuickAction": false
+    },
+    "tampered": {
+      "type": "boolean",
+      "title": {
+        "en": "Tampered"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
     },
     "tilt_alarm": {
       "type": "boolean",
