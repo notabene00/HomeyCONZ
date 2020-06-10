@@ -58,9 +58,9 @@ class MiMotion extends Sensor {
 				if (this.timeout) {
 					clearTimeout(this.timeout)
 					this.timeout = null
-				} else {
-					super.setCapabilityValue(name, true)
 				}
+				
+				super.setCapabilityValue(name, true)
 			}
 		} else {
 			super.setCapabilityValue(name, value)
