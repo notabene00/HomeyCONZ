@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "<Generic Plug>"
+    "en": "Aqara Relay"
   },
   "class": "socket",
   "capabilities": [

@@ -3,7 +3,7 @@
 const Light = require('../Light')
 const { FlowCardTriggerDevice } = require('homey')
 
-class GenericPlug extends Light {
+class AqaraRelay extends Light {
 	
 	onInit() {
 		super.onInit()
@@ -26,4 +26,4 @@ class GenericPlug extends Light {
 	
 }
 
-module.exports = GenericPlug
+module.exports = AqaraRelay
