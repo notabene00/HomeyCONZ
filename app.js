@@ -317,7 +317,12 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('water')) {
 			if (deviceSupports('alarm_water')) {
-				device.setCapabilityValue('alarm_water', state.water)
+				const invert = device.getSetting('invert_alarm') == null ? false : device.getSetting('invert_alarm')
+				if (invert === true){
+					device.setCapabilityValue('alarm_water', !state.water)
+				} else {
+					device.setCapabilityValue('alarm_water', state.water)
+				}
 			}
 		}
 
@@ -331,7 +336,12 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('open')) {
 			if (deviceSupports('alarm_contact')) {
-				device.setCapabilityValue('alarm_contact', state.open)
+				const invert = device.getSetting('invert_alarm') == null ? false : device.getSetting('invert_alarm')
+				if (invert === true){
+					device.setCapabilityValue('alarm_contact', !state.open)
+				} else {
+					device.setCapabilityValue('alarm_contact', state.open)
+				}
 			}
 		}
 
