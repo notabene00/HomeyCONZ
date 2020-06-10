@@ -1,10 +1,10 @@
 {
   "name": {
-    "en": "Heiman Smoke/Fire Sensor"
+    "en": "Heiman CO Sensor"
   },
   "class": "sensor",
   "capabilities": [
-    "alarm_smoke",
+    "alarm_co",
     "measure_battery"
   ],
   "energy": {

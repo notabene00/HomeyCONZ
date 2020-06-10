@@ -357,6 +357,12 @@ class deCONZ extends Homey.App {
 			}
 		}
 
+		if (state.hasOwnProperty('carbonmonoxide')) {
+			if (deviceSupports('alarm_co')) {
+				device.setCapabilityValue('alarm_co', state.carbonmonoxide)
+			}
+		}
+
 		if (state.hasOwnProperty('temperature')) {
 			if (deviceSupports('measure_temperature')) {
 				const offset = device.getSetting('temperature_offset') == null ? 0 : device.getSetting('temperature_offset')

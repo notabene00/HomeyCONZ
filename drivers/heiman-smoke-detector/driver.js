@@ -10,7 +10,7 @@ class HeimanSmokeDetectorDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'SmokeSensor-N-3.0', callback)
+		this.getSensorsByCondition(device => device.modelid === 'SmokeSensor-N-3.0' || device.modelid === 'GAS_V15', callback)
 	}
 	
 }
