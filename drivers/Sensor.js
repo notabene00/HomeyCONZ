@@ -36,7 +36,7 @@ class Sensor extends Homey.Device {
 			}
 
 			if (state && state.state && state.state.tampered != null) {
-				this.addCapability("tampered")
+				this.addCapability("alarm_tamper")
 			}
 
 			Homey.app.updateState(this, state, true)

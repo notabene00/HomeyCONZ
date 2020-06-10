@@ -419,8 +419,8 @@ class deCONZ extends Homey.App {
 		}
 
 		if (state.hasOwnProperty('tampered')) {
-			if (deviceSupports('tampered')) {
-				device.setCapabilityValue('tampered', state.tampered)
+			if (deviceSupports('alarm_tamper')) {
+				device.setCapabilityValue('alarm_tamper', state.tampered)
 			}
 		}
 	}
