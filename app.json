@@ -4504,7 +4504,7 @@
             "en": "Invert alarm"
           },
           "hint": {
-            "en": "By default the alarm will be triggered when the door/window get's detected as open. Using this setting you can invert this which enables a few interesting use cases"
+            "en": "By default the alarm will be triggered when water is present. Using this setting you can invert this which enables a few interesting use cases"
           },
           "value": false
         },
