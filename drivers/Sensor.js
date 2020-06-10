@@ -35,8 +35,8 @@ class Sensor extends Homey.Device {
 				return this.error(error)
 			}
 
-			if(state && state.config && state.config.tampered){
-				this.addCapability("tampered");
+			if (state && state.state && state.state.tampered != null) {
+				this.addCapability("tampered")
 			}
 
 			Homey.app.updateState(this, state, true)

@@ -417,6 +417,12 @@ class deCONZ extends Homey.App {
 			if (!deviceSupports('light_saturation')) return
 			device.setCapabilityValue('light_saturation', parseFloat((state.sat / 255).toFixed(2)))
 		}
+
+		if (state.hasOwnProperty('tampered')) {
+			if (deviceSupports('tampered')) {
+				device.setCapabilityValue('tampered', state.tampered)
+			}
+		}
 	}
 
 	updateConfig(device, config, initial = false) {
