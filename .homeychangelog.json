@@ -39,6 +39,6 @@
     "en": "Support tripple press for Symfonisk controller, fixed a bug that caused secondary no motion triggers to be fired too often"
   },
   "1.8.0":{
-    "en": "Door/window and water leakage sensors support an invert setting, support for the aqara relay, tampered capability for devices supporting it, improved startup behavior, support heiman fire, smoke and co sensor, improved motion sensor handling"
+    "en": "Door/window and water leakage sensors support an invert setting, support for the aqara relay, tampered capability for devices supporting it, improved startup behavior, support heiman fire, smoke and co sensor, improved motion sensor handling, support develco motion & water leakage sensor"
   }
 }
