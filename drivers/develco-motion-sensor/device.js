@@ -62,14 +62,6 @@ class DevelcoMotion extends Sensor {
 			super.setCapabilityValue(name, value)
 		}
 	}
-	
-	async onSettings( oldSettingsObj, newSettingsObj, changedKeysArr ) {
-		this.putSensorConfig( { config: { sensitivity: newSettingsObj.sensitivity, ledindication: newSettingsObj.ledindication } }, (error, data) => {
-			if (error) {
-				throw new Error(error);
-			}
-		})
-	}
 
 	setTriggers() {
 		this.triggerSecondaryNoMotion = new Homey.FlowCardTriggerDevice('secondary_no_motion_trigger').register()

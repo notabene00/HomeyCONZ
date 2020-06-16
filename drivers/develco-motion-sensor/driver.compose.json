@@ -71,49 +71,6 @@
     {
       "type": "group",
       "label": {
-        "en": "Hardware Settings"
-      },
-      "children": [
-        {
-          "id": "sensitivity",
-          "type": "number",
-          "label": {
-            "en": "Sensitivity"
-          },
-          "min": 0,
-          "max": 2,
-          "value": 0,
-          "hint": {
-            "en": "Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
-          }
-        },
-        {
-          "id": "ledindication",
-          "type": "checkbox",
-          "label": {
-            "en": "Led indication"
-          },
-          "value": false,
-          "hint": {
-            "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
-          }
-        },
-        {
-          "id": "pending",
-          "type": "text",
-          "label": {
-            "en": "Pending settings"
-          },
-          "value": "UNKNOWN",
-          "hint": {
-            "en": "Hardware settings that are not yet applied to the sensor."
-          }
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "label": {
         "en": "Calibration Settings"
       },
       "children": [
