@@ -2,16 +2,16 @@
 
 const Driver = require('../Driver')
 
-class GenericPlugDriver extends Driver {
+class SonoffBasicDriver extends Driver {
 	
 	onInit() {
 		super.onInit()
-		this.log('GenericPlugDriver has been initiated')
+		this.log('SonoffBasicDriver has been initiated')
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getLightsByCondition(device => device.type === 'Smart plug' || device.type === 'On/Off plug-in unit', callback)
+		this.getLightsByCondition(device => device.modelid === 'BASICZBR3', callback)
 	}
 }
 
-module.exports = GenericPlugDriver
+module.exports = SonoffBasicDriver

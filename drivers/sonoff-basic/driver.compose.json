@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "<Generic Plug>"
+    "en": "Sonoff Basic ZBR3"
   },
   "class": "socket",
   "capabilities": [
