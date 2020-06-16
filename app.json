@@ -2057,6 +2057,26 @@
         "title": {
           "en": "Update changed IP address"
         }
+      },
+      {
+        "id": "recall_scene",
+        "title": {
+          "en": "Recall a Scene"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=group"
+          },
+          {
+            "type": "autocomplete",
+            "name": "scene",
+            "placeholder": {
+              "en": "Search for scenes..."
+            }
+          }
+        ]
       }
     ],
     "conditions": [
@@ -3385,6 +3405,270 @@
           ]
         }
       ]
+    },
+    {
+      "name": {
+        "en": "Develco Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_temperature",
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/develco-motion-sensor/assets/images/large.png",
+        "small": "/drivers/develco-motion-sensor/assets/images/small.png"
+      },
+      "icon": "/drivers/develco-motion-sensor/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General Settings"
+          },
+          "children": [
+            {
+              "id": "no_motion_timeout",
+              "type": "number",
+              "label": {
+                "en": "No motion timeout"
+              },
+              "min": 0,
+              "max": 3600,
+              "value": 0,
+              "hint": {
+                "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+              }
+            },
+            {
+              "id": "secondary_no_motion_timeout",
+              "type": "number",
+              "label": {
+                "en": "Secondary no motion timeout"
+              },
+              "min": 0,
+              "max": 3600,
+              "value": 0,
+              "hint": {
+                "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Hardware Settings"
+          },
+          "children": [
+            {
+              "id": "sensitivity",
+              "type": "number",
+              "label": {
+                "en": "Sensitivity"
+              },
+              "min": 0,
+              "max": 2,
+              "value": 0,
+              "hint": {
+                "en": "Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+              }
+            },
+            {
+              "id": "ledindication",
+              "type": "checkbox",
+              "label": {
+                "en": "Led indication"
+              },
+              "value": false,
+              "hint": {
+                "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
+              }
+            },
+            {
+              "id": "pending",
+              "type": "text",
+              "label": {
+                "en": "Pending settings"
+              },
+              "value": "UNKNOWN",
+              "hint": {
+                "en": "Hardware settings that are not yet applied to the sensor."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+              }
+            }
+          ]
+        },
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "develco-motion-sensor"
+    },
+    {
+      "name": {
+        "en": "Develco Leakage Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_water",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/develco-water-leakage/assets/images/large.png",
+        "small": "/drivers/develco-water-leakage/assets/images/small.png"
+      },
+      "icon": "/drivers/develco-water-leakage/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "invert_alarm",
+          "type": "checkbox",
+          "label": {
+            "en": "Invert alarm"
+          },
+          "hint": {
+            "en": "By default the alarm will be triggered when water is present. Using this setting you can invert this which enables a few interesting use cases"
+          },
+          "value": false
+        },
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "develco-water-leakage"
     },
     {
       "name": {

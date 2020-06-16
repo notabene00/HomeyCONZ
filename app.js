@@ -102,16 +102,14 @@ class deCONZ extends Homey.App {
 			let device = this.getDevice(data.r, data.id)
 
 			if (device) {
-				// STATE
 				if (data.state) {
 					this.updateState(device, data.state)
-				} else if (data.action) { // if GROUPS
+				} else if (data.action) {
+					// applies to groups only
 					this.updateState(device, data.action)
-				// CONFIG
 				} else if (data.config) {
 					this.updateConfig(device, data.config)
 				}
-			// UNKNOWN
 			} else {
 				this.log('Update for unregistered device', data)
 			}

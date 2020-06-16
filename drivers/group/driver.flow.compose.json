@@ -1,0 +1,19 @@
+{
+  "actions": [
+    {
+      "id": "recall_scene",
+      "title":{
+          "en": "Recall a Scene"
+      },
+      "args": [
+          {
+              "type": "autocomplete",
+              "name": "scene",
+              "placeholder": {
+                  "en": "Search for scenes..."
+              }
+          }
+        ]
+    }
+  ]
+}

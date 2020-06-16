@@ -2,6 +2,7 @@
 
 const Homey = require('homey')
 const Light = require('../Light')
+const { http } = require('../../nbhttp')
 
 class Group extends Light {
 
@@ -35,11 +36,54 @@ class Group extends Light {
 
 		this.setInitialState()
 
+		let recalSceneAction = new Homey.FlowCardAction('recall_scene');
+		recalSceneAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				return new Promise((resolve) => {
+					this.recallScene(args.scene.id, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			})
+			.getArgument('scene')
+			.registerAutocompleteListener(( query, args ) => {
+				return new Promise((resolve) => {
+					this.getScenesList((error, scenes) => {
+						if (error) {
+							return this.error(error);
+						}
+						let result = [];
+						Object.entries(scenes).forEach(entry => {
+							const key = entry[0];
+							const scene = entry[1];
+							result.push({name: scene.name, id: key});
+						});
+						resolve(result);
+					})
+				});
+			});
+
 		this.log(this.getName(), 'has been initiated')
 	}
 
 	registerInApp() {
 		Homey.app.devices.groups[this.id] = this
+	}
+
+	getScenesList(callback) {
+		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/groups/${this.id}/scenes`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
+	recallScene(sceneId, callback) {
+		http.put(Homey.app.host, Homey.app.port, `/api/${Homey.app.apikey}/groups/${this.id}/scenes/${sceneId}/recall`, {}, (error, data) => {
+			callback(error, !!error ? null : JSON.parse(data))
+		})
 	}
 
 }
