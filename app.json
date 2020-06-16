@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.7.2",
+  "version": "1.8.0",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -767,19 +767,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=aqara-motion"
-          }
-        ]
-      },
-      {
-        "id": "switched",
-        "title": {
-          "en": "Switched"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=aqara-relay"
           }
         ]
       },
@@ -1705,6 +1692,19 @@
         ]
       },
       {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sonoff-basic"
+          }
+        ]
+      },
+      {
         "id": "raw_switch_event",
         "title": {
           "en": "Event"
@@ -2234,19 +2234,6 @@
             "type": "number"
           }
         ]
-      },
-      {
-        "id": "is_dark",
-        "title": {
-          "en": "Is !{{dark|light}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=tradfri-motion-sensor"
-          }
-        ]
       }
     ]
   },
@@ -2689,84 +2676,6 @@
         }
       ],
       "id": "aqara-motion"
-    },
-    {
-      "name": {
-        "en": "Aqara Relay"
-      },
-      "class": "socket",
-      "capabilities": [
-        "onoff"
-      ],
-      "images": {
-        "large": "/drivers/aqara-relay/assets/images/large.png",
-        "small": "/drivers/aqara-relay/assets/images/small.png"
-      },
-      "icon": "/drivers/aqara-relay/assets/icon.svg",
-      "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "choose_slave"
-          }
-        },
-        {
-          "id": "choose_slave",
-          "template": "choose_slave",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
-        }
-      ],
-      "settings": [
-        {
-          "id": "info",
-          "type": "group",
-          "label": {
-            "en": "Info"
-          },
-          "children": [
-            {
-              "id": "modelid",
-              "type": "label",
-              "label": {
-                "en": "Model"
-              },
-              "value": "Unknown"
-            },
-            {
-              "id": "manufacturername",
-              "type": "label",
-              "label": {
-                "en": "Manufacturer"
-              },
-              "value": "Unknown"
-            },
-            {
-              "id": "swversion",
-              "type": "label",
-              "label": {
-                "en": "Firmware"
-              },
-              "value": "Unknown"
-            },
-            {
-              "id": "ids",
-              "type": "label",
-              "label": {
-                "en": "Api Id's"
-              },
-              "value": "Unknown"
-            }
-          ]
-        }
-      ],
-      "id": "aqara-relay"
     },
     {
       "name": {
@@ -5597,6 +5506,84 @@
         }
       ],
       "id": "mijia-temphum"
+    },
+    {
+      "name": {
+        "en": "Sonoff Basic ZBR3"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/sonoff-basic/assets/images/large.png",
+        "small": "/drivers/sonoff-basic/assets/images/small.png"
+      },
+      "icon": "/drivers/sonoff-basic/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "sonoff-basic"
     },
     {
       "name": {
