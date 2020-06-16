@@ -1,0 +1,94 @@
+{
+  "name": {
+    "en": "Develco Motion Sensor"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_motion",
+    "measure_luminance",
+    "measure_temperature",
+    "measure_battery"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "energy": {
+    "batteries": [
+      "AA",
+      "AA"
+    ]
+  },
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "General Settings"
+      },
+      "children": [
+        {
+          "id": "no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "No motion timeout"
+          },
+          "min": 0,
+          "max": 3600,
+          "value": 0,
+          "hint": {
+            "en": "The sensor reports when there is no more motion detected. Using this setting you can increase the time (in seconds) until the motion alarm gets disabled."
+          }
+        },
+        {
+          "id": "secondary_no_motion_timeout",
+          "type": "number",
+          "label": {
+            "en": "Secondary no motion timeout"
+          },
+          "min": 0,
+          "max": 3600,
+          "value": 0,
+          "hint": {
+            "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Calibration Settings"
+      },
+      "children": [
+        {
+          "id" : "temperature_offset",
+          "type": "number",
+          "label": {
+              "en": "Temperature calibration"
+          },
+          "value": 0,
+          "hint": {
+              "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+          }
+        }
+      ]
+    },
+    {
+      "$extends":  "info"
+    }
+  ]
+}

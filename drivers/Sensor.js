@@ -13,7 +13,10 @@ class Sensor extends Homey.Device {
 		
 		this.registerInApp()
 		
-		this.setInitialState()
+		// randomize this s.t we're not performing too many requests at once that could cause timeouts
+		this.initializeTimeout = setTimeout(() => {
+			this.setInitialState()
+		}, Math.random() * 30 * 1000)
 	}
 	
 	registerInApp() {
@@ -31,6 +34,11 @@ class Sensor extends Homey.Device {
 			if (error) {
 				return this.error(error)
 			}
+
+			if (state && state.state && state.state.tampered != null) {
+				this.addCapability("alarm_tamper")
+			}
+
 			Homey.app.updateState(this, state, true)
 		})
 	}

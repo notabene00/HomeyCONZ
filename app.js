@@ -102,16 +102,14 @@ class deCONZ extends Homey.App {
 			let device = this.getDevice(data.r, data.id)
 
 			if (device) {
-				// STATE
 				if (data.state) {
 					this.updateState(device, data.state)
-				} else if (data.action) { // if GROUPS
+				} else if (data.action) {
+					// applies to groups only
 					this.updateState(device, data.action)
-				// CONFIG
 				} else if (data.config) {
 					this.updateConfig(device, data.config)
 				}
-			// UNKNOWN
 			} else {
 				this.log('Update for unregistered device', data)
 			}
@@ -317,7 +315,12 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('water')) {
 			if (deviceSupports('alarm_water')) {
-				device.setCapabilityValue('alarm_water', state.water)
+				const invert = device.getSetting('invert_alarm') == null ? false : device.getSetting('invert_alarm')
+				if (invert === true){
+					device.setCapabilityValue('alarm_water', !state.water)
+				} else {
+					device.setCapabilityValue('alarm_water', state.water)
+				}
 			}
 		}
 
@@ -331,7 +334,12 @@ class deCONZ extends Homey.App {
 
 		if (state.hasOwnProperty('open')) {
 			if (deviceSupports('alarm_contact')) {
-				device.setCapabilityValue('alarm_contact', state.open)
+				const invert = device.getSetting('invert_alarm') == null ? false : device.getSetting('invert_alarm')
+				if (invert === true){
+					device.setCapabilityValue('alarm_contact', !state.open)
+				} else {
+					device.setCapabilityValue('alarm_contact', state.open)
+				}
 			}
 		}
 
@@ -344,6 +352,12 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('fire')) {
 			if (deviceSupports('alarm_smoke')) {
 				device.setCapabilityValue('alarm_smoke', state.fire)
+			}
+		}
+
+		if (state.hasOwnProperty('carbonmonoxide')) {
+			if (deviceSupports('alarm_co')) {
+				device.setCapabilityValue('alarm_co', state.carbonmonoxide)
 			}
 		}
 
@@ -406,6 +420,12 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('sat') && state.hasOwnProperty('colormode') && state.colormode === 'hs') {
 			if (!deviceSupports('light_saturation')) return
 			device.setCapabilityValue('light_saturation', parseFloat((state.sat / 255).toFixed(2)))
+		}
+
+		if (state.hasOwnProperty('tampered')) {
+			if (deviceSupports('alarm_tamper')) {
+				device.setCapabilityValue('alarm_tamper', state.tampered)
+			}
 		}
 	}
 
