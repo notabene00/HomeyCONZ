@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -3381,49 +3381,6 @@
               "value": 0,
               "hint": {
                 "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Hardware Settings"
-          },
-          "children": [
-            {
-              "id": "sensitivity",
-              "type": "number",
-              "label": {
-                "en": "Sensitivity"
-              },
-              "min": 0,
-              "max": 2,
-              "value": 0,
-              "hint": {
-                "en": "Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
-              }
-            },
-            {
-              "id": "ledindication",
-              "type": "checkbox",
-              "label": {
-                "en": "Led indication"
-              },
-              "value": false,
-              "hint": {
-                "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
-              }
-            },
-            {
-              "id": "pending",
-              "type": "text",
-              "label": {
-                "en": "Pending settings"
-              },
-              "value": "UNKNOWN",
-              "hint": {
-                "en": "Hardware settings that are not yet applied to the sensor."
               }
             }
           ]
