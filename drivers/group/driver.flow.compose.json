@@ -14,6 +14,18 @@
               }
           }
         ]
+    },
+    {
+      "id": "flash_group_long",
+      "title": {
+        "en": "Flash (Long)"
+      }
+    },
+    {
+      "id": "flash_group_short",
+      "title": {
+        "en": "Flash (Short)"
+      }
     }
   ]
 }

@@ -36,6 +36,34 @@ class Group extends Light {
 
 		this.setInitialState()
 
+		this.initializeActions()
+
+		this.log(this.getName(), 'has been initiated')
+	}
+
+	registerInApp() {
+		Homey.app.devices.groups[this.id] = this
+	}
+
+	getScenesList(callback) {
+		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/groups/${this.id}/scenes`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
+	recallScene(sceneId, callback) {
+		http.put(Homey.app.host, Homey.app.port, `/api/${Homey.app.apikey}/groups/${this.id}/scenes/${sceneId}/recall`, {}, (error, data) => {
+			callback(error, !!error ? null : JSON.parse(data))
+		})
+	}
+
+	setGroupState(state, callback) {
+		http.put(Homey.app.host, Homey.app.port, `/api/${Homey.app.apikey}/groups/${this.id}/action`, state, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
+	initializeActions() {
 		let recalSceneAction = new Homey.FlowCardAction('recall_scene');
 		recalSceneAction
 			.register()
@@ -67,25 +95,36 @@ class Group extends Light {
 				});
 			});
 
-		this.log(this.getName(), 'has been initiated')
-	}
+		let flashGroupShortAction = new Homey.FlowCardAction('flash_group_short');
+		flashGroupShortAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				const groupState = { alert: 'select' };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
 
-	registerInApp() {
-		Homey.app.devices.groups[this.id] = this
+		let flashGroupLongAction = new Homey.FlowCardAction('flash_group_long');
+		flashGroupLongAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				const groupState = { alert: 'lselect' };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
 	}
-
-	getScenesList(callback) {
-		http.get(`http://${Homey.app.host}:${Homey.app.port}/api/${Homey.app.apikey}/groups/${this.id}/scenes`, (error, response) => {
-			callback(error, !!error ? null : JSON.parse(response))
-		})
-	}
-
-	recallScene(sceneId, callback) {
-		http.put(Homey.app.host, Homey.app.port, `/api/${Homey.app.apikey}/groups/${this.id}/scenes/${sceneId}/recall`, {}, (error, data) => {
-			callback(error, !!error ? null : JSON.parse(data))
-		})
-	}
-
 }
 
 module.exports = Group
