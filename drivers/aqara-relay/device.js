@@ -23,6 +23,14 @@ class AqaraRelay extends Light {
 		}
 		super.setCapabilityValue(name, value)
 	}
+
+	setCapabilityValue(name, value) {
+		if (name === 'measure_power' && value === -1) {
+			return 
+		} else {
+			super.setCapabilityValue(name, value)
+		}
+	}
 	
 }
 
