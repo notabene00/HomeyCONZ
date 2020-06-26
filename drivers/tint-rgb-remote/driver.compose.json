@@ -1,14 +1,15 @@
 {
   "name": {
-    "en": "<Generic Wireless Switch>"
+    "en": "Tint rgb remote"
   },
   "class": "other",
   "capabilities": [
-    "measure_battery"
+    "hue_angle"
   ],
   "energy": {
     "batteries": [
-      "OTHER"
+      "AAA", 
+      "AAA"
     ]
   },
   "images": {

@@ -1,9 +1,25 @@
 {
   "triggers": [
     {
+      "id": "hue_changed_event",
+      "title": {
+        "en": "Hue changed"
+      },
+      "tokens": [
+        {
+          "name": "hue",
+          "type": "number",
+          "title": {
+            "en": "Hue"
+          },
+          "example": 360
+        }
+      ]
+    },
+    {
       "id": "raw_switch_event",
       "title": {
-        "en": "Event"
+        "en": "Button pressed"
       },
       "tokens": [
         {
@@ -53,109 +69,73 @@
             {
               "id": "1",
               "label": {
-                "en": "Button 1"
+                "en": "On/Off"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "Button 2"
+                "en": "Increase Brightness"
               }
             },
             {
               "id": "3",
               "label": {
-                "en": "Button 3"
+                "en": "Decrease Brightness"
               }
             },
             {
               "id": "4",
               "label": {
-                "en": "Button 4"
+                "en": "Warmer"
               }
             },
             {
               "id": "5",
               "label": {
-                "en": "Button 5"
-              }
-            }
-          ]
-        },
-        {
-          "type": "dropdown",
-          "name": "action",
-          "values": [
-            {
-              "id": "-1",
-              "label": {
-                "en": "Any Action"
-              }
-            },
-            {
-              "id": "0",
-              "label": {
-                "en": "Initial Press"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Hold"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Release (Single Press)"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
-                "en": "Release (After Hold)"
-              }
-            },
-            {
-              "id": "4",
-              "label": {
-                "en": "Double Press"
-              }
-            },
-            {
-              "id": "5",
-              "label": {
-                "en": "Tripple Press"
+                "en": "Cooler"
               }
             },
             {
               "id": "6",
               "label": {
-                "en": "Quadruple Press"
+                "en": "Color Wheel"
               }
             },
             {
               "id": "7",
               "label": {
-                "en": "Shake"
+                "en": "Work"
               }
             },
             {
               "id": "8",
               "label": {
-                "en": "Drop"
+                "en": "Sunset"
               }
             },
             {
               "id": "9",
               "label": {
-                "en": "Tilt"
+                "en": "Party"
               }
             },
             {
               "id": "10",
               "label": {
-                "en": "Many presses"
+                "en": "Nightlight"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Fire"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Romance"
               }
             }
           ]

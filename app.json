@@ -779,6 +779,19 @@
           {
             "type": "device",
             "name": "device",
+            "filter": "driver_id=aqara-relay"
+          }
+        ]
+      },
+      {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
             "filter": "driver_id=aqara-smart-plug"
           }
         ]
@@ -1824,6 +1837,160 @@
         ]
       },
       {
+        "id": "hue_changed_event",
+        "title": {
+          "en": "Hue changed"
+        },
+        "tokens": [
+          {
+            "name": "hue",
+            "type": "number",
+            "title": {
+              "en": "Hue"
+            },
+            "example": 360
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tint-rgb-remote"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Button pressed"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tint-rgb-remote"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "On/Off"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Increase Brightness"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Decrease Brightness"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Warmer"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Cooler"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Color Wheel"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Work"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Sunset"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Party"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Nightlight"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "Fire"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "en": "Romance"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "switched",
         "title": {
           "en": "Switched"
@@ -2676,6 +2843,84 @@
         }
       ],
       "id": "aqara-motion"
+    },
+    {
+      "name": {
+        "en": "Aqara Relay"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/aqara-relay/assets/images/large.png",
+        "small": "/drivers/aqara-relay/assets/images/small.png"
+      },
+      "icon": "/drivers/aqara-relay/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "aqara-relay"
     },
     {
       "name": {
@@ -5620,6 +5865,83 @@
     },
     {
       "name": {
+        "en": "Tint rgb remote"
+      },
+      "class": "other",
+      "capabilities": [
+        "hue_angle"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/tint-rgb-remote/assets/images/large.png",
+        "small": "/drivers/tint-rgb-remote/assets/images/small.png"
+      },
+      "icon": "/drivers/tint-rgb-remote/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "tint-rgb-remote"
+    },
+    {
+      "name": {
         "en": "Tradfri Motion Sensor"
       },
       "class": "sensor",
@@ -6551,6 +6873,21 @@
       "uiComponent": "sensor",
       "uiQuickAction": false,
       "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
+    },
+    "hue_angle": {
+      "type": "number",
+      "uiComponent": "sensor",
+      "icon": "/drivers/tint-rgb-remote/assets/hue.svg",
+      "title": {
+        "en": "Hue"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "units": {
+        "en": "°"
+      },
+      "decimals": 0
     },
     "relative_tilt_angle": {
       "type": "number",

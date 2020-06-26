@@ -325,11 +325,11 @@ class deCONZ extends Homey.App {
 		}
 
 		if (state.hasOwnProperty('buttonevent') && !initial) {
-			device.fireEvent(state.buttonevent)
+			device.fireEvent(state.buttonevent, state)
 		}
-
+		
 		if (state.hasOwnProperty('buttonevent') && state.hasOwnProperty('gesture')) {
-			device.fireEvent(state.buttonevent, initial, state.gesture)
+			device.fireEvent(state.buttonevent, initial, state.gesture, state)
 		}
 
 		if (state.hasOwnProperty('open')) {
