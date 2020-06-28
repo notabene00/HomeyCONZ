@@ -57,7 +57,22 @@ class GenericLamp extends Light {
 			.registerRunListener(async ( args, state ) => {
 				const lightState = { bri_inc: args.relative_brightness * 254 };
 				return new Promise((resolve) => {
-					this.setLightState(groupState, (error, result) => {
+					this.setLightState(lightState, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
+
+		let setRelativeColorTemperatureAction = new Homey.FlowCardAction('relative_colortemperature');
+		setRelativeColorTemperatureAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				const lightState = { ct_inc: args.relative_colortemperature * 254 };
+				return new Promise((resolve) => {
+					this.setLightState(lightState, (error, result) => {
 						if (error) {
 							return this.error(error);
 						}

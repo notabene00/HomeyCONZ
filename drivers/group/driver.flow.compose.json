@@ -61,6 +61,41 @@
           "labelDecimals": 0
         }
       ]
+    },
+    {
+      "id": "relative_ct",
+      "title": {
+        "en": "set relative color temperature"
+      },
+      "args": [
+        {
+          "type": "range",
+          "name": "relative_colortemperature",
+          "placeholder": {
+            "en": "relative color temperature"
+          },
+          "min": -1,
+          "max": 1,
+          "step": 0.01,
+          "label": "%",
+          "labelMultiplier": 100,
+          "labelDecimals": 0
+        },
+        {
+          "type": "range",
+          "name": "transitiontime",
+          "placeholder": {
+            "en": "transition time"
+          },
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "value": 4,
+          "label": "ms",
+          "labelMultiplier": 100,
+          "labelDecimals": 0
+        }
+      ]
     }
   ]
 }

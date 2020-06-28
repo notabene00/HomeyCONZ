@@ -139,6 +139,21 @@ class Group extends Light {
 					})
 				});
 			});
+
+		let setRelativeColorTemperatureAction = new Homey.FlowCardAction('relative_colortemperature');
+		setRelativeColorTemperatureAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				const groupState = { ct_inc: args.relative_colortemperature * 254 };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
 	}
 }
 
