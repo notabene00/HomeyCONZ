@@ -50,6 +50,21 @@ class GenericLamp extends Light {
 					})
 				});
 			});
+
+		let setRelativeBrightnessAction = new Homey.FlowCardAction('relative_brightness');
+		setRelativeBrightnessAction
+			.register()
+			.registerRunListener(async ( args, state ) => {
+				const lightState = { bri_inc: args.relative_brightness * 255 };
+				return new Promise((resolve) => {
+					this.setLightState(groupState, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
 	}
 }
 
