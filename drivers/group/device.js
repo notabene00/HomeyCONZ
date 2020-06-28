@@ -129,7 +129,7 @@ class Group extends Light {
 		setRelativeBrightnessAction
 			.register()
 			.registerRunListener(async ( args, state ) => {
-				const groupState = { bri_inc: args.relative_brightness * 255 };
+				const groupState = { bri_inc: args.relative_brightness * 254 };
 				return new Promise((resolve) => {
 					this.setGroupState(groupState, (error, result) => {
 						if (error) {

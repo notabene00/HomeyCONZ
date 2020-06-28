@@ -55,7 +55,7 @@ class GenericLamp extends Light {
 		setRelativeBrightnessAction
 			.register()
 			.registerRunListener(async ( args, state ) => {
-				const lightState = { bri_inc: args.relative_brightness * 255 };
+				const lightState = { bri_inc: args.relative_brightness * 254 };
 				return new Promise((resolve) => {
 					this.setLightState(groupState, (error, result) => {
 						if (error) {
