@@ -52,7 +52,7 @@
       ]
     },
     {
-      "$extends":  "info"
+      "$extends":  "light-info"
     }
   ]
 }
