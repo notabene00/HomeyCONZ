@@ -16,13 +16,13 @@
         ]
     },
     {
-      "id": "flash_group_long",
+      "id": "flash_long",
       "title": {
         "en": "Flash (Long)"
       }
     },
     {
-      "id": "flash_group_short",
+      "id": "flash_short",
       "title": {
         "en": "Flash (Short)"
       }
@@ -30,7 +30,7 @@
     {
       "id": "relative_brightness",
       "title": {
-        "en": "set relative brightness"
+        "en": "set relative brightness (advanced)"
       },
       "args": [
         {
@@ -65,12 +65,12 @@
     {
       "id": "relative_ct",
       "title": {
-        "en": "set relative color temperature"
+        "en": "set relative color temperature (advanced)"
       },
       "args": [
         {
           "type": "range",
-          "name": "relative_colortemperature",
+          "name": "relative_ct",
           "placeholder": {
             "en": "relative color temperature"
           },

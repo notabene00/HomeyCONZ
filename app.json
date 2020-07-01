@@ -140,7 +140,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -153,7 +153,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -2226,7 +2226,27 @@
         }
       },
       {
-        "id": "flash_light_long",
+        "id": "recall_scene",
+        "title": {
+          "en": "recall a scene"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=group"
+          },
+          {
+            "type": "autocomplete",
+            "name": "scene",
+            "placeholder": {
+              "en": "Search for scenes..."
+            }
+          }
+        ]
+      },
+      {
+        "id": "flash_long",
         "title": {
           "en": "Flash (Long)"
         },
@@ -2234,12 +2254,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=generic-lamp"
+            "filter": "driver_id=group"
           }
         ]
       },
       {
-        "id": "flash_light_short",
+        "id": "flash_short",
         "title": {
           "en": "Flash (Short)"
         },
@@ -2247,20 +2267,20 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=generic-lamp"
+            "filter": "driver_id=group"
           }
         ]
       },
       {
         "id": "relative_brightness",
         "title": {
-          "en": "set relative brightness"
+          "en": "set relative brightness (advanced)"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=generic-lamp"
+            "filter": "driver_id=group"
           },
           {
             "type": "range",
@@ -2292,55 +2312,9 @@
         ]
       },
       {
-        "id": "recall_scene",
+        "id": "relative_ct",
         "title": {
-          "en": "recall a scene"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=group"
-          },
-          {
-            "type": "autocomplete",
-            "name": "scene",
-            "placeholder": {
-              "en": "Search for scenes..."
-            }
-          }
-        ]
-      },
-      {
-        "id": "flash_group_long",
-        "title": {
-          "en": "Flash (Long)"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=group"
-          }
-        ]
-      },
-      {
-        "id": "flash_group_short",
-        "title": {
-          "en": "Flash (Short)"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=group"
-          }
-        ]
-      },
-      {
-        "id": "relative_brightness",
-        "title": {
-          "en": "set relative brightness"
+          "en": "set relative color temperature (advanced)"
         },
         "args": [
           {
@@ -2350,9 +2324,9 @@
           },
           {
             "type": "range",
-            "name": "relative_brightness",
+            "name": "relative_ct",
             "placeholder": {
-              "en": "relative brightness"
+              "en": "relative color temperature"
             },
             "min": -1,
             "max": 1,
@@ -3011,6 +2985,25 @@
       ],
       "settings": [
         {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3046,6 +3039,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "sensorids",
+              "type": "label",
+              "label": {
+                "en": "Sensor Id's"
               },
               "value": "Unknown"
             }
