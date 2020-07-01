@@ -31,7 +31,26 @@
       "template": "add_devices"
     }
   ],
-  "settings": [
+  "settings":[
+    {
+      "type": "group",
+      "label": {
+        "en": "Calibration Settings"
+      },
+      "children": [
+        {
+          "id" : "temperature_offset",
+          "type": "number",
+          "label": {
+              "en": "Temperature calibration"
+          },
+          "value": 0,
+          "hint": {
+              "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+          }
+        }
+      ]
+    },
     {
       "$extends":  "info"
     }

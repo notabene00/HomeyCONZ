@@ -11,6 +11,9 @@ class AqaraRelay extends Light {
 		this.setTriggers()
 		
 		this.log(this.getName(), 'has been initiated')
+
+		this.removeCapability("dim")
+		this.removeCapability("measure_battery")
 	}
 
 	setTriggers() {
