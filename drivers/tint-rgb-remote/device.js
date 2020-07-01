@@ -12,9 +12,6 @@ class TintRgbRemote extends Sensor {
 		this.setTriggers()
 		
 		this.log(this.getName(), 'has been initiated')
-
-		this.addCapability("hue_angle")
-		this.removeCapability("light_hue")
 	}
 	
 	fireEvent(number, fullState) {
