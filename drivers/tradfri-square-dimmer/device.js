@@ -15,7 +15,7 @@ class TradfriSquareDimmer extends Sensor {
 	
 	fireEvent(number) {
 		switch (number) {
-			case 1001:
+			/*case 1001:
 				this.timeWhenPressed = new Date().getTime()
 				setTimeout(() => {
 					if (this.timeWhenPressed != 0) {
@@ -23,7 +23,7 @@ class TradfriSquareDimmer extends Sensor {
 						this.log('dim up held')
 					}
 				}, 0.5 * 1000)
-				break
+				break*/
 			case 1002:
 				this.log('dim up single press')
 				this.dimupsingle.trigger(this)
@@ -32,7 +32,7 @@ class TradfriSquareDimmer extends Sensor {
 				this.log('dim up released')
 				this.dimupreleased.trigger(this)
 				break
-			case 2001:
+			/*case 2001:
 				this.timeWhenPressed = new Date().getTime()
 				setTimeout(() => {
 					if (this.timeWhenPressed != 0) {
@@ -40,7 +40,7 @@ class TradfriSquareDimmer extends Sensor {
 						this.log('dim down held')
 					}
 				}, 0.5 * 1000)
-				break
+				break*/
 			case 2002:
 				this.log('dim down single press')
 				this.dimdownsingle.trigger(this)
@@ -53,10 +53,10 @@ class TradfriSquareDimmer extends Sensor {
 	}
 	
 	setTriggers() {
-		this.dimupheld = new Homey.FlowCardTriggerDevice('dim_up_held').register()
+		// this.dimupheld = new Homey.FlowCardTriggerDevice('dim_up_held').register()
 		this.dimupsingle = new Homey.FlowCardTriggerDevice('dim_up_single_press').register()
 		this.dimupreleased = new Homey.FlowCardTriggerDevice('dim_up_released').register()
-		this.dimdownheld = new Homey.FlowCardTriggerDevice('dim_down_held').register()
+		// this.dimdownheld = new Homey.FlowCardTriggerDevice('dim_down_held').register()
 		this.dimdownsingle = new Homey.FlowCardTriggerDevice('dim_down_single_press').register()
 		this.dimdownreleased = new Homey.FlowCardTriggerDevice('dim_down_released').register()
 	}

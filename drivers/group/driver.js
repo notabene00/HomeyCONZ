@@ -39,15 +39,14 @@ class GroupDriver extends Driver {
 					return
 				}
 				let devicesObjects = Object.entries(groupDevices).filter(entry => {
-					// const key = entry[0] // ключ
-					const group = entry[1] // значение
+					const group = entry[1]
 					return group.lights.length > 0
 				}).map(entry => {
-					const key = entry[0] // ключ
-					const group = entry[1] // значение
+					const key = entry[0]
+					const group = entry[1]
 					let groupLights = Object.entries(lights).filter(entry => {
-						const lightKey = entry[0] // ключ
-						// const light = entry[1] // значение
+						const lightKey = entry[0]
+						// const light = entry[1]
 						return group.lights.includes(lightKey)
 					}).map(light => {
 						light = light[1]
