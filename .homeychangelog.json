@@ -45,6 +45,6 @@
     "en": "support new Tradfri square dimmer model"
   },
   "1.9.0":{
-    "en": "support Tint rgbw remote, support Aqara relay, flash groups or lights, set relative brightness/hue/saturation/color temperature"
+    "en": "support Tint rgbw remote, support Aqara relay, flash groups, set relative brightness/color temperature"
   }
 }

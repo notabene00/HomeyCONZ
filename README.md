@@ -2,7 +2,7 @@
 
 This app for [Athom Homey](https://homey.app/en-us/) adds support for [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html)'s [[RaspBee](https://www.phoscon.de/en/raspbee)/[ConBee](https://www.phoscon.de/en/conbee)] child devices.
 
-[![current version](https://img.shields.io/badge/version-1.8.1-<COLOR>.svg)](https://shields.io/)
+[![current version](https://img.shields.io/badge/version-1.9.0-<COLOR>.svg)](https://shields.io/)
 
 # Installation information
 
@@ -19,19 +19,16 @@ Almost there. Now you can install app using `athom app install` command being in
 - [x] Blinds
 - [x] Plugs
 - [x] deCONZ groups
-- [x] Motion sensors: Philips Hue, Xiaomi, Aqara, TRÅDFRI
-- [x] Temperature/Humidity sensors: Xiaomi (Mijia), Aqara
-- [x] Buttons: Mi, Aqara, Aqara gyro
-- [x] Switches: Aqara w/ and w/o zero line, wired and wireless
-- [x] Contact sensors: Xiaomi, Aqara
+- [x] Motion sensors: Philips Hue, Xiaomi, Aqara, TRÅDFRI, Trust, Develco
+- [x] Temperature/Humidity sensors: Xiaomi, Aqara
+- [x] Buttons: Mi, Aqara, Aqara gyro, TRÅDFRI, 
+- [x] Switches: Aqara, TRÅDFRI, Philips, Trust
+- [x] Contact sensors: Xiaomi, Aqara, Trust
+- [x] Remotes: TRÅDFRI, Tint
+- [x] Leakage sensor: Aqara, Develco
+- [x] Smoke sensor: Honeywell, Trust, Heimann
+- [x] CO sensor: Heimann
 
 - [x] Aqara Cube
-- [x] Aqara leakage sensor
 - [x] Aqara Vibration sensor
-- [x] Honeywell Smoke sensor
-- [x] Philips Hue Dimmer Switch
-- [x] Symfonisk remote
-- [x] TRÅDFRI wireless (round) dimmer
-- [x] TRÅDFRI square dimmer
-- [x] TRÅDFRI remote control
 - [x] TRÅDFRI signal repeater
