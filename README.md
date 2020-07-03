@@ -25,7 +25,7 @@ Almost there. Now you can install app using `athom app install` command being in
 - [x] Switches: Aqara, TRÅDFRI, Philips, Trust, Feller
 - [x] Contact sensors: Xiaomi, Aqara, Trust
 - [x] Remotes: TRÅDFRI, Tint
-- [x] Leakage sensor: Aqara, Develco
+- [x] Leakage sensor: Aqara, Develco, Zipato
 - [x] Smoke sensor: Honeywell, Trust, Heimann
 - [x] CO sensor: Heimann
 
