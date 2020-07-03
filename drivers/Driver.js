@@ -66,9 +66,16 @@ class Driver extends Homey.Driver {
 					const light = entry[1]
 					const mac = light.uniqueid.split('-')[0]
 
+					// some devices (aqara relay) define multiple light ressources and some sensors. In that case only the first light resource should have
+					// attached the sensors
+					const lightSiblings = Object.entries(lights).filter(l => l[1].uniqueid.startsWith(mac)).map((e, _index, _array) => {
+						return e[1].uniqueid
+					}).sort()
+					const isMainLight = lightSiblings[0] === light.uniqueid
+
 					var linked_sensors = []
 					var additionalCapabilities = []
-					if (sensors) {
+					if (sensors && isMainLight) {
 						let filteredSensors = Object.entries(sensors).filter(d => d[1].uniqueid.startsWith(mac))
 
 						let powerMeasurementSensor = filteredSensors.find(s => s[1].state.hasOwnProperty('power'))

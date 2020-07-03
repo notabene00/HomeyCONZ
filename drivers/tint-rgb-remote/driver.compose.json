@@ -1,11 +1,17 @@
 {
   "name": {
-    "en": "Aqara Relay"
+    "en": "Tint rgb remote"
   },
-  "class": "socket",
+  "class": "other",
   "capabilities": [
-    "onoff"
+    "hue_angle"
   ],
+  "energy": {
+    "batteries": [
+      "AAA", 
+      "AAA"
+    ]
+  },
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
@@ -15,13 +21,6 @@
     {
       "id": "list_devices",
       "template": "list_devices",
-      "navigation": {
-        "next": "choose_slave"
-      }
-    },
-    {
-      "id": "choose_slave",
-      "template": "choose_slave",
       "navigation": {
         "next": "add_devices"
       }

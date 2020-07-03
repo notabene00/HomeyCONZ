@@ -1,0 +1,58 @@
+{
+  "name": {
+    "en": "Aqara Relay"
+  },
+  "class": "socket",
+  "capabilities": [
+    "onoff"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "choose_slave"
+      }
+    },
+    {
+      "id": "choose_slave",
+      "template": "choose_slave",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings":[
+    {
+      "type": "group",
+      "label": {
+        "en": "Calibration Settings"
+      },
+      "children": [
+        {
+          "id" : "temperature_offset",
+          "type": "number",
+          "label": {
+              "en": "Temperature calibration"
+          },
+          "value": 0,
+          "hint": {
+              "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+          }
+        }
+      ]
+    },
+    {
+      "$extends":  "light-info"
+    }
+  ]
+}

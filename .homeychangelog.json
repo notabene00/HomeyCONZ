@@ -40,5 +40,11 @@
   },
   "1.8.0":{
     "en": "Door/window and water leakage sensors support an invert setting, tampered capability for devices supporting it, improved startup behavior, support heiman fire, smoke and co sensor, improved motion sensor handling, support develco motion & water leakage sensor, scene recall, support for sonoff basic"
+  },
+  "1.8.1":{
+    "en": "support new Tradfri square dimmer model"
+  },
+  "1.9.0":{
+    "en": "support Tint rgbw remote, support Aqara relay, flash groups, set relative brightness/color temperature"
   }
 }

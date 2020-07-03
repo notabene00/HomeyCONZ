@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -140,7 +140,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -153,7 +153,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
+            "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
           }
         ]
       },
@@ -767,6 +767,19 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=aqara-motion"
+          }
+        ]
+      },
+      {
+        "id": "switched",
+        "title": {
+          "en": "Switched"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-relay"
           }
         ]
       },
@@ -1824,6 +1837,160 @@
         ]
       },
       {
+        "id": "hue_changed_event",
+        "title": {
+          "en": "Hue changed"
+        },
+        "tokens": [
+          {
+            "name": "hue",
+            "type": "number",
+            "title": {
+              "en": "Hue"
+            },
+            "example": 360
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tint-rgb-remote"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Button pressed"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=tint-rgb-remote"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "On/Off"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Increase Brightness"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Decrease Brightness"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Warmer"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Cooler"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Color Wheel"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Work"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Sunset"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Party"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Nightlight"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "Fire"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "en": "Romance"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "switched",
         "title": {
           "en": "Switched"
@@ -2061,7 +2228,7 @@
       {
         "id": "recall_scene",
         "title": {
-          "en": "Recall a Scene"
+          "en": "recall a scene"
         },
         "args": [
           {
@@ -2075,6 +2242,112 @@
             "placeholder": {
               "en": "Search for scenes..."
             }
+          }
+        ]
+      },
+      {
+        "id": "flash_long",
+        "title": {
+          "en": "Flash (Long)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=group"
+          }
+        ]
+      },
+      {
+        "id": "flash_short",
+        "title": {
+          "en": "Flash (Short)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=group"
+          }
+        ]
+      },
+      {
+        "id": "relative_brightness",
+        "title": {
+          "en": "set relative brightness (advanced)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=group"
+          },
+          {
+            "type": "range",
+            "name": "relative_brightness",
+            "placeholder": {
+              "en": "relative brightness"
+            },
+            "min": -1,
+            "max": 1,
+            "step": 0.01,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          },
+          {
+            "type": "range",
+            "name": "transitiontime",
+            "placeholder": {
+              "en": "transition time"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "value": 4,
+            "label": "ms",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "relative_ct",
+        "title": {
+          "en": "set relative color temperature (advanced)"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=group"
+          },
+          {
+            "type": "range",
+            "name": "relative_ct",
+            "placeholder": {
+              "en": "relative color temperature"
+            },
+            "min": -1,
+            "max": 1,
+            "step": 0.01,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          },
+          {
+            "type": "range",
+            "name": "transitiontime",
+            "placeholder": {
+              "en": "transition time"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "value": 4,
+            "label": "ms",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
           }
         ]
       }
@@ -2676,6 +2949,111 @@
         }
       ],
       "id": "aqara-motion"
+    },
+    {
+      "name": {
+        "en": "Aqara Relay"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/aqara-relay/assets/images/large.png",
+        "small": "/drivers/aqara-relay/assets/images/small.png"
+      },
+      "icon": "/drivers/aqara-relay/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "choose_slave"
+          }
+        },
+        {
+          "id": "choose_slave",
+          "template": "choose_slave",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Calibration Settings"
+          },
+          "children": [
+            {
+              "id": "temperature_offset",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration"
+              },
+              "value": 0,
+              "hint": {
+                "en": "If a sensor is not properly calibrated it will read slightly wrong values. Using this setting you can adjust the sensor readings, i.e if you set a value of -2.5 and the sensor reports 20, the sensor will show a value of 17.5 within Homey."
+              }
+            }
+          ]
+        },
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "sensorids",
+              "type": "label",
+              "label": {
+                "en": "Sensor Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "aqara-relay"
     },
     {
       "name": {
@@ -3381,49 +3759,6 @@
               "value": 0,
               "hint": {
                 "en": "Triggers an secondary no motion event after the motion alarm has been disabled. Usefull to generate Philips Hue like behaviour easily."
-              }
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Hardware Settings"
-          },
-          "children": [
-            {
-              "id": "sensitivity",
-              "type": "number",
-              "label": {
-                "en": "Sensitivity"
-              },
-              "min": 0,
-              "max": 2,
-              "value": 0,
-              "hint": {
-                "en": "Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
-              }
-            },
-            {
-              "id": "ledindication",
-              "type": "checkbox",
-              "label": {
-                "en": "Led indication"
-              },
-              "value": false,
-              "hint": {
-                "en": "Let the led on the sensor flash every time motion is detected. Note that this setting gets applied the next time the sensor performs a handshake with the conbee. This might take up to some time!"
-              }
-            },
-            {
-              "id": "pending",
-              "type": "text",
-              "label": {
-                "en": "Pending settings"
-              },
-              "value": "UNKNOWN",
-              "hint": {
-                "en": "Hardware settings that are not yet applied to the sensor."
               }
             }
           ]
@@ -5663,6 +5998,83 @@
     },
     {
       "name": {
+        "en": "Tint rgb remote"
+      },
+      "class": "other",
+      "capabilities": [
+        "hue_angle"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/tint-rgb-remote/assets/images/large.png",
+        "small": "/drivers/tint-rgb-remote/assets/images/small.png"
+      },
+      "icon": "/drivers/tint-rgb-remote/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "tint-rgb-remote"
+    },
+    {
+      "name": {
         "en": "Tradfri Motion Sensor"
       },
       "class": "sensor",
@@ -6594,6 +7006,21 @@
       "uiComponent": "sensor",
       "uiQuickAction": false,
       "icon": "/drivers/tradfri-motion-sensor/assets/icon.svg"
+    },
+    "hue_angle": {
+      "type": "number",
+      "uiComponent": "sensor",
+      "icon": "/drivers/tint-rgb-remote/assets/hue.svg",
+      "title": {
+        "en": "Hue"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "units": {
+        "en": "°"
+      },
+      "decimals": 0
     },
     "relative_tilt_angle": {
       "type": "number",

@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "uiComponent": "sensor",
+  "icon": "/drivers/tint-rgb-remote/assets/hue.svg",
+  "title": {
+    "en": "Hue"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "units": {
+    "en": "°"
+  },
+  "decimals": 0
+}

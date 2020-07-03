@@ -11,6 +11,9 @@ class AqaraRelay extends Light {
 		this.setTriggers()
 		
 		this.log(this.getName(), 'has been initiated')
+
+		this.removeCapability("dim")
+		this.removeCapability("measure_battery")
 	}
 
 	setTriggers() {
@@ -22,6 +25,14 @@ class AqaraRelay extends Light {
 			this.triggerSwitched.trigger(this)
 		}
 		super.setCapabilityValue(name, value)
+	}
+
+	setCapabilityValue(name, value) {
+		if (name === 'measure_power' && value === -1) {
+			return 
+		} else {
+			super.setCapabilityValue(name, value)
+		}
 	}
 	
 }

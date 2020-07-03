@@ -1,0 +1,146 @@
+{
+  "triggers": [
+    {
+      "id": "hue_changed_event",
+      "title": {
+        "en": "Hue changed"
+      },
+      "tokens": [
+        {
+          "name": "hue",
+          "type": "number",
+          "title": {
+            "en": "Hue"
+          },
+          "example": 360
+        }
+      ]
+    },
+    {
+      "id": "raw_switch_event",
+      "title": {
+        "en": "Button pressed"
+      },
+      "tokens": [
+        {
+          "name": "rawEvent",
+          "type": "number",
+          "title": {
+            "en": "event"
+          },
+          "example": 1001
+        },
+        {
+          "name": "buttonIndex",
+          "type": "number",
+          "title": {
+            "en": "button index"
+          },
+          "example": 1
+        },
+        {
+          "name": "actionIndex",
+          "type": "number",
+          "title": {
+            "en": "action index"
+          },
+          "example": 1
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "title": {
+            "en": "action"
+          },
+          "example": "initial_press"
+        }
+      ],
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "button",
+          "values": [
+            {
+              "id": "-1",
+              "label": {
+                "en": "Any Button"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On/Off"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Increase Brightness"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Decrease Brightness"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Warmer"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Cooler"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Color Wheel"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Work"
+              }
+            },
+            {
+              "id": "8",
+              "label": {
+                "en": "Sunset"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "Party"
+              }
+            },
+            {
+              "id": "10",
+              "label": {
+                "en": "Nightlight"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Fire"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Romance"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

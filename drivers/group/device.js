@@ -36,36 +36,7 @@ class Group extends Light {
 
 		this.setInitialState()
 
-		let recalSceneAction = new Homey.FlowCardAction('recall_scene');
-		recalSceneAction
-			.register()
-			.registerRunListener(async ( args, state ) => {
-				return new Promise((resolve) => {
-					this.recallScene(args.scene.id, (error, result) => {
-						if (error) {
-							return this.error(error);
-						}
-						resolve(true);
-					})
-				});
-			})
-			.getArgument('scene')
-			.registerAutocompleteListener(( query, args ) => {
-				return new Promise((resolve) => {
-					this.getScenesList((error, scenes) => {
-						if (error) {
-							return this.error(error);
-						}
-						let result = [];
-						Object.entries(scenes).forEach(entry => {
-							const key = entry[0];
-							const scene = entry[1];
-							result.push({name: scene.name, id: key});
-						});
-						resolve(result);
-					})
-				});
-			});
+		this.initializeActions()
 
 		this.log(this.getName(), 'has been initiated')
 	}
@@ -86,6 +57,134 @@ class Group extends Light {
 		})
 	}
 
+	setGroupState(state, callback) {
+		http.put(Homey.app.host, Homey.app.port, `/api/${Homey.app.apikey}/groups/${this.id}/action`, state, (error, response) => {
+			callback(error)
+		})
+	}
+
+	initializeActions() {
+		let recalSceneAction = new Homey.FlowCardAction('recall_scene');
+		recalSceneAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				return new Promise((resolve) => {
+					this.recallScene(args.scene.id, (error, result) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			})
+			.getArgument('scene')
+			.registerAutocompleteListener((query, args) => {
+				return new Promise((resolve) => {
+					this.getScenesList((error, scenes) => {
+						if (error) {
+							return this.error(error);
+						}
+						let result = [];
+						Object.entries(scenes).forEach(entry => {
+							const key = entry[0];
+							const scene = entry[1];
+							result.push({ name: scene.name, id: key });
+						});
+						resolve(result);
+					})
+				});
+			});
+
+		let flashGroupShortAction = new Homey.FlowCardAction('flash_short');
+		flashGroupShortAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				const groupState = { alert: 'select' };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
+
+		let flashGroupLongAction = new Homey.FlowCardAction('flash_long');
+		flashGroupLongAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				const groupState = { alert: 'lselect' };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
+
+		let setRelativeBrightnessAction = new Homey.FlowCardAction('relative_brightness');
+		setRelativeBrightnessAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				const groupState = { bri_inc: args.relative_brightness * 254, transitiontime: args.transitiontime };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
+
+		let setRelativeColorTemperatureAction = new Homey.FlowCardAction('relative_ct');
+		setRelativeColorTemperatureAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				const groupState = { ct_inc: args.relative_ct * 254, transitiontime: args.transitiontime };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
+
+		/*let setRelativeHueAction = new Homey.FlowCardAction('relative_hue');
+		setRelativeHueAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				const groupState = { hue_inc: Math.round(args.relative_hue * 65534), transitiontime: args.transitiontime };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});
+
+		let setRelativeSaturationAction = new Homey.FlowCardAction('relative_saturation');
+		setRelativeSaturationAction
+			.register()
+			.registerRunListener(async (args, state) => {
+				const groupState = { sat_inc: Math.round(args.relative_saturation * 65534), transitiontime: args.transitiontime };
+				return new Promise((resolve) => {
+					this.setGroupState(groupState, (error) => {
+						if (error) {
+							return this.error(error);
+						}
+						resolve(true);
+					})
+				});
+			});*/
+	}
 }
 
 module.exports = Group

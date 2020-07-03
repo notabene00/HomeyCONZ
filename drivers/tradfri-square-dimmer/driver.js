@@ -10,7 +10,7 @@ class TradfriSquareDimmerDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'TRADFRI on/off switch', callback)
+		this.getSensorsByCondition(device => device.modelid === 'TRADFRI on/off switch' || device.modelid === 'TRADFRI open/close remote', callback)
 	}
 	
 }
