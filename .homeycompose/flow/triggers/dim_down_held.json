@@ -7,7 +7,7 @@
     {
       "name": "device",
       "type": "device",
-      "filter": "driver_id=tradfri-remote-control|hue-dimmer-switch"
+      "filter": "driver_id=tradfri-remote-control|tradfri-square-dimmer|hue-dimmer-switch"
     }
   ]
 }
