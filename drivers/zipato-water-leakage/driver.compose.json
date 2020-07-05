@@ -1,0 +1,49 @@
+{
+  "name": {
+    "en": "Zipato Leakage Sensor"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_water",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "settings":[
+    {
+      "id": "invert_alarm",
+      "type": "checkbox",
+      "label": {
+        "en": "Invert alarm"
+      },
+      "hint": {
+        "en": "By default the alarm will be triggered when water is present. Using this setting you can invert this which enables a few interesting use cases"
+      },
+      "value": false
+    },
+    {
+      "$extends":  "info"
+    }
+  ]
+}
