@@ -48,6 +48,6 @@
     "en": "support Tint rgbw remote, support Aqara relay, flash groups, set relative brightness/color temperature"
   },
   "1.10.0":{
-    "en": "support Zipato water leakage sensor"
+    "en": "support Zipato water leakage sensor, support Aqara wall switches"
   }
 }
