@@ -1,11 +1,11 @@
 <html>
 	<head>
-        <!--<script type="text/javascript" src="/homey.js" data-origin="settings"></script>-->
-        <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
-		<!--<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+		<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>--><
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
@@ -87,7 +87,71 @@
 			<!--connection tab end-->
 		  </div>
 		  <div class="tab-pane fade" id="nav-advanced" role="tabpanel" aria-labelledby="nav-advanced-tab">Advanced</div>
-		  <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">About</div>
+		  <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+              <!--about tab begin-->
+              </br>
+              <div class="container">
+                <div class="card">
+                    <img class="card-img-top" src="images/logo.svg" style="padding-left: 15px; padding-right: 15px; padding-top: 15px;">
+                    <div class="card-body">
+                        <h5 class="card-title">deCONZ for Homey v1.11.0</h5>
+                        <p class="card-text">Thank you for using this app!</p>
+                    </div>
+                </div>
+              </div>
+                </br>
+                <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">gateway</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">version</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">MAC address</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">device</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">firmware</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">ZigBee pan id</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">ZigBee channel</small>
+                                    <label>-</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+              <!--about tab end-->
+          </div>
 		</div>
 
         <script type="text/javascript">
@@ -95,7 +159,7 @@
             function onHomeyReady(Homey) {
 			
 				if(Homey.isMock){
-					Homey.alert('Warning: Homey is mocked only!!!')
+					// Homey.alert('Warning: Homey is mocked only!!!')
 				}
 			
                 const ip = document.getElementById('deconzIPAdress')
@@ -234,6 +298,22 @@
                     xhr.send()
                 }
 
+                function getState(callback) {
+                    const url = `http://${ip.value}:${port.value}/api/${apiKey.value}`
+                    const xhr = new XMLHttpRequest()
+					xhr.timeout = 3000
+                    xhr.onreadystatechange = function (e) {
+                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                            const response = JSON.parse(xhr.responseText)                            
+                            callback(null, response)
+                        }else  if (this.readyState === XMLHttpRequest.DONE) {
+                            callback(new Error('Error while fetching the state'), null)
+                        }
+                    }
+                    xhr.open('GET', url, true)
+                    xhr.send()
+                }
+
                 saveButton.addEventListener('click', (e) => {
 					if (validateFields(true) === true) {
                         saveAll()
@@ -243,7 +323,13 @@
 				
 				testButton.addEventListener('click', (e) => {
 					if (validateFields(true) === true) {
-						Homey.alert(`todo`)
+                        getState((error, data) => {
+                            if(!!error){
+                                showError(true, 'Unable to connect to the gateway, please check the configuration!')
+                            }else{
+                                showSuccess(true, 'Successfuly connected to ' + data.config.name + '!')
+                            }
+                        })
 					}
                 })
                 
