@@ -1,103 +1,180 @@
 <html>
 	<head>
-        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
-        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>-->
+        <!--<script type="text/javascript" src="/homey.js" data-origin="settings"></script>-->
+        <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
+		<!--<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
-        <h1>Connection Settings</h1>
-		<fieldset>
-            <div class="container">
-                <div class="alert alert-danger" role="alert" id="apiError" style="display: none">
-                    <div class="ApiErrorShow">Error!</div>
-                </div>
-                <div class="row col-9">
-                    <div class="col-sm mt-4">
+
+		<nav>
+		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+			<a class="nav-item nav-link active" id="nav-connection-tab" data-toggle="tab" href="#nav-connection" role="tab" aria-controls="nav-connection" aria-selected="true">Connection</a>
+			<a class="nav-item nav-link" id="nav-advanced-tab" data-toggle="tab" href="#nav-advanced" role="tab" aria-controls="nav-advanced" aria-selected="false">Advanced</a>
+			<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-contact" aria-selected="false">About</a>
+		  </div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+		  <div class="tab-pane fade show active" id="nav-connection" role="tabpanel" aria-labelledby="nav-connection-tab">
+			<!--connection tab begin-->
+			<fieldset>
+
+				<div class="container">
+					</br>
+					<div class="alert alert-info" role="alert">
+						<div>
+							Tap on 'Auto Detect' to configure the connection automatically. In case this fails you still can fill in everything automatically.
+							</br>
+							<b>Note: if you're using Docker auto detect might fail depending on your configuration. Just enter the ip and port and in the api key click on discover to complete the configuration</b>
+						</div>
+					</div>
+					
+					<div class="alert alert-danger" role="alert" id="apiError" style="display: none">
+						<div class="ApiErrorShow">Error!</div>
+					</div>
+
+					<div class="row col-9">
+						<div class="col-sm mt-4">
+							<div class="btn-group d-flex" role="group">
+							  <button type="button" class="btn btn-primary" id="discoverButton">Auto Detect</button>
+							  <button type="button" class="btn btn-secondary" id="testButton">Test</button>
+							  <button type="button" class="btn btn-primary" id="saveButton">Save</button>
+							</div>
+						</div>
+					</div>
+					</br>
+					<div class="col-sm">
                         <div class="form-group">
-                            <button type="button" class="btn btn-primary" style="height: 35" id="discoverButton">Discover & Authenticate</button>
+                            <label>ip/hostname</label>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="" id="deconzIPAdress">
+							</div>
                         </div>
                     </div>
-                    <div class="col-sm mt-4">
+					<div class="col-sm">
                         <div class="form-group">
-                            <button type="button" class="btn btn-outline-secondary" style="height: 35" id="advancedSettingsButton">Show Advanced</button>
+                            <label>port</label>
+							<div class="input-group">
+								<input type="number" class="form-control" placeholder="" id="deconzPort">
+							</div>
                         </div>
                     </div>
-                </div>
-                <div class="row col-9" class="collapse" id="advancedsettings" style="display: none;">
-                    <div class="col-sm">
+					<div class="col-sm">
                         <div class="form-group">
-                            <label>deCONZ IP/hostname</label>
-                            <input type="text" class="form-control" id="deconzIPAdress" placeholder="xxx.xxx.xxx.xxx">
-                            <small id="ipHelp" class="form-text text-muted">IP address of the deCONZ/phoscon gateway</small>
+                            <label>api key</label>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" placeholder="" id="apiKey">
+								<div class="input-group-append">
+									<button class="btn btn-primary" type="button" id="discoverKey">Discover</button>
+								</div>
+							</div>
                         </div>
                     </div>
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label>api-interface port</label>
-                            <input type="number" class="form-control" id="deconzPort" placeholder="xx">
-                            <small id="ipHelp" class="form-text text-muted">Port is needed to get an API key automatically</small>
-                        </div>
-                    </div>
-                    <div class="col-sm">
+					<div class="col-sm">
                         <div class="form-group">
                             <label>websocket port</label>
-                            <input type="number" class="form-control" id="wsPort" placeholder="xxxx">
-                            <small id="ipHelp" class="form-text text-muted">WS port is needed to subscribe for realtime updates</small>
+							<div class="input-group">
+								<input type="number" class="form-control" placeholder="" id="wsPort">
+							</div>
                         </div>
                     </div>
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label>API key</label>
-                            <input type="text" class="form-control" id="apiKey">
-                        </div>
-                    </div>
-                    <div class="row col-9">
-                        <div class="col-sm mt-4">
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary" style="height: 35" id="createButton">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		</fieldset>
+
+				</div>
+			</fieldset>
+			<!--connection tab end-->
+		  </div>
+		  <div class="tab-pane fade" id="nav-advanced" role="tabpanel" aria-labelledby="nav-advanced-tab">Advanced</div>
+		  <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">About</div>
+		</div>
 
         <script type="text/javascript">
             //document.addEventListener("DOMContentLoaded", function(event) { 
             function onHomeyReady(Homey) {
+			
+				if(Homey.isMock){
+					Homey.alert('Warning: Homey is mocked only!!!')
+				}
+			
                 const ip = document.getElementById('deconzIPAdress')
                 const port = document.getElementById('deconzPort')
                 const apiKey = document.getElementById('apiKey')
                 const wsPort = document.getElementById('wsPort')
-                const saveButton = document.getElementById('createButton')
+                const saveButton = document.getElementById('saveButton')
+				const testButton = document.getElementById('testButton')
                 const discoverButton = document.getElementById('discoverButton')
-                const advancedSettingsButton = document.getElementById('advancedSettingsButton')
+				const discoverKeyButton = document.getElementById('discoverKey')
                 const advancedsettings = document.getElementById('advancedsettings')
                 const apiError = document.getElementById('apiError')
                 const title = document.getElementsByClassName('ApiErrorShow')[0]
                 
-                function discover(callback) {
+				function showError(alert, message){
+				    apiError.style.display = 'grid'
+                    apiError.classList.remove('alert-success')
+                    apiError.classList.add('alert-danger')
+                    title.innerHTML = message
+					if (alert){
+						Homey.alert(message)
+					}
+				}
+				
+				function showSuccess(alert, message){
                     apiError.style.display = 'grid'
                     apiError.classList.remove('alert-danger')
                     apiError.classList.add('alert-success')
-                    title.innerHTML = 'Autodiscovering...'
+					title.innerHTML = message
+					if(alert){
+						Homey.alert(message)
+					}
+				}
+				
+				function clearErrors(){
+					apiError.style.display = 'none'
+				}
+				
+				function validateFields (show) {
+					clearErrors()
+					let errors = []
+                    if (!ip.value) {
+						errors.push('IP address is missing')
+					}
+                    if (!port.value) {
+                        errors.push('port is missing')
+					}
+                    if (!apiKey.value) {
+                        errors.push('api key is missing')
+					}
+                    if (!wsPort.value) {
+                        errors.push('WS port is missing')
+                    }
+					if(errors.length > 0){
+						let message = 'Please fix the following erros:'
+						for (var i = 0; i < errors.length; i++) {
+							message += '</br> - ' + errors[i]  
+						}
+						if(show){
+							showError(true, message)
+						}
+						return false
+					}else{
+						return true
+					}
+                }
+				
+                function discover(callback) {
+					showSuccess(false, 'Autodiscovering...')
                     const url = 'http://phoscon.de/discover'
                     const xhr = new XMLHttpRequest()
+					xhr.timeout = 3000
                     xhr.onreadystatechange = function (e) {
                         if (xhr.readyState == 4 && xhr.status == 200) {
                             const response = JSON.parse(xhr.responseText)[0]
-                            if (Object.keys(response).length === 0) {
-                                apiError.style.display = 'grid'
-                                apiError.classList.remove('alert-success')
-                                apiError.classList.add('alert-danger')
-                                apiKey.value = ''
-                                title.innerHTML = "Can't autodiscover deCONZ gateway on your network"
-                                callback(new Error('Empty array in response'))
+                            if (!response || Object.keys(response).length === 0) {
+                                showError(false, "No deCONZ gateway could be discovered in your network. You might need to enter the configuration manually. </br></br><b>Note if you're using Docker:</b> if you do not start the container with the --net=host parameter you're actively prevent automatic discovery and you need to enter the configuration manually")
                             } else {
-                                apiError.style.display = 'grid'
-                                apiError.classList.remove('alert-danger')
-                                apiError.classList.add('alert-success')
-                                title.innerHTML = 'Successfully autodiscovered gateway'
+								showSuccess(false, 'Successfully autodiscovered gateway')
                                 callback(null, {
                                     ip: response.internalipaddress,
                                     port: response.internalport
@@ -115,18 +192,23 @@
                         "devicetype": "homeyCONZ"
                     })
                     const xhr = new XMLHttpRequest()
+					xhr.timeout = 3000
                     xhr.open('POST', url, true)
                     xhr.setRequestHeader('Content-Type', 'application/json')
                     xhr.onreadystatechange = function() {
-                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                            const response = JSON.parse(xhr.responseText)
-                            callback(null, response[0].success.username)
-                        } else if (this.readyState === XMLHttpRequest.DONE && this.status === 403) {
-                            const response = JSON.parse(xhr.responseText)
-                            callback(new Error('Please go to settings→gateway→advanced and click on authenticate in the phoscon app and try again!'))
-                        }else{
-                            const response = JSON.parse(xhr.responseText)
-                            callback(new Error(response[0].error.description), null)
+						if (this.readyState === XMLHttpRequest.DONE) {
+							switch(this.status){
+								case 200: 
+									const response = JSON.parse(xhr.responseText)
+									callback(null, response[0].success.username)
+									break
+								case 403: 
+									callback(new Error('Please go to settings→gateway→advanced and click on authenticate in the phoscon app and try again!'))
+									break
+								default: 
+									callback(new Error("We are unable to connect to the gateway. Please ensure the ip address and port are correct! </br></br><b>Note if you're using Docker:</b> if you do not start the container with the --net=host parameter you're actively prevent automatic discovery and you need to enter the configuration manually"))
+									break
+							}
                         }
                     }
                     xhr.send(data)
@@ -139,6 +221,7 @@
                     }
                     const url = `http://${ip.value}:${port.value}/api/${apiKey.value}/config`
                     const xhr = new XMLHttpRequest()
+					xhr.timeout = 3000
                     xhr.onreadystatechange = function (e) {
                         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                             const response = JSON.parse(xhr.responseText)                            
@@ -150,46 +233,18 @@
                     xhr.open('GET', url, true)
                     xhr.send()
                 }
-                
-                advancedSettingsButton.addEventListener('click', (e) => {
-                    if (advancedsettings.style.display === "none") {
-                        advancedsettings.style.display = "block";
-                        advancedSettingsButton.innerHTML = 'Hide Advanced'
-                    } else {
-                        advancedsettings.style.display = "none";
-                        advancedSettingsButton.innerHTML = 'Show Advanced'
-                    }
-                })
 
                 saveButton.addEventListener('click', (e) => {
-                    if (!ip.value) {
-                        apiError.style.display = 'grid'
-                        apiError.classList.remove('alert-success')
-                        apiError.classList.add('alert-danger')
-                        title.innerHTML = 'Enter IP address'
-                    } else if (!port.value) {
-                        apiError.style.display = 'grid'
-                        apiError.classList.remove('alert-success')
-                        apiError.classList.add('alert-danger')
-                        title.innerHTML = 'Enter port'
-                    } else if (!apiKey.value) {
-                        apiError.style.display = 'grid'
-                        apiError.classList.remove('alert-success')
-                        apiError.classList.add('alert-danger')
-                        title.innerHTML = 'Enter api key'
-                    } else if (!wsPort.value) {
-                        apiError.style.display = 'grid'
-                        apiError.classList.remove('alert-success')
-                        apiError.classList.add('alert-danger')
-                        title.innerHTML = 'Enter WS port'
-                    } else {
+					if (validateFields(true) === true) {
                         saveAll()
-                        apiError.style.display = 'grid'
-                        apiError.classList.remove('alert-danger')
-                        apiError.classList.add('alert-success')
-                        title.innerHTML = 'Successfuly saved!'
-                        Homey.alert(`succesfully saved`)
+                        showSuccess(true, 'Successfuly saved!')
                     }
+                })
+				
+				testButton.addEventListener('click', (e) => {
+					if (validateFields(true) === true) {
+						Homey.alert(`todo`)
+					}
                 })
                 
                 discoverButton.addEventListener('click', (e) => {
@@ -202,34 +257,49 @@
                         port.value = data.port
                             getAPIkey(function(error, success) {
                                 if (!!error) {
-                                    apiError.style.display = 'grid'
-                                    apiError.classList.remove('alert-success')
-                                    apiError.classList.add('alert-danger')
-                                    title.innerHTML = error.message
+									showError(false, error.message)
                                     return
                                 }
-                                apiKey.value = success;
+                                apiKey.value = success
                                 getWSport(function(error, success){
                                     if (!!error) {
-                                        apiError.style.display = 'grid'
-                                        apiError.classList.remove('alert-success')
-                                        apiError.classList.add('alert-danger')
-                                        title.innerHTML = error.message
+                                        showError(false, error.message)
                                         return
                                     }
                                     wsPort.value = success
                                     saveAll()
-
-                                    apiError.style.display = 'grid'
-                                    apiError.classList.remove('alert-danger')
-                                    apiError.classList.add('alert-success')
-                                    title.innerHTML = 'Successfuly initialized and saved!'
-                                    Homey.alert(`succesfully saved`)
+									showSuccess(true, 'Successfuly initialized and saved!')
                                 })
                             })
                     })
                 })
-                
+				
+
+				discoverKeyButton.addEventListener('click', (e) => {
+					if (!ip.value || !port.value) {
+						showError(true, 'Please enter the ip and the port first')
+					}
+                    apiKey.value = ''
+					wsPort.value = ''
+                            getAPIkey(function(error, success) {
+                                if (!!error) {
+									showError(false, error.message)
+                                    return
+                                }
+                                apiKey.value = success
+                                getWSport(function(error, success){
+                                    if (!!error) {
+                                        showError(false, error.message)
+                                        return
+                                    }
+                                    wsPort.value = success
+                                    saveAll()
+									showSuccess(true, 'Successfuly initialized and saved!')
+                                })
+                            })
+                })
+
+
                 function saveAll() {
                     Homey.set('host', ip.value, (err, settings) => {
                         if (err) return Homey.alert(err)
