@@ -1,0 +1,11 @@
+{
+    "id" : "ignore-reachable",
+    "type": "checkbox",
+    "label": {
+        "en": "ignore if unreachable"
+    },
+    "value": false,
+    "hint": {
+        "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reportded as unavailable using this setting."
+    }
+}

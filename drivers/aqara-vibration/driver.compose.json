@@ -91,6 +91,9 @@
       ]
     },
     {
+      "$extends":  "ignore-reachable"
+    },
+    {
       "$extends":  "info"
     }
   ]

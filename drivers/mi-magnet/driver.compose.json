@@ -43,6 +43,9 @@
       "value": false
     },
     {
+      "$extends":  "ignore-reachable"
+    },
+    {
       "$extends":  "info"
     }
   ]
