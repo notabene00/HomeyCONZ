@@ -65,11 +65,9 @@ class deCONZ extends Homey.App {
 	}
 
 	setWSKeepAlive() {
-		// убивать таймаут при переподключениях
 		if (this.keepAliveTimeout) {
 			clearTimeout(this.keepAliveTimeout)
 		}
-		// когда приходит ping - убивать таймаут на переподключение
 		this.websocket.on('ping', () => {
 			if (this.keepAliveTimeout) {
 				clearTimeout(this.keepAliveTimeout)

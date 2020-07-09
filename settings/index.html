@@ -1,11 +1,11 @@
 <html>
 	<head>
-        <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+        <!--<script type="text/javascript" src="/homey.js" data-origin="settings"></script>
 		<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
+        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+        <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>--><
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
@@ -13,7 +13,8 @@
 		<nav>
 		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
 			<a class="nav-item nav-link active" id="nav-connection-tab" data-toggle="tab" href="#nav-connection" role="tab" aria-controls="nav-connection" aria-selected="true">Connection</a>
-			<a class="nav-item nav-link" id="nav-advanced-tab" data-toggle="tab" href="#nav-advanced" role="tab" aria-controls="nav-advanced" aria-selected="false">Advanced</a>
+            <a class="nav-item nav-link" id="nav-advanced-tab" data-toggle="tab" href="#nav-advanced" role="tab" aria-controls="nav-advanced" aria-selected="false">Advanced</a>
+            <a class="nav-item nav-link" id="nav-support-tab" data-toggle="tab" href="#nav-support" role="tab" aria-controls="nav-support" aria-selected="false">Support</a>
 			<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-contact" aria-selected="false">About</a>
 		  </div>
 		</nav>
@@ -86,16 +87,17 @@
 			</fieldset>
 			<!--connection tab end-->
 		  </div>
-		  <div class="tab-pane fade" id="nav-advanced" role="tabpanel" aria-labelledby="nav-advanced-tab">Advanced</div>
+          <div class="tab-pane fade" id="nav-advanced" role="tabpanel" aria-labelledby="nav-advanced-tab">Advanced</div>
+          <div class="tab-pane fade" id="nav-support" role="tabpanel" aria-labelledby="nav-support-tab">Support</div>
 		  <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
               <!--about tab begin-->
               </br>
               <div class="container">
                 <div class="card">
-                    <img class="card-img-top" src="images/logo.svg" style="padding-left: 15px; padding-right: 15px; padding-top: 15px;">
+                    <img class="card-img-top" src="images/conbee.svg" style="padding-left: 15px; padding-right: 15px; padding-top: 15px;">
                     <div class="card-body">
                         <h5 class="card-title">deCONZ for Homey v1.11.0</h5>
-                        <p class="card-text">Thank you for using this app!</p>
+                        <p class="card-text">Thank you for using this app! Please feel free to discuss in the <a href="https://homey.app/en-GB/app/de.dresden-elektronik.deconz/deCONZ/">community</a> or report bugs or request device support at <a href="https://github.com/madmonkey87/HomeyCONZ">github.</a></p>
                     </div>
                 </div>
               </div>
@@ -107,49 +109,50 @@
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">gateway</small>
-                                    <label>-</label>
+                                    <label id="infoGateway">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">version</small>
-                                    <label>-</label>
+                                    <label id="infoVersion">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">MAC address</small>
-                                    <label>-</label>
+                                    <label id="infoMac">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">device</small>
-                                    <label>-</label>
+                                    <label id="infoDevice">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">firmware</small>
-                                    <label>-</label>
+                                    <label id="infoFirmware">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">ZigBee pan id</small>
-                                    <label>-</label>
+                                    <label id="infoPanId">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">ZigBee channel</small>
-                                    <label>-</label>
+                                    <label id="infoChannel">-</label>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 </div>
+            </br>
               <!--about tab end-->
           </div>
 		</div>
@@ -159,7 +162,7 @@
             function onHomeyReady(Homey) {
 			
 				if(Homey.isMock){
-					// Homey.alert('Warning: Homey is mocked only!!!')
+					Homey.alert('Warning: Homey is mocked only!!!')
 				}
 			
                 const ip = document.getElementById('deconzIPAdress')
@@ -314,6 +317,38 @@
                     xhr.send()
                 }
 
+                function updateDetails(){
+                    if(validateFields(false) === true){
+                        getState((error, data) => {
+                            if (!!error) {
+                                document.getElementById('infoGateway').innerHTML = 'error'
+                                document.getElementById('infoVersion').innerHTML = 'error'
+                                document.getElementById('infoMac').innerHTML = 'error'
+                                document.getElementById('infoDevice').innerHTML = 'error'
+                                document.getElementById('infoFirmware').innerHTML = 'error'
+                                document.getElementById('infoPanId').innerHTML = 'error'
+                                document.getElementById('infoChannel').innerHTML = 'error'
+                            } else {
+                                document.getElementById('infoGateway').innerHTML = data.config.name
+                                document.getElementById('infoVersion').innerHTML = data.config.version
+                                document.getElementById('infoMac').innerHTML = data.config.mac
+                                document.getElementById('infoDevice').innerHTML = data.config.devicename
+                                document.getElementById('infoFirmware').innerHTML = data.config.fwversion
+                                document.getElementById('infoPanId').innerHTML = data.config.panid
+                                document.getElementById('infoChannel').innerHTML = data.config.zigbeechannel
+                            }
+                        })
+                    } else {
+                        document.getElementById('infoGateway').innerHTML = '-'
+                                document.getElementById('infoVersion').innerHTML = '-'
+                                document.getElementById('infoMac').innerHTML = '-'
+                                document.getElementById('infoDevice').innerHTML = '-'
+                                document.getElementById('infoFirmware').innerHTML = '-'
+                                document.getElementById('infoPanId').innerHTML = '-'
+                                document.getElementById('infoChannel').innerHTML = '-'
+                    }
+                }
+
                 saveButton.addEventListener('click', (e) => {
 					if (validateFields(true) === true) {
                         saveAll()
@@ -360,7 +395,6 @@
                     })
                 })
 				
-
 				discoverKeyButton.addEventListener('click', (e) => {
 					if (!ip.value || !port.value) {
 						showError(true, 'Please enter the ip and the port first')
@@ -385,7 +419,6 @@
                             })
                 })
 
-
                 function saveAll() {
                     Homey.set('host', ip.value, (err, settings) => {
                         if (err) return Homey.alert(err)
@@ -399,6 +432,8 @@
                     Homey.set('apikey', apiKey.value, (err, settings) => {
                         if (err) return Homey.alert(err)
                     })
+
+                    updateDetails()
                 }
 
                 Homey.get('host', (err, host) => {
@@ -422,6 +457,8 @@
                 })
 
                 Homey.ready()
+
+                updateDetails()
             }
 
             //);

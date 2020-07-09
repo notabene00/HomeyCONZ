@@ -33,7 +33,7 @@
             "id": "ids",
             "type": "label",
             "label": {
-                "en": "Api Id's"
+                "en": "Api Id"
             },
             "value": "Unknown"
         },
