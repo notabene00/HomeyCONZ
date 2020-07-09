@@ -483,6 +483,10 @@ class deCONZ extends Homey.App {
 		if (device.getSetting('sensorids') != null && device.getSetting('sensors') != null) {
 			device.setSettings({ sensorids: JSON.stringify(device.getSetting('sensors')) });
 		}
+
+		if (data.hasOwnProperty('uniqueid') && device.getSetting('mac') != null) {
+			device.setSettings({ mac: data.uniqueid.split('-')[0] });
+		}
 	}
 
 	get(url, callback) {

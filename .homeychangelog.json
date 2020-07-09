@@ -51,6 +51,6 @@
     "en": "Support Zipato water leakage sensor, support Aqara wall switches, revert Tradfri Square dimmer changes"
   },
   "1.11.0":{
-    "en": "Improved connection setup, setting ignore when a device becomes unreachable"
+    "en": "Improved connection setup, setting ignore when a device becomes unreachable, show more device details"
   }
 }
