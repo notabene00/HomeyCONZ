@@ -42,12 +42,15 @@
     "en": "Door/window and water leakage sensors support an invert setting, tampered capability for devices supporting it, improved startup behavior, support heiman fire, smoke and co sensor, improved motion sensor handling, support develco motion & water leakage sensor, scene recall, support for sonoff basic"
   },
   "1.8.1":{
-    "en": "support new Tradfri square dimmer model"
+    "en": "Support new Tradfri square dimmer model"
   },
   "1.9.0":{
-    "en": "support Tint rgbw remote, support Aqara relay, flash groups, set relative brightness/color temperature"
+    "en": "Support Tint rgbw remote, support Aqara relay, flash groups, set relative brightness/color temperature"
   },
   "1.10.0":{
-    "en": "support Zipato water leakage sensor, support Aqara wall switches, revert Tradfri Square dimmer changes"
+    "en": "Support Zipato water leakage sensor, support Aqara wall switches, revert Tradfri Square dimmer changes"
+  },
+  "1.11.0":{
+    "en": "Improved connection setup, ability to test the connection, display gateway details, setting ignore when a device becomes unreachable, show more device details"
   }
 }

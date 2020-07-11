@@ -65,11 +65,9 @@ class deCONZ extends Homey.App {
 	}
 
 	setWSKeepAlive() {
-		// убивать таймаут при переподключениях
 		if (this.keepAliveTimeout) {
 			clearTimeout(this.keepAliveTimeout)
 		}
-		// когда приходит ping - убивать таймаут на переподключение
 		this.websocket.on('ping', () => {
 			if (this.keepAliveTimeout) {
 				clearTimeout(this.keepAliveTimeout)
@@ -310,7 +308,7 @@ class deCONZ extends Homey.App {
 		}
 
 		if (state.hasOwnProperty('reachable')) {
-			state.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
+			(state.reachable || device.getSetting('ignore-reachable') === true) ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
 
 		if (state.hasOwnProperty('water')) {
@@ -456,7 +454,7 @@ class deCONZ extends Homey.App {
 		}
 
 		if (config.hasOwnProperty('reachable')) {
-			config.reachable ? device.setAvailable() : device.setUnavailable('Unreachable')
+			(config.reachable || device.getSetting('ignore-reachable') === true) ? device.setAvailable() : device.setUnavailable('Unreachable')
 		}
 	}
 
@@ -482,6 +480,10 @@ class deCONZ extends Homey.App {
 
 		if (device.getSetting('sensorids') != null && device.getSetting('sensors') != null) {
 			device.setSettings({ sensorids: JSON.stringify(device.getSetting('sensors')) });
+		}
+
+		if (data.hasOwnProperty('uniqueid') && device.getSetting('mac') != null) {
+			device.setSettings({ mac: data.uniqueid.split('-')[0] });
 		}
 	}
 

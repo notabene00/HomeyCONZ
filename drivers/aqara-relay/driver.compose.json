@@ -52,6 +52,9 @@
       ]
     },
     {
+      "$extends":  "ignore-reachable"
+    },
+    {
       "$extends":  "light-info"
     }
   ]

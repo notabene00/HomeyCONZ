@@ -36,6 +36,14 @@
                 "en": "Api Id's"
             },
             "value": "Unknown"
+        },
+        {
+            "id": "mac",
+            "type": "label",
+            "label": {
+                "en": "MAC"
+            },
+            "value": "Unknown"
         }
     ]
 }

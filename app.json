@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -2704,6 +2704,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -2739,6 +2759,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -2780,6 +2808,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -2815,6 +2863,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -2862,6 +2918,26 @@
           }
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -2897,6 +2973,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -2963,6 +3047,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -2998,6 +3102,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3067,6 +3179,26 @@
           }
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3102,6 +3234,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3164,6 +3304,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3198,7 +3358,7 @@
               "id": "ids",
               "type": "label",
               "label": {
-                "en": "Api Id's"
+                "en": "Api Id"
               },
               "value": "Unknown"
             },
@@ -3207,6 +3367,14 @@
               "type": "label",
               "label": {
                 "en": "Sensor Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3250,6 +3418,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3285,6 +3473,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3370,6 +3566,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3405,6 +3621,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3506,6 +3730,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3541,6 +3785,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3575,6 +3827,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3610,6 +3882,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3644,6 +3924,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3679,6 +3979,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3721,6 +4029,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3756,6 +4084,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3797,6 +4133,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3832,6 +4188,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3873,6 +4237,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3908,6 +4292,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -3949,6 +4341,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -3984,6 +4396,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4081,6 +4501,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4116,6 +4556,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4169,6 +4617,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4204,6 +4672,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4238,6 +4714,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4273,6 +4769,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4310,6 +4814,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4345,6 +4869,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4391,6 +4923,26 @@
           }
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4426,6 +4978,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4480,6 +5040,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4515,6 +5095,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4557,6 +5145,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4592,6 +5200,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4633,6 +5249,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4668,6 +5304,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4750,6 +5394,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4785,6 +5449,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4827,6 +5499,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4862,6 +5554,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4904,6 +5604,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -4939,6 +5659,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -4980,6 +5708,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5015,6 +5763,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5156,6 +5912,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5191,6 +5967,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5332,6 +6116,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5367,6 +6171,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5401,6 +6213,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5436,6 +6268,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5489,6 +6329,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5524,6 +6384,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5565,6 +6433,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5600,6 +6488,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5643,6 +6539,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5678,6 +6594,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5730,6 +6654,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5765,6 +6709,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5833,6 +6785,26 @@
           }
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5868,6 +6840,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5911,6 +6891,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -5946,6 +6946,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -5989,6 +6997,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6024,6 +7052,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6097,6 +7133,26 @@
           ]
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6132,6 +7188,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6175,6 +7239,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6210,6 +7294,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6251,6 +7343,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6286,6 +7398,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6328,6 +7448,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6363,6 +7503,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6433,6 +7581,26 @@
           }
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6468,6 +7636,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6511,6 +7687,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6546,6 +7742,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6587,6 +7791,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6622,6 +7846,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6657,6 +7889,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6692,6 +7944,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6732,6 +7992,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6767,6 +8047,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6808,6 +8096,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6843,6 +8151,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -6897,6 +8213,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -6932,6 +8268,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -7001,6 +8345,26 @@
           }
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -7036,6 +8400,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -7077,6 +8449,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -7112,6 +8504,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -7154,6 +8554,26 @@
       ],
       "settings": [
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -7189,6 +8609,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }
@@ -7241,6 +8669,26 @@
           "value": false
         },
         {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
           "id": "info",
           "type": "group",
           "label": {
@@ -7276,6 +8724,14 @@
               "type": "label",
               "label": {
                 "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
               },
               "value": "Unknown"
             }

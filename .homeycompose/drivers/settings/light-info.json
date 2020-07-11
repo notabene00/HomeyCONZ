@@ -33,7 +33,7 @@
             "id": "ids",
             "type": "label",
             "label": {
-                "en": "Api Id's"
+                "en": "Api Id"
             },
             "value": "Unknown"
         },
@@ -42,6 +42,14 @@
             "type": "label",
             "label": {
                 "en": "Sensor Id's"
+            },
+            "value": "Unknown"
+        },
+        {
+            "id": "mac",
+            "type": "label",
+            "label": {
+                "en": "MAC"
             },
             "value": "Unknown"
         }
