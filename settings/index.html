@@ -94,7 +94,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Request device support</h5>
                         <p class="card-text">Do you have a device that is not yet supported? Or is your device not supported properly? Please create a ticket in <a href="https://github.com/madmonkey87/HomeyCONZ/issues">github</a>. If asked please provide the following details:</p>
-                        <button type="button" class="btn btn-primary" id="copyButton">Copy to clipboard</button>
+                        <div class="row col-9">
+                            <div class="col-sm mt-4">
+                                <div class="btn-group d-flex" role="group">
+                                    <button type="button" class="btn btn-primary" id="loadButton">Reload</button>
+                                    <button type="button" class="btn btn-primary" id="copyButton">Copy to clipboard</button>
+                                </div>
+                            </div>
+                        </div>
                         <p id="supportDetails" style="font-style:italic; padding: 15px; background: #6c757d; color: white; border-radius: 0.25rem; margin-top: 15px"></p>
                     </div>
                 </div>
@@ -122,43 +129,43 @@
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">gateway</small>
-                                    <label id="infoGateway">-</label>
+                                    <label id="infoGateway" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">version</small>
-                                    <label id="infoVersion">-</label>
+                                    <label id="infoVersion" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">MAC address</small>
-                                    <label id="infoMac">-</label>
+                                    <label id="infoMac" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">device</small>
-                                    <label id="infoDevice">-</label>
+                                    <label id="infoDevice" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">firmware</small>
-                                    <label id="infoFirmware">-</label>
+                                    <label id="infoFirmware" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">ZigBee pan id</small>
-                                    <label id="infoPanId">-</label>
+                                    <label id="infoPanId" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">ZigBee channel</small>
-                                    <label id="infoChannel">-</label>
+                                    <label id="infoChannel" style="font-weight: bold;">-</label>
                                 </div>
                             </li>
                         </ul>
@@ -190,6 +197,7 @@
                 const apiError = document.getElementById('apiError')
                 const title = document.getElementsByClassName('ApiErrorShow')[0]
                 const copyButton = document.getElementById('copyButton')
+                const loadButton = document.getElementById('loadButton')
 
 				function showError(alert, message){
 				    apiError.style.display = 'grid'
@@ -446,6 +454,10 @@
                     el.select()
                     document.execCommand('copy')
                     document.body.removeChild(el)
+                })
+
+                loadButton.addEventListener('click', (e) => {
+                    updateDetails()
                 })
 
                 function saveAll() {
