@@ -1,11 +1,11 @@
 <html>
 	<head>
         <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
-		<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
+		<!--<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
@@ -66,12 +66,10 @@
 					<div class="col-sm">
                         <div class="form-group">
                             <label>api key</label>
-							<div class="input-group mb-3">
+							<div class="input-group">
 								<input type="text" class="form-control" placeholder="" id="apiKey">
-								<div class="input-group-append">
-									<button class="btn btn-primary" type="button" id="discoverKey">Discover</button>
-								</div>
-							</div>
+                            </div>
+                            <button class="btn btn-secondary" type="button" id="discoverKey" style="margin-top:5px">Discover Key only</button>
                         </div>
                     </div>
 					<div class="col-sm">
