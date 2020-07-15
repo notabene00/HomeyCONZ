@@ -60,7 +60,10 @@ class MiMotion extends Sensor {
 					this.timeout = null
 				}
 				
-				super.setCapabilityValue(name, true)
+				if(this.getCapabilityValue('alarm_motion') === false)
+				{
+					super.setCapabilityValue(name, true)
+				}
 			}
 		} else {
 			super.setCapabilityValue(name, value)
