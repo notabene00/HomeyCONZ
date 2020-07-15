@@ -156,9 +156,90 @@ class deCONZ extends Homey.App {
 		})
 	}
 
+	getFullState(callback) {
+		http.get(`http://${this.host}:${this.port}/api/${this.apikey}`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
+	test(host, port, apikey, callback) {
+		http.get(`http://${host}:${port}/api/${apikey}`, (error, response) => {
+			callback(error, !!error ? null : JSON.parse(response))
+		})
+	}
+
 	getDiscoveryData(callback) {
 		http.get(`http://phoscon.de/discover`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response)[0])
+		})
+	}
+
+	discover(callback) {
+		this.log('[SETTINGS-API] start discovery')
+		this.getDiscoveryData((error, discoveryResponse) => {
+			if(error || discoveryResponse == null){
+				this.log('[SETTINGS-API] discovery failed', error)
+				callback('Unable to find a deCONZ gateway', null)
+			} else {
+				this.log('[SETTINGS-API] discovery successfull, starting registration', error)
+				http.get(`http://${discoveryResponse.internalipaddress}:${discoveryResponse.internalport}/api`, (error, registerResponse,  statusCode) => {
+					if(error){
+						this.log('[SETTINGS-API] registration failed', error)
+						callback('Found a unreachable gateway', null)
+					} else if (statusCode === 403) {
+						this.log('[SETTINGS-API] registration incomplete, authorization needed')
+						callback(null, {message: 'Successfuly discovered the deCONZ gateway! Please go to settings→gateway→advanced and click on authenticate in the phoscon before continuing.'})
+					} else if (statusCode === 200) {
+						this.log('[SETTINGS-API] registration successful')
+						completeAuthentication(discoveryResponse.internalipaddress, discoveryResponse.internalport, JSON.parse(registerResponse)[0].success.username, callback)
+					} else {
+						callback('Unknown error', null)
+					}
+				})
+			}
+		})
+	}
+
+	authenticate(host, port, callback){
+		this.log('[SETTINGS-API] start authenticate', host, port)
+		http.get(`http://${host}:${port}/api`, (error, response,  statusCode) => {
+			if (statusCode === 403) {
+				this.log('[SETTINGS-API] authenticate failed, authorization needed')
+				callback(null, {message: 'Please go to settings→gateway→advanced and click on authenticate in the phoscon and try again.'})
+			} else if (statusCode === 200) {
+				this.log('[SETTINGS-API] authenticate successful')
+				completeAuthentication(host, port, JSON.parse(response)[0].success.username, callback)
+			} else {
+				this.log('[SETTINGS-API] authenticate failed', statusCode)
+				callback('Unknown error', null)
+			}
+		})
+	}
+
+	completeAuthentication(host, port, apikey, callback){
+		this.log('[SETTINGS-API] fetch config')
+		http.get(`http://${host}:${port}/api/${apikey}/config`, (error, result) => {
+			if (error){
+				this.log('[SETTINGS-API] error getting config', error)
+				callback('Error getting WS port', null)
+			} else {
+
+				Homey.set('host', host, (err, settings) => {
+					if (err) return callback(err, null)
+				})
+				Homey.set('port', port, (err, settings) => {
+					if (err) return callback(err, null)
+				})
+				Homey.set('wsport', JSON.parse(result).websocketport, (err, settings) => {
+					if (err) return callback(err, null)
+				})
+				Homey.set('apikey', apikey, (err, settings) => {
+					if (err) return callback(err, null)
+				})
+				
+				this.log('[SETTINGS-API] successfully persisted config')
+				callback(null, 'Successfuly discovered and authenticated the deCONZ gateway!')
+			}
 		})
 	}
 
@@ -499,8 +580,7 @@ class deCONZ extends Homey.App {
 	}
 
 	getWSport(callback) {
-		let link = `http://${this.host}:${this.port}/api/${this.apikey}/config`
-		this.get(link, (error, result) => {
+		this.get(`http://${this.host}:${this.port}/api/${this.apikey}/config`, (error, result) => {
 			callback(error, !!error ? null : result.websocketport)
 		})
 	}
@@ -551,7 +631,7 @@ class deCONZ extends Homey.App {
 						}
 					});
 				});
-			
+		
 		}
 
 }

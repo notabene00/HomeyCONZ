@@ -115,7 +115,7 @@
                 <div class="card">
                     <img class="card-img-top" src="images/conbee.svg" style="padding-left: 15px; padding-right: 15px; padding-top: 15px;">
                     <div class="card-body">
-                        <h5 class="card-title">deCONZ for Homey v1.11.0</h5>
+                        <h5 class="card-title">deCONZ for Homey v1.11.1</h5>
                         <p class="card-text">Thank you for using this app! Please feel free to discuss in the <a href="https://homey.app/en-GB/app/de.dresden-elektronik.deconz/deCONZ/">community</a> or report bugs or request device support at <a href="https://github.com/madmonkey87/HomeyCONZ">github.</a>
                         </p>
                     </div>
@@ -385,7 +385,7 @@
                 })
 				
 				testButton.addEventListener('click', (e) => {
-					if (validateFields(true) === true) {
+					/*if (validateFields(true) === true) {
                         getState((error, data) => {
                             if(!!error){
                                 showError(true, 'Unable to connect to the gateway, please check the configuration!')
@@ -393,7 +393,15 @@
                                 showSuccess(true, 'Successfuly connected to ' + data.config.name + '!')
                             }
                         })
-					}
+                    }*/
+                    Homey.api('GET', '/discover', { }, function( err, result ) {
+                        if( err ){
+                            Homey.alert(JSON.stringify(err))
+                        }else{
+                            Homey.alert(JSON.stringify(result))
+                            this.loadSettings()
+                        }
+                    });
                 })
                 
                 discoverButton.addEventListener('click', (e) => {
@@ -477,25 +485,29 @@
                     updateDetails()
                 }
 
-                Homey.get('host', (err, host) => {
-                    if (err) return Homey.alert(err)
-                    ip.value = host
-                })
-                
-                Homey.get('port', (err, storedPort) => {
-                    if (err) return Homey.alert(err)
-                    port.value = storedPort
-                })
+                function loadSettings() {
+                    Homey.get('host', (err, host) => {
+                        if (err) return Homey.alert(err)
+                        ip.value = host
+                    })
+                    
+                    Homey.get('port', (err, storedPort) => {
+                        if (err) return Homey.alert(err)
+                        port.value = storedPort
+                    })
 
-                Homey.get('wsport', (err, storedWSPort) => {
-                    if (err) return Homey.alert(err)
-                    wsPort.value = storedWSPort
-                })
+                    Homey.get('wsport', (err, storedWSPort) => {
+                        if (err) return Homey.alert(err)
+                        wsPort.value = storedWSPort
+                    })
+                    
+                    Homey.get('apikey', (err, apikey) => {
+                        if (err) return Homey.alert(err)
+                        apiKey.value = apikey
+                    })
+                }
                 
-                Homey.get('apikey', (err, apikey) => {
-                    if (err) return Homey.alert(err)
-                    apiKey.value = apikey
-                })
+                loadSettings()
 
                 Homey.ready()
 

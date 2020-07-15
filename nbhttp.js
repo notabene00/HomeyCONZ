@@ -12,7 +12,7 @@ module.exports.http.get = function(url, callback) {
 			data += chunk
 		})
 		response.on('end', () => {
-			callback(null, data)
+			callback(null, data, response.statusCode)
 		})
 	}).on('error', err => {
 		callback(err)
@@ -26,7 +26,7 @@ module.exports.https.get = function(url, callback) {
 			data += chunk
 		})
 		response.on('end', () => {
-			callback(null, data)
+			callback(null, data, response.statusCode)
 		})
 	}).on('error', err => {
 		callback(err)
@@ -41,7 +41,7 @@ module.exports.http.post = function(link, data, callback) {
 			data += chunk
 		})
 		response.on('end', () => {
-			callback(null, data)
+			callback(null, data, response.statusCode)
 		})
 	}).on('error', err => {
 		callback(err)
@@ -58,7 +58,7 @@ module.exports.https.post = function(link, data, callback) {
 			data += chunk
 		})
 		response.on('end', () => {
-			callback(null, data)
+			callback(null, data, response.statusCode)
 		})
 	}).on('error', err => {
 		callback(err)
@@ -85,7 +85,7 @@ module.exports.http.put = function(host, port, path, data, callback) {
 			data += chunk
 		})
 		response.on('end', () => {
-			callback(null, data)
+			callback(null, data, response.statusCode)
 		})
 	}).on('error', err => {
 		callback(err)
@@ -110,7 +110,7 @@ module.exports.https.put = function(host, port, path, data, callback) {
 			data += chunk
 		})
 		response.on('end', () => {
-			callback(null, data)
+			callback(null, data, response.statusCode)
 		})
 	}).on('error', err => {
 		callback(err)
