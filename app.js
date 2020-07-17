@@ -183,7 +183,7 @@ class deCONZ extends Homey.App {
 				callback('Unable to find a deCONZ gateway', null)
 			} else {
 				this.log('[SETTINGS-API] discovery successfull, starting registration', error)
-				http.get(`http://${discoveryResponse.internalipaddress}:${discoveryResponse.internalport}/api`, (error, registerResponse,  statusCode) => {
+				http.post(`http://${discoveryResponse.internalipaddress}:${discoveryResponse.internalport}/api`,{ "devicetype": "homeyCONZ" }, (error, registerResponse,  statusCode) => {
 					if(error){
 						this.log('[SETTINGS-API] registration failed', error)
 						callback('Found a unreachable gateway', null)
@@ -204,7 +204,8 @@ class deCONZ extends Homey.App {
 
 	authenticate(host, port, callback){
 		this.log('[SETTINGS-API] start authenticate', host, port)
-		http.get(`http://${host}:${port}/api`, (error, response,  statusCode) => {
+
+		http.post(`http://${host}:${port}/api`, { "devicetype": "homeyCONZ" }, (error, response,  statusCode) => {
 			if (statusCode === 403) {
 				this.log('[SETTINGS-API] authenticate failed, authorization needed')
 				callback(null, { host: host, port: port, message: 'Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon and try again.'})
