@@ -44,11 +44,11 @@ module.exports = [
 		}
 	  },
 	  {
-		method: 'GET',
+		method: 'PUT',
 		path: '/authenticate',
 		public: false,
 		fn: function( args, callback ){
-			Homey.app.authenticate(args.host, args.port, (err, result) => {
+			Homey.app.authenticate(args.body.host, args.body.port, (err, result) => {
 				if(err){
 					callback(err, null)
 				} else {

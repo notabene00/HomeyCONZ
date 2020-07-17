@@ -37,11 +37,27 @@
 						<div class="ApiErrorShow">Error!</div>
 					</div>
 
+                    <div class="row col-9">
+						<div class="col-sm mt-4">
+                            <button type="button" class="btn btn-primary" id="discoverButton">1. Discover</button>
+						</div>
+                    </div>
+
+                    <div class="row col-9">
+						<div class="col-sm mt-4">
+                            <button type="button" class="btn btn-primary" id="authenticateButton">2. Connect</button>
+						</div>
+                    </div>
+
+                    <div class="row col-9">
+						<div class="col-sm mt-4">
+                            <button type="button" class="btn btn-secondary" id="testButton">Test</button>
+						</div>
+                    </div>
+                    
 					<div class="row col-9">
 						<div class="col-sm mt-4">
 							<div class="btn-group d-flex" role="group">
-							  <button type="button" class="btn btn-primary" id="discoverButton">Auto Detect</button>
-							  <button type="button" class="btn btn-secondary" id="testButton">Test</button>
 							  <button type="button" class="btn btn-primary" id="saveButton">Save</button>
 							</div>
 						</div>
@@ -192,6 +208,7 @@
                 const saveButton = document.getElementById('saveButton')
 				const testButton = document.getElementById('testButton')
                 const discoverButton = document.getElementById('discoverButton')
+                const authenticateButton = document.getElementById('authenticateButton')
 				const discoverKeyButton = document.getElementById('discoverKey')
                 const advancedsettings = document.getElementById('advancedsettings')
                 const apiError = document.getElementById('apiError')
@@ -394,18 +411,19 @@
                             }
                         })
                     }*/
-                    Homey.api('GET', '/discover', { }, function( err, result ) {
+                    Homey.api('GET', '/test', { }, function( err, result ) {
                         if( err ){
-                            Homey.alert(JSON.stringify(err))
-                        }else{
-                            Homey.alert(JSON.stringify(result))
-                            this.loadSettings()
+                            showError('Error while connecting!')
+                        } else if(wsPort.value == result.config.websocketport){
+                            showSuccess('Connected successful')
+                        } else{
+                            showError('Connected successfuly but the websocket port seems wrong (should be: ' + result.config.websocketport + ')')
                         }
-                    });
+                    })
                 })
                 
                 discoverButton.addEventListener('click', (e) => {
-                    ip.value = ''
+                    /*ip.value = ''
                     port.value = ''
                     wsPort.value = ''
                     apiKey.value = ''
@@ -428,6 +446,33 @@
 									showSuccess(true, 'Successfuly initialized and saved!')
                                 })
                             })
+                    })*/
+                    Homey.api('GET', '/discover', { }, function( err, result ) {
+                        if(err){
+                            showError(true, err)
+                        } else if (!result.host && !result.port){
+                            this.loadSettings()
+                            showSuccess(true, result.message)
+                        } else {
+                            ip.value = result.host
+                            port.value = result.port
+                            showSuccess(true, result.message)
+                        }
+                    })
+                })
+
+                authenticateButton.addEventListener('click', (e) => {
+                    Homey.api('PUT', '/authenticate', { host:ip.value, port: port.value }, function( err, result ) {
+                        if(err){
+                            showError(true, err)
+                        } else if (!result.host && !result.port){
+                            this.loadSettings()
+                            showSuccess(true, result.message)
+                        } else {
+                            ip.value = result.host
+                            port.value = result.port
+                            showSuccess(true, result.message)
+                        }
                     })
                 })
 				

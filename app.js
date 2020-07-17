@@ -163,6 +163,7 @@ class deCONZ extends Homey.App {
 	}
 
 	test(host, port, apikey, callback) {
+		// todo: check if ws connected
 		http.get(`http://${host}:${port}/api/${apikey}`, (error, response) => {
 			callback(error, !!error ? null : JSON.parse(response))
 		})
@@ -188,11 +189,12 @@ class deCONZ extends Homey.App {
 						callback('Found a unreachable gateway', null)
 					} else if (statusCode === 403) {
 						this.log('[SETTINGS-API] registration incomplete, authorization needed')
-						callback(null, {message: 'Successfuly discovered the deCONZ gateway! Please go to settings→gateway→advanced and click on authenticate in the phoscon before continuing.'})
+						callback(null, { host: discoveryResponse.internalipaddress, port: discoveryResponse.internalport, message: 'Successfuly discovered the deCONZ gateway! Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon before continuing.'})
 					} else if (statusCode === 200) {
 						this.log('[SETTINGS-API] registration successful')
 						completeAuthentication(discoveryResponse.internalipaddress, discoveryResponse.internalport, JSON.parse(registerResponse)[0].success.username, callback)
 					} else {
+						this.log('[SETTINGS-API] registration failed', statusCode)
 						callback('Unknown error', null)
 					}
 				})
@@ -205,7 +207,7 @@ class deCONZ extends Homey.App {
 		http.get(`http://${host}:${port}/api`, (error, response,  statusCode) => {
 			if (statusCode === 403) {
 				this.log('[SETTINGS-API] authenticate failed, authorization needed')
-				callback(null, {message: 'Please go to settings→gateway→advanced and click on authenticate in the phoscon and try again.'})
+				callback(null, { host: host, port: port, message: 'Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon and try again.'})
 			} else if (statusCode === 200) {
 				this.log('[SETTINGS-API] authenticate successful')
 				completeAuthentication(host, port, JSON.parse(response)[0].success.username, callback)
