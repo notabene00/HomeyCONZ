@@ -16,11 +16,11 @@ module.exports = [
 		}
 	  },
 	  {
-		method: 'GET',
+		method: 'POST',
 		path: '/test',
 		public: false,
 		fn: function( args, callback ){
-			Homey.app.test(args.host, args.port, args.apikey, (err, result) => {
+			Homey.app.test(args.body.host, args.body.port, args.body.apikey, (err, result) => {
 				if(err){
 					callback(err, null)
 				} else {

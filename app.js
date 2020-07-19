@@ -157,15 +157,28 @@ class deCONZ extends Homey.App {
 	}
 
 	getFullState(callback) {
+		const wsState = this.websocket && this.websocket.readyState === 1
 		http.get(`http://${this.host}:${this.port}/api/${this.apikey}`, (error, response) => {
-			callback(error, !!error ? null : JSON.parse(response))
+			if(!!error){
+				callback(error, null)
+			} else {
+				let state = JSON.parse(response)
+				state.wsConnected = wsState
+				return callback(null, state)
+			}
 		})
 	}
 
 	test(host, port, apikey, callback) {
-		// todo: check if ws connected
+		const wsState = this.websocket && this.websocket.readyState === 1
 		http.get(`http://${host}:${port}/api/${apikey}`, (error, response) => {
-			callback(error, !!error ? null : JSON.parse(response))
+			if(!!error){
+				callback(error, null)
+			} else {
+				let state = JSON.parse(response)
+				state.wsConnected = wsState
+				return callback(null, state)
+			}
 		})
 	}
 
@@ -189,7 +202,7 @@ class deCONZ extends Homey.App {
 						callback('Found a unreachable gateway', null)
 					} else if (statusCode === 403) {
 						this.log('[SETTINGS-API] registration incomplete, authorization needed')
-						callback(null, { host: discoveryResponse.internalipaddress, port: discoveryResponse.internalport, message: 'Successfuly discovered the deCONZ gateway! Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon before continuing.'})
+						callback(null, { host: discoveryResponse.internalipaddress, port: discoveryResponse.internalport, message: 'Successfuly discovered the deCONZ gateway! Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon app. Finalize the setup by clicking on "connect" bellow.'})
 					} else if (statusCode === 200) {
 						this.log('[SETTINGS-API] registration successful')
 						completeAuthentication(discoveryResponse.internalipaddress, discoveryResponse.internalport, JSON.parse(registerResponse)[0].success.username, callback)
@@ -208,7 +221,7 @@ class deCONZ extends Homey.App {
 		http.post(host, port,'/api', { "devicetype": "homeyCONZ" }, (error, response,  statusCode) => {
 			if (statusCode === 403) {
 				this.log('[SETTINGS-API] authenticate failed, authorization needed')
-				callback(null, { host: host, port: port, message: 'Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon and try again.'})
+				callback(null, { host: host, port: port, message: 'Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon app. Finalize the setup by clicking on "connect" bellow.'})
 			} else if (statusCode === 200) {
 				this.log('[SETTINGS-API] authenticate successful')
 				completeAuthentication(host, port, JSON.parse(response)[0].success.username, callback)

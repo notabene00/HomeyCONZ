@@ -549,8 +549,8 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  /*padding-right: 15px;
+  padding-left: 15px;*/
   margin-right: auto;
   margin-left: auto;
 }
@@ -2333,25 +2333,25 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: rgb(47, 62, 73);
-  border-color: rgb(47, 62, 73);
+  color: #fff !important;
+  background-color: rgb(47, 62, 73) !important;
+  border-color: rgb(47, 62, 73) !important;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  color: #fff !important;
+  background-color: #0069d9 !important;
+  border-color: #0062cc !important;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5)!important;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-  color: #fff;
-  background-color: rgb(47, 62, 73);
-  border-color: rgb(47, 62, 73);
+  color: #fff !important;
+  background-color: rgb(47, 62, 73) !important;
+  border-color: rgb(47, 62, 73) !important;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
@@ -5135,7 +5135,7 @@ input[type="button"].btn-block {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.75rem 1.25rem;
+  /*padding: 0.75rem 1.25rem;*/
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -9028,3 +9028,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.list-group{
+  margin-left: 0px !important;
+}

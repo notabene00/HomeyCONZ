@@ -6,7 +6,7 @@
         <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
 	</head>
 	<body>
 
@@ -24,45 +24,49 @@
 			<fieldset>
 
 				<div class="container">
+                    
 					</br>
-					<div class="alert alert-info" role="alert">
-						<div>
-							Tap on 'Auto Detect' to configure the connection automatically. In case this fails you still can fill in everything automatically.
-							</br>
-							<b>Note: if you're using Docker auto detect might fail depending on your configuration. Just enter the ip and port and in the api key click on discover to complete the configuration</b>
-						</div>
-					</div>
-					
+
 					<div class="alert alert-danger" role="alert" id="apiError" style="display: none">
-						<div class="ApiErrorShow">Error!</div>
+						<div class="ApiErrorShow"></div>
 					</div>
 
-                    <div class="row col-9">
-						<div class="col-sm mt-4">
-                            <button type="button" class="btn btn-primary" id="discoverButton">1. Discover</button>
-						</div>
+                    <h1>automatic configuration</h1>
+
+                    <div class="row">
+						<div class="col-sm">
+                            <button type="button" class="btn btn-primary" id="discoverButton" style="width: 125px;">1. Discover</button>
+                            <img src="images/ok.svg" style="display: none;" id="discoverSuccess">
+                            <img src="images/cancel.svg" style="display: none;" id="discoverFailure">
+                        </div>
                     </div>
 
-                    <div class="row col-9">
-						<div class="col-sm mt-4">
-                            <button type="button" class="btn btn-primary" id="authenticateButton">2. Connect</button>
-						</div>
+                    </br>
+
+                    <div class="row">
+						<div class="col-sm">
+                            <button type="button" class="btn btn-primary" id="authenticateButton" disabled style="width: 125px;">2. Connect</button>
+                            <img src="images/lock.svg" style="display: none;" id="authenticateFailure">
+                            <img src="images/padlock.svg" style="display: none;" id="authenticateSuccess">
+                        </div>
                     </div>
 
-                    <div class="row col-9">
-						<div class="col-sm mt-4">
-                            <button type="button" class="btn btn-secondary" id="testButton">Test</button>
+                    </br>
+                    
+                    <h1>manual configuration</h1>
+
+					<div class="row">
+						<div class="col-sm">
+							<div class="btn-group d-flex" role="group">
+                                <button type="button" class="btn btn-secondary" id="testButton">Test</button>
+                                <button type="button" class="btn btn-primary" id="saveButton">Save</button>
+							</div>
 						</div>
                     </div>
                     
-					<div class="row col-9">
-						<div class="col-sm mt-4">
-							<div class="btn-group d-flex" role="group">
-							  <button type="button" class="btn btn-primary" id="saveButton">Save</button>
-							</div>
-						</div>
-					</div>
-					</br>
+                    </br>
+
+                    <div class="row">
 					<div class="col-sm">
                         <div class="form-group">
                             <label>ip/hostname</label>
@@ -71,6 +75,8 @@
 							</div>
                         </div>
                     </div>
+                </div>
+                    <div class="row">
 					<div class="col-sm">
                         <div class="form-group">
                             <label>port</label>
@@ -79,15 +85,18 @@
 							</div>
                         </div>
                     </div>
+                </div>
+                    <div class="row">
 					<div class="col-sm">
                         <div class="form-group">
                             <label>api key</label>
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="" id="apiKey">
                             </div>
-                            <button class="btn btn-secondary" type="button" id="discoverKey" style="margin-top:5px">Discover Key only</button>
                         </div>
                     </div>
+                </div>
+                    <div class="row">
 					<div class="col-sm">
                         <div class="form-group">
                             <label>websocket port</label>
@@ -96,6 +105,7 @@
 							</div>
                         </div>
                     </div>
+                </div>
 
 				</div>
 			</fieldset>
@@ -111,7 +121,7 @@
                         <h5 class="card-title">Request device support</h5>
                         <p class="card-text">Do you have a device that is not yet supported? Or is your device not supported properly? Please create a ticket in <a href="https://github.com/madmonkey87/HomeyCONZ/issues">github</a>. If asked please provide the following details:</p>
                         <div class="row col-9">
-                            <div class="col-sm mt-4">
+                            <div class="col-sm">
                                 <div class="btn-group d-flex" role="group">
                                     <button type="button" class="btn btn-primary" id="loadButton">Reload</button>
                                     <button type="button" class="btn btn-primary" id="copyButton">Copy to clipboard</button>
@@ -145,43 +155,49 @@
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">gateway</small>
-                                    <label id="infoGateway" style="font-weight: bold;">-</label>
+                                    <label id="infoGateway" style="font-weight: bold; font-size: 18px;">-</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-group">
+                                    <small class="form-text text-muted">live updates</small>
+                                    <label id="infoSocketConnection" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">version</small>
-                                    <label id="infoVersion" style="font-weight: bold;">-</label>
+                                    <label id="infoVersion" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">MAC address</small>
-                                    <label id="infoMac" style="font-weight: bold;">-</label>
+                                    <label id="infoMac" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">device</small>
-                                    <label id="infoDevice" style="font-weight: bold;">-</label>
+                                    <label id="infoDevice" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">firmware</small>
-                                    <label id="infoFirmware" style="font-weight: bold;">-</label>
+                                    <label id="infoFirmware" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">ZigBee pan id</small>
-                                    <label id="infoPanId" style="font-weight: bold;">-</label>
+                                    <label id="infoPanId" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <small class="form-text text-muted">ZigBee channel</small>
-                                    <label id="infoChannel" style="font-weight: bold;">-</label>
+                                    <label id="infoChannel" style="font-weight: bold; font-size: 18px;">-</label>
                                 </div>
                             </li>
                         </ul>
@@ -194,7 +210,7 @@
 		</div>
 
         <script type="text/javascript">
-            //document.addEventListener("DOMContentLoaded", function(event) { 
+
             function onHomeyReady(Homey) {
 			
 				if(Homey.isMock){
@@ -209,7 +225,6 @@
 				const testButton = document.getElementById('testButton')
                 const discoverButton = document.getElementById('discoverButton')
                 const authenticateButton = document.getElementById('authenticateButton')
-				const discoverKeyButton = document.getElementById('discoverKey')
                 const advancedsettings = document.getElementById('advancedsettings')
                 const apiError = document.getElementById('apiError')
                 const title = document.getElementsByClassName('ApiErrorShow')[0]
@@ -261,7 +276,7 @@
 							message += '</br> - ' + errors[i]  
 						}
 						if(show){
-							showError(true, message)
+							showError(false, message)
 						}
 						return false
 					}else{
@@ -269,98 +284,12 @@
 					}
                 }
 				
-                function discover(callback) {
-					showSuccess(false, 'Autodiscovering...')
-                    const url = 'http://phoscon.de/discover'
-                    const xhr = new XMLHttpRequest()
-					xhr.timeout = 3000
-                    xhr.onreadystatechange = function (e) {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            const response = JSON.parse(xhr.responseText)[0]
-                            if (!response || Object.keys(response).length === 0) {
-                                showError(false, "No deCONZ gateway could be discovered in your network. You might need to enter the configuration manually. </br></br><b>Note if you're using Docker:</b> if you do not start the container with the --net=host parameter you're actively prevent automatic discovery and you need to enter the configuration manually")
-                            } else {
-								showSuccess(false, 'Successfully autodiscovered gateway')
-                                callback(null, {
-                                    ip: response.internalipaddress,
-                                    port: response.internalport
-                                })
-                            }
-                        }
-                    }
-                    xhr.open('GET', url, true)
-                    xhr.send()
-                }
-
-                function getAPIkey(callback) {
-                    const url = `http://${ip.value}:${port.value}/api`
-                    const data = JSON.stringify({
-                        "devicetype": "homeyCONZ"
-                    })
-                    const xhr = new XMLHttpRequest()
-					xhr.timeout = 3000
-                    xhr.open('POST', url, true)
-                    xhr.setRequestHeader('Content-Type', 'application/json')
-                    xhr.onreadystatechange = function() {
-						if (this.readyState === XMLHttpRequest.DONE) {
-							switch(this.status){
-								case 200: 
-									const response = JSON.parse(xhr.responseText)
-									callback(null, response[0].success.username)
-									break
-								case 403: 
-									callback(new Error('Please go to settings→gateway→advanced and click on authenticate in the phoscon app and try again!'))
-									break
-								default: 
-									callback(new Error("We are unable to connect to the gateway. Please ensure the ip address and port are correct! </br></br><b>Note if you're using Docker:</b> if you do not start the container with the --net=host parameter you're actively prevent automatic discovery and you need to enter the configuration manually"))
-									break
-							}
-                        }
-                    }
-                    xhr.send(data)
-                }
-
-                function getWSport(callback) {
-                    if (wsPort.value != "") {
-                        callback(wsPort.value)
-                        return
-                    }
-                    const url = `http://${ip.value}:${port.value}/api/${apiKey.value}/config`
-                    const xhr = new XMLHttpRequest()
-					xhr.timeout = 3000
-                    xhr.onreadystatechange = function (e) {
-                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                            const response = JSON.parse(xhr.responseText)                            
-                            callback(null, response.websocketport)
-                        }else  if (this.readyState === XMLHttpRequest.DONE) {
-                            callback(new Error('Error while fetching the WS port'), null)
-                        }
-                    }
-                    xhr.open('GET', url, true)
-                    xhr.send()
-                }
-
-                function getState(callback) {
-                    const url = `http://${ip.value}:${port.value}/api/${apiKey.value}`
-                    const xhr = new XMLHttpRequest()
-					xhr.timeout = 3000
-                    xhr.onreadystatechange = function (e) {
-                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                            const response = JSON.parse(xhr.responseText)                            
-                            callback(null, response)
-                        }else  if (this.readyState === XMLHttpRequest.DONE) {
-                            callback(new Error('Error while fetching the state'), null)
-                        }
-                    }
-                    xhr.open('GET', url, true)
-                    xhr.send()
-                }
-
                 function updateDetails(){
                     if(validateFields(false) === true){
-                        getState((error, data) => {
+                        Homey.api('GET', '/state', { }, function( error, data ) {
                             if (!!error) {
                                 document.getElementById('infoGateway').innerHTML = 'error'
+                                document.getElementById('infoSocketConnection').innerHTML = 'error'
                                 document.getElementById('infoVersion').innerHTML = 'error'
                                 document.getElementById('infoMac').innerHTML = 'error'
                                 document.getElementById('infoDevice').innerHTML = 'error'
@@ -371,6 +300,7 @@
                                 document.getElementById('supportDetails').innerHTML = 'error'
                             } else {
                                 document.getElementById('infoGateway').innerHTML = data.config.name
+                                document.getElementById('infoSocketConnection').innerHTML = data.wsConnected ? 'connected':'not connected'
                                 document.getElementById('infoVersion').innerHTML = data.config.swversion
                                 document.getElementById('infoMac').innerHTML = data.config.mac
                                 document.getElementById('infoDevice').innerHTML = data.config.devicename
@@ -383,6 +313,7 @@
                         })
                     } else {
                         document.getElementById('infoGateway').innerHTML = '-'
+                        document.getElementById('infoSocketConnection').innerHTML = '-'
                                 document.getElementById('infoVersion').innerHTML = '-'
                                 document.getElementById('infoMac').innerHTML = '-'
                                 document.getElementById('infoDevice').innerHTML = '-'
@@ -397,66 +328,50 @@
                 saveButton.addEventListener('click', (e) => {
 					if (validateFields(true) === true) {
                         saveAll()
-                        showSuccess(true, 'Successfuly saved!')
+                        showSuccess(false, 'Successfuly saved!')
                     }
                 })
 				
 				testButton.addEventListener('click', (e) => {
-					/*if (validateFields(true) === true) {
-                        getState((error, data) => {
-                            if(!!error){
-                                showError(true, 'Unable to connect to the gateway, please check the configuration!')
-                            }else{
-                                showSuccess(true, 'Successfuly connected to ' + data.config.name + '!')
+                    if (validateFields(true) === true) {
+                        Homey.api('POST', '/test', {host: ip.value, port: port.value, apikey: apiKey.value }, function( err, result ) {
+                            if( err ){
+                                showError(false, 'Error while connecting!')
+                            } else {
+                                if (result.wsConnected){
+                                    showSuccess(false, 'Connected successfuly!')
+                                } else {
+                                    showError(false, "Connected successfuly, but you won't receive live updates as the websocket port seems wrong!")
+                                }
                             }
                         })
-                    }*/
-                    Homey.api('GET', '/test', { }, function( err, result ) {
-                        if( err ){
-                            showError('Error while connecting!')
-                        } else if(wsPort.value == result.config.websocketport){
-                            showSuccess('Connected successful')
-                        } else{
-                            showError('Connected successfuly but the websocket port seems wrong (should be: ' + result.config.websocketport + ')')
-                        }
-                    })
+                    }
                 })
                 
                 discoverButton.addEventListener('click', (e) => {
-                    /*ip.value = ''
-                    port.value = ''
-                    wsPort.value = ''
-                    apiKey.value = ''
-                    discover((error, data) => {
-                        ip.value = data.ip
-                        port.value = data.port
-                            getAPIkey(function(error, success) {
-                                if (!!error) {
-									showError(false, error.message)
-                                    return
-                                }
-                                apiKey.value = success
-                                getWSport(function(error, success){
-                                    if (!!error) {
-                                        showError(false, error.message)
-                                        return
-                                    }
-                                    wsPort.value = success
-                                    saveAll()
-									showSuccess(true, 'Successfuly initialized and saved!')
-                                })
-                            })
-                    })*/
                     Homey.api('GET', '/discover', { }, function( err, result ) {
                         if(err){
-                            showError(true, err)
+                            document.getElementById('discoverSuccess').style.display = 'none'
+                            document.getElementById('discoverFailure').style.display = 'inline'
+                            document.getElementById('authenticateSuccess').style.display = 'none'
+                            document.getElementById('authenticateFailure').style.display = 'none'
+                            showError(false, err)
                         } else if (!result.host && !result.port){
                             this.loadSettings()
-                            showSuccess(true, result.message)
+                            document.getElementById('discoverSuccess').style.display = 'inline'
+                            document.getElementById('discoverFailure').style.display = 'none'
+                            document.getElementById('authenticateSuccess').style.display = 'none'
+                            document.getElementById('authenticateFailure').style.display = 'none'
+                            showSuccess(false, result.message)
                         } else {
                             ip.value = result.host
                             port.value = result.port
-                            showSuccess(true, result.message)
+                            document.getElementById('discoverSuccess').style.display = 'inline'
+                            document.getElementById('discoverFailure').style.display = 'none'
+                            document.getElementById('authenticateSuccess').style.display = 'none'
+                            document.getElementById('authenticateFailure').style.display = 'inline'
+                            authenticateButton.disabled = false;
+                            showSuccess(false, result.message)
                         }
                     })
                 })
@@ -464,42 +379,24 @@
                 authenticateButton.addEventListener('click', (e) => {
                     Homey.api('PUT', '/authenticate', { host:ip.value, port: port.value }, function( err, result ) {
                         if(err){
-                            showError(true, err)
+                            document.getElementById('authenticateSuccess').style.display = 'none'
+                            document.getElementById('authenticateFailure').style.display = 'inline'
+                            showError(false, err)
                         } else if (!result.host && !result.port){
+                            document.getElementById('authenticateSuccess').style.display = 'inline'
+                            document.getElementById('authenticateFailure').style.display = 'none'
                             this.loadSettings()
-                            showSuccess(true, result.message)
+                            showSuccess(false, result.message)
                         } else {
+                            document.getElementById('authenticateSuccess').style.display = 'none'
+                            document.getElementById('authenticateFailure').style.display = 'inline'
                             ip.value = result.host
                             port.value = result.port
-                            showSuccess(true, result.message)
+                            showError(false, result.message)
                         }
                     })
                 })
-				
-				discoverKeyButton.addEventListener('click', (e) => {
-					if (!ip.value || !port.value) {
-						showError(true, 'Please enter the ip and the port first')
-					}
-                    apiKey.value = ''
-					wsPort.value = ''
-                            getAPIkey(function(error, success) {
-                                if (!!error) {
-									showError(false, error.message)
-                                    return
-                                }
-                                apiKey.value = success
-                                getWSport(function(error, success){
-                                    if (!!error) {
-                                        showError(false, error.message)
-                                        return
-                                    }
-                                    wsPort.value = success
-                                    saveAll()
-									showSuccess(true, 'Successfuly initialized and saved!')
-                                })
-                            })
-                })
-
+			
                 copyButton.addEventListener('click', (e) => {
                     const el = document.createElement('textarea')
                     el.value = document.getElementById('supportDetails').innerHTML
@@ -553,13 +450,11 @@
                 }
                 
                 loadSettings()
-
+                
                 Homey.ready()
 
-                updateDetails()
+                setTimeout(function(){ updateDetails() }, 1000);
             }
-
-            //);
             
         </script>
 	</body>
