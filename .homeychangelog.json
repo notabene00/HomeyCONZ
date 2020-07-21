@@ -53,7 +53,7 @@
   "1.11.0":{
     "en": "Improved connection setup, ability to test the connection, display gateway details, support page, setting ignore when a device becomes unreachable, show more device details"
   },
-  "1.11.1":{
+  "1.11.2":{
     "en": "Improved settings page, all setup connections are now performed by homey directly, improved motion sensor behavior"
   }
 }

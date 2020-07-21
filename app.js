@@ -205,7 +205,10 @@ class deCONZ extends Homey.App {
 						callback(null, { host: discoveryResponse.internalipaddress, port: discoveryResponse.internalport, message: 'Successfuly discovered the deCONZ gateway! Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon app. Finalize the setup by clicking on "connect" bellow.'})
 					} else if (statusCode === 200) {
 						this.log('[SETTINGS-API] registration successful')
-						completeAuthentication(discoveryResponse.internalipaddress, discoveryResponse.internalport, JSON.parse(registerResponse)[0].success.username, callback)
+						this.completeAuthentication(discoveryResponse.internalipaddress, discoveryResponse.internalport, JSON.parse(registerResponse)[0].success.username, callback)
+					} else if (statusCode === 404) {
+						this.log('[SETTINGS-API] gateway discovered but not accessible')
+						callback('The gateway was discovered but failed to connect. Note to docker users: if you did not set up your docker container correctly (with the --net=host parameter) you have disabled autodiscovery actively. You can continue but you must enter all configurations bellow manually!', null)
 					} else {
 						this.log('[SETTINGS-API] registration failed with unknown status code', statusCode)
 						callback('Unknown error', null)
@@ -224,7 +227,7 @@ class deCONZ extends Homey.App {
 				callback(null, { host: host, port: port, message: 'Please open up Phoscon, go to settings→gateway→advanced and click on authenticate in the phoscon app. Finalize the setup by clicking on "connect" bellow.'})
 			} else if (statusCode === 200) {
 				this.log('[SETTINGS-API] authenticate successful')
-				completeAuthentication(host, port, JSON.parse(response)[0].success.username, callback)
+				this.completeAuthentication(host, port, JSON.parse(response)[0].success.username, callback)
 			} else {
 				this.log('[SETTINGS-API] authenticate failed', statusCode)
 				callback('Unknown error', null)
@@ -240,16 +243,16 @@ class deCONZ extends Homey.App {
 				callback('Error getting WS port', null)
 			} else {
 
-				Homey.set('host', host, (err, settings) => {
+				Homey.ManagerSettings.set('host', host, (err, settings) => {
 					if (err) return callback(err, null)
 				})
-				Homey.set('port', port, (err, settings) => {
+				Homey.ManagerSettings.set('port', port, (err, settings) => {
 					if (err) return callback(err, null)
 				})
-				Homey.set('wsport', JSON.parse(result).websocketport, (err, settings) => {
+				Homey.ManagerSettings.set('wsport', JSON.parse(result).websocketport, (err, settings) => {
 					if (err) return callback(err, null)
 				})
-				Homey.set('apikey', apikey, (err, settings) => {
+				Homey.ManagerSettings.set('apikey', apikey, (err, settings) => {
 					if (err) return callback(err, null)
 				})
 				
