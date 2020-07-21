@@ -19,14 +19,20 @@ module.exports.util.round = function (value, exp) {
     return +(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp));
 }
 
-module.exports.util.rgbToXy = function (r, g, b) {
+// hue = [0,1], sat = [0,1]
+module.exports.util.hsToXy = function (hue, sat) {
+  var rgb = HSVtoRGB(1 - hue, 1 - sat, 1);
+  return rgbToXy2(rgb)
+}
+
+function rgbToXy(r, g, b) {
   var X = .412453 * r + .35758 * g + .180423 * b
     , Y = .212671 * r + .71516 * g + .072169 * b
     , Z = .019334 * r + .119193 * g + .950227 * b;
   return [X / (X + Y + Z), Y / (X + Y + Z)]
 }
 
-module.exports.util.rgbToXy2 = function (rgb) {
+function rgbToXy2(rgb) {
   var viv = rgb.map(x=>x > .04045 ? Math.pow((x + .055) / 1.055, 2.4) : x / 12.92);
   let red = viv[0]
     , green = viv[1]
@@ -37,7 +43,7 @@ module.exports.util.rgbToXy2 = function (rgb) {
   return [X / (X + Y + Z), Y / (X + Y + Z)]
 }
 
-module.exports.util.HSVtoRGB = function (h, s, v) {
+function HSVtoRGB(h, s, v) {
   var r, g, b, i, f, p, q, t;
   switch (p = v * (1 - s),
   q = v * (1 - (f = 6 * h - (i = Math.floor(6 * h))) * s),
@@ -76,7 +82,7 @@ module.exports.util.HSVtoRGB = function (h, s, v) {
   return [r, g, b]
 }
 
-module.exports.util.hueToHex = function (hue) {
+function hueToHex(hue) {
   var rgb = {}
     , h = hue
     , t1 = 255
@@ -105,17 +111,17 @@ module.exports.util.hueToHex = function (hue) {
   return rr + gg + (2 == b.length ? b : "0" + b)
 }
 
-module.exports.util.mapHueTo360 = function (hue) {
+function mapHueTo360(hue) {
   return Math.floor(360 / 65535 * hue)
 }
 
-module.exports.util.mapHueFrom360 = function (hue) {
+function mapHueFrom360(hue) {
   return Math.floor(hue / 360 * 65535)
 }
 
-module.exports.util.xyToHs = function (x, y, bri) {
+module.exports.util.xyToHs = function(x, y) {
       var z = 1 - x - y
-        , X = (bri,
+        , X = (light.state.bri,
       0 === y ? 0 : 1 / y * x)
         , Z = 0 === y ? 0 : 1 / y * z
         , r = 3.2406 * X - 1.5372 - .4986 * Z
@@ -134,11 +140,11 @@ module.exports.util.xyToHs = function (x, y, bri) {
       r < 0 && (r = 0),
       g < 0 && (g = 0),
       b < 0 && (b = 0);
-      var hsv = module.exports.util.rgb2hsv(String(255 * r), String(255 * g), String(255 * b));
-      return { hue: hsv[0] / 360 * 65535, sat: 255 * hsv[1] }
+      var hsv = rgb2hsv(String(255 * r), String(255 * g), String(255 * b));
+      return { hue: hsv[0] / 360 * 65535, sat:255 * hsv[1]}
 }
 
-module.exports.util.rgb2hsv = function (r, g, b) {
+function rgb2hsv(r, g, b) {
   r = parseInt(("" + r).replace(/\s/g, ""), 10),
   g = parseInt(("" + g).replace(/\s/g, ""), 10),
   b = parseInt(("" + b).replace(/\s/g, ""), 10);
