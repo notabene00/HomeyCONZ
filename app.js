@@ -441,6 +441,7 @@ class deCONZ extends Homey.App {
 			}
 		}
 
+		// todo: check, should be okay
 		if (state.hasOwnProperty('colormode')) {
 			if (deviceSupports('light_mode')) {
 				device.setCapabilityValue('light_mode', (state.colormode == 'xy' || state.colormode == 'hs') ? 'color': 'temperature')
@@ -510,6 +511,7 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
 		}
 
+		// todo: convert xy to hs if necessary
 		if (state.hasOwnProperty('hue') && state.hasOwnProperty('colormode') && state.colormode === 'hs') {
 			if (!deviceSupports('light_hue')) return
 			device.setCapabilityValue('light_hue', parseFloat((state.hue / 65535).toFixed(2)))
