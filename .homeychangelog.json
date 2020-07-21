@@ -55,5 +55,8 @@
   },
   "1.11.2":{
     "en": "Improved settings page, all setup connections are now performed by homey directly, improved motion sensor behavior"
+  },
+  "1.11.3":{
+    "en": "xy colormode for lights and groups"
   }
 }

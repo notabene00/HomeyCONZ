@@ -4917,7 +4917,7 @@
             "en": "Transition time"
           },
           "min": 0,
-          "value": 1,
+          "value": 4,
           "hint": {
             "en": "Transition time between brightnesses"
           }
@@ -4938,6 +4938,26 @@
               "value": false,
               "hint": {
                 "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "colormode",
+              "type": "checkbox",
+              "label": {
+                "en": "xy colormode"
+              },
+              "value": false,
+              "hint": {
+                "en": "todo"
               }
             }
           ]
@@ -5352,10 +5372,30 @@
             "en": "Transition time"
           },
           "min": 0,
-          "value": 1,
+          "value": 4,
           "hint": {
             "en": "Transition time between brightnesses"
           }
+        },
+        {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "colormode",
+              "type": "checkbox",
+              "label": {
+                "en": "xy colormode"
+              },
+              "value": false,
+              "hint": {
+                "en": "todo"
+              }
+            }
+          ]
         }
       ],
       "id": "group"

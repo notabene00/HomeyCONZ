@@ -1,0 +1,20 @@
+{
+    "id" : "deconz",
+    "type": "group",
+    "label": {
+        "en": "deCONZ"
+    },
+    "children": [
+        {
+            "id" : "colormode",
+            "type": "checkbox",
+            "label": {
+                "en": "xy colormode"
+            },
+            "value": false,
+            "hint": {
+                "en": "todo"
+            }
+        }
+    ]
+}

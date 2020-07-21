@@ -2,6 +2,7 @@
 
 const Homey = require('homey')
 const { http } = require('../nbhttp')
+const { util } = require('../util')
 
 class Light extends Homey.Device {
 
@@ -12,6 +13,7 @@ class Light extends Homey.Device {
 		this.id = this.getSetting('id')
 		this.address = `/lights/${this.id}/state`
 		this.sensors = this.getSetting('sensors')
+		// todo: update when settings change
 
 		this.isBlinds = this.getClass() === 'windowcoverings'
 
@@ -114,7 +116,7 @@ class Light extends Homey.Device {
 
 	setColor(hue, sat, hue_callback, saturation_callback) {
 		if (this.xycolormode === true){
-			// this.put(this.address, {hue: hue * 65534, sat: sat * 255}, hue_callback, saturation_callback)
+			this.put(this.address, {xy: util.hsToXy(hue, sat),transitiontime: 0}, hue_callback, saturation_callback)
 		} else {
 			this.put(this.address, {hue: hue * 65534, sat: sat * 255, transitiontime: 0}, hue_callback, saturation_callback)
 		}

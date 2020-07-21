@@ -21,7 +21,7 @@ module.exports.util.round = function (value, exp) {
 
 // hue = [0,1], sat = [0,1]
 module.exports.util.hsToXy = function (hue, sat) {
-  var rgb = HSVtoRGB(1 - hue, 1 - sat, 1);
+  var rgb = HSVtoRGB(hue, sat, 1);
   return rgbToXy2(rgb)
 }
 

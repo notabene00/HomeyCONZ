@@ -36,11 +36,10 @@
       }
     },
     {
-<<<<<<< Updated upstream
       "$extends":  "ignore-reachable"
-=======
+    },
+    {
       "$extends":  "colormode"
->>>>>>> Stashed changes
     },
     {
       "$extends":  "info"
