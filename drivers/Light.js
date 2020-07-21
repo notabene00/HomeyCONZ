@@ -24,7 +24,7 @@ class Light extends Homey.Device {
 		}
 
 		if (capabilities.includes('dim')) {
-			this.dimDuration = this.getSetting('dim_duration') || 1
+			this.dimDuration = this.getSetting('dim_duration') || 4
 			this.registerDimListener()
 		}
 
@@ -33,6 +33,7 @@ class Light extends Homey.Device {
 		}
 
 		if (capabilities.includes('light_hue') && capabilities.includes('light_saturation')) {
+			this.xycolormode = this.getSetting('colormode') || false
 			this.registerColorListener()
 		}
 
@@ -82,6 +83,7 @@ class Light extends Homey.Device {
 	}
 
 	registerColorListener() {
+		// todo: check in detail how this works
 		this.registerCapabilityListener('light_hue', (hue, _, callback) => {
 			this.hue = hue
 			callback(null, true)
@@ -111,7 +113,11 @@ class Light extends Homey.Device {
 	}
 
 	setColor(hue, sat, hue_callback, saturation_callback) {
-		this.put(this.address, {hue: hue * 65534, sat: sat * 255}, hue_callback, saturation_callback)
+		if (this.xycolormode === true){
+			// this.put(this.address, {hue: hue * 65534, sat: sat * 255}, hue_callback, saturation_callback)
+		} else {
+			this.put(this.address, {hue: hue * 65534, sat: sat * 255, transitiontime: 0}, hue_callback, saturation_callback)
+		}
 	}
 
 }

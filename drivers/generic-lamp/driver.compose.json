@@ -30,13 +30,17 @@
         "en": "Transition time"
       },
       "min": 0,
-      "value": 1,
+      "value": 4,
       "hint": {
         "en": "Transition time between brightnesses"
       }
     },
     {
+<<<<<<< Updated upstream
       "$extends":  "ignore-reachable"
+=======
+      "$extends":  "colormode"
+>>>>>>> Stashed changes
     },
     {
       "$extends":  "info"
