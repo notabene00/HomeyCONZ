@@ -3,6 +3,7 @@
 const Homey = require('homey')
 const { http, https } = require('./nbhttp')
 const WebSocketClient = require('ws')
+const { util } = require('./util')
 
 class deCONZ extends Homey.App {
 
@@ -515,7 +516,6 @@ class deCONZ extends Homey.App {
 			device.setCapabilityValue('light_temperature', (state.ct - 153) / 347)
 		}
 
-		// todo: convert xy to hs if necessary
 		if (state.hasOwnProperty('hue') && state.hasOwnProperty('colormode') && state.colormode === 'hs') {
 			if (!deviceSupports('light_hue')) return
 			device.setCapabilityValue('light_hue', parseFloat((state.hue / 65535).toFixed(2)))
@@ -524,6 +524,13 @@ class deCONZ extends Homey.App {
 		if (state.hasOwnProperty('sat') && state.hasOwnProperty('colormode') && state.colormode === 'hs') {
 			if (!deviceSupports('light_saturation')) return
 			device.setCapabilityValue('light_saturation', parseFloat((state.sat / 255).toFixed(2)))
+		}
+
+		if (state.hasOwnProperty('xy') && state.hasOwnProperty('colormode') && state.colormode === 'xy') {
+			if (!deviceSupports('light_hue') || !deviceSupports('light_saturation')) return
+			var hs = util.xyToHs(state.xy[0], state.xy[1], 255)
+			device.setCapabilityValue('light_hue', parseFloat((hs.hue).toFixed(2)))
+			device.setCapabilityValue('light_saturation', parseFloat((hs.sat).toFixed(2)))
 		}
 
 		if (state.hasOwnProperty('tampered')) {

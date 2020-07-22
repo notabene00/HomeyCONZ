@@ -119,9 +119,9 @@ function mapHueFrom360(hue) {
   return Math.floor(hue / 360 * 65535)
 }
 
-module.exports.util.xyToHs = function(x, y) {
+module.exports.util.xyToHs = function(x, y, bri) {
       var z = 1 - x - y
-        , X = (light.state.bri,
+        , X = (bri,
       0 === y ? 0 : 1 / y * x)
         , Z = 0 === y ? 0 : 1 / y * z
         , r = 3.2406 * X - 1.5372 - .4986 * Z
@@ -141,7 +141,7 @@ module.exports.util.xyToHs = function(x, y) {
       g < 0 && (g = 0),
       b < 0 && (b = 0);
       var hsv = rgb2hsv(String(255 * r), String(255 * g), String(255 * b));
-      return { hue: hsv[0] / 360 * 65535, sat:255 * hsv[1]}
+      return { hue: hsv[0] / 360/* * 65535*/, sat:/*255 * */hsv[1]}
 }
 
 function rgb2hsv(r, g, b) {

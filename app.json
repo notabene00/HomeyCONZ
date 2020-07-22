@@ -4911,16 +4911,36 @@
       ],
       "settings": [
         {
-          "id": "dim_duration",
-          "type": "number",
+          "id": "lightControl",
+          "type": "group",
           "label": {
-            "en": "Transition time"
+            "en": "Control"
           },
-          "min": 0,
-          "value": 4,
-          "hint": {
-            "en": "Transition time between brightnesses"
-          }
+          "children": [
+            {
+              "id": "dim_duration",
+              "type": "number",
+              "label": {
+                "en": "Transition time"
+              },
+              "min": 0,
+              "value": 4,
+              "hint": {
+                "en": "Transition time between brightnesses in 100ms steps (ex: a value of 4 means 400ms, a value of 10 would be 1 second)."
+              }
+            },
+            {
+              "id": "colormode",
+              "type": "checkbox",
+              "label": {
+                "en": "xy colormode"
+              },
+              "value": false,
+              "hint": {
+                "en": "There are two different options available to control the color of a light. By default hs (hue amd saturation) is used. Using this setting you can use xy (CIELAB) instead. Only use this if you know what you're doing!"
+              }
+            }
+          ]
         },
         {
           "id": "deconz",
@@ -4938,26 +4958,6 @@
               "value": false,
               "hint": {
                 "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
-              }
-            }
-          ]
-        },
-        {
-          "id": "deconz",
-          "type": "group",
-          "label": {
-            "en": "deCONZ"
-          },
-          "children": [
-            {
-              "id": "colormode",
-              "type": "checkbox",
-              "label": {
-                "en": "xy colormode"
-              },
-              "value": false,
-              "hint": {
-                "en": "todo"
               }
             }
           ]
@@ -5366,24 +5366,24 @@
       ],
       "settings": [
         {
-          "id": "dim_duration",
-          "type": "number",
-          "label": {
-            "en": "Transition time"
-          },
-          "min": 0,
-          "value": 4,
-          "hint": {
-            "en": "Transition time between brightnesses"
-          }
-        },
-        {
-          "id": "deconz",
+          "id": "lightControl",
           "type": "group",
           "label": {
-            "en": "deCONZ"
+            "en": "Control"
           },
           "children": [
+            {
+              "id": "dim_duration",
+              "type": "number",
+              "label": {
+                "en": "Transition time"
+              },
+              "min": 0,
+              "value": 4,
+              "hint": {
+                "en": "Transition time between brightnesses in 100ms steps (ex: a value of 4 means 400ms, a value of 10 would be 1 second)."
+              }
+            },
             {
               "id": "colormode",
               "type": "checkbox",
@@ -5392,7 +5392,7 @@
               },
               "value": false,
               "hint": {
-                "en": "todo"
+                "en": "There are two different options available to control the color of a light. By default hs (hue amd saturation) is used. Using this setting you can use xy (CIELAB) instead. Only use this if you know what you're doing!"
               }
             }
           ]
