@@ -1,0 +1,142 @@
+{
+  "triggers": [
+    {
+      "id": "raw_switch_event",
+      "title": {
+        "en": "Event"
+      },
+      "tokens": [
+        {
+          "name": "rawEvent",
+          "type": "number",
+          "title": {
+            "en": "event"
+          },
+          "example": 1001
+        },
+        {
+          "name": "buttonIndex",
+          "type": "number",
+          "title": {
+            "en": "button index"
+          },
+          "example": 1
+        },
+        {
+          "name": "actionIndex",
+          "type": "number",
+          "title": {
+            "en": "action index"
+          },
+          "example": 1
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "title": {
+            "en": "action"
+          },
+          "example": "initial_press"
+        }
+      ],
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "button",
+          "values": [
+            {
+              "id": "-1",
+              "label": {
+                "en": "Any Button"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Button 1"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Button 2"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Button 3"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Button 4"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Button 5"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Button 6"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "action",
+          "values": [
+            {
+              "id": "-1",
+              "label": {
+                "en": "Any Action"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "Initial Press"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Hold"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Release (Single Press)"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Release (After Hold)"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Double Press"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Tripple Press"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
