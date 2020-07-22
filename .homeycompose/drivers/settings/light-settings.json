@@ -1,0 +1,32 @@
+{
+    "id" : "lightControl",
+    "type": "group",
+    "label": {
+        "en": "Control"
+    },
+    "children": [
+        {
+            "id": "dim_duration",
+            "type": "number",
+            "label": {
+              "en": "Transition time"
+            },
+            "min": 0,
+            "value": 4,
+            "hint": {
+              "en": "Transition time between brightnesses in 100ms steps (ex: a value of 4 means 400ms, a value of 10 would be 1 second)."
+            }
+        },
+        {
+            "id" : "colormode",
+            "type": "checkbox",
+            "label": {
+                "en": "xy colormode"
+            },
+            "value": false,
+            "hint": {
+                "en": "There are two different options available to control the color of a light. By default hs (hue amd saturation) is used. Using this setting you can use xy (CIELAB) instead. Only use this if you know what you're doing!"
+            }
+        }
+    ]
+}

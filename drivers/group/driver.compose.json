@@ -24,19 +24,7 @@
   ],
   "settings": [
     {
-      "id": "dim_duration",
-      "type": "number",
-      "label": {
-        "en": "Transition time"
-      },
-      "min": 0,
-      "value": 4,
-      "hint": {
-        "en": "Transition time between brightnesses"
-      }
-    },
-    {
-      "$extends":  "colormode"
+      "$extends":  "light-settings"
     }
   ]
 }

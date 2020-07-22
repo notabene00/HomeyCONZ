@@ -264,6 +264,10 @@ class deCONZ extends Homey.App {
 
 	setInitialStates() {
 
+		if (!this.host || !this.port || !this.apikey) {
+			return this.log('Go to the app settings page and fill all the fields')
+		}
+
 		this.getLightsList((error, lights) => {
 			if (error) {
 				return this.error(error)

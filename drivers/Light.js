@@ -13,7 +13,6 @@ class Light extends Homey.Device {
 		this.id = this.getSetting('id')
 		this.address = `/lights/${this.id}/state`
 		this.sensors = this.getSetting('sensors')
-		// todo: update when settings change
 
 		this.isBlinds = this.getClass() === 'windowcoverings'
 
@@ -26,7 +25,6 @@ class Light extends Homey.Device {
 		}
 
 		if (capabilities.includes('dim')) {
-			this.dimDuration = this.getSetting('dim_duration') || 4
 			this.registerDimListener()
 		}
 
@@ -35,11 +33,27 @@ class Light extends Homey.Device {
 		}
 
 		if (capabilities.includes('light_hue') && capabilities.includes('light_saturation')) {
-			this.xycolormode = this.getSetting('colormode') || false
 			this.registerColorListener()
 		}
 
+		this.updateSettings()
+
 		this.setInitialState()
+	}
+
+	onSettings(oldSettingsObj, newSettingsObj, changedKeysArr, callback) {
+		if (newSettingsObj.colormode !== undefined) {
+			this.xycolormode = newSettingsObj.colormode
+		} else if (newSettingsObj['dim_duration'] !== undefined) {
+			this.dimDuration = newSettingsObj['dim_duration']
+		}
+		callback(null, true)
+	}
+
+	updateSettings(){
+		this.dimDuration = this.getSetting('dim_duration') || 4
+		this.xycolormode = this.getSetting('colormode') || false
+		this.log('settings updated',this.dimDuration ,this.xycolormode )
 	}
 
 	registerInApp() {
@@ -115,7 +129,10 @@ class Light extends Homey.Device {
 	}
 
 	setColor(hue, sat, hue_callback, saturation_callback) {
-		if (this.xycolormode === true){
+		if(!hue || !sat){
+			return
+		}
+		else if (this.xycolormode === true){
 			this.put(this.address, {xy: util.hsToXy(hue, sat),transitiontime: 0}, hue_callback, saturation_callback)
 		} else {
 			this.put(this.address, {hue: hue * 65534, sat: sat * 255, transitiontime: 0}, hue_callback, saturation_callback)
