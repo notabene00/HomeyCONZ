@@ -10,7 +10,7 @@ class LeakageDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'lumi.sensor_wleak.aq1', callback)
+		this.getSensorsByCondition(device => device.modelid === 'lumi.sensor_wleak.aq1' || device.modelid === 'lumi.flood.agl02', callback)
 	}
 	
 }

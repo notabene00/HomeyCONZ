@@ -10,7 +10,7 @@ class AqaraTempHumDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'lumi.weather', callback)
+		this.getSensorsByCondition(device => device.modelid === 'lumi.weather' || device.modelid === 'lumi.sensor_ht.agl02', callback)
 	}
 	
 }
