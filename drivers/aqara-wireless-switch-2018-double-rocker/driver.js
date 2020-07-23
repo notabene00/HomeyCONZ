@@ -10,7 +10,7 @@ class AqaraWirelessSwitch2018DoubleRockerDriver extends Driver {
 	}
 	
 	onPairListDevices(data, callback) {
-		this.getSensorsByCondition(device => device.modelid === 'lumi.remote.b286acn01', callback)
+		this.getSensorsByCondition(device => device.modelid === 'lumi.remote.b286acn01' || device.modelid === 'lumi.remote.b286acn02', callback)
 	}
 	
 }

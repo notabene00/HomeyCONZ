@@ -60,6 +60,6 @@
     "en": "xy colormode for lights and groups"
   },
   "1.12.0":{
-    "en": "Support for Aqare Opple switches"
+    "en": "Support for Aqare Opple switches, support Aqara D1 Wireless Remote Switch (single & double rocker)"
   }
 }
