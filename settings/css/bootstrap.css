@@ -1818,7 +1818,7 @@ pre code {
   color: #495057 !important;
   background-color: #fff !important;
   background-clip: padding-box;
-  border: 1px solid #ced4da !important;
+  border: 1px solid rgb(102, 102, 102); !important;
   border-radius: 0.25rem !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
 }
@@ -2296,7 +2296,7 @@ textarea.form-control {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 1px solid transparent !important;
+  border: 1px solid !important;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
