@@ -1,6 +1,6 @@
 {
   "id": "de.dresden-elektronik.deconz",
-  "version": "1.11.3",
+  "version": "1.12.0",
   "compatibility": ">=4.0.0",
   "brandColor": "#55626b",
   "sdk": 2,
@@ -767,6 +767,399 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=aqara-motion"
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-opple-1gang"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Button 2"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Initial Press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (Single Press)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Release (After Hold)"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Press"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Tripple Press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-opple-2gang"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Button 2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Button 3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Button 4"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Initial Press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (Single Press)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Release (After Hold)"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Press"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Tripple Press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raw_switch_event",
+        "title": {
+          "en": "Event"
+        },
+        "tokens": [
+          {
+            "name": "rawEvent",
+            "type": "number",
+            "title": {
+              "en": "event"
+            },
+            "example": 1001
+          },
+          {
+            "name": "buttonIndex",
+            "type": "number",
+            "title": {
+              "en": "button index"
+            },
+            "example": 1
+          },
+          {
+            "name": "actionIndex",
+            "type": "number",
+            "title": {
+              "en": "action index"
+            },
+            "example": 1
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "title": {
+              "en": "action"
+            },
+            "example": "initial_press"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=aqara-opple-3gang"
+          },
+          {
+            "type": "dropdown",
+            "name": "button",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Button"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Button 2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Button 3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Button 4"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Button 5"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Button 6"
+                }
+              }
+            ]
+          },
+          {
+            "type": "dropdown",
+            "name": "action",
+            "values": [
+              {
+                "id": "-1",
+                "label": {
+                  "en": "Any Action"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Initial Press"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Hold"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Release (Single Press)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Release (After Hold)"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Double Press"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Tripple Press"
+                }
+              }
+            ]
           }
         ]
       },
@@ -3249,6 +3642,321 @@
         }
       ],
       "id": "aqara-motion"
+    },
+    {
+      "name": {
+        "en": "Aqara Opple 1-Gang Switch"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032",
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/aqara-opple-1gang/assets/images/large.png",
+        "small": "/drivers/aqara-opple-1gang/assets/images/small.png"
+      },
+      "icon": "/drivers/aqara-opple-1gang/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "aqara-opple-1gang"
+    },
+    {
+      "name": {
+        "en": "Aqara Opple 2-Gang Switch"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032",
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/aqara-opple-2gang/assets/images/large.png",
+        "small": "/drivers/aqara-opple-2gang/assets/images/small.png"
+      },
+      "icon": "/drivers/aqara-opple-2gang/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "aqara-opple-2gang"
+    },
+    {
+      "name": {
+        "en": "Aqara Opple 3-Gang Switch"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032",
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/aqara-opple-3gang/assets/images/large.png",
+        "small": "/drivers/aqara-opple-3gang/assets/images/small.png"
+      },
+      "icon": "/drivers/aqara-opple-3gang/assets/icon.svg",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "settings": [
+        {
+          "id": "deconz",
+          "type": "group",
+          "label": {
+            "en": "deCONZ"
+          },
+          "children": [
+            {
+              "id": "ignore-reachable",
+              "type": "checkbox",
+              "label": {
+                "en": "Ignore if unreachable"
+              },
+              "value": false,
+              "hint": {
+                "en": "In Zigbee networks there are no active connections and thus deCONZ does not know if this device is still there as long as it does not communicate. Therefore a device gets marked as unreachable if it does not report for a longer period of time. This is perfectly fine for most devices as they report their status periodically, but if this devices doesn't do this, you can prevent that it get's reported as unavailable using this setting."
+              }
+            }
+          ]
+        },
+        {
+          "id": "info",
+          "type": "group",
+          "label": {
+            "en": "Info"
+          },
+          "children": [
+            {
+              "id": "modelid",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "manufacturername",
+              "type": "label",
+              "label": {
+                "en": "Manufacturer"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "swversion",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "ids",
+              "type": "label",
+              "label": {
+                "en": "Api Id's"
+              },
+              "value": "Unknown"
+            },
+            {
+              "id": "mac",
+              "type": "label",
+              "label": {
+                "en": "MAC"
+              },
+              "value": "Unknown"
+            }
+          ]
+        }
+      ],
+      "id": "aqara-opple-3gang"
     },
     {
       "name": {
@@ -8666,7 +9374,7 @@
     },
     {
       "name": {
-        "en": "Zipato Leakage Sensor"
+        "en": "Heiman Leakage Sensor"
       },
       "class": "sensor",
       "capabilities": [

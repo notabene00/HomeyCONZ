@@ -1,9 +1,9 @@
 <html>
 	<head>
         <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>-->
 		<!--<script src="js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
-        <!--<script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -71,7 +71,7 @@
                         <div class="form-group">
                             <label>ip/hostname</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" id="deconzIPAdress">
+								<input type="text" class="form-control" placeholder="192.168.xxx.xxx" id="deconzIPAdress">
 							</div>
                         </div>
                     </div>
@@ -91,7 +91,10 @@
                         <div class="form-group">
                             <label>api key</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" id="apiKey">
+                                <input type="text" class="form-control" placeholder="" id="apiKey">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-secondary" id="getApiKeyButton">request key</button>
+                                  </div>
                             </div>
                         </div>
                     </div>
@@ -225,6 +228,7 @@
 				const testButton = document.getElementById('testButton')
                 const discoverButton = document.getElementById('discoverButton')
                 const authenticateButton = document.getElementById('authenticateButton')
+                const getApiKeyButton = document.getElementById('getApiKeyButton')
                 const advancedsettings = document.getElementById('advancedsettings')
                 const apiError = document.getElementById('apiError')
                 const title = document.getElementsByClassName('ApiErrorShow')[0]
@@ -271,7 +275,30 @@
                         errors.push('WS port is missing')
                     }
 					if(errors.length > 0){
-						let message = 'Please fix the following erros:'
+						let message = 'Please fix the following errors:'
+						for (var i = 0; i < errors.length; i++) {
+							message += '</br> - ' + errors[i]  
+						}
+						if(show){
+							showError(false, message)
+						}
+						return false
+					}else{
+						return true
+					}
+                }
+
+                function validateBasicFields (show) {
+					clearErrors()
+					let errors = []
+                    if (!ip.value) {
+						errors.push('IP address is missing')
+					}
+                    if (!port.value) {
+                        errors.push('port is missing')
+					}
+					if(errors.length > 0){
+						let message = 'Please fix the following errors:'
 						for (var i = 0; i < errors.length; i++) {
 							message += '</br> - ' + errors[i]  
 						}
@@ -377,25 +404,35 @@
                 })
 
                 authenticateButton.addEventListener('click', (e) => {
-                    Homey.api('PUT', '/authenticate', { host:ip.value, port: port.value }, function( err, result ) {
-                        if(err){
-                            document.getElementById('authenticateSuccess').style.display = 'none'
-                            document.getElementById('authenticateFailure').style.display = 'inline'
-                            showError(false, err)
-                        } else if (!result.host && !result.port){
-                            document.getElementById('authenticateSuccess').style.display = 'inline'
-                            document.getElementById('authenticateFailure').style.display = 'none'
-                            loadSettings()
-                            showSuccess(false, result)
-                        } else {
-                            document.getElementById('authenticateSuccess').style.display = 'none'
-                            document.getElementById('authenticateFailure').style.display = 'inline'
-                            ip.value = result.host
-                            port.value = result.port
-                            showError(false, result.message)
-                        }
-                    })
+                    authenticate()
                 })
+
+                getApiKeyButton.addEventListener('click', (e) => {
+                    authenticate()
+                })
+
+                function authenticate(){
+                    if(validateBasicFields(true) === true){
+                        Homey.api('PUT', '/authenticate', { host:ip.value, port: port.value }, function( err, result ) {
+                            if(err){
+                                document.getElementById('authenticateSuccess').style.display = 'none'
+                                document.getElementById('authenticateFailure').style.display = 'inline'
+                                showError(false, err)
+                            } else if (!result.host && !result.port){
+                                document.getElementById('authenticateSuccess').style.display = 'inline'
+                                document.getElementById('authenticateFailure').style.display = 'none'
+                                loadSettings()
+                                showSuccess(false, result)
+                            } else {
+                                document.getElementById('authenticateSuccess').style.display = 'none'
+                                document.getElementById('authenticateFailure').style.display = 'inline'
+                                ip.value = result.host
+                                port.value = result.port
+                                showError(false, result.message)
+                            }
+                        })
+                    }
+                }
 			
                 copyButton.addEventListener('click', (e) => {
                     const el = document.createElement('textarea')
