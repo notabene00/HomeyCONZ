@@ -1818,7 +1818,7 @@ pre code {
   color: #495057 !important;
   background-color: #fff !important;
   background-clip: padding-box;
-  border: 1px solid rgb(102, 102, 102); !important;
+  border: 1px solid rgb(102, 102, 102) !important;
   border-radius: 0.25rem !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
 }
@@ -2375,7 +2375,7 @@ fieldset:disabled a.btn {
 .btn-secondary:hover {
   color: #fff;
   background-color: #5a6268;
-  border-color: #545b62;
+  border-color: #545b62 !important;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
@@ -2392,7 +2392,7 @@ fieldset:disabled a.btn {
 .show > .btn-secondary.dropdown-toggle {
   color: #fff;
   background-color: #545b62;
-  border-color: #4e555b;
+  border-color: #4e555b !important;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,

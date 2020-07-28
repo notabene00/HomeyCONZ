@@ -121,7 +121,7 @@ class Light extends Homey.Device {
 	}
 
 	dim(level, duration, callback) {
-		this.put(this.address, {on: true, bri: level * 255, transitiontime: duration}, callback)
+		this.put(this.address, { on: true, bri: level * 255, transitiontime: duration }, callback)
 	}
 
 	setColorTemperature(value, callback) {
